@@ -1,0 +1,1391 @@
+<!doctype html>
+<html class="no-js" lang="en-US" data-content_root="../../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="Use the snapd REST API to integrate TPM-FDE into a custom Ubuntu installer, including pre-install checks and fixes, PIN or passphrase setup, and preseeding." name="description" />
+<meta property="og:title" content="Integrate TPM-FDE into a custom Ubuntu installer" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://snapcraft.io/docs/how-to-guides/snap-development/install-with-tpm-fde/" />
+<meta property="og:site_name" content="Snap" />
+<meta property="og:description" content="This guide shows you how to integrate hardware-backed Full Disk Encryption(TPM-FDE) into a custom Ubuntu installer using the snapd REST API. Refer to the snapd REST API reference for a list of all ..." />
+<meta property="og:image" content="https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg" />
+<meta property="og:image:alt" content="Snap" />
+
+    <meta property="article:modified_time" content="2026-11-23T16:31:23+00:00" /><link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="Use snapctl" href="../use-snapctl/"><link rel="prev" title="Use the REST API" href="../use-the-rest-api/">
+        <link rel="canonical" href="https://projects.localizethedocs.org/snap-docs-l10nhow-to-guides/snap-development/install-with-tpm-fde/">
+
+    <link rel="shortcut icon" href="../../../_static/favicon.png"><!-- Generated with Sphinx 7.4.7 and Furo 2025.12.19 -->
+        <title>Integrate TPM-FDE into a custom Ubuntu installer - Snap documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/config-options.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/contributors.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/related-links.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/terminal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/youtube.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=6a604523" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/cookie-banner.css?v=9562e88d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=022106c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/header.css?v=a8078839" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/github_issue_links.css?v=3d761185" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/furo_colors.css?v=4cd1adcf" />
+    
+
+
+<script type="text/javascript" src="../../../ltd-provenance.js"></script>
+<script type="text/javascript" src="../../../ltd-current.js"></script>
+<script type="text/javascript" src="../../../../../ltd-config.js"></script>
+<script type="text/javascript" src="../../../../../ltd-flyout.js"></script>
+</head>
+  <body>
+    <header id="header" class="p-navigation">
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0];
+      var j = d.createElement(s);
+      var dl = '';
+      if (l != 'dataLayer') {
+          dl = '&l=' + l;
+      }
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KNX3CJC');
+  </script>
+
+  <div class="p-navigation__nav" role="menubar">
+
+    <ul class="p-navigation__links" role="menu">
+
+      <li>
+        <a class="p-logo" href="https://snapcraft.io" aria-current="page">
+          <img src="../../../_static/tag.png" alt="Logo" class="p-logo-image">
+          <div class="p-logo-text p-heading--4">Canonical Snapcraft
+          </div>
+        </a>
+      </li>
+
+      <li class="nav-ubuntu-com">
+        <a href="https://snapcraft.io" class="p-navigation__link">snapcraft.io</a>
+      </li>
+
+      <li>
+        <a href="#" class="p-navigation__link nav-more-links">More resources</a>
+        <ul class="more-links-dropdown">
+
+          
+          <li>
+            <a href="http://forum.snapcraft.io/" class="p-navigation__sub-link p-dropdown__link">Discourse</a>
+          </li>
+          
+
+          
+
+          
+          <li>
+            <a href="https://matrix.to/#/#snapd:ubuntu.com" class="p-navigation__sub-link p-dropdown__link">Matrix</a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://github.com/canonical/snap-docs" class="p-navigation__sub-link p-dropdown__link">GitHub</a>
+          </li>
+          
+
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+</header>
+   
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../"><div class="brand">Snap documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../">
+  
+  <span class="sidebar-brand-text">Snap documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search/" role="search">
+    <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+    <input type="submit" value="Go">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+  <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../tutorials/">Tutorials</a><input aria-label="Toggle navigation of Tutorials" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/get-started/">Get started</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../tutorials/install-the-daemon/">Install the daemon</a><input aria-label="Toggle navigation of Install the daemon" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/almalinux-os/">AlmaLinux OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/arch-linux/">Arch Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/centos/">CentOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/debian/">Debian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/elementary-os/">Elementary OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/fedora/">Fedora</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/galliumos/">GalliumOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/kali/">Kali Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/linux-mint/">Linux Mint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/manjaro-linux/">Manjaro Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/neon/">KDE Neon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/openmandriva/">openMandriva</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/opensuse/">openSUSE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/parrot/">Parrot Security OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/pop-os/">Pop!_OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/raspberrypios/">Raspberry Pi OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/red-hat/">Red Hat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/rocky-linux/">Rocky Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/ubuntu/">Ubuntu</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../">How-to guides</a><input aria-label="Toggle navigation of How-to guides" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../manage-snaps/">Manage snaps</a><input aria-label="Toggle navigation of Manage snaps" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../manage-snaps/connect-interfaces/">Connect interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manage-snaps/manage-updates/">Manage updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manage-snaps/configure-snaps/">Configure snaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manage-snaps/set-system-options/">Configure the system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manage-snaps/apps-and-aliases/">Apps and aliases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manage-snaps/control-services/">Control services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manage-snaps/manage-validation-sets/">Manage validation sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manage-snaps/create-data-snapshots/">Create data snapshots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manage-snaps/use-resource-quotas/">Use resource quotas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manage-snaps/disk-space-awareness/">Disk space awareness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manage-snaps/using-components/">Work with components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manage-snaps/configure-snaps-with-confdb/">Configure with confdb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manage-snaps/fix-common-issues/">Fix common issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../">Snap development</a><input aria-label="Toggle navigation of Snap development" checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../use-the-rest-api/">Use the REST API</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Integrate TPM-FDE into an installer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../use-snapctl/">Use snapctl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../use-the-secret-portal/">Use the Secret portal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test-snapd-fixes/">Test snapd fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../debug-snaps/">Debug snaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../snap-try/">Snap try</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../using-in-development-features/">In-development features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../reference/">Reference</a><input aria-label="Toggle navigation of Reference" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/glossary/">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/release-notes/">Release notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/system-architecture/">System architecture</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../reference/interfaces/">Interfaces</a><input aria-label="Toggle navigation of Interfaces" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/accel-interface/">accel interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/account-control-interface/">account-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/accounts-service-interface/">accounts-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/acrn-support-interface/">acrn-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/adb-support-interface/">adb-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/allegro-vcu-interface/">allegro-vcu interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/alsa-interface/">alsa interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/appstream-metadata-interface/">appstream-metadata interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/audio-playback-interface/">audio-playback interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/audio-record-interface/">audio-record interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/auditd-support-interface/">auditd-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/autopilot-introspection-interface/">autopilot-introspection interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/avahi-control-interface/">avahi-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/avahi-observe-interface/">avahi-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/block-devices-interface/">block-devices interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/bluetooth-control-interface/">bluetooth-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/bluez-interface/">bluez interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/bool-file-interface/">bool-file interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/broadcom-asic-control-interface/">broadcom-asic-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/browser-support-interface/">browser-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/calendar-service-interface/">calendar-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/camera-interface/">camera interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/can-bus-interface/">can-bus interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/checkbox-support-interface/">checkbox-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/cifs-mount-interface/">cifs-mount interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/classic-support-interface/">classic-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/confdb-interface/">confdb interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/contacts-service-interface/">contacts-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/content-interface/">content interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/core-support-interface/">core-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/cpu-control-interface/">cpu-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/cuda-driver-libs-interface/">cuda-driver-libs interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/cups-control-interface/">cups-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/cups-interface/">cups interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/custom-device-interface/">custom-device interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/daemon-notify-interface/">daemon-notify interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/dbus-interface/">dbus interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/dcdbas-control-interface/">dcdbas-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/desktop-interface/">desktop interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/desktop-launch-interface/">desktop-launch interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/desktop-legacy-interface/">desktop-legacy interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/device-buttons-interface/">device-buttons interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/display-control-interface/">display-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/dm-crypt-interface/">dm-crypt interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/dm-multipath-interface/">dm-multipath interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/docker-interface/">docker interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/docker-support-interface/">docker-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/dsp-interface/">dsp interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/dvb-interface/">dvb interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/egl-driver-libs-interface/">egl-driver-libs interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/empty-interface/">empty interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/firewall-control-interface/">firewall-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/firmware-updater-support-interface/">firmware-updater-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/fpga-interface/">fpga interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/framebuffer-interface/">framebuffer interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/fuse-support-interface/">fuse-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/fwupd-interface/">fwupd interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/gbm-driver-libs-interface/">gbm-driver-libs interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/gconf-interface/">gconf interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/gpg-keys-interface/">gpg-keys interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/gpg-public-keys-interface/">gpg-public-keys interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/gpio-chardev-interface/">gpio-chardev interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/gpio-control-interface/">gpio-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/gpio-interface/">gpio interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/gpio-memory-control-interface/">gpio-memory-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/greengrass-support-interface/">greengrass-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/gsettings-interface/">gsettings interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/hardware-observe-interface/">hardware-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/hardware-random-control-interface/">hardware-random-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/hardware-random-observe-interface/">hardware-random-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/hdmi-cec-interface/">hdmi-cec interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/hidraw-interface/">hidraw interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/home-interface/">home interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/hostname-control-interface/">hostname-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/hugepages-control-interface/">hugepages-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/i2c-interface/">i2c interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/iio-interface/">iio interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/intel-mei-interface/">intel-mei interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/intel-qat-interface/">intel-qat interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/io-ports-control-interface/">io-ports-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ion-memory-control-interface/">ion-memory-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/iscsi-initiator-interface/">iscsi-initiator interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/jack1-interface/">jack1 interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/joystick-interface/">joystick interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/juju-client-observe-interface/">juju-client-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/kerberos-tickets-interface/">kerberos-tickets interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/kernel-crypto-api-interface/">kernel-crypto-api interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/kernel-firmware-control-interface/">kernel-firmware-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/kernel-module-control-interface/">kernel-module-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/kernel-module-load-interface/">kernel-module-load interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/kernel-module-observe-interface/">kernel-module-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/kubernetes-support-interface/">kubernetes-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/kvm-interface/">kvm interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/libvirt-interface/">libvirt interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/locale-control-interface/">locale-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/location-control-interface/">location-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/location-observe-interface/">location-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/log-observe-interface/">log-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/login-session-control-interface/">login-session-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/login-session-observe-interface/">login-session-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/lxd-interface/">lxd interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/lxd-support-interface/">lxd-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/maliit-interface/">maliit interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/media-control-interface/">media-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/media-hub-interface/">media-hub interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/microceph-interface/">microceph interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/microceph-support-interface/">microceph-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/microovn-interface/">microovn interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/microstack-support-interface/">microstack-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/mir-interface/">mir interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/modem-manager-interface/">modem-manager interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/mount-control-interface/">mount-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/mount-observe-interface/">mount-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/mpris-interface/">mpris interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/multipass-support-interface/">multipass-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/netlink-audit-interface/">netlink-audit interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/netlink-connector-interface/">netlink-connector interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/netlink-driver-interface/">netlink-driver interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/network-bind-interface/">network-bind interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/network-control-interface/">network-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/network-interface/">network interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/network-manager-interface/">network-manager interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/network-manager-observe-interface/">network-manager-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/network-observe-interface/">network-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/network-setup-control-interface/">network-setup-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/network-setup-observe-interface/">network-setup-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/network-status-interface/">network-status interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/nfs-mount-interface/">nfs-mount interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/nomad-support-interface/">nomad-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/nvidia-drivers-support-interface/">nvidia-drivers-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/nvme-control-interface/">nvme-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ofono-interface/">ofono interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/online-accounts-service-interface/">online-accounts-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/opengl-driver-libs-interface/">opengl-driver-libs interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/opengl-interface/">opengl interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/opengles-driver-libs-interface/">opengles-driver-libs interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/openvswitch-interface/">openvswitch interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/openvswitch-support-interface/">openvswitch-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/optical-drive-interface/">optical-drive interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/packagekit-control-interface/">packagekit-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/password-manager-service-interface/">password-manager-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/pcscd-interface/">pcscd interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/personal-files-interface/">personal-files interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/physical-memory-control-interface/">physical-memory-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/physical-memory-observe-interface/">physical-memory-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/pipewire-interface/">pipewire interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/pkcs11-interface/">pkcs11 interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/plymouth-replace/">plymouth-replace interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/polkit-agent-interface/">polkit-agent interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/polkit-interface/">polkit interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/posix-mq-interface/">posix-mq interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/power-control-interface/">power-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ppp-interface/">ppp interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/process-control-interface/">process-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ptp-interface/">ptp interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/pulseaudio-interface/">pulseaudio interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/pwm-control-interface/">pwm-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/pwm-interface/">pwm interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/qualcomm-ipc-router-interface/">qualcomm-ipc-router interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/raw-input-interface/">raw-input interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/raw-usb-interface/">raw-usb interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/raw-volume-interface/">raw-volume interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/remoteproc-interface/">remoteproc interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/removable-media-interface/">removable-media interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ros-opt-data-interface/">ros-opt-data interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ros-snapd-support-interface/">ros-snapd-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/screen-inhibit-control-interface/">screen-inhibit-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/screencast-legacy-interface/">screencast-legacy interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/scsi-generic-interface/">scsi-generic interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/sd-control-interface/">sd-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/serial-port-interface/">serial-port interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/shared-memory-interface/">shared-memory interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/shutdown-interface/">shutdown interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/snap-fde-control-interface/">snap-fde-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/snap-interfaces-requests-control-interface/">snap-interfaces-requests-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/snap-refresh-control-interface/">snap-refresh-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/snap-refresh-observe-interface/">snap-refresh-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/snap-themes-control-interface/">snap-themes-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/snapd-control-interface/">snapd-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/spi-interface/">spi interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ssh-keys-interface/">ssh-keys interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ssh-public-keys-interface/">ssh-public-keys interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/steam-support-interface/">steam-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/storage-framework-service-interface/">storage-framework-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/system-backup-interface/">system-backup interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/system-files-interface/">system-files interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/system-observe-interface/">system-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/system-packages-doc-interface/">system-packages-doc interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/system-source-code-interface/">system-source-code interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/system-trace-interface/">system-trace interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/tee-interface/">tee interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/thumbnailer-service-interface/">thumbnailer-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/time-control-interface/">time-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/timeserver-control-interface/">timeserver-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/timezone-control-interface/">timezone-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/tpm-interface/">tpm interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/u2f-devices-interface/">u2f-devices interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ubuntu-download-manager-interface/">ubuntu-download-manager interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ubuntu-pro-control-interface/">ubuntu-pro-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/udisks2-interface/">udisks2 interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/uhid-interface/">uhid interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/uinput-interface/">uinput interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/uio-interface/">uio interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/unity7-interface/">unity7 interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/unity8-calendar-interface/">unity8-calendar interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/unity8-contacts-interface/">unity8-contacts interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/unity8-interface/">unity8 interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/upower-observe-interface/">upower-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/usb-gadget-interface/">usb-gadget interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/userns-interface/">userns interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/vcio-interface/">vcio interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/wayland-interface/">wayland interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/x11-interface/">x11 interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/xilinx-dma-interface/">xilinx-dma interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../reference/administration/">Administration</a><input aria-label="Toggle navigation of Administration" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/administration/system-options/">System options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/administration/data-locations/">Data locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/administration/distribution-support/">Distribution support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/administration/network-requirements/">Network requiremnts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/administration/timer-string-format/">Timer string format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/administration/process-for-aliases-auto-connections-and-tracks/">Request aliases, tracks and connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/administration/public-private-unlisted-snaps/">Public, Private and unlisted snaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/administration/reviewing-classic-confinement-snaps/">Reviewing classic confinement</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../reference/development/">Snap development</a><input aria-label="Toggle navigation of Snap development" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/development/environment-variables/">Environment variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/development/error-responses/">API Error codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/development/supported-snap-hooks/">Supported hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/development/uc20-fde-hooks/">Full-disk-encryption hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/development/experimental-features/">Experimental features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/development/snapd-rest-api/">SnapD REST API</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../reference/development/yaml-schemas/">YAML schemas</a><input aria-label="Toggle navigation of YAML schemas" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../reference/development/yaml-schemas/the-gadget-snap/">The gadget snap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../reference/development/yaml-schemas/the-kernel-snap/">The kernel snap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../reference/development/yaml-schemas/the-snap-format/">The snap format</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/exit-codes/">Exit codes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../explanation/">Explanation</a><input aria-label="Toggle navigation of Explanation" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../explanation/how-snaps-work/">How snaps work</a><input aria-label="Toggle navigation of How snaps work" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/channels-and-tracks/">Channels and tracks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/home-outside-home/">Home locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/snap-deltas/">Snap deltas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/revisions/">Snap revisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/snap-components/">Snap components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/parallel-installs/">Parallel installs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/refresh-awareness/">Refresh awareness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/confdb-configuration-mechanism/">Confdb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/validation-sets/">Validation sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/transactional-updates/">Transactional updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/hotplug-support/">Hotplug support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/developing-hotplug-interfaces/">Hotplug development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/snap-performance/">Snap performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/debuging-startup-performance/">Startup performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/system-snap-directory/">System snap</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../explanation/interfaces/">Interfaces</a><input aria-label="Toggle navigation of Interfaces" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/interfaces/all-about-interfaces/">How interfaces work</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/interfaces/interface-hooks/">Interface hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/interfaces/hardware-interfaces/">Hardware interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/interfaces/interface-auto-connection/">Auto-connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/interfaces/super-privileged-interfaces/">Super-privileged interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../explanation/security/">Security</a><input aria-label="Toggle navigation of Security" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/security/security-policies/">Security policies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/security/assertions/">Assertions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/security/snap-confinement/">Snap confinement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/security/classic-confinement/">Classic confinement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/security/api-authentication-and-authorization/">API authentication and authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/security/decommissioning/">Decommissioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/security/snapd-release-process/">Release process</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../explanation/snap-development/">Snap development</a><input aria-label="Toggle navigation of Snap development" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/snap-development/install-modes/">Install modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/snap-development/system-usernames/">System username</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/snap-development/tab-completion/">Tab completion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/snap-development/xdg-desktop-portals/">XDG desktop portals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/snap-development/building-snap-rpms-on-rhel/">Building snap on RHEL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../contributing/">Contributing</a><input aria-label="Toggle navigation of Contributing" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing/">Contribute to our docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing/local-development/">Local development</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="integrate-tpm-fde-into-a-custom-ubuntu-installer">
+<span id="how-to-guides-installer-with-tpm-fde"></span><h1>Integrate TPM-FDE into a custom Ubuntu installer<a class="headerlink" href="#integrate-tpm-fde-into-a-custom-ubuntu-installer" title="Link to this heading">¶</a></h1>
+<p>This guide shows you how to integrate <a class="reference external" href="https://ubuntu.com/desktop/docs/en/latest/explanation/hardware-backed-disk-encryption/#hardware-backed-disk-encryption">hardware-backed Full Disk Encryption</a> (TPM-FDE) into a custom Ubuntu installer using the snapd REST API.</p>
+<p>Refer to the <a class="reference internal" href="../../../reference/development/snapd-rest-api/#reference-development-snapd-rest-api"><span class="std std-ref">snapd REST API reference</span></a> for a list of all API actions and endpoints. For general instructions, refer to the <a class="reference internal" href="../use-the-rest-api/#how-to-guides-manage-snaps-use-the-rest-api"><span class="std std-ref">guide on how to use the REST API</span></a>.</p>
+<p>Follow the steps in order. Some steps are optional.</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<p>To follow this guide, your installer must have access to a recovery system seed available to snapd. A recovery system seed is the set of files that describes the Ubuntu system to be installed. It includes:</p>
+<ul class="simple">
+<li><p>a <a class="reference external" href="https://documentation.ubuntu.com/core/reference/assertions/model/">model assertion</a> describing the Ubuntu system to install; and</p></li>
+<li><p>the essential snaps making up that system, including the <a class="reference external" href="https://documentation.ubuntu.com/snapcraft/stable/reference/bases/">base</a>, <a class="reference internal" href="../../../reference/development/yaml-schemas/the-kernel-snap/#reference-development-yaml-schemas-the-kernel-snap"><span class="std std-ref">kernel</span></a>, <a class="reference internal" href="../../../reference/development/yaml-schemas/the-gadget-snap/#reference-development-yaml-schemas-the-gadget-snap"><span class="std std-ref">gadget</span></a>, and <a class="reference internal" href="../../../reference/glossary/#ref-glossary-snapd"><span class="std std-ref">snapd</span></a> snaps.</p></li>
+</ul>
+<p>To get Canonical’s reference model for the Ubuntu release used in this guide, run:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>snap<span class="w"> </span>known<span class="w"> </span>model<span class="w"> </span>--remote<span class="w"> </span><span class="nv">series</span><span class="o">=</span><span class="m">16</span><span class="w"> </span>brand-id<span class="o">=</span>canonical<span class="w"> </span><span class="nv">model</span><span class="o">=</span>ubuntu-classic-2604-amd64
+</pre></div>
+</div>
+<p>For more information, see:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://documentation.ubuntu.com/core/tutorials/build-your-first-image/create-a-model/">Create a model</a></p></li>
+<li><p><a class="reference external" href="https://documentation.ubuntu.com/core/how-to-guides/manage-ubuntu-core/create-a-recovery-system-from-the-api/">Create a recovery system from the API</a></p></li>
+</ul>
+<p>To learn about the layout of a recovery system seed, see also <a class="reference external" href="https://documentation.ubuntu.com/core/explanation/core-elements/storage-layout/">Ubuntu Core storage layout</a>.</p>
+</section>
+<section id="get-system-label">
+<h2>Get system label<a class="headerlink" href="#get-system-label" title="Link to this heading">¶</a></h2>
+<p>Each recovery system is identified by a unique label, corresponding to its directory in the installer seed. Normally, this directory is <code class="docutils literal notranslate"><span class="pre">/var/lib/snapd/seed/systems/&lt;label&gt;/</span></code>.</p>
+<p>To get the system label, make a <code class="docutils literal notranslate"><span class="pre">GET</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/systems</span></code>. Snapd will return a synchronous response (<code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code>) with a list of all the available systems, including their labels. For example:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Response body, <code class="docutils literal notranslate"><span class="pre">result</span></code></span><a class="headerlink" href="#id1" title="Link to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="w">  </span><span class="nt">"systems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"current"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"default-recovery-system"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="hll"><span class="w">      </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20261001"</span><span class="p">,</span>
+</span><span class="w">      </span><span class="nt">"model"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-device"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"brand-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-brand"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"display-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Device"</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="err">...</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Select the appropriate label to <a class="reference internal" href="#perform-pre-install-checks"><span class="xref myst">perform the pre-install checks</span></a>.</p>
+</section>
+<section id="perform-pre-install-checks">
+<h2>Perform pre-install checks<a class="headerlink" href="#perform-pre-install-checks" title="Link to this heading">¶</a></h2>
+<p>To perform the pre-install checks, use the system label to make a <code class="docutils literal notranslate"><span class="pre">GET</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/systems/{label}</span></code>. Snapd will return a synchronous response (<code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code>) with the system details. The <code class="docutils literal notranslate"><span class="pre">storage-encryption</span></code> object describes the target system’s storage encryption capabilities. It will state whether encryption is available. If it is not available, it will list the errors and the actions that can fix them.</p>
+<section id="encryption-is-available">
+<h3>Encryption is available<a class="headerlink" href="#encryption-is-available" title="Link to this heading">¶</a></h3>
+<p>If encryption is available, <code class="docutils literal notranslate"><span class="pre">storage-encryption</span></code> will include the target system’s features and requirements, and no errors. For example:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Response body, <code class="docutils literal notranslate"><span class="pre">result</span></code></span><a class="headerlink" href="#id2" title="Link to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="w">  </span><span class="nt">"storage-encryption"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"support"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="nt">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"passphrase-auth"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pin-auth"</span><span class="p">],</span>
+</span><span class="w">    </span><span class="nt">"storage-safety"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prefer-encrypted"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"encryption-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cryptsetup"</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="nt">"requirements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"volumes-auth"</span><span class="p">]</span>
+</span><span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Since there are no errors, the installation can proceed. The features and requirements of the target system will be relevant when you set up the its storage encryption. Skip ahead to the <a class="reference internal" href="#set-up-storage-encryption"><span class="xref myst">Set up storage encryption section</span></a>.</p>
+</section>
+<section id="encryption-is-unavailable-due-to-recoverable-errors">
+<h3>Encryption is unavailable due to recoverable errors<a class="headerlink" href="#encryption-is-unavailable-due-to-recoverable-errors" title="Link to this heading">¶</a></h3>
+<p>If encryption is unavailable due to recoverable errors, <code class="docutils literal notranslate"><span class="pre">storage-encryption</span></code> will include <code class="docutils literal notranslate"><span class="pre">unavailable-reason</span></code> and <code class="docutils literal notranslate"><span class="pre">availability-check-errors</span></code>. For example:</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Response body, <code class="docutils literal notranslate"><span class="pre">result</span></code></span><a class="headerlink" href="#id3" title="Link to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="w">  </span><span class="nt">"storage-encryption"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"support"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unavailable"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"passphrase-auth"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pin-auth"</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"storage-safety"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prefer-encrypted"</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="nt">"unavailable-reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not encrypting device storage as checking TPM gave: error with TPM2 device: TPM2 device is present but is currently disabled by the platform firmware"</span><span class="p">,</span>
+</span><span class="hll"><span class="w">    </span><span class="nt">"availability-check-errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span class="hll"><span class="w">      </span><span class="p">{</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tpm-device-disabled"</span><span class="p">,</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error with TPM2 device: TPM2 device is present but is currently disabled by the platform firmware"</span><span class="p">,</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">"actions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span class="hll"><span class="w">          </span><span class="s2">"enable-tpm-via-firmware"</span><span class="p">,</span>
+</span><span class="hll"><span class="w">          </span><span class="s2">"enable-and-clear-tpm-via-firmware"</span><span class="p">,</span>
+</span><span class="hll"><span class="w">          </span><span class="s2">"reboot-to-fw-settings"</span>
+</span><span class="hll"><span class="w">        </span><span class="p">]</span>
+</span><span class="hll"><span class="w">      </span><span class="p">}</span>
+</span><span class="hll"><span class="w">    </span><span class="p">],</span>
+</span><span class="w">    </span><span class="nt">"requirements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"volumes-auth"</span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>In this example, the target system has a TPM 2.0 device that is disabled in the firmware. This error can be resolved by executing the fix actions listed in the <code class="docutils literal notranslate"><span class="pre">actions</span></code> array, in the order in which they are presented. See the <a class="reference internal" href="#perform-pre-install-fix-actions"><span class="xref myst">Perform pre-install fix actions section</span></a> for guidelines and further details.</p>
+<p>The initial <code class="docutils literal notranslate"><span class="pre">GET</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/systems/{label}</span></code> runs pre-install checks and creates an in-memory context that will be used while fixing the errors. Another <code class="docutils literal notranslate"><span class="pre">GET</span></code> request to the same endpoint replaces that context, resetting the sequence of fix actions. The context is also lost if snapd restarts or the system reboots.</p>
+<p>The table below lists error kinds that snapd might return, with a suggested message to show the user, and example fix actions. The list is not exhaustive: snapd can return error kinds and fix actions that the table does not include. Treat it as a starting point, rather than a specification.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error kind</p></th>
+<th class="head"><p>Suggested message to present to the user</p></th>
+<th class="head"><p>Example fix action(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">efi-variable-access</span></code></p></td>
+<td><p>Error occurred when accessing an EFI variable.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">contact-oem</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tpm-device-failure</span></code></p></td>
+<td><p>The TPM device has failed an internal self check.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">reboot</span></code>, <code class="docutils literal notranslate"><span class="pre">contact-oem</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tpm-device-disabled</span></code></p></td>
+<td><p>There is a TPM device that is currently disabled.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">reboot-to-fw-settings</span></code>, <code class="docutils literal notranslate"><span class="pre">enable-tpm-via-firmware</span></code>, <code class="docutils literal notranslate"><span class="pre">enable-and-clear-tpm-via-firmware</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tpm-hierarchies-owned</span></code></p></td>
+<td><p>One or more TPM hierarchy is currently owned, either because it has an authorization value or policy set.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">reboot-to-fw-settings</span></code>, <code class="docutils literal notranslate"><span class="pre">clear-tpm-via-firmware</span></code>, <code class="docutils literal notranslate"><span class="pre">enable-and-clear-tpm-via-firmware</span></code>, <code class="docutils literal notranslate"><span class="pre">clear-tpm-simple</span></code>, <code class="docutils literal notranslate"><span class="pre">clear-tpm</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tpm-device-lockout-locked-out</span></code></p></td>
+<td><p>The TPM’s lockout hierarchy is currently unavailable because it is locked out.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">reboot-to-fw-settings</span></code>, <code class="docutils literal notranslate"><span class="pre">clear-tpm-via-firmware</span></code>, <code class="docutils literal notranslate"><span class="pre">enable-and-clear-tpm-via-firmware</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">insufficient-tpm-storage</span></code></p></td>
+<td><p>Insufficient storage space available to support FDE along with reprovisioning in the future.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">reboot-to-fw-settings</span></code>, <code class="docutils literal notranslate"><span class="pre">clear-tpm-via-firmware</span></code>, <code class="docutils literal notranslate"><span class="pre">enable-and-clear-tpm-via-firmware</span></code>, <code class="docutils literal notranslate"><span class="pre">clear-tpm-simple</span></code>, <code class="docutils literal notranslate"><span class="pre">clear-tpm</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">no-suitable-pcr-bank</span></code></p></td>
+<td><p>It is not possible to select a suitable PCR bank. This could be because some mandatory PCR values are inconsistent with the TCG log.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">reboot-to-fw-settings</span></code>, <code class="docutils literal notranslate"><span class="pre">contact-oem</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">running-in-vm</span></code></p></td>
+<td><p>The current environment is a virtual machine.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">proceed</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">insufficient-dma-protection</span></code></p></td>
+<td><p>I/O DMA remapping was disabled during the current boot cycle.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">reboot-to-fw-settings</span></code>, <code class="docutils literal notranslate"><span class="pre">contact-oem</span></code>, <code class="docutils literal notranslate"><span class="pre">proceed</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">no-kernel-iommu</span></code></p></td>
+<td><p>The OS kernel was not built with DMA remapping support, or some configuration has resulted in it being disabled.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">reboot-to-fw-settings</span></code>, <code class="docutils literal notranslate"><span class="pre">contact-os-vendor</span></code>, <code class="docutils literal notranslate"><span class="pre">proceed</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">host-security</span></code></p></td>
+<td><p>Problem with the system security that is not represented by a more specific error kind.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">contact-oem</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tpm-pcr-unusable</span></code></p></td>
+<td><p>An error in the way that the platform firmware performs measurements such that the PCR becomes unusable.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">contact-oem</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">addon-drivers-present</span></code></p></td>
+<td><p>Drivers running from value-added-retailer components were detected.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">proceed</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sys-prep-applications-present</span></code></p></td>
+<td><p>System preparation applications were detected to be running before the operating system.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">proceed</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">absolute-present</span></code></p></td>
+<td><p>Absolute was detected to be executing before the initial OS loader.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">reboot-to-fw-settings</span></code>, <code class="docutils literal notranslate"><span class="pre">contact-oem</span></code>, <code class="docutils literal notranslate"><span class="pre">proceed</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">invalid-secure-boot-mode</span></code></p></td>
+<td><p>The secure boot mode is invalid.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">reboot-to-fw-settings</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">weak-secure-boot-algorithms-detected</span></code></p></td>
+<td><p>Either pre-OS components were authenticated with weak Authenticode digests, or CAs with weak public keys were used to authenticate components.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">proceed</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pre-os-secure-boot-auth-by-enrolled-digests</span></code></p></td>
+<td><p>Pre-OS components were authenticated by matching their Authenticode digest to an entry in <code class="docutils literal notranslate"><span class="pre">db</span></code>.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">proceed</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">no-hardware-root-of-trust</span></code></p></td>
+<td><p>The platform’s UEFI firmware is not verified nor measured by a hardware root of trust.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">proceed</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="encryption-is-unavailable-due-to-non-recoverable-errors">
+<h3>Encryption is unavailable due to non-recoverable errors<a class="headerlink" href="#encryption-is-unavailable-due-to-non-recoverable-errors" title="Link to this heading">¶</a></h3>
+<p>If <code class="docutils literal notranslate"><span class="pre">storage-encryption</span></code> includes <code class="docutils literal notranslate"><span class="pre">unavailable-reason</span></code> but not <code class="docutils literal notranslate"><span class="pre">availability-check-errors</span></code> or if <code class="docutils literal notranslate"><span class="pre">availability-check-errors</span></code> is empty,
+the target system does not support encryption as defined in the recovery system seed. For example:</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Response body, <code class="docutils literal notranslate"><span class="pre">result</span></code></span><a class="headerlink" href="#id4" title="Link to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="w">  </span><span class="nt">"storage-encryption"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"support"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unavailable"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"storage-safety"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prefer-encrypted"</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="nt">"unavailable-reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cannot use encryption with the gadget, disabling encryption: gadget does not support encrypted data: required partition with system-save role is missing"</span><span class="p">,</span>
+</span><span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>In this example, encryption is not possible because the gadget lacks a system-save partition. This is a fatal error that cannot be resolved by snapd. No further steps are applicable until the gadget is replaced.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">storage-encryption</span></code> includes <code class="docutils literal notranslate"><span class="pre">availability-check-errors</span></code>, but none of the errors includes fix actions, the target system also does not support encryption as defined in the recovery system seed. For example:</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Response body, <code class="docutils literal notranslate"><span class="pre">result</span></code></span><a class="headerlink" href="#id5" title="Link to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="w">  </span><span class="nt">"storage-encryption"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"support"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unavailable"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"storage-safety"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prefer-encrypted"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"unavailable-reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no suitable TPM2 device is available"</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="nt">"availability-check-errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span class="hll"><span class="w">      </span><span class="p">{</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no-suitable-tpm2-device"</span><span class="p">,</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no suitable TPM2 device is available"</span>
+</span><span class="hll"><span class="w">      </span><span class="p">}</span>
+</span><span class="hll"><span class="w">    </span><span class="p">]</span>
+</span><span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>In this example, the target system’s machine does not have a TPM 2.0 device suitable for TPM-FDE. This is a fatal error that cannot be resolved by snapd. No further steps are applicable until the hardware is replaced.</p>
+<p>The table below lists error kinds that snapd might return, with a suggested message to show the user. The list is not exhaustive: snapd can return error kinds that the table does not include. Treat it as a starting point, rather than a specification.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error kind</p></th>
+<th class="head"><p>Suggested message to present to the user</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">internal-error</span></code></p></td>
+<td><p>Unexpected internal error occurred.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">system-not-efi</span></code></p></td>
+<td><p>The current host system is not an EFI system.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">no-suitable-tpm2-device</span></code></p></td>
+<td><p>The device has no suitable TPM2 device.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">measured-boot</span></code></p></td>
+<td><p>Error with the TCG log or some other error detected from the TCG log that is not represented by a more specific error kind.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tpm-command-failed</span></code></p></td>
+<td><p>An error occurred whilst executing a TPM command.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">invalid-tpm-response</span></code></p></td>
+<td><p>The response from the TPM is invalid, which makes it impossible to obtain a response code.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tpm-communication</span></code></p></td>
+<td><p>An error occurred at the transport layer when executing a TPM command.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">unsupported-platform</span></code></p></td>
+<td><p>The current host platform is not compatible with FDE.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="perform-pre-install-fix-actions">
+<h2>Perform pre-install fix actions<a class="headerlink" href="#perform-pre-install-fix-actions" title="Link to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pre-install fix actions can only be performed after an initial pre-install check. See the <a class="reference internal" href="#perform-pre-install-checks"><span class="xref myst">Perform pre-install checks section</span></a> for details.</p>
+</div>
+<p>If <a class="reference internal" href="#encryption-is-unavailable-due-to-recoverable-errors"><span class="xref myst">encryption is unavailable due to recoverable errors</span></a>, you can fix them by performing the fix actions listed in the <code class="docutils literal notranslate"><span class="pre">actions</span></code> array of each error in <code class="docutils literal notranslate"><span class="pre">availability-check-errors</span></code>. The order of the errors and their corresponding fix actions should be respected.</p>
+<p>To perform a fix action with snapd, make a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/systems/{label}</span></code> with <code class="docutils literal notranslate"><span class="pre">action</span></code> set to <code class="docutils literal notranslate"><span class="pre">fix-encryption-support</span></code> and <code class="docutils literal notranslate"><span class="pre">fix-action</span></code> set to the first entry in the error’s <code class="docutils literal notranslate"><span class="pre">actions</span></code> array. For example, to enable the TPM via the firmware, send this request body:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fix-encryption-support"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"fix-action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enable-tpm-via-firmware"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If successful, snapd will return a synchronous response (<code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code>) with the updated system details, which might include a different list of errors. For example:</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Response body, <code class="docutils literal notranslate"><span class="pre">result</span></code></span><a class="headerlink" href="#id6" title="Link to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="w">  </span><span class="nt">"storage-encryption"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"support"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unavailable"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"passphrase-auth"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pin-auth"</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"storage-safety"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prefer-encrypted"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"unavailable-reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not encrypting device storage as checking TPM gave: a reboot is required to complete the action"</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="nt">"availability-check-errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span class="hll"><span class="w">      </span><span class="p">{</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reboot-required"</span><span class="p">,</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a reboot is required to complete the action"</span><span class="p">,</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">"actions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"reboot"</span><span class="p">]</span>
+</span><span class="hll"><span class="w">      </span><span class="p">}</span>
+</span><span class="hll"><span class="w">    </span><span class="p">],</span>
+</span><span class="w">    </span><span class="nt">"requirements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"volumes-auth"</span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>In this example, the recommended fix action is to reboot the system. Since this requires manual intervention from the user, this fix action cannot be executed by snapd.</p>
+<p>Any fix action that requires a system reboot discards the pre-install check context created by the initial <code class="docutils literal notranslate"><span class="pre">GET</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/systems/{label}</span></code>. After the target system reboots, make a new <code class="docutils literal notranslate"><span class="pre">GET</span></code> request to the same endpoint to create a new pre-install check context. Follow these steps again to fix any lingering errors. Keep in mind that fix actions should be performed in the same order in which they appear in the <code class="docutils literal notranslate"><span class="pre">actions</span></code> array.</p>
+<p>If snapd cannot perform an action, it will return a synchronous response (<code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code>) with the system details and updated <code class="docutils literal notranslate"><span class="pre">availability-check-errors</span></code>. The table below lists error kinds that snapd might return in that situation, with a suggested message to show the user, and example fix actions. The list is not exhaustive: snapd can return error kinds and fix actions that the table does not include. Treat it as a starting point, rather than a specification.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error kind</p></th>
+<th class="head"><p>Suggested message to present to the user</p></th>
+<th class="head"><p>Example fix action(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shutdown-required</span></code></p></td>
+<td><p>System shutdown is required to complete a previous action.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">shutdown</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">reboot-required</span></code></p></td>
+<td><p>System reboot is required to complete a previous action.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">reboot</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">unexpected-action</span></code></p></td>
+<td><p>The provided action is unexpected because it is either not supported or not associated with the previously returned errors.</p></td>
+<td><p>none</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">invalid-argument</span></code></p></td>
+<td><p>One or more of the supplied arguments are of an invalid type or value.</p></td>
+<td><p>none</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">action-failed</span></code></p></td>
+<td><p>The provided action did not succeed.</p></td>
+<td><p>none</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">missing-argument</span></code></p></td>
+<td><p>Not enough action arguments provided.</p></td>
+<td><p>none</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Some of these errors, such as <code class="docutils literal notranslate"><span class="pre">unexpected-action</span></code>, <code class="docutils literal notranslate"><span class="pre">invalid-argument</span></code>, and <code class="docutils literal notranslate"><span class="pre">action-failed</span></code>, offer no further fix actions. If you encounter one, make a new <code class="docutils literal notranslate"><span class="pre">POST</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/systems/{label}</span></code> with the following request body:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fix-encryption-support"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"fix-action"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">fix-action</span></code> to an empty string tells snapd not to perform another fix action. Snapd will return a synchronous response (<code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code>) with the system details from before the previous action was attempted.</p>
+<p>Continue checking and resolving errors until the system details show that <a class="reference internal" href="#encryption-is-available"><span class="xref myst">encryption is available</span></a>. The installation can then proceed.</p>
+<section id="arguments-accepted-by-fix-actions">
+<h3>Arguments accepted by fix actions<a class="headerlink" href="#arguments-accepted-by-fix-actions" title="Link to this heading">¶</a></h3>
+<p>Most fix actions neither require nor accept arguments. There are two exceptions: <code class="docutils literal notranslate"><span class="pre">proceed</span></code> and <code class="docutils literal notranslate"><span class="pre">clear-tpm</span></code>.</p>
+<p>The following example shows errors for which <code class="docutils literal notranslate"><span class="pre">proceed</span></code> is a possible fix action:</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Response body, <code class="docutils literal notranslate"><span class="pre">result.storage-encryption.availability-check-errors</span></code></span><a class="headerlink" href="#id7" title="Link to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"addon-drivers-present"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"detected drivers running from value-added-retailer components"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"actions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"proceed"</span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"weak-secure-boot-algorithms-detected"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"components were authenticated using weak Authenticode digests or weak public keys"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"actions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"proceed"</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>If the fix action <code class="docutils literal notranslate"><span class="pre">proceed</span></code> is executed without arguments, snapd will ignore all errors at once. This is not recommended, as it gives the user no visibility into which errors are being ignored. To ignore one error at a time, make a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/systems/{label}</span></code>, passing <code class="docutils literal notranslate"><span class="pre">error-kinds</span></code> in <code class="docutils literal notranslate"><span class="pre">args</span></code>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fix-encryption-support"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"fix-action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"proceed"</span><span class="p">,</span>
+<span class="hll"><span class="w">  </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">    </span><span class="nt">"error-kinds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;error-kind&gt;"</span><span class="p">]</span>
+</span><span class="hll"><span class="w">  </span><span class="p">}</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;error-kind&gt;</span></code> with the kind of the error to ignore, as reported in <code class="docutils literal notranslate"><span class="pre">availability-check-errors</span></code> (for example, <code class="docutils literal notranslate"><span class="pre">addon-drivers-present</span></code>). It is recommended to list one error at a time.</p>
+<p>The fix action <code class="docutils literal notranslate"><span class="pre">clear-tpm</span></code> normally does not accept arguments. However, if you attempt it against a TPM that has an auth value set in the TPM lockout hierarchy, you must supply that auth value. This can happen, for example, if the following error is returned:</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Response body, one entry of <code class="docutils literal notranslate"><span class="pre">result.storage-encryption.availability-check-errors</span></code></span><a class="headerlink" href="#id8" title="Link to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tpm-hierarchies-owned"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error with TPM2 device: one or more of the TPM hierarchies is already owned"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"with-auth-value"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1073741834</span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"actions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"clear-tpm-via-firmware"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"enable-and-clear-tpm-via-firmware"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"clear-tpm"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"reboot-to-fw-settings"</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">clear-tpm-via-firmware</span></code> and <code class="docutils literal notranslate"><span class="pre">enable-and-clear-tpm-via-firmware</span></code> cannot be performed or do not fix the issue, attempt <code class="docutils literal notranslate"><span class="pre">clear-tpm</span></code>. Make a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/systems/{label}</span></code> and pass the TPM lockout hierarchy auth value, base64-encoded, in <code class="docutils literal notranslate"><span class="pre">args</span></code>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fix-encryption-support"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"fix-action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"clear-tpm"</span><span class="p">,</span>
+<span class="hll"><span class="w">  </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">    </span><span class="nt">"auth-value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;base64-auth-value&gt;"</span>
+</span><span class="hll"><span class="w">  </span><span class="p">}</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;base64-auth-value&gt;</span></code> with the base64-encoded auth value. This value is chosen when the hierarchy’s authorization is set and snapd cannot discover it.</p>
+<p>In all other cases <code class="docutils literal notranslate"><span class="pre">clear-tpm</span></code> must be requested without an <code class="docutils literal notranslate"><span class="pre">args</span></code> field.</p>
+</section>
+</section>
+<section id="set-up-storage-encryption">
+<h2>Set up storage encryption<a class="headerlink" href="#set-up-storage-encryption" title="Link to this heading">¶</a></h2>
+<p>After completing the pre-install checks, you can prepare the installation of Ubuntu with TPM-FDE by setting up the target system’s storage encryption.</p>
+<p>Depending on the target system’s characteristics, adding a PIN or passphrase might be supported or even required. To determine whether the target system supports or requires a PIN or passphrase, look at the fields <code class="docutils literal notranslate"><span class="pre">requirements</span></code> and <code class="docutils literal notranslate"><span class="pre">features</span></code> in the system details. For example:</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Response body, <code class="docutils literal notranslate"><span class="pre">result.storage-encryption</span></code></span><a class="headerlink" href="#id9" title="Link to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="w">  </span><span class="nt">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"passphrase-auth"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pin-auth"</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"requirements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"volumes-auth"</span><span class="p">],</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>In this example, the target system supports both PIN and passphrase as authentication methods. Since <code class="docutils literal notranslate"><span class="pre">volumes-auth</span></code> is present in <code class="docutils literal notranslate"><span class="pre">requirements</span></code>, at least one authentication method must be set.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">volumes-auth</span></code> is not present in <code class="docutils literal notranslate"><span class="pre">requirements</span></code>, setting a PIN or passphrase is optional. The <code class="docutils literal notranslate"><span class="pre">features</span></code> field will tell you whether the target system supports one or both.</p>
+<section id="without-an-authentication-method">
+<h3>Without an authentication method<a class="headerlink" href="#without-an-authentication-method" title="Link to this heading">¶</a></h3>
+<p>If the target system does not require an authentication method, you can set up the storage encryption without it. Make a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/systems/{label}</span></code> with <code class="docutils literal notranslate"><span class="pre">action</span></code> set to <code class="docutils literal notranslate"><span class="pre">install</span></code>, <code class="docutils literal notranslate"><span class="pre">step</span></code> set to <code class="docutils literal notranslate"><span class="pre">setup-storage-encryption</span></code>, and <code class="docutils literal notranslate"><span class="pre">on-volumes</span></code> describing the volumes to encrypt. For example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"install"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"setup-storage-encryption"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"on-volumes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"pc"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"bootloader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"grub"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">on-volumes</span></code> is illustrative. Replace it with the description of the volumes your installer created.</p>
+<p>If successful, snapd will return an asynchronous response (<code class="docutils literal notranslate"><span class="pre">202</span> <span class="pre">Accepted</span></code>). The response body will include a change ID. You can check the change progress by making a <code class="docutils literal notranslate"><span class="pre">GET</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/changes/{id}</span></code>. Once it completes, the storage is encrypted and you can move on to the <a class="reference internal" href="#generate-recovery-key"><span class="xref myst">Generate recovery key section</span></a>.</p>
+</section>
+<section id="with-a-pin-or-passphrase">
+<h3>With a PIN or passphrase<a class="headerlink" href="#with-a-pin-or-passphrase" title="Link to this heading">¶</a></h3>
+<p>Before setting up a PIN or passphrase, your installer should check whether it meets the minimum quality requirements. This check is optional but highly recommended, as it avoids errors when setting up the PIN or passphrase.</p>
+<section id="check-pin-or-passphrase-quality">
+<h4>Check PIN or passphrase quality<a class="headerlink" href="#check-pin-or-passphrase-quality" title="Link to this heading">¶</a></h4>
+<p>To check the quality of a PIN, make a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/systems/{label}</span></code> with <code class="docutils literal notranslate"><span class="pre">action</span></code> set to <code class="docutils literal notranslate"><span class="pre">check-pin-quality</span></code> and <code class="docutils literal notranslate"><span class="pre">pin</span></code> set to the PIN provided by the user:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"check-pin-quality"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;pin&gt;"</span><span class="w"> </span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To check the quality of a passphrase, make a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/systems/{label}</span></code> with <code class="docutils literal notranslate"><span class="pre">action</span></code> set to <code class="docutils literal notranslate"><span class="pre">check-passphrase-quality</span></code> and <code class="docutils literal notranslate"><span class="pre">passphrase</span></code> set to the passphrase provided by the user:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"check-passphrase-quality"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"passphrase"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;passphrase&gt;"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If the PIN or passphrase does not meet the minimum requirements or is not supported, snapd will return an error (<code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></code>) and provide details about the failure For example:</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Response body, <code class="docutils literal notranslate"><span class="pre">result</span></code></span><a class="headerlink" href="#id10" title="Link to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invalid-pin"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PIN did not pass quality checks"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"reasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"low-entropy"</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"entropy-bits"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"min-entropy-bits"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"optimal-entropy-bits"</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>If a passphrase is tested instead, <code class="docutils literal notranslate"><span class="pre">kind</span></code> will be <code class="docutils literal notranslate"><span class="pre">invalid-passphrase</span></code>.</p>
+<p>If the PIN or passphrase is supported and meets the minimum requirements, snapd will return a synchronous response (<code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code>) with the entropy metrics. For example:</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Response body, <code class="docutils literal notranslate"><span class="pre">result</span></code></span><a class="headerlink" href="#id11" title="Link to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"entropy-bits"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"min-entropy-bits"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"optimal-entropy-bits"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>The minimum and optimal entropy bits differ for PINs and passphrases, and might change in the future.</p>
+<p>Once the PIN or passphrase meets the minimum requirements, it can be added to the storage encryption setup.</p>
+</section>
+<section id="add-pin-or-passphrase">
+<h4>Add PIN or passphrase<a class="headerlink" href="#add-pin-or-passphrase" title="Link to this heading">¶</a></h4>
+<p>To add a PIN, make a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/systems/{label}</span></code> with <code class="docutils literal notranslate"><span class="pre">action</span></code> set to <code class="docutils literal notranslate"><span class="pre">install</span></code> and <code class="docutils literal notranslate"><span class="pre">step</span></code> set to <code class="docutils literal notranslate"><span class="pre">setup-storage-encryption</span></code>. The request body must also include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">on-volumes</span></code>, describing the volumes to encrypt;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">volumes-auth</span></code> with the PIN; and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keyboard-config</span></code>, describing the keyboard configuration selected by the user.</p></li>
+</ul>
+<p>For example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"install"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"setup-storage-encryption"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"on-volumes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"pc"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"bootloader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"grub"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"volumes-auth"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pin"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"pin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;pin&gt;"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"keyboard-config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pc105"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"layout"</span><span class="p">:</span><span class="w"> </span><span class="s2">"us"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">on-volumes</span></code> is illustrative. Replace it with the description of the volumes your installer created. <code class="docutils literal notranslate"><span class="pre">keyboard-config</span></code> is also illustrative. Set it to the keyboard layout the user selected.</p>
+<p>To add a passphrase instead, replace <code class="docutils literal notranslate"><span class="pre">volumes-auth</span></code> in the request body above with one including the user’s passphrase:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"volumes-auth"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passphrase"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"passphrase"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;passphrase&gt;"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When adding a PIN or passphrase to the storage encryption setup, <code class="docutils literal notranslate"><span class="pre">keyboard-config</span></code> must be defined. Snapd uses this configuration to ensure that the same keyboard layout is available when the user enters the PIN or passphrase on first boot.</p>
+<p>If successful, snapd will return an asynchronous response (<code class="docutils literal notranslate"><span class="pre">202</span> <span class="pre">Accepted</span></code>). The response body will include a change ID. You can check its progress by making a <code class="docutils literal notranslate"><span class="pre">GET</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/changes/{id}</span></code>. Once it completes, the storage is encrypted and you can move to the next step.</p>
+</section>
+</section>
+</section>
+<section id="generate-recovery-key">
+<h2>Generate recovery key<a class="headerlink" href="#generate-recovery-key" title="Link to this heading">¶</a></h2>
+<p>Generating a recovery key is optional, but highly recommended. A recovery key is a high-entropy fallback credential used to recover the data on the disk if all other methods fail.</p>
+<p>To generate a recovery key, make a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/systems/{label}</span></code>, with the following request body:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"install"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"generate-recovery-key"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Snapd will return a synchronous response (<code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code>) with the recovery key. For example:</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Response body, <code class="docutils literal notranslate"><span class="pre">result</span></code></span><a class="headerlink" href="#id12" title="Link to this code">¶</a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"recovery-key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345-67890-12345-67890-12345-67890-12345-67890"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Present the recovery key to the user and tell them clearly that, in the event of hardware failure, they might lose their data without it.</p>
+</div>
+</section>
+<section id="make-the-target-system-bootable">
+<h2>Make the target system bootable<a class="headerlink" href="#make-the-target-system-bootable" title="Link to this heading">¶</a></h2>
+<p>To make the target system bootable, send a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/systems/{label}</span></code> with <code class="docutils literal notranslate"><span class="pre">action</span></code> set to <code class="docutils literal notranslate"><span class="pre">install</span></code>, <code class="docutils literal notranslate"><span class="pre">step</span></code> set to <code class="docutils literal notranslate"><span class="pre">finish</span></code>, and <code class="docutils literal notranslate"><span class="pre">on-volumes</span></code> describing those volumes. For example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"install"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"finish"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"on-volumes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"pc"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"bootloader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"grub"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">on-volumes</span></code> is illustrative. Reuse the <code class="docutils literal notranslate"><span class="pre">on-volumes</span></code> value from the storage encryption setup.</p>
+<p>If successful, snapd will return an asynchronous response (<code class="docutils literal notranslate"><span class="pre">202</span> <span class="pre">Accepted</span></code>). The response body will include a change ID. Wait until the change is complete before moving to the next step. You can check its progress by making a <code class="docutils literal notranslate"><span class="pre">GET</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/changes/{id}</span></code>.</p>
+<p>Once the change is complete, snapd has written the following onto the target system’s volumes:</p>
+<ul class="simple">
+<li><p>the gadget content</p></li>
+<li><p>the kernel snap</p></li>
+<li><p>the base snap</p></li>
+<li><p>the gadget snap</p></li>
+<li><p>the bootloader configuration</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">modeenv</span></code>, and</p></li>
+<li><p>the disk-unlock keys.</p></li>
+</ul>
+<p>The system is now ready to reboot and install Ubuntu with TPM-FDE, but it is highly recommended to preseed it first.</p>
+</section>
+<section id="preseed-the-target-system-before-first-boot">
+<h2>Preseed the target system before first boot<a class="headerlink" href="#preseed-the-target-system-before-first-boot" title="Link to this heading">¶</a></h2>
+<p>Preseeding the target system before the first boot is optional, but highly recommended. It makes the first boot faster and detects potential failures early.</p>
+<p>Before preseeding, create the following mount points to match the existing preseeding workflow:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/dev</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/proc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/sys</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/sys/kernel/security</span></code></p></li>
+</ul>
+<p>Snapd’s preseeding checks require <code class="docutils literal notranslate"><span class="pre">/sys</span></code> and <code class="docutils literal notranslate"><span class="pre">/sys/kernel/security</span></code> to be mounted independently.</p>
+<p>Also, bind-mount the installer environment’s seed directory into <code class="docutils literal notranslate"><span class="pre">&lt;target-root&gt;/var/lib/snapd/seed</span></code>.</p>
+<p>To preseed the target system, make a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/systems/{label}</span></code> with <code class="docutils literal notranslate"><span class="pre">action</span></code> set to <code class="docutils literal notranslate"><span class="pre">install</span></code>, <code class="docutils literal notranslate"><span class="pre">step</span></code> set to <code class="docutils literal notranslate"><span class="pre">preseed</span></code>, and <code class="docutils literal notranslate"><span class="pre">target-root</span></code> set to the mount point of the installer target system’s decrypted system-data filesystem:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"install"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"preseed"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"target-root"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;target-root&gt;"</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If successful, snapd will return an asynchronous response (<code class="docutils literal notranslate"><span class="pre">202</span> <span class="pre">Accepted</span></code>). The response body will include a change ID. Wait until the change is complete before moving to the next step. You can check its progress by making a <code class="docutils literal notranslate"><span class="pre">GET</span></code> request to <code class="docutils literal notranslate"><span class="pre">/v2/changes/{id}</span></code>.</p>
+<p>When preseeding is complete, the target system is ready to reboot and install Ubuntu with TPM-FDE.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+   <div class="related-pages">
+  
+  
+    
+  
+  
+  
+</div>
+<div class="bottom-of-page">
+  <div class="left-details">
+    <div class="copyright">
+        Copyright &#169; 2026 CC-BY-SA, Canonical Ltd.
+    </div>
+
+    <div class="last-updated">
+      Last updated on Nov 23, 2026</div>
+  </div>
+  <div>
+   
+  </div>
+  <div class="right-details"><a href="" class="js-revoke-cookie-manager muted-link">Manage your tracker settings</a></div>
+</div>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+<div class="toc-sticky toc-scroll">
+   
+    <div class="toc-title-container">
+      <span class="toc-title">
+       Contents
+      </span>
+    </div>
+    <div class="toc-tree-container">
+      <div class="toc-tree">
+        <ul>
+<li><a class="reference internal" href="#">Integrate TPM-FDE into a custom Ubuntu installer</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#get-system-label">Get system label</a></li>
+<li><a class="reference internal" href="#perform-pre-install-checks">Perform pre-install checks</a><ul>
+<li><a class="reference internal" href="#encryption-is-available">Encryption is available</a></li>
+<li><a class="reference internal" href="#encryption-is-unavailable-due-to-recoverable-errors">Encryption is unavailable due to recoverable errors</a></li>
+<li><a class="reference internal" href="#encryption-is-unavailable-due-to-non-recoverable-errors">Encryption is unavailable due to non-recoverable errors</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#perform-pre-install-fix-actions">Perform pre-install fix actions</a><ul>
+<li><a class="reference internal" href="#arguments-accepted-by-fix-actions">Arguments accepted by fix actions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#set-up-storage-encryption">Set up storage encryption</a><ul>
+<li><a class="reference internal" href="#without-an-authentication-method">Without an authentication method</a></li>
+<li><a class="reference internal" href="#with-a-pin-or-passphrase">With a PIN or passphrase</a><ul>
+<li><a class="reference internal" href="#check-pin-or-passphrase-quality">Check PIN or passphrase quality</a></li>
+<li><a class="reference internal" href="#add-pin-or-passphrase">Add PIN or passphrase</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#generate-recovery-key">Generate recovery key</a></li>
+<li><a class="reference internal" href="#make-the-target-system-bootable">Make the target system bootable</a></li>
+<li><a class="reference internal" href="#preseed-the-target-system-before-first-boot">Preseed the target system before first boot</a></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+    </div>
+   
+    
+  </div>
+
+    </aside>
+  </div>
+</div><script src="../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../_static/documentation_options.js?v=5591fd6d"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=25066c07"></script>
+    <script src="../../../_static/config-options.js"></script>
+    <script src="../../../_static/contributors.js"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../../_static/design-tabs.js?v=fcb327ea"></script>
+    <script src="../../../_static/js/bundle.js?v=b66724b5"></script>
+    <script src="../../../_static/js/rtd-flyout-overwrite.js?v=b3626f96"></script>
+    <script src="../../../_static/js/issue-links.js?v=2076ee84"></script>
+    <script src="../../../_static/header-nav.js?v=e117ad08"></script>
+    
+<script>
+  const github_url = "https://github.com/canonical/snap-docs";
+  const feedback_link = "";
+</script>
+</body>
+</html>

@@ -1,0 +1,1024 @@
+<!doctype html>
+<html class="no-js" lang="en-US" data-content_root="../../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="Schedule automatic snap refreshes, pause or resume updates, manage metered connections, run manual updates, and revert snaps to earlier revisions." name="description" />
+<meta property="og:title" content="Manage updates" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://snapcraft.io/docs/how-to-guides/manage-snaps/manage-updates/" />
+<meta property="og:site_name" content="Snap" />
+<meta property="og:description" content="Snaps update automatically, and by default, the snapd daemon checks for updates 4 times a day. Each update check is called a refresh. Updates can be set to occur on Friday at midnight, or for speci..." />
+<meta property="og:image" content="https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg" />
+<meta property="og:image:alt" content="Snap" />
+
+    <meta property="article:modified_time" content="2026-10-19T13:32:30+00:00" /><link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="Configure snaps" href="../configure-snaps/"><link rel="prev" title="Connect interfaces" href="../connect-interfaces/">
+        <link rel="canonical" href="https://projects.localizethedocs.org/snap-docs-l10nhow-to-guides/manage-snaps/manage-updates/">
+
+    <link rel="shortcut icon" href="../../../_static/favicon.png"><!-- Generated with Sphinx 7.4.7 and Furo 2025.12.19 -->
+        <title>Manage updates - Snap documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/config-options.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/contributors.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/related-links.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/terminal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/youtube.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=6a604523" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/cookie-banner.css?v=9562e88d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=022106c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/header.css?v=a8078839" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/github_issue_links.css?v=3d761185" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/furo_colors.css?v=4cd1adcf" />
+    
+
+
+<script type="text/javascript" src="../../../ltd-provenance.js"></script>
+<script type="text/javascript" src="../../../ltd-current.js"></script>
+<script type="text/javascript" src="../../../../../ltd-config.js"></script>
+<script type="text/javascript" src="../../../../../ltd-flyout.js"></script>
+</head>
+  <body>
+    <header id="header" class="p-navigation">
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0];
+      var j = d.createElement(s);
+      var dl = '';
+      if (l != 'dataLayer') {
+          dl = '&l=' + l;
+      }
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KNX3CJC');
+  </script>
+
+  <div class="p-navigation__nav" role="menubar">
+
+    <ul class="p-navigation__links" role="menu">
+
+      <li>
+        <a class="p-logo" href="https://snapcraft.io" aria-current="page">
+          <img src="../../../_static/tag.png" alt="Logo" class="p-logo-image">
+          <div class="p-logo-text p-heading--4">Canonical Snapcraft
+          </div>
+        </a>
+      </li>
+
+      <li class="nav-ubuntu-com">
+        <a href="https://snapcraft.io" class="p-navigation__link">snapcraft.io</a>
+      </li>
+
+      <li>
+        <a href="#" class="p-navigation__link nav-more-links">More resources</a>
+        <ul class="more-links-dropdown">
+
+          
+          <li>
+            <a href="http://forum.snapcraft.io/" class="p-navigation__sub-link p-dropdown__link">Discourse</a>
+          </li>
+          
+
+          
+
+          
+          <li>
+            <a href="https://matrix.to/#/#snapd:ubuntu.com" class="p-navigation__sub-link p-dropdown__link">Matrix</a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://github.com/canonical/snap-docs" class="p-navigation__sub-link p-dropdown__link">GitHub</a>
+          </li>
+          
+
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+</header>
+   
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../"><div class="brand">Snap documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../">
+  
+  <span class="sidebar-brand-text">Snap documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search/" role="search">
+    <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+    <input type="submit" value="Go">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+  <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../tutorials/">Tutorials</a><input aria-label="Toggle navigation of Tutorials" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/get-started/">Get started</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../tutorials/install-the-daemon/">Install the daemon</a><input aria-label="Toggle navigation of Install the daemon" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/almalinux-os/">AlmaLinux OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/arch-linux/">Arch Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/centos/">CentOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/debian/">Debian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/elementary-os/">Elementary OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/fedora/">Fedora</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/galliumos/">GalliumOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/kali/">Kali Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/linux-mint/">Linux Mint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/manjaro-linux/">Manjaro Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/neon/">KDE Neon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/openmandriva/">openMandriva</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/opensuse/">openSUSE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/parrot/">Parrot Security OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/pop-os/">Pop!_OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/raspberrypios/">Raspberry Pi OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/red-hat/">Red Hat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/rocky-linux/">Rocky Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/install-the-daemon/ubuntu/">Ubuntu</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../">How-to guides</a><input aria-label="Toggle navigation of How-to guides" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../">Manage snaps</a><input aria-label="Toggle navigation of Manage snaps" checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../connect-interfaces/">Connect interfaces</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Manage updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure-snaps/">Configure snaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set-system-options/">Configure the system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apps-and-aliases/">Apps and aliases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control-services/">Control services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manage-validation-sets/">Manage validation sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../create-data-snapshots/">Create data snapshots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../use-resource-quotas/">Use resource quotas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../disk-space-awareness/">Disk space awareness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../using-components/">Work with components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configure-snaps-with-confdb/">Configure with confdb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fix-common-issues/">Fix common issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../snap-development/">Snap development</a><input aria-label="Toggle navigation of Snap development" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../snap-development/use-the-rest-api/">Use the REST API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../snap-development/install-with-tpm-fde/">Integrate TPM-FDE into an installer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../snap-development/use-snapctl/">Use snapctl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../snap-development/use-the-secret-portal/">Use the Secret portal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../snap-development/test-snapd-fixes/">Test snapd fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../snap-development/debug-snaps/">Debug snaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../snap-development/snap-try/">Snap try</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../snap-development/using-in-development-features/">In-development features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../reference/">Reference</a><input aria-label="Toggle navigation of Reference" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/glossary/">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/release-notes/">Release notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/system-architecture/">System architecture</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../reference/interfaces/">Interfaces</a><input aria-label="Toggle navigation of Interfaces" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/accel-interface/">accel interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/account-control-interface/">account-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/accounts-service-interface/">accounts-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/acrn-support-interface/">acrn-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/adb-support-interface/">adb-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/allegro-vcu-interface/">allegro-vcu interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/alsa-interface/">alsa interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/appstream-metadata-interface/">appstream-metadata interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/audio-playback-interface/">audio-playback interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/audio-record-interface/">audio-record interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/auditd-support-interface/">auditd-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/autopilot-introspection-interface/">autopilot-introspection interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/avahi-control-interface/">avahi-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/avahi-observe-interface/">avahi-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/block-devices-interface/">block-devices interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/bluetooth-control-interface/">bluetooth-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/bluez-interface/">bluez interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/bool-file-interface/">bool-file interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/broadcom-asic-control-interface/">broadcom-asic-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/browser-support-interface/">browser-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/calendar-service-interface/">calendar-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/camera-interface/">camera interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/can-bus-interface/">can-bus interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/checkbox-support-interface/">checkbox-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/cifs-mount-interface/">cifs-mount interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/classic-support-interface/">classic-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/confdb-interface/">confdb interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/contacts-service-interface/">contacts-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/content-interface/">content interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/core-support-interface/">core-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/cpu-control-interface/">cpu-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/cuda-driver-libs-interface/">cuda-driver-libs interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/cups-control-interface/">cups-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/cups-interface/">cups interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/custom-device-interface/">custom-device interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/daemon-notify-interface/">daemon-notify interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/dbus-interface/">dbus interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/dcdbas-control-interface/">dcdbas-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/desktop-interface/">desktop interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/desktop-launch-interface/">desktop-launch interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/desktop-legacy-interface/">desktop-legacy interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/device-buttons-interface/">device-buttons interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/display-control-interface/">display-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/dm-crypt-interface/">dm-crypt interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/dm-multipath-interface/">dm-multipath interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/docker-interface/">docker interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/docker-support-interface/">docker-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/dsp-interface/">dsp interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/dvb-interface/">dvb interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/egl-driver-libs-interface/">egl-driver-libs interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/empty-interface/">empty interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/firewall-control-interface/">firewall-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/firmware-updater-support-interface/">firmware-updater-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/fpga-interface/">fpga interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/framebuffer-interface/">framebuffer interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/fuse-support-interface/">fuse-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/fwupd-interface/">fwupd interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/gbm-driver-libs-interface/">gbm-driver-libs interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/gconf-interface/">gconf interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/gpg-keys-interface/">gpg-keys interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/gpg-public-keys-interface/">gpg-public-keys interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/gpio-chardev-interface/">gpio-chardev interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/gpio-control-interface/">gpio-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/gpio-interface/">gpio interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/gpio-memory-control-interface/">gpio-memory-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/greengrass-support-interface/">greengrass-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/gsettings-interface/">gsettings interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/hardware-observe-interface/">hardware-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/hardware-random-control-interface/">hardware-random-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/hardware-random-observe-interface/">hardware-random-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/hdmi-cec-interface/">hdmi-cec interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/hidraw-interface/">hidraw interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/home-interface/">home interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/hostname-control-interface/">hostname-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/hugepages-control-interface/">hugepages-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/i2c-interface/">i2c interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/iio-interface/">iio interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/intel-mei-interface/">intel-mei interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/intel-qat-interface/">intel-qat interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/io-ports-control-interface/">io-ports-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ion-memory-control-interface/">ion-memory-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/iscsi-initiator-interface/">iscsi-initiator interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/jack1-interface/">jack1 interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/joystick-interface/">joystick interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/juju-client-observe-interface/">juju-client-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/kerberos-tickets-interface/">kerberos-tickets interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/kernel-crypto-api-interface/">kernel-crypto-api interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/kernel-firmware-control-interface/">kernel-firmware-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/kernel-module-control-interface/">kernel-module-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/kernel-module-load-interface/">kernel-module-load interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/kernel-module-observe-interface/">kernel-module-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/kubernetes-support-interface/">kubernetes-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/kvm-interface/">kvm interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/libvirt-interface/">libvirt interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/locale-control-interface/">locale-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/location-control-interface/">location-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/location-observe-interface/">location-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/log-observe-interface/">log-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/login-session-control-interface/">login-session-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/login-session-observe-interface/">login-session-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/lxd-interface/">lxd interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/lxd-support-interface/">lxd-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/maliit-interface/">maliit interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/media-control-interface/">media-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/media-hub-interface/">media-hub interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/microceph-interface/">microceph interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/microceph-support-interface/">microceph-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/microovn-interface/">microovn interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/microstack-support-interface/">microstack-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/mir-interface/">mir interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/modem-manager-interface/">modem-manager interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/mount-control-interface/">mount-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/mount-observe-interface/">mount-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/mpris-interface/">mpris interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/multipass-support-interface/">multipass-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/netlink-audit-interface/">netlink-audit interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/netlink-connector-interface/">netlink-connector interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/netlink-driver-interface/">netlink-driver interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/network-bind-interface/">network-bind interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/network-control-interface/">network-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/network-interface/">network interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/network-manager-interface/">network-manager interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/network-manager-observe-interface/">network-manager-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/network-observe-interface/">network-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/network-setup-control-interface/">network-setup-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/network-setup-observe-interface/">network-setup-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/network-status-interface/">network-status interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/nfs-mount-interface/">nfs-mount interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/nomad-support-interface/">nomad-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/nvidia-drivers-support-interface/">nvidia-drivers-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/nvme-control-interface/">nvme-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ofono-interface/">ofono interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/online-accounts-service-interface/">online-accounts-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/opengl-driver-libs-interface/">opengl-driver-libs interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/opengl-interface/">opengl interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/opengles-driver-libs-interface/">opengles-driver-libs interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/openvswitch-interface/">openvswitch interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/openvswitch-support-interface/">openvswitch-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/optical-drive-interface/">optical-drive interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/packagekit-control-interface/">packagekit-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/password-manager-service-interface/">password-manager-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/pcscd-interface/">pcscd interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/personal-files-interface/">personal-files interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/physical-memory-control-interface/">physical-memory-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/physical-memory-observe-interface/">physical-memory-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/pipewire-interface/">pipewire interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/pkcs11-interface/">pkcs11 interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/plymouth-replace/">plymouth-replace interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/polkit-agent-interface/">polkit-agent interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/polkit-interface/">polkit interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/posix-mq-interface/">posix-mq interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/power-control-interface/">power-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ppp-interface/">ppp interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/process-control-interface/">process-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ptp-interface/">ptp interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/pulseaudio-interface/">pulseaudio interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/pwm-control-interface/">pwm-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/pwm-interface/">pwm interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/qualcomm-ipc-router-interface/">qualcomm-ipc-router interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/raw-input-interface/">raw-input interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/raw-usb-interface/">raw-usb interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/raw-volume-interface/">raw-volume interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/remoteproc-interface/">remoteproc interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/removable-media-interface/">removable-media interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ros-opt-data-interface/">ros-opt-data interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ros-snapd-support-interface/">ros-snapd-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/screen-inhibit-control-interface/">screen-inhibit-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/screencast-legacy-interface/">screencast-legacy interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/scsi-generic-interface/">scsi-generic interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/sd-control-interface/">sd-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/serial-port-interface/">serial-port interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/shared-memory-interface/">shared-memory interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/shutdown-interface/">shutdown interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/snap-fde-control-interface/">snap-fde-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/snap-interfaces-requests-control-interface/">snap-interfaces-requests-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/snap-refresh-control-interface/">snap-refresh-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/snap-refresh-observe-interface/">snap-refresh-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/snap-themes-control-interface/">snap-themes-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/snapd-control-interface/">snapd-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/spi-interface/">spi interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ssh-keys-interface/">ssh-keys interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ssh-public-keys-interface/">ssh-public-keys interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/steam-support-interface/">steam-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/storage-framework-service-interface/">storage-framework-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/system-backup-interface/">system-backup interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/system-files-interface/">system-files interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/system-observe-interface/">system-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/system-packages-doc-interface/">system-packages-doc interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/system-source-code-interface/">system-source-code interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/system-trace-interface/">system-trace interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/tee-interface/">tee interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/thumbnailer-service-interface/">thumbnailer-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/time-control-interface/">time-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/timeserver-control-interface/">timeserver-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/timezone-control-interface/">timezone-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/tpm-interface/">tpm interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/u2f-devices-interface/">u2f-devices interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ubuntu-download-manager-interface/">ubuntu-download-manager interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/ubuntu-pro-control-interface/">ubuntu-pro-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/udisks2-interface/">udisks2 interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/uhid-interface/">uhid interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/uinput-interface/">uinput interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/uio-interface/">uio interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/unity7-interface/">unity7 interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/unity8-calendar-interface/">unity8-calendar interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/unity8-contacts-interface/">unity8-contacts interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/unity8-interface/">unity8 interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/upower-observe-interface/">upower-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/usb-gadget-interface/">usb-gadget interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/userns-interface/">userns interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/vcio-interface/">vcio interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/wayland-interface/">wayland interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/x11-interface/">x11 interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/interfaces/xilinx-dma-interface/">xilinx-dma interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../reference/administration/">Administration</a><input aria-label="Toggle navigation of Administration" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/administration/system-options/">System options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/administration/data-locations/">Data locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/administration/distribution-support/">Distribution support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/administration/network-requirements/">Network requiremnts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/administration/timer-string-format/">Timer string format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/administration/process-for-aliases-auto-connections-and-tracks/">Request aliases, tracks and connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/administration/public-private-unlisted-snaps/">Public, Private and unlisted snaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/administration/reviewing-classic-confinement-snaps/">Reviewing classic confinement</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../reference/development/">Snap development</a><input aria-label="Toggle navigation of Snap development" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/development/environment-variables/">Environment variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/development/error-responses/">API Error codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/development/supported-snap-hooks/">Supported hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/development/uc20-fde-hooks/">Full-disk-encryption hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/development/experimental-features/">Experimental features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../reference/development/snapd-rest-api/">SnapD REST API</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../reference/development/yaml-schemas/">YAML schemas</a><input aria-label="Toggle navigation of YAML schemas" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../reference/development/yaml-schemas/the-gadget-snap/">The gadget snap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../reference/development/yaml-schemas/the-kernel-snap/">The kernel snap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../reference/development/yaml-schemas/the-snap-format/">The snap format</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/exit-codes/">Exit codes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../explanation/">Explanation</a><input aria-label="Toggle navigation of Explanation" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../explanation/how-snaps-work/">How snaps work</a><input aria-label="Toggle navigation of How snaps work" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/channels-and-tracks/">Channels and tracks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/home-outside-home/">Home locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/snap-deltas/">Snap deltas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/revisions/">Snap revisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/snap-components/">Snap components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/parallel-installs/">Parallel installs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/refresh-awareness/">Refresh awareness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/confdb-configuration-mechanism/">Confdb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/validation-sets/">Validation sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/transactional-updates/">Transactional updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/hotplug-support/">Hotplug support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/developing-hotplug-interfaces/">Hotplug development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/snap-performance/">Snap performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/debuging-startup-performance/">Startup performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/how-snaps-work/system-snap-directory/">System snap</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../explanation/interfaces/">Interfaces</a><input aria-label="Toggle navigation of Interfaces" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/interfaces/all-about-interfaces/">How interfaces work</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/interfaces/interface-hooks/">Interface hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/interfaces/hardware-interfaces/">Hardware interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/interfaces/interface-auto-connection/">Auto-connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/interfaces/super-privileged-interfaces/">Super-privileged interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../explanation/security/">Security</a><input aria-label="Toggle navigation of Security" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/security/security-policies/">Security policies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/security/assertions/">Assertions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/security/snap-confinement/">Snap confinement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/security/classic-confinement/">Classic confinement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/security/api-authentication-and-authorization/">API authentication and authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/security/decommissioning/">Decommissioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/security/snapd-release-process/">Release process</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../explanation/snap-development/">Snap development</a><input aria-label="Toggle navigation of Snap development" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/snap-development/install-modes/">Install modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/snap-development/system-usernames/">System username</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/snap-development/tab-completion/">Tab completion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/snap-development/xdg-desktop-portals/">XDG desktop portals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../explanation/snap-development/building-snap-rpms-on-rhel/">Building snap on RHEL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../contributing/">Contributing</a><input aria-label="Toggle navigation of Contributing" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing/">Contribute to our docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing/local-development/">Local development</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="manage-updates">
+<span id="how-to-guides-work-with-snaps-manage-updates"></span><h1>Manage updates<a class="headerlink" href="#manage-updates" title="Link to this heading">¶</a></h1>
+<p>Snaps update automatically, and by default, the <em>snapd</em> daemon checks for updates 4 times a day. Each update check is called a <strong>refresh</strong>.</p>
+<p>Updates can be set to occur on Friday at midnight, or for specific days of the month, such as only the third Monday, or even the last Friday of the month, between 23:00 to 01:00 the next day. They can even be postponed indefinitely, or for a set period of time.</p>
+<p>When, if, and how often, these updates occur can is the job of the <em>snap refresh</em> command.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Snaps running in <a class="reference internal" href="../../../explanation/security/snap-confinement/#explanation-security-snap-confinement"><span class="std std-ref">_devmode_</span></a>, or installed locally, are typically intended for testing and do not update automatically until they’ve been published and downloaded from the store.</p>
+</div>
+<section id="refresh-update-control">
+<h2>Refresh update control<a class="headerlink" href="#refresh-update-control" title="Link to this heading">¶</a></h2>
+<p>There are two general approaches to postponing or otherwise managing snap updates, with  either the <code class="docutils literal notranslate"><span class="pre">snap</span> <span class="pre">refresh</span> <span class="pre">--hold</span></code> command, or with system settings:</p>
+<ul class="simple">
+<li><p>Pause or stop updates with refresh hold</p></li>
+<li><p>Control updates with system options</p></li>
+</ul>
+</section>
+<section id="pause-or-stop-automatic-updates">
+<h2>Pause or stop automatic updates<a class="headerlink" href="#pause-or-stop-automatic-updates" title="Link to this heading">¶</a></h2>
+<p><strong>Requires: snapd 2.58+</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">snap</span> <span class="pre">refresh</span> <span class="pre">--hold</span></code> command holds, or postpones, snap updates for individual snaps, or for all snaps on the system, either indefinitely or for a specified period of time.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snap</span> <span class="n">refresh</span> <span class="o">--</span><span class="n">hold</span><span class="o">=&lt;</span><span class="n">duration</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">snap1</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">snap2</span><span class="o">&gt;...</span>
+</pre></div>
+</div>
+<p>Time duration units can be seconds (s), minutes (m) or hours (h), or a combination of these.  To postpone updates indefinitely, a value of <code class="docutils literal notranslate"><span class="pre">forever</span></code> is also valid.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ snap refresh --hold=24h firefox
+General refreshes of "firefox" held until 2022-10-26T14:10:53+01:00
+</pre></div>
+</div>
+<p>If no duration is specified, the time duration defaults to <code class="docutils literal notranslate"><span class="pre">forever</span></code>.</p>
+<p>If no snaps are specified, the hold applies to all snaps installed on the system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ snap refresh --hold=24h
+Auto-refresh of all snaps held until 2022-10-26T14:25:58+01:00
+</pre></div>
+</div>
+<p>To see which snaps are being held, look for <code class="docutils literal notranslate"><span class="pre">held</span></code> in the <em>notes</em> column when running <code class="docutils literal notranslate"><span class="pre">snap</span> <span class="pre">list</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ snap list
+Name         Version  Rev   Tracking       Publisher          Notes                         
+alacritty    0.8.0    46    latest/stable  snapcrafters       classic   
+vlc          3.0.18   3078  latest/stable  videolan✓          -                              
+yt-dlp       18       212   latest/edge    morrisong          held      
+</pre></div>
+</div>
+<p>However, there are important differences in how a hold is applied, depending on whether individual snaps are specified or not. These differences are described below.</p>
+<section id="if-snaps-are-specified">
+<h3>If snaps are specified<a class="headerlink" href="#if-snaps-are-specified" title="Link to this heading">¶</a></h3>
+<p>The refresh hold is:</p>
+<ul class="simple">
+<li><p><strong>Effective on auto-refreshes and general snap refresh requests</strong></p></li>
+<li><p><strong>Not effective on targeted snap refreshes</strong></p></li>
+</ul>
+<p>When one or more snaps are specified, the hold is effective only on their auto-refreshes and general refresh requests from <code class="docutils literal notranslate"><span class="pre">snap</span> <span class="pre">refresh</span></code>.</p>
+<p>However, a refresh that targets a held snap specifically will not be blocked and will always be able to proceed.</p>
+<p>This can be useful if a snap upgrade is known to be problematic. That specific snap can be held while the remainder of the system is safely refreshed. After the snap upgrade problem has been solved, and a new revision of the snap published, that snap can then be manually refreshed as a specific target. If the upgrade works as expected, the hold can be safely removed (see <a class="reference internal" href="#ref-manage-updates-remove-a-hold"><span class="std std-ref">Remove a hold</span></a>).</p>
+</section>
+<section id="if-no-snaps-are-specified">
+<h3>If no snaps are specified<a class="headerlink" href="#if-no-snaps-are-specified" title="Link to this heading">¶</a></h3>
+<p>The refresh hold is:</p>
+<ul class="simple">
+<li><p><strong>Effective only on auto-refreshes</strong></p></li>
+<li><p><strong>Not effective on general snap refresh requests and targeted snap refreshes</strong></p></li>
+</ul>
+<p>If no snaps are specified, a hold applies to all snaps installed on the system, however the hold is only effective on auto-refreshes and will not block either general refresh requests from ‘snap refresh’, or specific snap requests from ‘snap refresh target-snap’.</p>
+</section>
+<section id="remove-a-hold">
+<span id="ref-manage-updates-remove-a-hold"></span><h3>Remove a hold<a class="headerlink" href="#remove-a-hold" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">snap</span> <span class="pre">refresh</span> <span class="pre">--unhold</span></code> command removes a refresh hold, either for the specified snaps or for all snaps when no snaps are targeted specifically.</p>
+<p>For a single snap:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ snap refresh --unhold firefox
+Removed general refresh hold of "firefox"
+</pre></div>
+</div>
+<p>For for all snaps:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ snap refresh --unhold
+Removed auto-refresh hold on all snaps
+</pre></div>
+</div>
+</section>
+</section>
+<section id="control-updates-with-system-options">
+<h2>Control updates with system options<a class="headerlink" href="#control-updates-with-system-options" title="Link to this heading">¶</a></h2>
+<p>The refresh rate is freely configurable, and can be set to any duration above a lower bound of once every 20 minutes. There are four <a class="reference internal" href="../set-system-options/#how-to-guides-manage-snaps-set-system-options"><span class="std std-ref">system-wide options</span></a> that manage how updates are handled:</p>
+<ul class="simple">
+<li><p><strong>refresh.timer</strong>: defines the refresh frequency and schedule</p></li>
+<li><p><strong>refresh.hold</strong>: delays the next refresh until the defined time and date</p></li>
+<li><p><strong>refresh.metered</strong>: pauses refresh updates when network connection is metered</p></li>
+<li><p><strong>refresh.retain</strong>: sets how many revisions of a snap are stored on the system</p></li>
+</ul>
+<section id="refresh-timer">
+<h3>refresh.timer<a class="headerlink" href="#refresh-timer" title="Link to this heading">¶</a></h3>
+<p>Use <em>refresh.timer</em> to modify when, and how frequently, your snaps are refreshed.</p>
+<p>The following example asks the system to only refresh snaps between  4.00am and 7.00am, and 7.00pm and 10:10pm:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">snap</span> <span class="nb">set</span> <span class="n">system</span> <span class="n">refresh</span><span class="o">.</span><span class="n">timer</span><span class="o">=</span><span class="mi">4</span><span class="p">:</span><span class="mi">00</span><span class="o">-</span><span class="mi">7</span><span class="p">:</span><span class="mi">00</span><span class="p">,</span><span class="mi">19</span><span class="p">:</span><span class="mi">00</span><span class="o">-</span><span class="mi">22</span><span class="p">:</span><span class="mi">10</span> 
+</pre></div>
+</div>
+<p>Other examples for the time and frequency option include:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Options</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mon,10:00,,fri,15:00</span></code></p></td>
+<td><p>Mondays at 10:00, Fridays at 15:00</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mon,fri,10:00,15:00</span></code></p></td>
+<td><p>Mondays at 10:00 and 15:00, Fridays at 10:00 and 15:00</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mon-wed,fri,9:00-11:00/2</span></code></p></td>
+<td><p>Monday to Wednesday and on Friday, twice between 9:00 and 11:10</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mon,9:00~11:00,,wed,22:00~23:00</span></code></p></td>
+<td><p>Mondays, some time between 9:00 and 11:00, and on Wednesdays, some time between 22:00 and 23:00</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mon,wed</span></code></p></td>
+<td><p>Monday and on Wednesday, at 0:00</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mon2-wed,23:00-24:00</span></code></p></td>
+<td><p>2nd Monday of the month, through the following Wednesday, between 23:00 and 24:00</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">fri5,23:00-01:00</span></code></p></td>
+<td><p>Last Friday of the month, from 23:00 to 1:00 the next day</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>See <a class="reference internal" href="../../../reference/administration/timer-string-format/#interfaces-timer-string-format"><span class="std std-ref">Timer string format</span></a> for a comprehensive breakdown of the syntax used to define times and frequencies.</p>
+<p>You can check the update frequency for your environment with the <code class="docutils literal notranslate"><span class="pre">refresh</span></code> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ snap refresh --time
+timer: 00:00~24:00/4
+last: today at 07:47 BST
+next: today at 12:13 BST
+</pre></div>
+</div>
+<p>By default, the snap system is scheduled to refresh four times per day, as shown in the above output.</p>
+</section>
+<section id="refresh-hold">
+<h3>refresh.hold<a class="headerlink" href="#refresh-hold" title="Link to this heading">¶</a></h3>
+<p>Use <em>refresh.hold</em> to delay snap refreshes until a defined time and date (up to 90 days). The time and date format needs to conform to <a class="reference external" href="https://tools.ietf.org/html/rfc3339">RFC 3339</a>.</p>
+<p>For example, <em>5:22pm (BST), Tuesday 23rd April 2019</em>, would look like the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">23</span><span class="n">T17</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">54</span><span class="o">+</span><span class="mi">01</span><span class="p">:</span><span class="mi">00</span>
+</pre></div>
+</div>
+<p>The correct format can be generated with the <em>date</em> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ date --date="BST 2023-09-23 17:22:54" +%Y-%m-%dT%H:%M:%S%:z
+2023-09-23T17:22:54+01:00
+
+$ sudo snap set system refresh.hold="$(date --date=tomorrow +%Y-%m-%dT%H:%M:%S%:z)"
+$ sudo snap get system refresh.hold
+2019-04-24T17:22:54+01:00
+</pre></div>
+</div>
+<p>After a refresh, the next refresh can be delayed by up to 90 days, after which a refresh will be performed regardless of the <em>refresh.hold</em> value.</p>
+</section>
+<section id="refresh-metered">
+<h3>refresh.metered<a class="headerlink" href="#refresh-metered" title="Link to this heading">¶</a></h3>
+<p>Use <em>refresh.metered</em> to pause and re-enable the refresh process when  <em>NetworkManager</em> detects a metered connection, such as an LTE link with a limited data plan.</p>
+<p>To hold refreshing snaps when on a metered connection:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">snap</span> <span class="nb">set</span> <span class="n">system</span> <span class="n">refresh</span><span class="o">.</span><span class="n">metered</span><span class="o">=</span><span class="n">hold</span>
+</pre></div>
+</div>
+<p>To allow refreshing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">snap</span> <span class="nb">set</span> <span class="n">system</span> <span class="n">refresh</span><span class="o">.</span><span class="n">metered</span><span class="o">=</span><span class="n">null</span>
+</pre></div>
+</div>
+<p>By default, <em>refresh.metered</em> is enabled when a metered connection is detected.</p>
+<p>[quote]
+ⓘ  refresh.metered is available in snap 2.33 and later.
+[/quote]</p>
+<p><a name="retain"></a></p>
+</section>
+<section id="refresh-retain">
+<h3>refresh.retain<a class="headerlink" href="#refresh-retain" title="Link to this heading">¶</a></h3>
+<p>Use <em>refresh.retain</em> to set the maximum number of a snap’s revisions stored by the system <em>after</em> the next refresh:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">snap</span> <span class="nb">set</span> <span class="n">system</span> <span class="n">refresh</span><span class="o">.</span><span class="n">retain</span><span class="o">=</span><span class="mi">3</span>
+</pre></div>
+</div>
+<p>The <em>refresh.retain</em> value can be a number between 2 and 20. The default is <code class="docutils literal notranslate"><span class="pre">refresh.retain=3</span></code> on Ubuntu Core systems and <code class="docutils literal notranslate"><span class="pre">refresh.retain=2</span></code> on <em>classic</em> Ubuntu systems, such as those running an Ubuntu LTS release.</p>
+<p>[quote]
+ⓘ  refresh.retain is available in snap 2.34 and later.
+[/quote]</p>
+</section>
+</section>
+<section id="manual-updates">
+<h2>Manual updates<a class="headerlink" href="#manual-updates" title="Link to this heading">¶</a></h2>
+<p>Regardless of when a refresh is scheduled, a refresh can be initiated with the <code class="docutils literal notranslate"><span class="pre">snap</span> <span class="pre">refresh</span></code> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ snap refresh
+gnome-system-monitor 3.28.2 from 'canonical' refreshed
+gnome-calculator 3.28.2 from 'canonical' refreshed
+</pre></div>
+</div>
+<p>The <em>refresh</em> command can also be used to see when the last refresh occurred and when the next is scheduled:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ snap refresh --time
+timer: 00:00~24:00/4
+last: today at 09:16 GMT
+next: today at 17:39 GMT
+</pre></div>
+</div>
+<p>The first line in the above output shows the value of the <em>timer</em> system option. This defines how and when a refresh should be scheduled.</p>
+<p>To see which snaps are going to be updated with the next <em>refresh</em>, use the additional <code class="docutils literal notranslate"><span class="pre">--list</span></code> argument:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ snap refresh --list
+Name           Version                    Rev   Publisher     Notes
+core           16-2.45.1+git2022.b6b3c25  9584  canonical✓    core
+get-iplayer    3.26                       250   snapcrafters  -
+qt551          5.5                        30    keshavnrj     -
+</pre></div>
+</div>
+</section>
+<section id="locally-installed-snaps">
+<h2>Locally installed snaps<a class="headerlink" href="#locally-installed-snaps" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">snap</span> <span class="pre">refresh</span> <span class="pre">--amend</span></code> command can be used to replace a locally installed snap with an identically named snap on the store.</p>
+</section>
+<section id="monitor-changes">
+<h2>Monitor changes<a class="headerlink" href="#monitor-changes" title="Link to this heading">¶</a></h2>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">snap</span> <span class="pre">changes</span></code> and <code class="docutils literal notranslate"><span class="pre">snap</span> <span class="pre">tasks</span> <span class="pre">&lt;change-id&gt;</span></code> commands to see details about what changed during the last refresh:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ snap changes
+ID    Status  Spawn                   Ready                   Summary
+2052  Done    today at 09:34 BST      today at 09:35 BST      Auto-refresh 7 snaps
+2053  Done    today at 15:16 BST      today at 15:17 BST      Refresh snaps "gnome-calculator", "flock-chat", "gnome-characters", "gnome-system-monitor"
+</pre></div>
+</div>
+<p>Add the <em>change-id</em> to see what actions a specific change performed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ snap tasks 2053
+Status  Spawn               Ready               Summary
+Done    today at 15:16 BST  today at 15:16 BST  Ensure prerequisites for "gnome-calculator" are available
+Done    today at 15:16 BST  today at 15:16 BST  Download snap "gnome-calculator" (199) from channel "stable"
+Done    today at 15:16 BST  today at 15:16 BST  Fetch and check assertions for snap "gnome-calculator" (199)
+⋮
+Done    today at 15:16 BST  today at 15:16 BST  Start snap "gnome-system-monitor" (54) services
+Done    today at 15:16 BST  today at 15:16 BST  Clean up "gnome-system-monitor" (54) install
+Done    today at 15:16 BST  today at 15:16 BST  Run configure hook of "gnome-system-monitor" snap if present
+</pre></div>
+</div>
+<p>Optionally, the <code class="docutils literal notranslate"><span class="pre">--format</span></code> flag may be passed with the <code class="docutils literal notranslate"><span class="pre">json</span></code> argument to return the data as JSON rather than a tabular representation.</p>
+</section>
+<section id="revert-to-an-earlier-revision">
+<h2>Revert to an earlier revision<a class="headerlink" href="#revert-to-an-earlier-revision" title="Link to this heading">¶</a></h2>
+<p>A snap may be reverted to an earlier revision with the <code class="docutils literal notranslate"><span class="pre">snap</span> <span class="pre">revert</span></code> command. By default, it will attempt to revert to the previous revision:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo snap revert vlc
+vlc reverted to 3.0.5-1
+</pre></div>
+</div>
+<p>The optional <code class="docutils literal notranslate"><span class="pre">--revision</span></code> argument can be specified to request a specific revision:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snap</span> <span class="n">revert</span> <span class="n">vlc</span> <span class="o">--</span><span class="n">revision</span> <span class="mi">500</span>
+</pre></div>
+</div>
+<p>This operation will revert both the snap revision and the configuration data associated with the software. If the previously used revision of the snap is from a different channel, that snap will be installed but the channel being tracked won’t change.</p>
+<p>User data, such as data generated by the snap and stored in a database, is often stored in a <em>common</em> directory and will not be reverted. See <a class="reference internal" href="../../../reference/administration/data-locations/#interfaces-data-locations"><span class="std std-ref">Data locations</span></a> for more details on what information is stored and where.</p>
+<p>A snap won’t automatically update to a version previously reverted from, and the output from <code class="docutils literal notranslate"><span class="pre">snap</span> <span class="pre">refresh</span></code> will continue to state <em>All snaps up to date</em>. A reverted snap will be automatically updated when a new and different revision is made available by the publisher.</p>
+<p>However, explicitly adding the snap name to <code class="docutils literal notranslate"><span class="pre">snap</span> <span class="pre">refresh</span></code> <em>will</em> update the snap, regardless of whether the latest revision was previously reverted from or not:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ snap list --all vlc
+Name  Version  Rev  Tracking  Publisher  Notes
+vlc   3.0.5-1  768  stable    videolan✓  -
+vlc   3.0.6    770  stable    videolan✓  disabled
+$ sudo snap refresh
+All snaps up to date.
+$ sudo snap refresh vlc
+vlc 3.0.6 from VideoLAN✓ refreshed
+</pre></div>
+</div>
+<p>A previously used snap that was reverted from will display <em>disabled</em> in the Notes column of the output.</p>
+<blockquote>
+<div><p><strong>Reverting to a previous version of <em>snapd</em></strong> </br>
+The snapd snap manages the snap packaging system, and is therefore a special case if you wish to revert it, or downgrade the currently running version. It must be reverted on its own, and there cannot be any pending changes for other snaps in the pipeline.</p>
+</div></blockquote>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+   <div class="related-pages">
+  
+  
+    
+  
+  
+  
+</div>
+<div class="bottom-of-page">
+  <div class="left-details">
+    <div class="copyright">
+        Copyright &#169; 2026 CC-BY-SA, Canonical Ltd.
+    </div>
+
+    <div class="last-updated">
+      Last updated on Oct 19, 2026</div>
+  </div>
+  <div>
+   
+  </div>
+  <div class="right-details"><a href="" class="js-revoke-cookie-manager muted-link">Manage your tracker settings</a></div>
+</div>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+<div class="toc-sticky toc-scroll">
+   
+    <div class="toc-title-container">
+      <span class="toc-title">
+       Contents
+      </span>
+    </div>
+    <div class="toc-tree-container">
+      <div class="toc-tree">
+        <ul>
+<li><a class="reference internal" href="#">Manage updates</a><ul>
+<li><a class="reference internal" href="#refresh-update-control">Refresh update control</a></li>
+<li><a class="reference internal" href="#pause-or-stop-automatic-updates">Pause or stop automatic updates</a><ul>
+<li><a class="reference internal" href="#if-snaps-are-specified">If snaps are specified</a></li>
+<li><a class="reference internal" href="#if-no-snaps-are-specified">If no snaps are specified</a></li>
+<li><a class="reference internal" href="#remove-a-hold">Remove a hold</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#control-updates-with-system-options">Control updates with system options</a><ul>
+<li><a class="reference internal" href="#refresh-timer">refresh.timer</a></li>
+<li><a class="reference internal" href="#refresh-hold">refresh.hold</a></li>
+<li><a class="reference internal" href="#refresh-metered">refresh.metered</a></li>
+<li><a class="reference internal" href="#refresh-retain">refresh.retain</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#manual-updates">Manual updates</a></li>
+<li><a class="reference internal" href="#locally-installed-snaps">Locally installed snaps</a></li>
+<li><a class="reference internal" href="#monitor-changes">Monitor changes</a></li>
+<li><a class="reference internal" href="#revert-to-an-earlier-revision">Revert to an earlier revision</a></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+    </div>
+   
+    
+  </div>
+
+    </aside>
+  </div>
+</div><script src="../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../_static/documentation_options.js?v=5591fd6d"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=25066c07"></script>
+    <script src="../../../_static/config-options.js"></script>
+    <script src="../../../_static/contributors.js"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../../_static/design-tabs.js?v=fcb327ea"></script>
+    <script src="../../../_static/js/bundle.js?v=b66724b5"></script>
+    <script src="../../../_static/js/rtd-flyout-overwrite.js?v=b3626f96"></script>
+    <script src="../../../_static/js/issue-links.js?v=2076ee84"></script>
+    <script src="../../../_static/header-nav.js?v=e117ad08"></script>
+    
+<script>
+  const github_url = "https://github.com/canonical/snap-docs";
+  const feedback_link = "";
+</script>
+</body>
+</html>

@@ -1,0 +1,1214 @@
+<!doctype html>
+<html class="no-js" lang="zh-TW" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="Snapd release notes. Review new features, bug fixes, and changes across recent stable, beta, and earlier snapd releases." name="description" />
+<meta property="og:title" content="Release notes" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://snapcraft.io/docs/reference/release-notes/" />
+<meta property="og:site_name" content="Snap" />
+<meta property="og:description" content="This page outlines the release notes of all recent versions of Snapd, summarising new features, bug fixes and changes in each version. Recent releases: Latest stable release: Snapd 2.73(27th Novemb..." />
+<meta property="og:image" content="https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg" />
+<meta property="og:image:alt" content="Snap" />
+
+    <meta property="article:modified_time" content="2026-11-23T16:31:23+00:00" /><link rel="index" title="索引" href="../../genindex/"><link rel="search" title="搜尋" href="../../search/"><link rel="next" title="System architecture" href="../system-architecture/"><link rel="prev" title="Glossary" href="../glossary/">
+        <link rel="canonical" href="https://projects.localizethedocs.org/snap-docs-l10nreference/release-notes/">
+
+    <link rel="shortcut icon" href="../../_static/favicon.png"><!-- Generated with Sphinx 7.4.7 and Furo 2025.12.19 -->
+        <title>Release notes - Snap documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/config-options.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/contributors.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/related-links.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/terminal.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/youtube.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=6a604523" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/cookie-banner.css?v=9562e88d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=022106c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/header.css?v=a8078839" />
+    <link rel="stylesheet" type="text/css" href="../../_static/github_issue_links.css?v=3d761185" />
+    <link rel="stylesheet" type="text/css" href="../../_static/furo_colors.css?v=4cd1adcf" />
+    
+
+
+<script type="text/javascript" src="../../ltd-provenance.js"></script>
+<script type="text/javascript" src="../../ltd-current.js"></script>
+<script type="text/javascript" src="../../../../ltd-config.js"></script>
+<script type="text/javascript" src="../../../../ltd-flyout.js"></script>
+</head>
+  <body>
+    <header id="header" class="p-navigation">
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0];
+      var j = d.createElement(s);
+      var dl = '';
+      if (l != 'dataLayer') {
+          dl = '&l=' + l;
+      }
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KNX3CJC');
+  </script>
+
+  <div class="p-navigation__nav" role="menubar">
+
+    <ul class="p-navigation__links" role="menu">
+
+      <li>
+        <a class="p-logo" href="https://snapcraft.io" aria-current="page">
+          <img src="../../_static/tag.png" alt="Logo" class="p-logo-image">
+          <div class="p-logo-text p-heading--4">Canonical Snapcraft
+          </div>
+        </a>
+      </li>
+
+      <li class="nav-ubuntu-com">
+        <a href="https://snapcraft.io" class="p-navigation__link">snapcraft.io</a>
+      </li>
+
+      <li>
+        <a href="#" class="p-navigation__link nav-more-links">More resources</a>
+        <ul class="more-links-dropdown">
+
+          
+          <li>
+            <a href="http://forum.snapcraft.io/" class="p-navigation__sub-link p-dropdown__link">Discourse</a>
+          </li>
+          
+
+          
+
+          
+          <li>
+            <a href="https://matrix.to/#/#snapd:ubuntu.com" class="p-navigation__sub-link p-dropdown__link">Matrix</a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://github.com/canonical/snap-docs" class="p-navigation__sub-link p-dropdown__link">GitHub</a>
+          </li>
+          
+
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+</header>
+   
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../"><div class="brand">Snap documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../">
+  
+  <span class="sidebar-brand-text">Snap documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search/" role="search">
+    <input class="sidebar-search" placeholder="搜尋" name="q" aria-label="搜尋">
+    <input type="submit" value="Go">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+  <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/">教學課程</a><input aria-label="Toggle navigation of 教學課程" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/get-started/">Get started</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../tutorials/install-the-daemon/">Install the daemon</a><input aria-label="Toggle navigation of Install the daemon" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/almalinux-os/">AlmaLinux OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/arch-linux/">Arch Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/centos/">CentOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/debian/">Debian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/elementary-os/">Elementary OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/fedora/">Fedora</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/galliumos/">GalliumOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/kali/">Kali Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/linux-mint/">Linux Mint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/manjaro-linux/">Manjaro Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/neon/">KDE Neon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/openmandriva/">openMandriva</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/opensuse/">openSUSE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/parrot/">Parrot Security OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/pop-os/">Pop!_OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/raspberrypios/">Raspberry Pi OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/red-hat/">Red Hat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/rocky-linux/">Rocky Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/install-the-daemon/ubuntu/">Ubuntu</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../how-to-guides/">操作指南</a><input aria-label="Toggle navigation of 操作指南" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../how-to-guides/manage-snaps/">Manage snaps</a><input aria-label="Toggle navigation of Manage snaps" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/manage-snaps/connect-interfaces/">Connect interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/manage-snaps/manage-updates/">Manage updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/manage-snaps/configure-snaps/">Configure snaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/manage-snaps/set-system-options/">Configure the system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/manage-snaps/apps-and-aliases/">Apps and aliases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/manage-snaps/control-services/">Control services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/manage-snaps/manage-validation-sets/">Manage validation sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/manage-snaps/create-data-snapshots/">Create data snapshots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/manage-snaps/use-resource-quotas/">Use resource quotas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/manage-snaps/disk-space-awareness/">Disk space awareness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/manage-snaps/using-components/">Work with components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/manage-snaps/configure-snaps-with-confdb/">Configure with confdb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/manage-snaps/fix-common-issues/">Fix common issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../how-to-guides/snap-development/">Snap development</a><input aria-label="Toggle navigation of Snap development" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/snap-development/use-the-rest-api/">Use the REST API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/snap-development/install-with-tpm-fde/">Integrate TPM-FDE into an installer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/snap-development/use-snapctl/">Use snapctl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/snap-development/use-the-secret-portal/">Use the Secret portal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/snap-development/test-snapd-fixes/">Test snapd fixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/snap-development/debug-snaps/">Debug snaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/snap-development/snap-try/">Snap try</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how-to-guides/snap-development/using-in-development-features/">In-development features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../">參考資料</a><input aria-label="Toggle navigation of 參考資料" checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../glossary/">Glossary</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Release notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../system-architecture/">System architecture</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../interfaces/">Interfaces</a><input aria-label="Toggle navigation of Interfaces" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/accel-interface/">accel interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/account-control-interface/">account-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/accounts-service-interface/">accounts-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/acrn-support-interface/">acrn-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/adb-support-interface/">adb-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/allegro-vcu-interface/">allegro-vcu interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/alsa-interface/">alsa interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/appstream-metadata-interface/">appstream-metadata interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/audio-playback-interface/">audio-playback interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/audio-record-interface/">audio-record interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/auditd-support-interface/">auditd-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/autopilot-introspection-interface/">autopilot-introspection interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/avahi-control-interface/">avahi-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/avahi-observe-interface/">avahi-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/block-devices-interface/">block-devices interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/bluetooth-control-interface/">bluetooth-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/bluez-interface/">bluez interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/bool-file-interface/">bool-file interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/broadcom-asic-control-interface/">broadcom-asic-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/browser-support-interface/">browser-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/calendar-service-interface/">calendar-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/camera-interface/">camera interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/can-bus-interface/">can-bus interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/checkbox-support-interface/">checkbox-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/cifs-mount-interface/">cifs-mount interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/classic-support-interface/">classic-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/confdb-interface/">confdb interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/contacts-service-interface/">contacts-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/content-interface/">content interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/core-support-interface/">core-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/cpu-control-interface/">cpu-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/cuda-driver-libs-interface/">cuda-driver-libs interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/cups-control-interface/">cups-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/cups-interface/">cups interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/custom-device-interface/">custom-device interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/daemon-notify-interface/">daemon-notify interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/dbus-interface/">dbus interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/dcdbas-control-interface/">dcdbas-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/desktop-interface/">desktop interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/desktop-launch-interface/">desktop-launch interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/desktop-legacy-interface/">desktop-legacy interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/device-buttons-interface/">device-buttons interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/display-control-interface/">display-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/dm-crypt-interface/">dm-crypt interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/dm-multipath-interface/">dm-multipath interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/docker-interface/">docker interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/docker-support-interface/">docker-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/dsp-interface/">dsp interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/dvb-interface/">dvb interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/egl-driver-libs-interface/">egl-driver-libs interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/empty-interface/">empty interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/firewall-control-interface/">firewall-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/firmware-updater-support-interface/">firmware-updater-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/fpga-interface/">fpga interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/framebuffer-interface/">framebuffer interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/fuse-support-interface/">fuse-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/fwupd-interface/">fwupd interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/gbm-driver-libs-interface/">gbm-driver-libs interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/gconf-interface/">gconf interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/gpg-keys-interface/">gpg-keys interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/gpg-public-keys-interface/">gpg-public-keys interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/gpio-chardev-interface/">gpio-chardev interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/gpio-control-interface/">gpio-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/gpio-interface/">gpio interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/gpio-memory-control-interface/">gpio-memory-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/greengrass-support-interface/">greengrass-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/gsettings-interface/">gsettings interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/hardware-observe-interface/">hardware-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/hardware-random-control-interface/">hardware-random-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/hardware-random-observe-interface/">hardware-random-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/hdmi-cec-interface/">hdmi-cec interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/hidraw-interface/">hidraw interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/home-interface/">home interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/hostname-control-interface/">hostname-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/hugepages-control-interface/">hugepages-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/i2c-interface/">i2c interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/iio-interface/">iio interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/intel-mei-interface/">intel-mei interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/intel-qat-interface/">intel-qat interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/io-ports-control-interface/">io-ports-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/ion-memory-control-interface/">ion-memory-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/iscsi-initiator-interface/">iscsi-initiator interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/jack1-interface/">jack1 interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/joystick-interface/">joystick interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/juju-client-observe-interface/">juju-client-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/kerberos-tickets-interface/">kerberos-tickets interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/kernel-crypto-api-interface/">kernel-crypto-api interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/kernel-firmware-control-interface/">kernel-firmware-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/kernel-module-control-interface/">kernel-module-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/kernel-module-load-interface/">kernel-module-load interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/kernel-module-observe-interface/">kernel-module-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/kubernetes-support-interface/">kubernetes-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/kvm-interface/">kvm interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/libvirt-interface/">libvirt interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/locale-control-interface/">locale-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/location-control-interface/">location-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/location-observe-interface/">location-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/log-observe-interface/">log-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/login-session-control-interface/">login-session-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/login-session-observe-interface/">login-session-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/lxd-interface/">lxd interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/lxd-support-interface/">lxd-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/maliit-interface/">maliit interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/media-control-interface/">media-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/media-hub-interface/">media-hub interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/microceph-interface/">microceph interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/microceph-support-interface/">microceph-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/microovn-interface/">microovn interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/microstack-support-interface/">microstack-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/mir-interface/">mir interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/modem-manager-interface/">modem-manager interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/mount-control-interface/">mount-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/mount-observe-interface/">mount-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/mpris-interface/">mpris interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/multipass-support-interface/">multipass-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/netlink-audit-interface/">netlink-audit interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/netlink-connector-interface/">netlink-connector interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/netlink-driver-interface/">netlink-driver interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/network-bind-interface/">network-bind interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/network-control-interface/">network-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/network-interface/">network interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/network-manager-interface/">network-manager interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/network-manager-observe-interface/">network-manager-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/network-observe-interface/">network-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/network-setup-control-interface/">network-setup-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/network-setup-observe-interface/">network-setup-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/network-status-interface/">network-status interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/nfs-mount-interface/">nfs-mount interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/nomad-support-interface/">nomad-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/nvidia-drivers-support-interface/">nvidia-drivers-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/nvme-control-interface/">nvme-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/ofono-interface/">ofono interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/online-accounts-service-interface/">online-accounts-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/opengl-driver-libs-interface/">opengl-driver-libs interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/opengl-interface/">opengl interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/opengles-driver-libs-interface/">opengles-driver-libs interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/openvswitch-interface/">openvswitch interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/openvswitch-support-interface/">openvswitch-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/optical-drive-interface/">optical-drive interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/packagekit-control-interface/">packagekit-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/password-manager-service-interface/">password-manager-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/pcscd-interface/">pcscd interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/personal-files-interface/">personal-files interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/physical-memory-control-interface/">physical-memory-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/physical-memory-observe-interface/">physical-memory-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/pipewire-interface/">pipewire interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/pkcs11-interface/">pkcs11 interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/plymouth-replace/">plymouth-replace interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/polkit-agent-interface/">polkit-agent interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/polkit-interface/">polkit interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/posix-mq-interface/">posix-mq interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/power-control-interface/">power-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/ppp-interface/">ppp interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/process-control-interface/">process-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/ptp-interface/">ptp interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/pulseaudio-interface/">pulseaudio interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/pwm-control-interface/">pwm-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/pwm-interface/">pwm interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/qualcomm-ipc-router-interface/">qualcomm-ipc-router interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/raw-input-interface/">raw-input interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/raw-usb-interface/">raw-usb interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/raw-volume-interface/">raw-volume interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/remoteproc-interface/">remoteproc interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/removable-media-interface/">removable-media interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/ros-opt-data-interface/">ros-opt-data interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/ros-snapd-support-interface/">ros-snapd-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/screen-inhibit-control-interface/">screen-inhibit-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/screencast-legacy-interface/">screencast-legacy interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/scsi-generic-interface/">scsi-generic interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/sd-control-interface/">sd-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/serial-port-interface/">serial-port interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/shared-memory-interface/">shared-memory interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/shutdown-interface/">shutdown interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/snap-fde-control-interface/">snap-fde-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/snap-interfaces-requests-control-interface/">snap-interfaces-requests-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/snap-refresh-control-interface/">snap-refresh-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/snap-refresh-observe-interface/">snap-refresh-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/snap-themes-control-interface/">snap-themes-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/snapd-control-interface/">snapd-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/spi-interface/">spi interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/ssh-keys-interface/">ssh-keys interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/ssh-public-keys-interface/">ssh-public-keys interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/steam-support-interface/">steam-support interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/storage-framework-service-interface/">storage-framework-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/system-backup-interface/">system-backup interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/system-files-interface/">system-files interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/system-observe-interface/">system-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/system-packages-doc-interface/">system-packages-doc interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/system-source-code-interface/">system-source-code interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/system-trace-interface/">system-trace interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/tee-interface/">tee interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/thumbnailer-service-interface/">thumbnailer-service interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/time-control-interface/">time-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/timeserver-control-interface/">timeserver-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/timezone-control-interface/">timezone-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/tpm-interface/">tpm interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/u2f-devices-interface/">u2f-devices interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/ubuntu-download-manager-interface/">ubuntu-download-manager interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/ubuntu-pro-control-interface/">ubuntu-pro-control interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/udisks2-interface/">udisks2 interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/uhid-interface/">uhid interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/uinput-interface/">uinput interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/uio-interface/">uio interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/unity7-interface/">unity7 interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/unity8-calendar-interface/">unity8-calendar interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/unity8-contacts-interface/">unity8-contacts interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/unity8-interface/">unity8 interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/upower-observe-interface/">upower-observe interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/usb-gadget-interface/">usb-gadget interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/userns-interface/">userns interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/vcio-interface/">vcio interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/wayland-interface/">wayland interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/x11-interface/">x11 interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interfaces/xilinx-dma-interface/">xilinx-dma interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../administration/">Administration</a><input aria-label="Toggle navigation of Administration" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../administration/system-options/">System options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../administration/data-locations/">Data locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../administration/distribution-support/">Distribution support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../administration/network-requirements/">Network requiremnts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../administration/timer-string-format/">Timer string format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../administration/process-for-aliases-auto-connections-and-tracks/">Request aliases, tracks and connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../administration/public-private-unlisted-snaps/">Public, Private and unlisted snaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../administration/reviewing-classic-confinement-snaps/">Reviewing classic confinement</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../development/">Snap development</a><input aria-label="Toggle navigation of Snap development" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../development/environment-variables/">Environment variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development/error-responses/">API Error codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development/supported-snap-hooks/">Supported hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development/uc20-fde-hooks/">Full-disk-encryption hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development/experimental-features/">Experimental features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development/snapd-rest-api/">SnapD REST API</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../development/yaml-schemas/">YAML schemas</a><input aria-label="Toggle navigation of YAML schemas" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../development/yaml-schemas/the-gadget-snap/">The gadget snap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../development/yaml-schemas/the-kernel-snap/">The kernel snap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../development/yaml-schemas/the-snap-format/">The snap format</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../exit-codes/">Exit codes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../explanation/">解釋說明</a><input aria-label="Toggle navigation of 解釋說明" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../explanation/how-snaps-work/">How snaps work</a><input aria-label="Toggle navigation of How snaps work" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/how-snaps-work/channels-and-tracks/">Channels and tracks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/how-snaps-work/home-outside-home/">Home locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/how-snaps-work/snap-deltas/">Snap deltas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/how-snaps-work/revisions/">Snap revisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/how-snaps-work/snap-components/">Snap components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/how-snaps-work/parallel-installs/">Parallel installs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/how-snaps-work/refresh-awareness/">Refresh awareness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/how-snaps-work/confdb-configuration-mechanism/">Confdb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/how-snaps-work/validation-sets/">Validation sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/how-snaps-work/transactional-updates/">Transactional updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/how-snaps-work/hotplug-support/">Hotplug support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/how-snaps-work/developing-hotplug-interfaces/">Hotplug development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/how-snaps-work/snap-performance/">Snap performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/how-snaps-work/debuging-startup-performance/">Startup performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/how-snaps-work/system-snap-directory/">System snap</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../explanation/interfaces/">Interfaces</a><input aria-label="Toggle navigation of Interfaces" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/interfaces/all-about-interfaces/">How interfaces work</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/interfaces/interface-hooks/">Interface hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/interfaces/hardware-interfaces/">Hardware interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/interfaces/interface-auto-connection/">Auto-connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/interfaces/super-privileged-interfaces/">Super-privileged interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../explanation/security/">Security</a><input aria-label="Toggle navigation of Security" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/security/security-policies/">Security policies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/security/assertions/">Assertions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/security/snap-confinement/">Snap confinement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/security/classic-confinement/">Classic confinement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/security/api-authentication-and-authorization/">API authentication and authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/security/decommissioning/">Decommissioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/security/snapd-release-process/">Release process</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../explanation/snap-development/">Snap development</a><input aria-label="Toggle navigation of Snap development" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/snap-development/install-modes/">Install modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/snap-development/system-usernames/">System username</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/snap-development/tab-completion/">Tab completion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/snap-development/xdg-desktop-portals/">XDG desktop portals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../explanation/snap-development/building-snap-rpms-on-rhel/">Building snap on RHEL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../contributing/">Contributing</a><input aria-label="Toggle navigation of Contributing" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing/">Contribute to our docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing/local-development/">Local development</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="release-notes">
+<span id="reference-release-notes"></span><h1>Release notes<a class="headerlink" href="#release-notes" title="連結到這個標頭">¶</a></h1>
+<p>This page outlines the release notes of all recent versions of Snapd, summarising new features, bug fixes and changes in each version.</p>
+<section id="recent-releases">
+<h2>Recent releases<a class="headerlink" href="#recent-releases" title="連結到這個標頭">¶</a></h2>
+<section id="latest-stable-release">
+<h3>Latest stable release<a class="headerlink" href="#latest-stable-release" title="連結到這個標頭">¶</a></h3>
+<ul class="simple">
+<li><p><strong><a class="reference internal" href="#ref-release-notes-snapd-2-73-release-notes"><span class="std std-ref">Snapd 2.73</span></a></strong> (27th November 2025)</p></li>
+</ul>
+</section>
+<section id="latest-beta-release">
+<h3>Latest beta release<a class="headerlink" href="#latest-beta-release" title="連結到這個標頭">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="#ref-release-notes-snapd-2-74-release-notes"><span class="std std-ref">Snapd 2.74</span></a> (21st January 2026)</p></li>
+</ul>
+</section>
+<section id="older-releases">
+<h3>Older releases<a class="headerlink" href="#older-releases" title="連結到這個標頭">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="#ref-release-notes-snapd-2-73-release-notes"><span class="std std-ref">Snapd 2.73</span></a> (27th November 2025)</p></li>
+<li><p><a class="reference internal" href="#ref-release-notes-snapd-2-72-release-notes"><span class="std std-ref">Snapd 2.72</span></a> (30th September 2025)</p></li>
+<li><p><a class="reference internal" href="#ref-release-notes-snapd-2-71-release-notes"><span class="std std-ref">Snapd 2.71</span></a> (14th August 2025)</p></li>
+<li><p><a class="reference internal" href="#ref-release-notes-snapd-2-70-release-notes"><span class="std std-ref">Snapd 2.70</span></a> (31th June 2025)</p></li>
+<li><p><a class="reference internal" href="#ref-release-notes-snapd-2-68-release-notes"><span class="std std-ref">Snapd 2.68</span></a> (31st March 2025)</p></li>
+<li><p><a class="reference internal" href="#ref-release-notes-snapd-2-67-release-notes"><span class="std std-ref">Snapd 2.67</span></a> (13th January 2025)</p></li>
+<li><p><a class="reference internal" href="#ref-release-notes-snapd-2-66-release-notes"><span class="std std-ref">Snapd 2.66</span></a> (26th November 2024)</p></li>
+<li><p>Snapd 2.65  (8th October 2024)</p></li>
+<li><p><a class="reference internal" href="#ref-release-notes-snapd-2-64-release-notes"><span class="std std-ref">Snapd 2.64</span></a> (25th July 2024)</p></li>
+<li><p><a class="reference internal" href="#ref-release-notes-snapd-2-63-release-notes"><span class="std std-ref">Snapd 2.63</span></a> (6th June 2024)</p></li>
+<li><p><a class="reference internal" href="#ref-release-notes-snapd-2-62-release-notes"><span class="std std-ref">Snapd 2.62</span></a> (15th April 2024)</p></li>
+<li><p><a class="reference internal" href="#ref-release-notes-snapd-2-61-release-notes"><span class="std std-ref">Snapd 2.61</span></a> (3rd January 2024)</p></li>
+</ul>
+</section>
+</section>
+<section id="release-policy-and-schedule">
+<h2>Release policy and schedule<a class="headerlink" href="#release-policy-and-schedule" title="連結到這個標頭">¶</a></h2>
+<p>The snapd package updates automatically, and by default, checks for updates 4 times a day. To manually update or modify this process, see <a class="reference internal" href="../../how-to-guides/manage-snaps/manage-updates/#how-to-guides-work-with-snaps-manage-updates"><span class="std std-ref">Managing updates</span></a>.</p>
+<p><a class="reference internal" href="../../explanation/how-snaps-work/channels-and-tracks/#explanation-how-snaps-work-channels-and-tracks"><span class="std std-ref">Channels</span></a> are used to distinguish between stable releases, which are always available from the stable channel, and beta and testing releases, which can be installed from the candidate, beta and edge channels.</p>
+<p>To install snapd from the beta channel, for example, use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">snap</span> <span class="n">refresh</span> <span class="n">snapd</span> <span class="o">--</span><span class="n">beta</span>
+</pre></div>
+</div>
+<p>To ensure you receive latest security updates and bug fixes, ensure you upgrade to a new release of Snapd shortly after it is released.</p>
+<p>For the release plan and complete list of changes, please refer to the <a class="reference internal" href="#reference-release-notes"><span class="std std-ref">snapd roadmap</span></a>. Feel free to provide your test feedback on the <a class="reference external" href="https://forum.snapcraft.io/c/snapd/5">forum</a>, or directly in <a class="reference external" href="https://bugs.launchpad.net/snapd/+filebug">Launchpad</a>.</p>
+<p>We greatly appreciate your contributions and support!</p>
+<hr class="docutils" />
+</section>
+<section id="snapd-2-74-release-notes">
+<span id="ref-release-notes-snapd-2-74-release-notes"></span><h2>Snapd 2.74 release notes<a class="headerlink" href="#snapd-2-74-release-notes" title="連結到這個標頭">¶</a></h2>
+<p>We’re pleased to share that Snapd 2.74 snap is available for testing in the beta channel.</p>
+<section id="highlights">
+<h3><strong>Highlights</strong><a class="headerlink" href="#highlights" title="連結到這個標頭">¶</a></h3>
+<ul class="simple">
+<li><p>FDE: use new activation API from secboot</p></li>
+<li><p>FDE: use activation API also with non keydata keys</p></li>
+<li><p>FDE: ignore internal recovery key expiration during install</p></li>
+<li><p>FDE: support adding/removing PINs post-installation</p></li>
+<li><p>FDE: support changing PINs post-installation</p></li>
+<li><p>FDE: support adding a recovery key post-installation</p></li>
+<li><p>FDE: provide activation status via new endpoint v2/system-info/storage-encrypted</p></li>
+<li><p>FDE: support sealing and resealing using the preinstall check result</p></li>
+<li><p>FDE: disable passphrase support during install</p></li>
+<li><p>FDE: add keyboard configuration helpers</p></li>
+<li><p>FDE: lazily inject keyboard layout configuration in kernel cmdline</p></li>
+<li><p>FDE: enable pin tries and limits PIN entry attempts to 3</p></li>
+<li><p>FDE: extend secureboot endpoint to accept DB, KEK, and PK</p></li>
+<li><p>FDE: simplify /v2/system-volumes keyslots handling by allowing name-only entries, implicitly expanding to all system containers</p></li>
+<li><p>FDE: support extra non-system key slot names to support agents such as Landscape to set dedicated recovery keys</p></li>
+<li><p>FDE: initialize fde state after device state</p></li>
+<li><p>FDE: use device node to find the storage container and keys</p></li>
+<li><p>FDE: provide user visible name for disk based on ID_MODEL</p></li>
+<li><p>FDE: update secboot in snapd with latest additions and fixes</p></li>
+<li><p>core-initrd: add systemd service for setting plymouth keyboard layout and X11 keyboard layouts</p></li>
+<li><p>core-initrd: set plymouth cleartext toggle option</p></li>
+<li><p>core-initrd: fix plymouth missing font issue</p></li>
+<li><p>core-initrd: update dependency from libteec1 to libteec2</p></li>
+<li><p>core-initrd: add new dlopened libs</p></li>
+<li><p>LP: #2116949 Preseeding: add support for preseeding of hybrid systems via the installer API$</p></li>
+<li><p>Preseeding: check whether a path is a mount point before remounting</p></li>
+<li><p>Confdb: support tagging paths as secret in storage schemas</p></li>
+<li><p>Confdb: support filtering on placeholder sub-keys</p></li>
+<li><p>Confdb: support filtering in API and confdbstate</p></li>
+<li><p>Confdb: support field filtering on reads</p></li>
+<li><p>Confdb: support 「parameters」 stanza and check filters against them</p></li>
+<li><p>Confdb: add support for 『–with』 constraints</p></li>
+<li><p>Confdb: parsing fixes and error handling improvements</p></li>
+<li><p>Assertions: restrict serials to new format in confdb-control</p></li>
+<li><p>Assertions: add verify signature function</p></li>
+<li><p>Remote device management: modify request-message assertion to expose its time constraints for remote device management</p></li>
+<li><p>Remote device management: support polling of store messages</p></li>
+<li><p>Remote device management: add signing of response messages with device key</p></li>
+<li><p>Prompting: enable notify protocol v5 and test prompt restoration after snapd restart</p></li>
+<li><p>snap: change malformed 『–channel=』 warning to error</p></li>
+<li><p>snap: add 『snap report-issue』 command to get the available contact details for the specified snap</p></li>
+<li><p>snap: add 『snap version –verbose』 flag to include information on snap binaries origin</p></li>
+<li><p>snap: create the XDG_RUNTIME_DIR folder</p></li>
+<li><p>LP: #2068493 snap: add support for 『snap refresh –tracking』</p></li>
+<li><p>snapctl: add 『–tracking』 flag to 『snapctl refresh』</p></li>
+<li><p>Reexec: include the info filepath in the version compare debug log</p></li>
+<li><p>Reexec: add support for forcing reexec into and older snapd snap by setting SNAP_REEXEC=force in the environment</p></li>
+<li><p>snap-confine: correct error message related to snap-confine group policy validation</p></li>
+<li><p>snap-confine: ensure we only mount existing directories</p></li>
+<li><p>LP: #2134364 snap-confine: handle potential race when creating /tmp/snap-private-tmp when lacking systemd-tmpfiles support</p></li>
+<li><p>snap-confine: filter plus characters from security tags</p></li>
+<li><p>Desktop: use desktop file IDs as desktop IDs</p></li>
+<li><p>Desktop: store the common ID in the desktop file</p></li>
+<li><p>Desktop: allow graphical daemons to show icons in the dock</p></li>
+<li><p>Desktop: change user daemons with desktop plug defined to depend on graphical-session.target</p></li>
+<li><p>dm-verity for essential snaps: made change to prerequisite struct</p></li>
+<li><p>Cross-distro: modify SELinux profile to allow connecting to squid proxy</p></li>
+<li><p>Cross-distro: add support for migrating snap mount directory</p></li>
+<li><p>Packaging: drop ubuntu-14.04 packaging</p></li>
+<li><p>Packaging: drop ubuntu-{14.04,16.04} transitional binary packages</p></li>
+<li><p>Packaging: remove desktop files and state lock file during snapd purge</p></li>
+<li><p>Packaging: fix inhibition hint file being left behind on failed unlink-current-snap</p></li>
+<li><p>Disallow timeouts &lt; 1us in systemd units</p></li>
+<li><p>Add snap-store to the user-daemons support overrides</p></li>
+<li><p>Support for <code class="docutils literal notranslate"><span class="pre">SuccessExitStatus=</span></code> generation for systemd daemon</p></li>
+<li><p>Make standby output more verbose</p></li>
+<li><p>Add prepare-serial-request hook</p></li>
+<li><p>Try to discard snap mount namespaces when no processes are running during snap updates</p></li>
+<li><p>Improve handling of snap downloads cache by introducing periodic cleanup with more aggressive policy</p></li>
+<li><p>Interfaces: mediatek-accel | create new interface</p></li>
+<li><p>Interfaces: nvidia-video-driver-libs | create new interface</p></li>
+<li><p>Interfaces: *-driver-libs | accept component paths</p></li>
+<li><p>Interfaces: desktop-legacy, unity7 | remove workaround for slash filtering in ibus address</p></li>
+<li><p>Interfaces: fwupd | allow writing reboot notification in /run</p></li>
+<li><p>Interfaces: add 『install』 coreutils to base AppArmor template</p></li>
+<li><p>Interfaces: u2f-devices | add apparmor permissions to allow the use of the libfido2 library in snaps</p></li>
+<li><p>Interfaces: u2f-devices | add support for Thetis security key</p></li>
+<li><p>Interfaces: add AppArmor workaround for mmap MAP_HUGETLB</p></li>
+<li><p>Interfaces: timeserver-control | manage per-link ntp settings via systemd-networkd</p></li>
+</ul>
+</section>
+</section>
+<section id="snapd-2-73-release-notes">
+<span id="ref-release-notes-snapd-2-73-release-notes"></span><h2>Snapd 2.73 release notes<a class="headerlink" href="#snapd-2-73-release-notes" title="連結到這個標頭">¶</a></h2>
+<ul class="simple">
+<li><p>FDE: do not save incomplete FDE state when resealing was skipped</p></li>
+<li><p>FDE: warn of inconsistent primary or policy counter</p></li>
+<li><p>Confdb: document confdb in snapctl help messages</p></li>
+<li><p>Confdb: only confdb hooks wait if snaps are disabled</p></li>
+<li><p>Confdb: relax confdb change conflict checks</p></li>
+<li><p>Confdb: remove empty parent when removing last leaf</p></li>
+<li><p>Confdb: support parsing field filters</p></li>
+<li><p>Confdb: wrap confdb write values under 「values」 key</p></li>
+<li><p>dm-verity for essential snaps: add new naming convention for verity files</p></li>
+<li><p>dm-verity for essential snaps: add snap integrity discovery</p></li>
+<li><p>dm-verity for essential snaps: fix verity salt calculation</p></li>
+<li><p>Assertions: add hardware identity assertion</p></li>
+<li><p>Assertions: add integrity stanza in snap resources revisions</p></li>
+<li><p>Assertions: add request message assertion required for remote device management</p></li>
+<li><p>Assertions: add response-message assertion for secure remote device management</p></li>
+<li><p>Assertions: expose WithStackedBackstore in RODatabase</p></li>
+<li><p>Packaging: cross-distro | install upstream NEWS file into relevant snapd package doc directory</p></li>
+<li><p>Packaging: cross-distro | tweak how the blocks injecting $SNAP_MOUNT_DIR/bin are generated as required for openSUSE</p></li>
+<li><p>Packaging: remove deprecated snap-gdb-shim and all references now that snap run –gdb is unsupported and replaced by –gdbserver</p></li>
+<li><p>Preseed: call systemd-tmpfiles instead handle-writable-paths on uc26</p></li>
+<li><p>Preseed: do not remove the /snap dir but rather all its contents during reset</p></li>
+<li><p>snap-confine: attach name derived from security tag to BPF maps and programs</p></li>
+<li><p>snap-confine: ensure permitted capabilities match expectation</p></li>
+<li><p>snap-confine: fix cached snap-confine profile cleanup to report the correct error instead of masking backend setup failures</p></li>
+<li><p>snap-confine: Improve validation of user controlled paths</p></li>
+<li><p>snap-confine: tighten snap cgroup checks to ensure a snap cannot start another snap in the same cgroup, preventing incorrect device-filter installation</p></li>
+<li><p>core-initrd: add 26.04 ubuntu-core-initramfs package</p></li>
+<li><p>core-initrd: add missing order dependency for setting default system files</p></li>
+<li><p>core-initrd: avoid scanning loop and mmc boot partitions as the boot disk won’t be any of these</p></li>
+<li><p>core-initrd: make cpio a Depends and remove from Build-Depends</p></li>
+<li><p>core-initrd: start plymouth sooner and reload when gadget is available</p></li>
+<li><p>Cross-distro: modify syscheck to account for differences in openSUSE 16.0+</p></li>
+<li><p>Validation sets: use in-flight validation sets when calling 『snapctl install』 from hook</p></li>
+<li><p>Prompting: enable prompting for the camera interface</p></li>
+<li><p>Prompting: remove polkit authentication when modifying/deleting prompting rules</p></li>
+<li><p>LP: #2127189 Prompting: do not record notices for unchanged rules on snapd startup</p></li>
+<li><p>AppArmor: add free and pidof to the template</p></li>
+<li><p>AppArmor: adjust interfaces/profiles to cope with coreutils paths</p></li>
+<li><p>Interfaces: add support for compatibility expressions</p></li>
+<li><p>Interfaces: checkbox-support | complete overhaul</p></li>
+<li><p>Interfaces: define vulkan-driver-libs, cuda-driver-libs, egl-driver-libs, gbm-driver-libs, opengl-driver-libs, and opengles-driver-libs</p></li>
+<li><p>Interfaces: allow snaps on classic access to nvidia graphics libraries exported by *-driver-libs interfaces</p></li>
+<li><p>Interfaces: fwupd | broaden access to /boot/efi/EFI</p></li>
+<li><p>Interfaces: gsettings | set dconf-service as profile for ca.desrt.dconf.Writer</p></li>
+<li><p>Interfaces: iscsi-initiator, dm-multipath, nvme-control | add new interfaces</p></li>
+<li><p>Interfaces: opengl | grant read/write permission to /run/nvidia-persistenced/socket</p></li>
+<li><p>interfaces: ros-snapd-support | add access to /v2/changes/</p></li>
+<li><p>Interfaces: system-observe | read access to btrfs/ext4/zfs filesystem information</p></li>
+<li><p>Interfaces: system-trace | allow /sys/kernel/tracing/** rw</p></li>
+<li><p>Interfaces: usb-gadget | add support for ffs mounts in attributes</p></li>
+<li><p>Add autocompletion to run command</p></li>
+<li><p>Introduce option for disallowing auto-connection of a specific interface</p></li>
+<li><p>Only log errors for user service operations performed as a part of snap removal</p></li>
+<li><p>Patch snap names in service requests for parallel installed snaps</p></li>
+<li><p>Simplify traits for eMMC special partitions</p></li>
+<li><p>Strip apparmor_parser from debug symbols shrinking snapd size by ~3MB</p></li>
+<li><p>Fix InstallPathMany skipping refresh control</p></li>
+<li><p>Fix waiting for GDB helper to stop before attaching gdbserver</p></li>
+<li><p>Protect the per-snap tmp directory against being reaped by age</p></li>
+<li><p>Prevent disabling base snaps to ensure dependent snaps can be removed</p></li>
+<li><p>Modify API endpoint /v2/logs to reject n &lt;= 0 (except for special case -1 meaning all)</p></li>
+<li><p>Avoid potential deadlock when task is injected after the change was aborted</p></li>
+<li><p>Avoid race between store download stream and cache cleanup executing in parallel when invoked by snap download task</p></li>
+<li><p>LP: #1851490 Use 「current」 instead of revision number for icons</p></li>
+<li><p>LP: #2121853 Add snapctl version command</p></li>
+<li><p>LP: #2127214 Ensure no more than one partition on disk can match a gadget partition</p></li>
+<li><p>LP: #2127244 snap-confine: update AppArmor profile to allow read/write to journal as workaround for snap-confine fd inheritance prevented by newer AppArmor</p></li>
+<li><p>LP: #2127766 Add new tracing mechanism with independently running strace and shim synchronization</p></li>
+</ul>
+</section>
+<section id="snapd-2-72-release-notes">
+<span id="ref-release-notes-snapd-2-72-release-notes"></span><h2>Snapd 2.72 release notes<a class="headerlink" href="#snapd-2-72-release-notes" title="連結到這個標頭">¶</a></h2>
+<section id="id1">
+<h3><strong>Highlights</strong><a class="headerlink" href="#id1" title="連結到這個標頭">¶</a></h3>
+<ul class="simple">
+<li><p>Enable the gpio-chardev interface now with the more robust gpio-aggregator configfs kernel interface (<a class="reference external" href="https://bugs.launchpad.net/snapd/+bug/1916244">LP: #1916244</a>)</p></li>
+<li><p>FDE enhancements and additions: add generic reseal function and correct sealing with kernel command line defaults, support replacing TPM protected keys at runtime, secboot preinstall check fix actions and using OPTEE (Ubuntu Core &amp; arm) for protecting keys, as an alternative to existing fde-setup hooks.</p></li>
+</ul>
+</section>
+<section id="notable-updates">
+<h3><strong>Notable updates</strong><a class="headerlink" href="#notable-updates" title="連結到這個標頭">¶</a></h3>
+<ul class="simple">
+<li><p>snap-confine: fix non-suid limitation by switching to root:root to operate v1 freezer</p></li>
+<li><p>Fix preseeding failure due to scan-disk issue on RPi</p></li>
+<li><p>Snap installation: skip snap icon download when running in a cloud or using a proxy store (<a class="reference external" href="https://bugs.launchpad.net/snapd/+bug/2122054">LP: #2122054</a>)</p></li>
+<li><p>snap-confine: fix error message with /root/snap not accessible (<a class="reference external" href="https://bugs.launchpad.net/snapd/+bug/2117558">LP: #2117558</a>)</p></li>
+<li><p>Interfaces: do not expose Kerberos tickets for classic snaps (<a class="reference external" href="https://bugs.launchpad.net/snapd/+bug/2121238">LP: #2121238</a>)</p></li>
+<li><p>Cleanly support socket activation for classic snap (<a class="reference external" href="https://bugs.launchpad.net/snapd/+bug/2117121">LP: #2117121</a>)</p></li>
+<li><p>Improve progress reporting for snap install/refresh (<a class="reference external" href="https://bugs.launchpad.net/snapd/+bug/2112626">LP: #2112626</a>)</p></li>
+<li><p>Extend output to indicate when snap data snapshot was created during remove (<a class="reference external" href="https://bugs.launchpad.net/snapd/+bug/2114704">LP: #2114704</a>)</p></li>
+</ul>
+<p>For the release plan and complete list of changes, please refer to the <a class="reference external" href="https://forum.snapcraft.io/t/the-snapd-roadmap/1973">full release notes</a>.</p>
+</section>
+<section id="more-about-gpio-chardev">
+<h3><strong>More about GPIO Chardev</strong><a class="headerlink" href="#more-about-gpio-chardev" title="連結到這個標頭">¶</a></h3>
+<p>This release supports the kernel GPIO character device API with specific GPIO lines mediation through the new gpio-chardev interface which offers more fine-grained control over the gpio-control interface that allowed unrestricted access to all GPIO chips when needed.</p>
+<p>For historical context: traditionally Snapd supported mediation of the sysfs interface for GPIO access. This sysfs kernel interface is considered legacy by upstream kernel developers (and will be removed from UC26+ kernels) and it has been replaced by a new character device API, commonly referred to as gpiod.</p>
+<p>The new kernel GPIO APIs are typically consumed through the libgpiod library (C or various bindings) or a set of command line utilities provided by said library.</p>
+<p>For more information on how to use the new interface (and migration from the older gpio interface), please check the official documentation for the <a class="reference internal" href="../interfaces/gpio-chardev-interface/#interfaces-gpio-chardev"><span class="std std-ref">gpio-chardev interface</span></a>.</p>
+</section>
+<section id="more-about-our-fde-journey">
+<h3><strong>More about our FDE journey</strong><a class="headerlink" href="#more-about-our-fde-journey" title="連結到這個標頭">¶</a></h3>
+<p><em><strong>The previous release</strong></em>, 2.71, concluded the Snapd contribution to TPM FDE for the 25.10 <a class="reference external" href="https://releases.ubuntu.com/25.10/ubuntu-25.10-desktop-amd64.iso">install image</a>.</p>
+<p>Progression through the 25.10 cycle up to 2.71:</p>
+<ul class="simple">
+<li><p>2.68.* - introduced a new key format, added support for passphrases during installation, and included various fixes.</p></li>
+<li><p>2:70 - set roles in TPM keys and fixed resealing with the v1 hook key format.</p></li>
+<li><p>2.71 - added recovery key auto-repair, delivered many additional APIs needed to support installation and use of TPM-backed FDE on hybrid Ubuntu 25.10, and included further fixes.</p></li>
+</ul>
+<p>As part of this work, secboot has been improved to more extensively check whether the platform can support secure boot, which is used by one of the new Snapd APIs introduced in 2.71 and used by the installer to determine TPM FDE availability during hybrid Ubuntu installation.</p>
+<p><em><strong>This release</strong></em>, along with releases 2.73 and 2.74 planned for next cycle, will extend and refine the TPM FDE hybrid Ubuntu installation and overall user experience for the Ubuntu 26.04 LTS release.</p>
+<p>A lot of care goes into continually ensuring compatibility with Ubuntu Core, previous versions of Snapd and targeted hardware. Each release must pass extensive testing, including test suites for certified hardware. In addition to our own rigorous testing, we strongly advise all users to also thoroughly test all their hardware variations and inform us of potential issues or concerns as soon as possible.</p>
+<p>For a broader overview on TPM backed FDE for hybrid Ubuntu 25.10, see: <a class="reference external" href="https://discourse.ubuntu.com/t/tpm-fde-progress-for-ubuntu-25-10/65146">TPM/FDE progress for Ubuntu 25.10</a></p>
+</section>
+<section id="test-feedback">
+<h3><strong>Test Feedback</strong><a class="headerlink" href="#test-feedback" title="連結到這個標頭">¶</a></h3>
+<p>Feel free to provide your test feedback here or directly in <a class="reference external" href="https://bugs.launchpad.net/snapd/+filebug">Launchpad</a>. To help fast track investigations please provide (1) details about the system, (2) Snapd version(s) and (3) steps to reproduce the issue.</p>
+</section>
+</section>
+<section id="snapd-2-71-release-notes">
+<span id="ref-release-notes-snapd-2-71-release-notes"></span><h2>Snapd 2.71 release notes<a class="headerlink" href="#snapd-2-71-release-notes" title="連結到這個標頭">¶</a></h2>
+</section>
+<section id="id2">
+<h2><strong>Highlights</strong><a class="headerlink" href="#id2" title="連結到這個標頭">¶</a></h2>
+<ul class="simple">
+<li><p>Support for TPM backed Full Disk Encryption on Ubuntu 25.10</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2><strong>Notable updates</strong><a class="headerlink" href="#id3" title="連結到這個標頭">¶</a></h2>
+<ul class="simple">
+<li><p>Fix offline remodel case where we switched to a channel without an actual refresh</p></li>
+<li><p>Reject system key mismatch advice when not yet seeded (<a class="reference external" href="https://bugs.launchpad.net/ubuntu-desktop-provision/+bug/2114923">LP: #2114923</a>)</p></li>
+<li><p>Make removal of last active revision of a snap equal to snap remove (<a class="reference external" href="https://bugs.launchpad.net/bugs/2112551">LP: #2112551</a>)</p></li>
+<li><p>Allow non-gpt in fallback mode to support RPi (<a class="reference external" href="https://bugs.launchpad.net/ubuntu/+source/linux-raspi/+bug/2114779">LP: #2114779</a>)</p></li>
+<li><p>Fix `snap debug connectivity` check for RISC-V (<a class="reference external" href="https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/2112544">LP: #2112544</a>)</p></li>
+<li><p>Exclude snap/snapd/preseeding when generating preseed tarball (<a class="reference external" href="https://bugs.launchpad.net/snapd/+bug/2112332">LP: #2112332</a>)</p></li>
+<li><p>Fix snap command progress reporting (<a class="reference external" href="https://bugs.launchpad.net/bugs/1952500">LP: #1952500</a>)</p></li>
+<li><p>Interfaces: kerberos-tickets | add new interface (<a class="reference external" href="https://bugs.launchpad.net/ubuntu/+source/chromium-browser/+bug/1849346">LP: #1849346</a>)</p></li>
+<li><p>Interfaces: log-observe | add capability dac_read_search (<a class="reference external" href="https://bugs.launchpad.net/bugs/2098780">LP: #2098780</a>)</p></li>
+<li><p>Interfaces: block-devices | opt-in access to individual partitions (<a class="reference external" href="https://bugs.launchpad.net/snapd/+bug/2033883">LP: #2033883</a>)</p></li>
+</ul>
+</section>
+<section id="more-about-tpm-backed-fde-on-ubuntu-core-and-ubuntu-25-10">
+<h2><strong>More about TPM backed FDE on Ubuntu Core and Ubuntu 25.10</strong><a class="headerlink" href="#more-about-tpm-backed-fde-on-ubuntu-core-and-ubuntu-25-10" title="連結到這個標頭">¶</a></h2>
+<p>To support hybrid Ubuntu 25.10+ systems, we’ve introduced a new key format. On Ubuntu Core this change is transparent to users, but it enables us to transition from file-based key storage to storing keys in the LUKS2 header (with header redundancy) on core26.</p>
+<p>On previous versions of Ubuntu Core, once a reboot required a recovery key, the device would continue prompting for that key on every subsequent boot. This could be particularly problematic for unattended or remote devices. This behavior was improved so that after a firmware update, entering the recovery key triggers an automatic repair and restores normal unattended boot operation without further prompts.</p>
+<p>The <a class="reference external" href="https://snapcraft.io/fwupd">fwupd</a> tool is available both as a deb and as a snap providing a unified way to install and manage system firmware updates. Support has been added for updating the UEFI DBX (UEFI Secure Boot forbidden signatures database) without requiring a recovery key on reboot. This ensures that both hybrid Ubuntu 25.10+ and Ubuntu Core devices with Full Disk Encryption seamlessly apply DBX updates.</p>
+<p>For an overview on TPM backed FDE for hybrid Ubuntu 25.10, see: <a class="reference external" href="https://discourse.ubuntu.com/t/tpm-fde-progress-for-ubuntu-25-10/65146">TPM/FDE progress for Ubuntu 25.10</a></p>
+</section>
+<section id="snapd-2-70-release-notes">
+<span id="ref-release-notes-snapd-2-70-release-notes"></span><h2>Snapd 2.70 release notes<a class="headerlink" href="#snapd-2-70-release-notes" title="連結到這個標頭">¶</a></h2>
+<section id="id4">
+<h3>Highlights<a class="headerlink" href="#id4" title="連結到這個標頭">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">snap-confine</span></code> no longer requires to be <code class="docutils literal notranslate"><span class="pre">setuid</span></code> root, now uses file capabilities and executes in the security context of the user who invokes it.</p></li>
+<li><p>snapd.apparmor is now enabled on Fedora, so that a Fedora container running on an apparmor-capable kernel works correctly.</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>Notable updates<a class="headerlink" href="#id5" title="連結到這個標頭">¶</a></h3>
+<ul class="simple">
+<li><p>Reset SHELL to /bin/bash in non-classic snaps (<a class="reference external" href="https://bugs.launchpad.net/snapd/+bug/2107443">LP: #2107443</a>)</p></li>
+<li><p>Only cancel notices requests on stop/shutdown (<a class="reference external" href="https://bugs.launchpad.net/snapstore-server/+bug/2104066">LP: #2104066</a>)</p></li>
+<li><p>Fix GLX on nvidia when xorg is confined by AppArmor (<a class="reference external" href="https://bugs.launchpad.net/canonical-kernel-snaps/+bug/2102456">LP: #2088456</a>)</p></li>
+<li><p>Fix snap-bootstrap busy loop (<a class="reference external" href="https://bugs.launchpad.net/snapd/+bug/2106121">LP: #2106121</a>)</p></li>
+<li><p>Update secboot and modify snap-bootstrap to remove usage of go templates to reduce size by 4MB (<a class="reference external" href="https://bugs.launchpad.net/canonical-kernel-snaps/+bug/2102456">LP: #2102456</a>)</p></li>
+</ul>
+</section>
+<section id="more-about-no-setuid-snap-confine">
+<h3>More about no-setuid snap confine<a class="headerlink" href="#more-about-no-setuid-snap-confine" title="連結到這個標頭">¶</a></h3>
+<p>In an effort to increase the security and have better control over the execution of privileged binaries, the snap application bootstrapping helper, snap-confine, no longer requires to be setuid root. Instead it relies on file capabilities and executes in the security context of the user who invoked it. The required capabilities are effectively a subset of all the capabilities which were previously obtained immediately when executing the privileged binary. The effective capabilities are dynamically switched at runtime, such that the helper executes with the least set of effective privileges at any given time.</p>
+<p>For the release plan and complete list of changes, please refer to the <a class="reference external" href="https://forum.snapcraft.io/t/the-snapd-roadmap/1973">full release notes</a>. Please note that 2.70 includes all the changes in the superseded 2.69 and 2.69.1 releases.</p>
+</section>
+</section>
+<section id="snapd-2-68-release-notes">
+<span id="ref-release-notes-snapd-2-68-release-notes"></span><h2>Snapd 2.68 release notes<a class="headerlink" href="#snapd-2-68-release-notes" title="連結到這個標頭">¶</a></h2>
+<p>The official release for this version was Snapd 2.68.4.</p>
+<section id="id6">
+<h3>Highlights<a class="headerlink" href="#id6" title="連結到這個標頭">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ubuntu.com/core/docs/full-disk-encryption">FDE</a>: Add support for a new and more extensible key format and passphrases for encrypted partitions can now be specified during installation</p></li>
+<li><p><a class="reference internal" href="../../how-to-guides/manage-snaps/using-components/#how-to-guides-manage-snaps-using-components"><span class="std std-ref">Components</span></a>: Support online/offline <a class="reference external" href="https://ubuntu.com/core/docs/remodelling">remodeling</a> and the creation of new recovery systems for models that contain components, on Ubuntu Core as well as Hybrid systems. Components are useful for distributing optional resources for a snap, such as debug symbols alongside snap binaries, and kernel modules alongside a kernel snap.</p></li>
+<li><p><a class="reference external" href="https://documentation.ubuntu.com/snapcraft/stable/reference/components/">Kernel Components</a>: Make kernel components and modules available in early boot</p></li>
+<li><p>Interfaces: Added <a class="reference internal" href="../interfaces/auditd-support-interface/#interfaces-auditd-support"><span class="std std-ref">auditd-support interface</span></a> that allows a snap to ship auditd as part of a snap and <code class="docutils literal notranslate"><span class="pre">checkbox-support</span></code> interface that allows unrestricted access to devices when testing with checkbox</p></li>
+</ul>
+</section>
+<section id="id7">
+<h3>Notable updates<a class="headerlink" href="#id7" title="連結到這個標頭">¶</a></h3>
+<ul class="simple">
+<li><p>Fix issue preventing hybrid systems from being seeded on first boot</p></li>
+<li><p>Modify AppArmor template to allow using setpriv to run (<a class="reference external" href="https://bugs.launchpad.net/snapd/+bug/2072987">LP: #20729871</a>)</p></li>
+<li><p>Disable udev backend when inside a container (<a class="reference external" href="https://bugs.launchpad.net/snapd/+bug/1712808">LP: #1712808</a></p></li>
+<li><p>Remove auto-import udev rules not required by deb package to avoid unwanted syslog errors (<a class="reference external" href="https://bugs.launchpad.net/snapd/+bug/1966203">LP: #1966203</a>)</p></li>
+<li><p>Fix progress reporting when stdout is on a tty, but stdin is not (<a class="reference external" href="https://bugs.launchpad.net/ubuntu/+source/chromium-browser/+bug/1886414">LP: #1886414</a>)</p></li>
+</ul>
+</section>
+<section id="experimental-features">
+<h3>Experimental Features<a class="headerlink" href="#experimental-features" title="連結到這個標頭">¶</a></h3>
+<ul class="simple">
+<li><p>Removed stale <code class="docutils literal notranslate"><span class="pre">robust-mount-namespace-updates</span></code> experimental flag</p></li>
+<li><p>Removed rejected <code class="docutils literal notranslate"><span class="pre">snapd-snap</span></code> experimental feature and its feature flag</p></li>
+</ul>
+</section>
+<section id="impact-on-ubuntu-core-using-full-disk-encryption">
+<h3>Impact on Ubuntu Core using Full Disk Encryption<a class="headerlink" href="#impact-on-ubuntu-core-using-full-disk-encryption" title="連結到這個標頭">¶</a></h3>
+<p>If you are planning to test or use this snapd release and you are using full disk encryption (with both hooks and TPM), some updates to your kernel snap are needed:</p>
+<ul class="simple">
+<li><p>If you maintain your own kernel snap, you will need to include the new snap-bootstrap.</p></li>
+<li><p>If you are using a kernel snap maintained by Canonical, all our kernel snaps will be updated to the new version of snap-bootstrap in due course.</p></li>
+</ul>
+<p>Until all kernel snaps are updated, snapd from latest/edge cannot be used for installation or remodeling if you are using FDE. If you have not updated the kernel snap, do not report bugs you encountered when:</p>
+<ul class="simple">
+<li><p>Remodeling with a snapd from latest/edge, then doing factory reset.</p></li>
+<li><p>Installing fresh images with snapd from latest/edge</p></li>
+</ul>
+</section>
+</section>
+<section id="snapd-2-67-release-notes">
+<span id="ref-release-notes-snapd-2-67-release-notes"></span><h2>Snapd 2.67 release notes<a class="headerlink" href="#snapd-2-67-release-notes" title="連結到這個標頭">¶</a></h2>
+<p><em>Released 13th January 2025</em></p>
+<section id="id8">
+<h3>Highlights:<a class="headerlink" href="#id8" title="連結到這個標頭">¶</a></h3>
+<ul>
+<li><p><strong>Registry views</strong></p>
+<p>This feature has evolved beyond cross-snap configuration, now enabling custodian snaps to validate changes and store registry data outside of snapd.</p>
+</li>
+<li><p><strong>Components</strong></p>
+<p>Standard components are now broadly usable, after the addition of the <code class="docutils literal notranslate"><span class="pre">snap</span> <span class="pre">components</span></code> command, support for joint install of snaps and components from local files, and tab completion.</p>
+<p>Building on standard components, kernel components have been enhanced with support for the <code class="docutils literal notranslate"><span class="pre">snapctl</span> <span class="pre">model</span></code> command for kernel snaps as well as other improvements to enable kernel drivers for proprietary hardware on Ubuntu Core.</p>
+</li>
+</ul>
+</section>
+<section id="notable-bug-fixes">
+<h3>Notable bug fixes:<a class="headerlink" href="#notable-bug-fixes" title="連結到這個標頭">¶</a></h3>
+<ul class="simple">
+<li><p>AppArmor Prompting: Fixed an issue with overlapping rules (<a class="reference external" href="https://github.com/canonical/desktop-security-center/issues/74">bug report</a>)</p></li>
+<li><p>Resolved a deadlock edge case related to app awareness during refresh operations (<a class="reference external" href="https://bugs.launchpad.net/snapd/+bug/2084730">LP2084730</a>)</p></li>
+<li><p>Addressed issues with reloading service activation units to prevent systemd errors (<a class="reference external" href="https://bugs.launchpad.net/snapd/+bug/2083961">LP2083961</a>)</p></li>
+<li><p>Fixed the generation of AppArmor profiles with incorrect revisions during concurrent refreshes of snaps using the content interface</p></li>
+<li><p>Fix AppArmor permissions to allow snaps access to kernel modules and firmware on UC24, which also fixes the kernel-modules-control interface on UC24</p></li>
+<li><p>Fix ‘snap run’ getent based user lookup in case of bad PATH (LP2090938 2)</p></li>
+<li><p>Fix snapd using the incorrect AppArmor version during undo of an refresh</p></li>
+<li><p>Extended hardware-observe interface to allow support riscv_hwprobe syscall and mount-observe interface to allow listmount and statmount syscalls</p></li>
+</ul>
+<p>For the release plan and the complete list of changes, please refer to the <a class="reference external" href="https://forum.snapcraft.io/t/the-snapd-roadmap/1973">Snapd roadmap</a>.</p>
+</section>
+</section>
+<section id="snapd-2-66-release-notes">
+<span id="ref-release-notes-snapd-2-66-release-notes"></span><h2>Snapd 2.66 release notes<a class="headerlink" href="#snapd-2-66-release-notes" title="連結到這個標頭">¶</a></h2>
+<p><em>Released 26th November 2024</em></p>
+<p>This release added the ability for Snapcraft 8.x to build snapd using with core22 base, and support for building a snapd variant that’s <a class="reference external" href="https://en.wikipedia.org/wiki/FIPS_140-3">FIPS</a> compliant.</p>
+<p>Other highlights include:</p>
+<ul>
+<li><p><strong>AppArmor prompting</strong></p>
+<p>In collaboration with the security and desktop teams at Canonical, this release of snapd includes the functionality required for snaps to request interface access from the user.</p>
+<p>For more information on this feature, including design details and how it can be tested in Ubuntu 24.10, see <a class="reference external" href="https://discourse.ubuntu.com/t/ubuntu-desktop-s-24-10-dev-cycle-part-5-introducing-permissions-prompting/47963">Introducing Permissions Prompting</a>.</p>
+</li>
+<li><p><strong>Experimental confdb support</strong></p>
+<p>This release includes many updates to support <em>confdb</em>, formerly known as Registry, which will significantly improve how we handle configuration data and share that data between snaps and devices.</p>
+</li>
+</ul>
+</section>
+<section id="snapd-2-64-release-notes">
+<span id="ref-release-notes-snapd-2-64-release-notes"></span><h2>Snapd 2.64 release notes<a class="headerlink" href="#snapd-2-64-release-notes" title="連結到這個標頭">¶</a></h2>
+<p><em>Released 26th November 2024</em></p>
+<p>For the 2.64 release, we updated the build process to use Ubuntu 22.04 instead of Ubuntu 16.04. This change only affected the snapd.snap, and had impact on builds for Debian, Fedora, Arch, openSUSE, or any other classic package</p>
+<p>Users should see no changes or compatibility issues, and if you are a snapd developer, this change makes building snapd easier. The latest Snapcraft releases can now be used to build a local version of the snapd package. In the long term, this will also improve our iteration speed as we’ll require fewer snapd builds, providing developers with faster feedback on their changes.</p>
+<p>As part of this release cycle, our <code class="docutils literal notranslate"><span class="pre">ubuntu-image</span></code> and validation-sets documentation also improved.</p>
+</section>
+<section id="snapd-2-63-release-notes">
+<span id="ref-release-notes-snapd-2-63-release-notes"></span><h2>Snapd 2.63 release notes<a class="headerlink" href="#snapd-2-63-release-notes" title="連結到這個標頭">¶</a></h2>
+<p><em>Released 6th June 2024</em></p>
+<p>Snap-based <a class="reference external" href="https://ubuntu.com/core">Ubuntu Core</a> devices will benefit from many of our the features for this release, including support for <a class="reference external" href="https://documentation.ubuntu.com/core/explanation/remodeling/#offline-remodeling">Offline remodelling</a>, the use of <a class="reference internal" href="../../explanation/how-snaps-work/validation-sets/#explanation-how-snaps-work-validation-sets"><span class="std std-ref">Validation sets</span></a> in the <a class="reference external" href="https://ubuntu.com/core/docs/reference/assertions/model">model assertion</a> and setting a custom port for SSH.</p>
+<p>There’s also a new <code class="docutils literal notranslate"><span class="pre">snap</span> <span class="pre">sign</span></code> <a class="reference external" href="https://documentation.ubuntu.com/core/how-to-guides/manage-ubuntu-core/add-a-system-user/#generating-auto-import-assert"><code class="docutils literal notranslate"><span class="pre">--chain</span></code></a> argument in this release, that can be used to aggregate all the assertions required to create a new system user.</p>
+</section>
+<section id="snapd-2-62-release-notes">
+<span id="ref-release-notes-snapd-2-62-release-notes"></span><h2>Snapd 2.62 release notes<a class="headerlink" href="#snapd-2-62-release-notes" title="連結到這個標頭">¶</a></h2>
+<p><em>Released 15th April 2024</em></p>
+<p>The functionality to add custom device interfaces to an app is now complete, as is our create and removal functionality for Ubuntu Core recovery systems. We’ve also finally made a commitment on what minimum <a class="reference external" href="https://ubuntu.com/core/docs/system-requirements">system requirements</a> might actually be for Ubuntu Core, even if you can’t actually buy a device with less than several gigabytes of on-board RAM.</p>
+<p>This release also included two significant additions to our documentation. Firstly, the Docker interface now includes a fully realised example implementation, and secondly, we’ve completed a new page on recovery system via the REST API, thanks to Andrew.</p>
+<p>Finally, this release included new packages for Arch Linux, Amazon Linux, Debian, Fedora, openSUSE and Solus.</p>
+</section>
+<section id="snapd-2-61-release-notes">
+<span id="ref-release-notes-snapd-2-61-release-notes"></span><h2>Snapd 2.61 release notes<a class="headerlink" href="#snapd-2-61-release-notes" title="連結到這個標頭">¶</a></h2>
+<p><em>Released 3rd January 2024</em></p>
+<p>This release included a lot of background work that will later be used by <code class="docutils literal notranslate"><span class="pre">confdb</span></code> (see Snapd 2.66), to help with  cross-snap configuration. This includes new rules for parsing assertions and a per-aspect field, plus a vital new ability to unset values from the command line.</p>
+<p>We also got closer to finishing our opt-in AppArmor prompting support , with some important background improvements, and created a specification for the desktop user-experience flow. Our cross-distribution support also improved with this release, with a new repository and packages for Amazon Linux , and snapd 2.61.1 releases for Debian Sid and Fedora 38, 39, Rawhide and EPEL 7, 8 and 9.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+   <div class="related-pages">
+  
+  
+    
+  
+  
+  
+</div>
+<div class="bottom-of-page">
+  <div class="left-details">
+    <div class="copyright">
+        Copyright &#169; 2026 CC-BY-SA, Canonical Ltd.
+    </div>
+
+    <div class="last-updated">
+      Last updated on 2026 年 11 月 23 日</div>
+  </div>
+  <div>
+   
+  </div>
+  <div class="right-details"><a href="" class="js-revoke-cookie-manager muted-link">Manage your tracker settings</a></div>
+</div>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+<div class="toc-sticky toc-scroll">
+   
+    <div class="toc-title-container">
+      <span class="toc-title">
+       內容
+      </span>
+    </div>
+    <div class="toc-tree-container">
+      <div class="toc-tree">
+        <ul>
+<li><a class="reference internal" href="#">Release notes</a><ul>
+<li><a class="reference internal" href="#recent-releases">Recent releases</a><ul>
+<li><a class="reference internal" href="#latest-stable-release">Latest stable release</a></li>
+<li><a class="reference internal" href="#latest-beta-release">Latest beta release</a></li>
+<li><a class="reference internal" href="#older-releases">Older releases</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#release-policy-and-schedule">Release policy and schedule</a></li>
+<li><a class="reference internal" href="#snapd-2-74-release-notes">Snapd 2.74 release notes</a><ul>
+<li><a class="reference internal" href="#highlights"><strong>Highlights</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#snapd-2-73-release-notes">Snapd 2.73 release notes</a></li>
+<li><a class="reference internal" href="#snapd-2-72-release-notes">Snapd 2.72 release notes</a><ul>
+<li><a class="reference internal" href="#id1"><strong>Highlights</strong></a></li>
+<li><a class="reference internal" href="#notable-updates"><strong>Notable updates</strong></a></li>
+<li><a class="reference internal" href="#more-about-gpio-chardev"><strong>More about GPIO Chardev</strong></a></li>
+<li><a class="reference internal" href="#more-about-our-fde-journey"><strong>More about our FDE journey</strong></a></li>
+<li><a class="reference internal" href="#test-feedback"><strong>Test Feedback</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#snapd-2-71-release-notes">Snapd 2.71 release notes</a></li>
+<li><a class="reference internal" href="#id2"><strong>Highlights</strong></a></li>
+<li><a class="reference internal" href="#id3"><strong>Notable updates</strong></a></li>
+<li><a class="reference internal" href="#more-about-tpm-backed-fde-on-ubuntu-core-and-ubuntu-25-10"><strong>More about TPM backed FDE on Ubuntu Core and Ubuntu 25.10</strong></a></li>
+<li><a class="reference internal" href="#snapd-2-70-release-notes">Snapd 2.70 release notes</a><ul>
+<li><a class="reference internal" href="#id4">Highlights</a></li>
+<li><a class="reference internal" href="#id5">Notable updates</a></li>
+<li><a class="reference internal" href="#more-about-no-setuid-snap-confine">More about no-setuid snap confine</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#snapd-2-68-release-notes">Snapd 2.68 release notes</a><ul>
+<li><a class="reference internal" href="#id6">Highlights</a></li>
+<li><a class="reference internal" href="#id7">Notable updates</a></li>
+<li><a class="reference internal" href="#experimental-features">Experimental Features</a></li>
+<li><a class="reference internal" href="#impact-on-ubuntu-core-using-full-disk-encryption">Impact on Ubuntu Core using Full Disk Encryption</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#snapd-2-67-release-notes">Snapd 2.67 release notes</a><ul>
+<li><a class="reference internal" href="#id8">Highlights:</a></li>
+<li><a class="reference internal" href="#notable-bug-fixes">Notable bug fixes:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#snapd-2-66-release-notes">Snapd 2.66 release notes</a></li>
+<li><a class="reference internal" href="#snapd-2-64-release-notes">Snapd 2.64 release notes</a></li>
+<li><a class="reference internal" href="#snapd-2-63-release-notes">Snapd 2.63 release notes</a></li>
+<li><a class="reference internal" href="#snapd-2-62-release-notes">Snapd 2.62 release notes</a></li>
+<li><a class="reference internal" href="#snapd-2-61-release-notes">Snapd 2.61 release notes</a></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+    </div>
+   
+    
+  </div>
+
+    </aside>
+  </div>
+</div><script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=c30554f8"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=25066c07"></script>
+    <script src="../../_static/config-options.js"></script>
+    <script src="../../_static/contributors.js"></script>
+    <script src="../../_static/translations.js?v=f1e884e3"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../_static/design-tabs.js?v=fcb327ea"></script>
+    <script src="../../_static/js/bundle.js?v=b66724b5"></script>
+    <script src="../../_static/js/rtd-flyout-overwrite.js?v=b3626f96"></script>
+    <script src="../../_static/js/issue-links.js?v=2076ee84"></script>
+    <script src="../../_static/header-nav.js?v=e117ad08"></script>
+    
+<script>
+  const github_url = "https://github.com/canonical/snap-docs";
+  const feedback_link = "";
+</script>
+</body>
+</html>
