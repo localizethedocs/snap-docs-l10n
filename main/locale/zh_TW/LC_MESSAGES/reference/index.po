@@ -54,7 +54,7 @@ msgstr ""
 
 #: ../../../reference/index.md:8
 msgid "Reference"
-msgstr ""
+msgstr "參考資料"
 
 #: ../../../reference/index.md:10
 msgid ""

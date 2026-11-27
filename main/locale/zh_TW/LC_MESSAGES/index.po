@@ -19,19 +19,19 @@ msgstr ""
 
 #: ../../../index.md:90
 msgid "Tutorials"
-msgstr ""
+msgstr "教學課程"
 
 #: ../../../index.md:90
 msgid "How-to guides"
-msgstr ""
+msgstr "操作指南"
 
 #: ../../../index.md:90
 msgid "Reference"
-msgstr ""
+msgstr "參考資料"
 
 #: ../../../index.md:90
 msgid "Explanation"
-msgstr ""
+msgstr "解釋說明"
 
 #: ../../../index.md:102
 msgid "Contributing"
@@ -45,11 +45,11 @@ msgstr ""
 
 #: ../../../index.md:0
 msgid "BMa0gPz8blugX1MVoyh9Xn4OFqDZzrmFrcU0dyKGJjE"
-msgstr ""
+msgstr "BMa0gPz8blugX1MVoyh9Xn4OFqDZzrmFrcU0dyKGJjE"
 
 #: ../../../index.md:10
 msgid "Snap documentation"
-msgstr ""
+msgstr "Snap 文件"
 
 #: ../../../index.md:12
 msgid ""
@@ -57,6 +57,8 @@ msgid ""
 "Linux distributions on many different platforms, from embedded devices and "
 "desktops, to servers and the cloud."
 msgstr ""
+"**Snap** 是獨立的應用程式軟體包，可以跨不同的 Linux 散佈版運作，並支援從嵌入"
+"式裝置、桌上型電腦到伺服器與雲端等多種平台。"
 
 #: ../../../index.md:14
 msgid ""
@@ -64,6 +66,8 @@ msgid ""
 "allowing developers to focus on their applications while users get a "
 "consistent experience across platforms."
 msgstr ""
+"Snap 守護行程（\\ *snapd*\\ ）負責處理安裝、隔離與更新，讓開發者能專注於應用"
+"程式開發，同時讓使用者在不同平台上獲得一致的體驗。"
 
 #: ../../../index.md:16
 msgid ""
@@ -88,7 +92,7 @@ msgstr ""
 
 #: ../../../index.md:22
 msgid "In this documentation"
-msgstr ""
+msgstr "本文件的內容"
 
 #: ../../../index.md:24
 msgid "First steps"
@@ -105,12 +109,16 @@ msgid ""
 "daemon-index>` • {ref}`Distribution support <reference-administration-"
 "distribution-support>`"
 msgstr ""
+"**安裝 snapd**：{ref}`安裝 snap 守護進程 <tutorials-install-the-daemon-"
+"index>` • {ref}`散佈版支援 <reference-administration-distribution-support>`"
 
 #: ../../../index.md:29
 msgid ""
 "**Explore snap**: {ref}`Get started <tutorials-get-started>` with snap's "
 "main features on a single page"
 msgstr ""
+"探索 snap：在單一頁面中{ref}`開始使用 <tutorials-get-started>` snap 的主要功"
+"能"
 
 #: ../../../index.md:31
 msgid "Managing snaps"
@@ -192,7 +200,7 @@ msgstr ""
 
 #: ../../../index.md:48
 msgid "Snap development"
-msgstr ""
+msgstr "Snap 開發"
 
 #: ../../../index.md:52
 msgid ""
@@ -209,6 +217,11 @@ msgid ""
 "`API authentication and authorization <explanation-security-api-"
 "authentication-and-authorization>`"
 msgstr ""
+"**API 與工具**：{ref}`REST API <how-to-guides-manage-snaps-use-the-rest-"
+"api>` • {ref}`使用 snapctl <how-to-guides-manage-snaps-use-snapctl>` • {ref}`"
+"環境變數 <reference-development-environment-variables>` • {ref}`支援的 snap "
+"掛鉤 <reference-development-supported-snap-hooks>` • {ref}`API 認證與授權 "
+"<explanation-security-api-authentication-and-authorization>`"
 
 #: ../../../index.md:55
 msgid ""

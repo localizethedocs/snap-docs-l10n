@@ -34,7 +34,7 @@ msgstr ""
 
 #: ../../../tutorials/index.md:8
 msgid "Tutorials"
-msgstr ""
+msgstr "教學課程"
 
 #: ../../../tutorials/index.md:10
 msgid ""
