@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to-guides/snap-development/using-in-development-features.md:2
+msgid "Using in-development features"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/using-in-development-features.md:4
+msgid ""
+"If you need to use a new feature of ``snapd`` as soon as it is available, "
+"but before it is supported by the validation mechanisms in Snapcraft, you "
+"have the option of using the passthrough feature of ``snapcraft.yaml`` to "
+"specify the in-development feature you need."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/using-in-development-features.md:9
+msgid "The passthrough keyword"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/using-in-development-features.md:11
+msgid ""
+"Snapcraft can accept the ``passthrough`` keyword in two places in the "
+"``snapcraft.yaml`` file. It can be used at the top-level scope to access new "
+"top-level features, and also at the application scope to access new "
+"application-level features. Where either or these locations are used, they "
+"are referred to as the *target scope*."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/using-in-development-features.md:17
+msgid ""
+"The ``passthrough`` keyword defines a map whose keywords and values are "
+"copied directly into the corresponding scope in the ``snap.yaml`` "
+"description that ``snapd`` uses."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/using-in-development-features.md:21
+msgid ""
+"Although Snapcraft does not know about in-development features, it performs "
+"some checks to prevent accidental conflicts or unexpected behaviour as a "
+"result of using passthroughs."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/using-in-development-features.md:25
+msgid ""
+"It forbids the definition of an option inside a passthrough if that option "
+"is also directly present in the target scope."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/using-in-development-features.md:27
+msgid ""
+"It warns the developer about the options used in each passthrough, to remind "
+"the publisher that these options are not yet supported."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/using-in-development-features.md:29
+msgid ""
+"It may also report options that might already be supported, but it should "
+"not prevent these options from being passed through to ``snap.yaml`` since "
+"the option may be defined in a way that is not yet understood by Snapcraft."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/using-in-development-features.md:33
+msgid ""
+"Files using in-development features will need to be updated when those "
+"features become supported by Snapcraft."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/using-in-development-features.md:36
+msgid "Examples"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/using-in-development-features.md:38
+msgid ""
+"In the following example, the ``passthrough`` keyword is used at the top-"
+"level scope to access two new, *hypothetical*, top-level features:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/using-in-development-features.md:41
+msgid ""
+"   name: foo\n"
+"   passthrough:\n"
+"       confinement: next-generation\n"
+"       planet: saturn\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/using-in-development-features.md:48
+msgid ""
+"This example enables the usage of a new value for the existing ``snapcraft-"
+"yaml-confinement`` keyword. It also enables an entirely new ``planet`` "
+"keyword to be used, along with a new value."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/using-in-development-features.md:52
+msgid ""
+"The following example shows the use of the keyword to access a new "
+"application-level feature:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/using-in-development-features.md:55
+msgid ""
+"   apps:\n"
+"       foo:\n"
+"           command: foo\n"
+"           passthrough:\n"
+"               daemon: complex\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/using-in-development-features.md:63
+msgid ""
+"In this case, a passthrough is used within the scope of the app ``foo`` to "
+"set the existing ``daemon`` keyword to a value of ``complex``."
+msgstr ""

@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/tee-interface.md:2
+msgid "tee interface"
+msgstr ""
+
+#: ../../../reference/interfaces/tee-interface.md:4
+msgid ""
+"The `tee` interface  permits access to Trusted Execution Environment (TEE) "
+"devices via the [TEE subsystem](https://www.kernel.org/doc/html/latest/tee/"
+"index.html) in the Linux kernel."
+msgstr ""
+
+#: ../../../reference/interfaces/tee-interface.md:7
+msgid ""
+"This interface is primarily intended to be used with {ref}`Ubuntu Core <ref-"
+"glossary_ubuntu-core>`."
+msgstr ""
+
+#: ../../../reference/interfaces/tee-interface.md:10
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/tee-interface.md:12
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`**: yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/tee-interface.md:12
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/tee-interface.md:15
+msgid ""
+"Intended for snaps needing to access the TEE subsystem over `/dev/"
+"tee[0-9]*`, `/dev/teepriv[0-0]*` or  the Qualcomm equivalent _qseecom_  "
+"(Qualcomm Secure Execution Environment Communicator) at `/dev/qseecom`."
+msgstr ""
+
+#: ../../../reference/interfaces/tee-interface.md:17
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/tee-interface.md:19
+msgid ""
+"The official [Ubuntu Core gadget snap](https://github.com/kubiko/imx-gadget) "
+"for the [i.MX8M Mini Evaluation Kit](https://www.nxp.com/design/design-"
+"center/development-boards-and-designs/8MMINILPD4-EVK) uses this interface: "
+"https://github.com/kubiko/imx-gadget/blob/24/imx8mm-evk/snap/snapcraft.yaml"
+msgstr ""
+
+#: ../../../reference/interfaces/tee-interface.md:21
+msgid ""
+"The test code can be found in the snapd repository: https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/tee_test.go"
+msgstr ""
+
+#: ../../../reference/interfaces/tee-interface.md:23
+msgid ""
+"The source code for the interface is in the snapd repository: https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/tee.go"
+msgstr ""

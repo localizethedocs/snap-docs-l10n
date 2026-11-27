@@ -1,0 +1,271 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:2
+msgid "Interface auto-connection"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:4
+msgid ""
+"Interfaces allow (or deny) access to a resource outside of a snap’s "
+"confinement, but they're also designed to be convenient for users."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:6
+msgid ""
+"Part of this convenience is whether an interface is permitted to be "
+"automatically connected when a snap is installed, or whether a snap can "
+"request to include certain super-privileged interfaces to begin with. This "
+"is the auto-connection mechanism."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:8
+msgid "Auto-connections"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:10
+msgid ""
+"The snapd interface auto-connection mechanism has been designed to remove "
+"the need for a manual connection when:"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:12
+msgid ""
+"An interface is commonly required and has no or minor security implications"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:13
+msgid ""
+"A snap provides, or accesses, libraries or other content vital to the "
+"operation of the snap"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:14
+msgid "There is a need to connect snaps that are designed to work together"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:15
+msgid ""
+"Store-set policy applies to let a given snap use an interface that would not "
+"be generally auto-connected."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:17
+msgid ""
+"See {ref}`Process for aliases, auto-connections and tracks <interfaces-"
+"process-for-aliases-auto-connections-and-tracks>` for details on how to "
+"submit an auto-connection is requested ."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:19
+msgid ""
+"If a snap is installed prior to an interface being granted auto-connect "
+"permission, and permission is subsequently granted and the snap updated, "
+"when the installed snap updates, the interface will be auto-connected."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:21
+msgid "Auto-connection process"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:23
+msgid ""
+"Whenever a snap is installed or refreshed, snapd will review its unconnected "
+"plugs and their candidate slots for auto-connection potential. It does the "
+"same for its slots and candidate plugs."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:25
+msgid ""
+"If there is exactly one candidate slot for a plug then an interface "
+"connection is automatically performed. The requirement for exactly one "
+"candidate can be changed."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:27
+msgid ""
+"For an interface, the candidate plug and slot pairs are determined using "
+"constraints-based rules. The rule language can either express allowing or "
+"denying an auto-connection, with the latter taking precedence."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:29
+msgid ""
+"Rules are either built-in to snapd or conveyed via assertions (signed "
+"documents) that correspond to a given snap (snap-declarations). The rules "
+"are scoped and attached to the slot or plug side of an interface at either "
+"one of those two levels:"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:31
+msgid "the built-in level"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:32
+msgid "the snap level"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:34
+msgid ""
+"To simplify reasoning about their effect, the rules from the different "
+"levels/scopes are not merged but rather prioritised according to level:"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:36
+msgid "snap plug (from the snap-declaration of the snap with the plug)"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:37
+msgid "snap slot (from the snap-declaration of the snap sporting the slot)"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:38
+msgid "built-in plug level"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:39
+msgid "built-in slot level"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:41
+msgid ""
+"From snap plug to the built-in slot level, it’s the level that first "
+"provides any rules that determines the rules used and considered. This "
+"ordering reflects a scale from the most specific usage perspective, snap "
+"plug side consumption, to the most general, builtin slot rules."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:43
+msgid ""
+"Built-in rules embody the general policy of whether and when an interface "
+"should be auto-connected, and as such, these are documented with the "
+"interface. Consequently, snap-declaration rules express store-set policy."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:45
+msgid ""
+"A user can also issue \"snap connect\" and \"snap disconnect\" commands. In "
+"particular, a manual \"snap disconnect\" of an auto-connection will inhibit "
+"a subsequent refresh from re-establishing the auto-connection (unless the "
+"manual disconnect overrides this default behaviour using the \"--forget\" "
+"option)."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:47
+msgid "Auto-connection constraints"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:49
+msgid ""
+"The following is an example built-in auto-connection rule (attached to the "
+"slot-side) for the content interface:"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:51
+msgid ""
+"slots:\n"
+"  content:\n"
+"    allow-auto-connection:\n"
+"      plug-publisher-id:\n"
+"        - $SLOT_PUBLISHER_ID\n"
+"      plug-attributes:\n"
+"        content: $SLOT(content)\n"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:61
+msgid "The above example permits an auto-connection if:"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:63
+msgid "the publisher of both the slot and plug side snaps is the same"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:64
+msgid "the \"content\" attribute on the plug and slot match"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:66
+msgid ""
+"The rule language allows us to deny or allow auto-connections with the "
+"following constraints:"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:68
+msgid ""
+"attributes values on the plug and slot (based on regular expressions or "
+"special expressions like $SLOT(content) in the example)"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:69
+msgid "snap type or the snap-id of the plug or slot snap"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:70
+msgid "publisher of the slot or plug snap"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:71
+msgid "actual names of the plug or slot"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:72
+msgid "whether the device is a classic system or not"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:73
+msgid "the actual store in use or device model (for IoT use-cases)"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:75
+msgid ""
+"Further lists of constraints or values can be used in the rule language to "
+"express alternation (logical OR)."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:78
+msgid ""
+"The same language rules can be used to define rules other than interface "
+"auto-connections, including default policy for ordinary connections and "
+"installations, and to override policy for the more sensitive interfaces."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:81
+msgid "Auto-connection with a default-provider"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:83
+msgid ""
+"A content interface plug can specify a default-provider. This is the name of "
+"a snap that can be installed to fulfil the plug's need. If there isn’t a "
+"slot with the content label of the plug on the system the specified snap "
+"will be installed before the snap with the plug. However, if there is a slot "
+"on the system that already has the content label, any default-provider "
+"specified by a content interface plug is ignored. If the specified snap is "
+"already installed but there is no slot with the content label, the specified "
+"snap will be upgraded instead under the assumption that a newer version may "
+"start providing the label."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-auto-connection.md:85
+msgid ""
+"The default-provider mechanism triggers the installation or upgrade of the "
+"provider snap as described but it does not include an implied connection. "
+"The auto-connection will only happen by means of and if it is permitted by "
+"the general auto-connection mechanism."
+msgstr ""

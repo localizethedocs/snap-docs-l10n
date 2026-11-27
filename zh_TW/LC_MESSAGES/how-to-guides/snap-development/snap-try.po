@@ -1,0 +1,242 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to-guides/snap-development/snap-try.md:2
+msgid "Test snaps with snap try"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:4
+msgid ""
+"The `snap try` command installs a snap from its unpackaged components within "
+"a directory. After installation, most changes to the components in that "
+"directory will immediately by visible in the installed snap."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:6
+msgid ""
+"Ordinarily, snaps cannot be modified. They are distributed as, and executed "
+"from, read-only SquashFS files whose integrity is guaranteed via {ref}"
+"`assertions <explanation-security-assertions>` and the store."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:8
+msgid ""
+"But it’s sometimes useful to be able to experiment with a snap locally, to "
+"help debug an issue, or to make changes to a snap when you don’t have "
+"upstream access to the packaging process. This is when `snap try` is useful."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:10
+msgid ""
+"If you only have access to the packaged snap itself, you first need to "
+"_unsquash_ the snap and then use `snap try` to test it."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:11
+msgid ""
+"If, instead, you are a developer with access to the source code of the snap, "
+"you first need to use `snapcraft try` to build an unpacked snap, and then "
+"use `snap try` to test it."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:13
+msgid "Unsquashing a snap"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:15
+msgid ""
+"In order to use `snap try`, you first need to get the unpacked contents of "
+"the snap. The first step is to get the snap itself. The most practical "
+"source of snaps is the snap store, where a snap can be downloaded with the "
+"`snap download` command:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:17
+msgid ""
+"$ snap download hello-world\n"
+"Fetching snap \"hello-world\"\n"
+"Fetching assertions for \"hello-world\"\n"
+"Install the snap with:\n"
+"snap ack hello-world_29.assert\n"
+"snap install hello-world_29.snap\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:26
+msgid ""
+"The download includes the snap itself and a signed set of {ref}`assertions "
+"<explanation-security-assertions>` from the store to validate the snap’s "
+"default state."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:28
+msgid ""
+"Alternatively, _.snap_ files for any installed snaps can be found at `/var/"
+"lib/snapd/snaps/`, from where they can be copied across to your current "
+"working directory."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:30
+msgid ""
+"To uncompress the SquashFS _.snap_ file, use `unsquashfs <snap filename>`:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:32
+msgid ""
+"$ unsquashfs hello-world_29.snap\n"
+"Parallel unsquashfs: Using 8 processors\n"
+"6 inodes (6 blocks) to write\n"
+"[===========================|] 6/6 100%\n"
+"created 6 files\n"
+"created 4 directories\n"
+"created 0 symlinks\n"
+"created 0 device\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:43
+msgid ""
+"The files associated with the snap can now be found in the `squashfs-root’ "
+"directory. You can use `snap try` to install this unpacked snap."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:45
+msgid "Using snap try"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:47
+msgid ""
+"Running `snap try <directory>` installs an unpacked snap using a bind mount."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:49
+msgid ""
+"$ snap try squashfs-root\n"
+"hello-world 6.4 mounted from /home/user/squashfs-root\n"
+"$ which hello-world\n"
+"/snap/bin/hello-world\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:56
+msgid ""
+"Most changes now made to files in the `squashfs-root` folder will be "
+"immediately reflected in the installed snap. This can be helpful when "
+"debugging an application within a snap, or the snap itself."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:58
+msgid ""
+"ⓘ Certain changes, such as adjusting a snap’s interfaces or confinement will "
+"not be reflected in the installed snap until after a reinstall. These "
+"changes include:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:60
+msgid "changes to snap interfaces, such as adding or removing a plug"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:61
+msgid "changes to layouts"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:62
+msgid "changes to a snap’s confinement"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:64
+msgid ""
+"Using the above hello-world snap, for example, we could edit the `bin/echo` "
+"script to change its output without rebuilding or remounting the snap:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:66
+msgid ""
+"$ hello-world\n"
+"Hello world!\n"
+"$ sed -i 's/World/Everyone/g' /home/user/squashfs-root/bin/echo\n"
+"$ hello-world\n"
+"Hello Everyone!\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:74
+msgid "Using snapcraft try"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:76
+msgid ""
+"When developing a snap with [snapcraft](https://documentation.ubuntu.com/"
+"snapcraft/stable/), the `snapcraft try` command can be used in combination "
+"with `snap try` to quickly test a snap and fix issues."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:78
+msgid ""
+"The `snapcraft try` command runs through the build process to the completion "
+"of the _prime_ stage (see [Parts lifecycle](https://documentation.ubuntu.com/"
+"snapcraft/stable/explanation/parts-lifecycle/) for further details). It then "
+"exposes the resultant _prime_ directory to the snapcraft directory, even "
+"from within a virtual machine or container."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:80
+msgid ""
+"This _prime_ directory includes all the staged components of a snap, which "
+"can then be installed and tested with the `snap try <prime directory>` "
+"command."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:82
+msgid ""
+"The following,  example, will build a _hello-world_ snap within [LXD]"
+"(https://canonical.com/lxd) and offer its _prime_ directory locally:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:84
+msgid ""
+"\n"
+"$ snapcraft try --use-lxd\n"
+"Pulling hello-world\n"
+"+ snapcraftctl pull\n"
+"Building hello-world\n"
+"+ snapcraftctl build\n"
+"+ cp --archive --link --no-dereference . /root/parts/hello-world/install\n"
+"Staging hello-world\n"
+"+ snapcraftctl stage\n"
+"Priming hello-world\n"
+"+ snapcraftctl prime\n"
+"You can now run `snap try /home/user/hello-world/prime`.\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:99
+msgid ""
+"The above snap can then be installed and tested with `snap try` and the "
+"_prime_ directory as its target:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:101
+msgid ""
+"$ snap try /home/user/hello-world/prime\n"
+"hello-world 0.1 mounted from /home/user/hello-world/prime\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/snap-try.md:106
+msgid ""
+"For further help on testing and debugging a snap, see [Iterating over a "
+"build](https://documentation.ubuntu.com/snapcraft/stable/how-to/debugging/"
+"debug-a-snap/) and {ref}`Debugging snaps <how-to-guides-fix-common-issues-"
+"debug-snaps>`."
+msgstr ""

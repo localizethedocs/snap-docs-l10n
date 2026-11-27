@@ -1,0 +1,198 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to-guides/index.md:21 ../../../how-to-guides/index.md:53
+msgid "Manage snaps"
+msgstr ""
+
+#: ../../../how-to-guides/index.md:41 ../../../how-to-guides/index.md:53
+msgid "Snap development"
+msgstr ""
+
+#: ../../../how-to-guides/index.md:0
+msgid ""
+"Manage snaps, solve issues, develop snap functionality, and administer snapd "
+"systems with task-focused guides for users and developers."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:8
+msgid "How-to guides"
+msgstr ""
+
+#: ../../../how-to-guides/index.md:10
+msgid ""
+"Our _How-to_ guides help you achieve a specific goal while working with "
+"snaps. They may require you to understand and adapt the steps to fit your "
+"specific requirements."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:12
+msgid "Work with snaps"
+msgstr ""
+
+#: ../../../how-to-guides/index.md:14
+msgid ""
+"The snap system has been designed to look after itself with automatic "
+"security and update policies. However, these elements, and many others, can "
+"also be configured and managed manually."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:16
+msgid ""
+"{ref}`Manage updates <how-to-guides-work-with-snaps-manage-updates>`: "
+"Control when snaps update, or hold an update indefinitely ."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:17
+msgid ""
+"{ref}`Connect interfaces <how-to-guides-work-with-snaps-connect-"
+"interfaces>`: Control exactly what a snap can access, and what it can't."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:18
+msgid ""
+"{ref}`Configure snaps <how-to-guides-work-with-snaps-configure-snaps>`: "
+"Learn how to set options for your servers and daemons."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:19
+msgid ""
+"{ref}`Apps and aliases <how-to-guides-work-with-snaps-apps-and-aliases>`: "
+"Use your preferred names for your snapped applications."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:23
+msgid ""
+"Outside of whatever facilities a snapped application may provide, snaps also "
+"provides data snapshots, usage quotas and control over if and when a service "
+"runs."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:25
+msgid ""
+"{ref}`Create data snapshots <how-to-guides-manage-snaps-create-data-"
+"snapshots>`: Make a copy of a snap's user, system and configuration data."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:26
+msgid ""
+"{ref}`Use quota resources <how-to-guides-manage-snaps-use-resource-quotas>`: "
+"Set processor and memory resource limits on your snaps."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:27
+msgid ""
+"{ref}`Disk space awareness <how-to-guides-manage-snaps-disk-space-"
+"awareness>`: Check whether there's enough disk space before certain "
+"operations."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:28
+msgid ""
+"{ref}`Set system options <how-to-guides-manage-snaps-set-system-options>`: "
+"The main way to configure your snapped applications."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:29
+msgid ""
+"{ref}`Control services <how-to-guides-manage-snaps-control-services>`: "
+"Start, stop and restart snapped background service."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:30
+msgid ""
+"{ref}`Validation sets <explanation-how-snaps-work-validation-sets>`: Ensure "
+"a defined set of snaps are installed and updated together."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:31
+msgid ""
+"{ref}`Use the REST API <how-to-guides-manage-snaps-use-the-rest-api>`: Learn "
+"how to access and use our REST API."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:33
+msgid "Problem solving"
+msgstr ""
+
+#: ../../../how-to-guides/index.md:35
+msgid ""
+"The vast majority of snap users and developers experience very few issues, "
+"but any technology this complex and diverse will likely encounter some "
+"issues and incompatibilities."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:37
+msgid ""
+"{ref}`Fix common issues <how-to-guides-fix-common-issues-index>`: If you do "
+"run into problems, find common solutions here."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:38
+msgid ""
+"{ref}`Test snapd fixes <how-to-guides-fix-common-issues-test-snapd-fixes>`: "
+"Run a bugfix build of the snap daemon."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:39
+msgid ""
+"{ref}`Debug running snaps <how-to-guides-fix-common-issues-debug-snaps>`: "
+"Test bugfix releases of snapd."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:43
+msgid ""
+"Extend snap functionality with API access, internal tools, and customised "
+"environments for your applications and devices."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:45
+msgid ""
+"{ref}`Use the REST API <how-to-guides-manage-snaps-use-the-rest-api>`: how "
+"to access the SnapD REST API."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:46
+msgid ""
+"{ref}`Use snapctl <how-to-guides-manage-snaps-use-snapctl>`: use the snapctl "
+"tool within a snap application."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:47
+msgid ""
+"{ref}`Test snapd fixes <how-to-guides-fix-common-issues-test-snapd-fixes>`: "
+"test out the latest release of the snap daemon."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:48
+msgid ""
+"{ref}`Debug snaps <how-to-guides-fix-common-issues-debug-snaps>`: solve "
+"issues with snapped application."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:49
+msgid ""
+"{ref}`snap try <interfaces-snap-try>`: test a snap package on your system."
+msgstr ""
+
+#: ../../../how-to-guides/index.md:50
+msgid ""
+"{ref}`Using in-development features <interfaces-using-in-development-"
+"features>`: learn how to use cutting edge snap features."
+msgstr ""

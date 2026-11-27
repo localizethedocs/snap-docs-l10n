@@ -1,0 +1,167 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/index.md:43
+msgid "Glossary"
+msgstr ""
+
+#: ../../../reference/index.md:43
+msgid "Release notes"
+msgstr ""
+
+#: ../../../reference/index.md:43
+msgid "System architecture"
+msgstr ""
+
+#: ../../../reference/index.md:43
+msgid "Interfaces"
+msgstr ""
+
+#: ../../../reference/index.md:22 ../../../reference/index.md:43
+msgid "Administration"
+msgstr ""
+
+#: ../../../reference/index.md:29 ../../../reference/index.md:43
+msgid "Snap development"
+msgstr ""
+
+#: ../../../reference/index.md:43
+msgid "Exit codes"
+msgstr ""
+
+#: ../../../reference/index.md:0
+msgid ""
+"Complete reference documentation for snap packages, including "
+"administration, development, system architecture, interfaces, APIs, and YAML "
+"schemas."
+msgstr ""
+
+#: ../../../reference/index.md:8
+msgid "Reference"
+msgstr ""
+
+#: ../../../reference/index.md:10
+msgid ""
+"This *Reference* section is for when you need to know which options can be "
+"used, what functions the API supports, which environment variables can be "
+"accessed and the contents of *gadget.yaml*."
+msgstr ""
+
+#: ../../../reference/index.md:12
+msgid "Operations"
+msgstr ""
+
+#: ../../../reference/index.md:14
+msgid "Details that help with the day-to-day operations of working with snaps."
+msgstr ""
+
+#: ../../../reference/index.md:16
+msgid ""
+"{ref}`Glossary <reference-operations-glossary>`: Terms and definitions "
+"specific to the world of snaps."
+msgstr ""
+
+#: ../../../reference/index.md:17
+msgid ""
+"{ref}`Interfaces <ref-index_interfaces>`: Every interface alongside their "
+"most important attributes."
+msgstr ""
+
+#: ../../../reference/index.md:18
+msgid ""
+"{ref}`Snap system architecture <reference-operations-system-architecture>`: "
+"What snapd uses to manage confinement and security."
+msgstr ""
+
+#: ../../../reference/index.md:19
+msgid ""
+"{ref}`System options <reference-operations-system-options>`: Configurations "
+"options for the system and native snap devices."
+msgstr ""
+
+#: ../../../reference/index.md:20
+msgid ""
+"{ref}`Exit codes <reference-operations-exit-codes>`: Exit codes returned by "
+"the `snap` command."
+msgstr ""
+
+#: ../../../reference/index.md:24
+msgid ""
+"Deepen your understanding of how snaps can run on all kinds of devices, in "
+"all kinds of environments."
+msgstr ""
+
+#: ../../../reference/index.md:26
+msgid ""
+"{ref}`Network requirements <reference-administration-network-requirements>`: "
+"What network access snaps require to operate correctly."
+msgstr ""
+
+#: ../../../reference/index.md:27
+msgid ""
+"{ref}`Distribution support <reference-administration-distribution-support>`: "
+"The status of current builds for Linux distributions with snap support."
+msgstr ""
+
+#: ../../../reference/index.md:31
+msgid ""
+"Extend snap functionality with API access and customised environments for "
+"your applications and devices."
+msgstr ""
+
+#: ../../../reference/index.md:33
+msgid ""
+"{ref}`Environment variables <reference-development-environment-variables>`: "
+"Internal values accessible to snapped applications."
+msgstr ""
+
+#: ../../../reference/index.md:34
+msgid ""
+"{ref}`Snapd REST API <reference-development-snapd-rest-api>`: Interactive "
+"OpenAPI documentation for the Snapd REST API."
+msgstr ""
+
+#: ../../../reference/index.md:35
+msgid ""
+"{ref}`REST API error codes <reference-development-rest-api-error-"
+"responses>`: The types of errors returned by the API."
+msgstr ""
+
+#: ../../../reference/index.md:37
+msgid ""
+"YAML schemas define exactly what a device, kernel and snap is capable of."
+msgstr ""
+
+#: ../../../reference/index.md:38
+msgid ""
+"{ref}`snap.yaml <reference-development-yaml-schemas-the-snap-format>`: The "
+"metadata for a snap."
+msgstr ""
+
+#: ../../../reference/index.md:39
+msgid ""
+"{ref}`Gadget snap <reference-development-yaml-schemas-the-gadget-snap>`: "
+"System and device properties."
+msgstr ""
+
+#: ../../../reference/index.md:40
+msgid ""
+"{ref}`Kernel snap <reference-development-yaml-schemas-the-kernel-snap>`: The "
+"Linux kernel snap, its metadata and setup files."
+msgstr ""

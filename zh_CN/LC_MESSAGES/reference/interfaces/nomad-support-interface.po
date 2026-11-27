@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/nomad-support-interface.md:0
+#: ../../../reference/interfaces/nomad-support-interface.md:8
+msgid "nomad-support interface"
+msgstr ""
+
+#: ../../../reference/interfaces/nomad-support-interface.md:10
+msgid ""
+"The `nomad-support` interface provides permissions to enable [HashiCorp "
+"Nomad](https://www.nomadproject.io/) to access [cpuset](https://man7.org/"
+"linux/man-pages/man7/cpuset.7.html) CPU and memory management, alongside "
+"Nomad-specific capabilities such as the NVIDIA plugin support, slice "
+"functions, and Nomad running as a service."
+msgstr ""
+
+#: ../../../reference/interfaces/nomad-support-interface.md:12
+msgid ""
+"See {ref}`Interface management <how-to-guides-work-with-snaps-connect-"
+"interfaces>` and {ref}`Supported interfaces <ref-index_interfaces>` for "
+"further details on how interfaces are used."
+msgstr ""
+
+#: ../../../reference/interfaces/nomad-support-interface.md:14
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/nomad-support-interface.md:16
+msgid "**Auto-connect**: no"
+msgstr ""
+
+#: ../../../reference/interfaces/nomad-support-interface.md:19
+msgid ""
+"The `nomad-support` plug is {ref}`unsupported for parallel instances "
+"<interfaces-parallel-installs-unsupported>`."
+msgstr ""
+
+#: ../../../reference/interfaces/nomad-support-interface.md:22
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/nomad-support-interface.md:24
+msgid ""
+"The test code can be found in the snapd repository:</br>https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/nomad_support_test.go"
+msgstr ""
+
+#: ../../../reference/interfaces/nomad-support-interface.md:24
+#: ../../../reference/interfaces/nomad-support-interface.md:26
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/nomad-support-interface.md:26
+msgid ""
+"The source code for the interface is in the snapd repository:</br>https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/nomad_support.go"
+msgstr ""

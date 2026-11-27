@@ -1,0 +1,149 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/pwm-interface.md:2
+msgid "pwm interface"
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:4
+msgid ""
+"The `pwm` interface allows access to a specific PWM channel on a device. The "
+"interface is restricted because it provides privileged access to PWM "
+"hardware."
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:6
+msgid ""
+"Use `snap interface pwm` to see which PWM devices are available on the "
+"system:"
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:8
+msgid ""
+"$ snap interface pwm\n"
+"name: pwm\n"
+"summary: allows access to specific PWM channel\n"
+"slots:\n"
+"- gadget:led-1\n"
+"- gadget:led-2\n"
+"- gadget:fan-1\n"
+"- gadget:fan-2\n"
+"[...]\n"
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:20
+msgid "<h2 id='heading--example'>Example</h2>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:22
+msgid ""
+"With an example snap application called _app_ installed, the following "
+"command will connect its PWM interface to the specified PWM device channel:"
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:24
+msgid "$  snap connect app:activity-led gadget:led-1\n"
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:29
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:31
+msgid "**Auto-connect**: no **Attributes**:"
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:33
+msgid ""
+"`channel` (slot): PWM device channel number to export and expose to "
+"consuming snaps"
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:34
+msgid "`chip-number` (slot): chip base number to export"
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:36
+msgid ""
+"To use a PWM device, the snap developer must add `plugs:[pwm]` to a "
+"snap’s[ snapcraft.yaml](https://documentation.ubuntu.com/snapcraft/stable/"
+"reference/project-file/anatomy-of-snapcraft-yaml/). The snap user can then "
+"access a specific pwm device with an{ref}` interface connection <explanation-"
+"interfaces-all-about-interfaces>`."
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:38
+msgid ""
+"Unless the snap is expected to actually use a set of PWM channels that is "
+"not predefined, it is recommended to define distinct plugs for each used pwm "
+"channel, like:"
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:40
+msgid ""
+"plugs:\n"
+"  activity-led:\n"
+"    interface: pwm\n"
+"  warning-led:\n"
+"    interface: pwm\n"
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:48
+msgid ""
+"This has the advantage of being self-documenting and 1-1 connections like "
+"these are easier to track and setup with{ref}` auto-connections <explanation-"
+"interfaces-interface-auto-connection>`, if the latter is needed."
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:50
+msgid ""
+"When the interface is connected, `\"echo (channel number) > /sys/class/pwm/"
+"pwmchipN/export\"` is run internally to enable access to the PWM channel."
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:52
+msgid ""
+"Once connected, the consuming snap can use the device via `/sys/class/pwm/"
+"pwmchipN/pwmX` where _N_ is the base of the PWM chip and _X_ is channel "
+"number specified by the connected slot."
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:54
+msgid ""
+"Finally, when the interface is disconnected, `\"echo (channel number) > /sys/"
+"class/pwmchipN/unexport\" is run internally to disable access to the PWM "
+"channel."
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:56
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:58
+msgid ""
+"The test code can be found in the snapd repository: https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/pwm_test.go"
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-interface.md:60
+msgid ""
+"The source code for the pwm interface is in the snapd repository:[ https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/pwm.go](https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/pwm.go)."
+msgstr ""

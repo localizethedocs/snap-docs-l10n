@@ -1,0 +1,51 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/development/yaml-schemas/index.md:0
+msgid ""
+"YAML schemas for snap packages, including the snap.yaml format, and the "
+"gadget and kernel snap formats for device development."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/index.md:8
+msgid "YAML schemas"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/index.md:10
+msgid ""
+"YAML schemas define exactly what a device, kernel and snap is capable of."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/index.md:11
+msgid ""
+"{ref}`Gadget snap <reference-development-yaml-schemas-the-gadget-snap>`: "
+"System and device properties."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/index.md:12
+msgid ""
+"{ref}`Kernel snap <reference-development-yaml-schemas-the-kernel-snap>`: The "
+"Linux kernel snap, its metadata and setup files."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/index.md:13
+msgid ""
+"{ref}`snap.yaml <reference-development-yaml-schemas-the-snap-format>`: All "
+"the metadata for a snap."
+msgstr ""

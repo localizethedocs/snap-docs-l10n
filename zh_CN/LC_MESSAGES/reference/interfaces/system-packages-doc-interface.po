@@ -1,0 +1,121 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:2
+msgid "system-packages-doc interface"
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:4
+msgid ""
+"The `system-packages-doc` interface permits access file system locations "
+"used to store system documentation. These include the following"
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:6
+msgid "`/usr/{,local/}share/doc/`"
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:7
+msgid "`/usr/share/cups/doc-root/`"
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:8
+msgid "`/usr/share/gimp/2.0/help/`"
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:9
+msgid "`/usr/share/gtk-doc/`"
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:10
+msgid "`/usr/share/javascript/`"
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:11
+msgid "`/usr/share/libreoffice/help/`"
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:12
+msgid "`/usr/share/sphinx_rtd_theme/`"
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:13
+msgid "`/usr/share/xubuntu-docs/`"
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:14
+msgid "`/usr/share/help/`"
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:15
+msgid "`/usr/share/info/`"
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:16
+msgid "`/usr/share/man/`"
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:18
+msgid ""
+"After the interface has been connected, the host’s `/usr/share/doc` "
+"directory replaces the `/usr/share/doc` for the context of the snap."
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:20
+msgid ""
+"This interface is helpful for *web browsers*, for example, because it "
+"enables them to open and view the host’s HTML system documentation."
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:22
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:24
+msgid "**Auto-connect**: no"
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:26
+msgid ""
+"The interface it is not connected automatically because the listed "
+"documentation can be used to infer which packages are installed on the host "
+"system."
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:28
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:30
+msgid ""
+"The test code can be found in the snapd repository:</br>https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/system_packages_doc_test.go"
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:30
+#: ../../../reference/interfaces/system-packages-doc-interface.md:32
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/system-packages-doc-interface.md:32
+msgid ""
+"The source code for the interface is in the snapd repository:</br>https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"system_packages_doc.go"
+msgstr ""

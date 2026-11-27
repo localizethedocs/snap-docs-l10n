@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../tutorials/install-the-daemon/openmandriva.md:2
+msgid "Install Snap on OpenMandriva"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/openmandriva.md:4
+msgid ""
+"OpenMandriva supplies `snapd` in its repositories. It takes two steps to get "
+"it going:"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/openmandriva.md:6
+msgid "Install `snapd`:"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/openmandriva.md:8
+msgid "sudo dnf install snapd\n"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/openmandriva.md:12
+msgid "Enable `snapd`:"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/openmandriva.md:14
+msgid "sudo systemctl enable --now snapd\n"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/openmandriva.md:18
+msgid "Confinement"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/openmandriva.md:20
+msgid ""
+"AppArmor is not installed by default on OpenMandriva. It takes the same two "
+"steps to install and enable it:"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/openmandriva.md:22
+msgid "Install:"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/openmandriva.md:24
+msgid "sudo dnf install apparmor\n"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/openmandriva.md:28
+msgid "Enable:"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/openmandriva.md:30
+msgid "sudo systemctl enable apparmor\n"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/openmandriva.md:34
+msgid "Enjoy!"
+msgstr ""

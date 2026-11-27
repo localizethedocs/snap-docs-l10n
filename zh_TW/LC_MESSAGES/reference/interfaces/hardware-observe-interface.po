@@ -1,0 +1,242 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:2
+msgid "hardware-observe interface"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:4
+msgid ""
+"The `hardware-observe` interface allows for getting hardware information "
+"from the system."
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:6
+msgid ""
+"`hardware-observe` grants read-only access to many files and directories, "
+"primarily in `/sys` and `/proc`. Additionally, it provides access to many "
+"utility files and binaries such as `lspci`, `lsusb`, and `hwinfo`."
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:8
+msgid ""
+"`hardware-observe` is a more general and broad interface. If more specific "
+"hardware access is required, such as for GPIO or I2C devices, See the {ref}"
+"`gpio <interfaces-gpio-interface>` and {ref}`i2c <interfaces-i2c-interface>` "
+"interfaces."
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:13
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:15
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:15
+#: ../../../reference/interfaces/hardware-observe-interface.md:21
+#: ../../../reference/interfaces/hardware-observe-interface.md:27
+#: ../../../reference/interfaces/hardware-observe-interface.md:35
+#: ../../../reference/interfaces/hardware-observe-interface.md:38
+#: ../../../reference/interfaces/hardware-observe-interface.md:42
+#: ../../../reference/interfaces/hardware-observe-interface.md:45
+#: ../../../reference/interfaces/hardware-observe-interface.md:52
+#: ../../../reference/interfaces/hardware-observe-interface.md:56
+#: ../../../reference/interfaces/hardware-observe-interface.md:59
+#: ../../../reference/interfaces/hardware-observe-interface.md:62
+#: ../../../reference/interfaces/hardware-observe-interface.md:65
+#: ../../../reference/interfaces/hardware-observe-interface.md:69
+#: ../../../reference/interfaces/hardware-observe-interface.md:72
+#: ../../../reference/interfaces/hardware-observe-interface.md:75
+#: ../../../reference/interfaces/hardware-observe-interface.md:83
+#: ../../../reference/interfaces/hardware-observe-interface.md:89
+#: ../../../reference/interfaces/hardware-observe-interface.md:94
+#: ../../../reference/interfaces/hardware-observe-interface.md:97
+#: ../../../reference/interfaces/hardware-observe-interface.md:104
+#: ../../../reference/interfaces/hardware-observe-interface.md:112
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:17
+msgid "Path access"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:19
+msgid "`hardware-observe` grants **read** access to the following paths:"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:21
+msgid ""
+"**For tools like `hwinfo --short` to get hardware information**:</br> `/proc/"
+"ioports`</br> `/proc/dma`</br> `/proc/tty/driver/{,*}`</br> `/proc/sys/dev/"
+"cdrom/info`</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:27
+msgid ""
+"**For tools like `lshw -quiet` to get hardware information**:</br> `/proc/"
+"devices`</br> `/proc/ide/{,**}`</br> `/proc/scsi/{,**}`</br> `/proc/device-"
+"tree/{,**}`</br> `/sys/kernel/debug/usb/devices`</br> `/proc/sys/abi/{,*}`</"
+"br>"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:35
+msgid ""
+"**For tools like `lspci -A linux-sysfs` to get information on files in `/"
+"sys`**:</br> `/sys/{block,bus,class,devices,firmware}/{,**}`"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:38
+msgid ""
+"**For tools like `lspci -A linux-proc` to get information on `/proc`**:</br> "
+"`/bus/pci/{,**}` `/{,usr/}lib/modprobe.d/{,*}`"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:42
+msgid ""
+"**For tools like `lspci -k` to get information on loaded modules**:</br> "
+"Examples: `/etc/modprobe.d/{,*}`,</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:45
+msgid ""
+"**For tools like `lsusb` to get USB information**:</br> `/var/lib/usbutils/"
+"usb.ids`</br> `/dev/`</br> `/dev/bus/usb/{,**/}`</br> `/etc/udev/udev.conf`</"
+"br> *Note:* lsusb and its database have to be shipped in the snap if not on "
+"classic</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:52
+msgid ""
+"**For tools like `sensors` to get sensor information**:</br> `/etc/"
+"sensors3.conf`</br> `/etc/sensors.d/{,*}`"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:56
+msgid ""
+"**For tools like `udevadm` to get device information**:</br> `/run/udev/data/"
+"**`"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:59
+msgid ""
+"**For  hugepage and transparent_hugepage statuses (but not the pages "
+"themselves)**:</br> `/sys/kernel/mm/{hugepages,transparent_hugepage}/{,**}`</"
+"br>"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:62
+msgid ""
+"**For information on available input devices**:</br> `/proc/bus/input/"
+"devices`"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:65
+msgid ""
+"**For power information**:</br> `/sys/power/{,**}`</br> `/run/udev/data/"
+"+power_supply:*`"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:69
+msgid "**For interrupts**:</br> `/proc/interrupts`"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:72
+msgid "**For  loaded kernel module information**:</br> `/proc/modules`"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:75
+msgid ""
+"**For VM information**:</br> `/proc/cpuinfo`</br> `/proc/sysinfo`</br> `/"
+"proc/xen/capabilities`</br> `/proc/1/sched`</br> `/sys/hypervisor/properties/"
+"features`</br> `/sys/hypervisor/type`</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:83
+msgid "**For container information**:</br> `/run/systemd/container`</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:86
+msgid "Binary access"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:88
+msgid "`hardware-observe` grants executable access to the following binaries:"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:89
+msgid ""
+"**For tools provided by `util-linux`**:</br> `/{,usr/}bin/lsblk`</br> `/"
+"{,usr/}bin/lscpu`</br> `/{,usr/}bin/lsmem`</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:94
+msgid "**For tools like `lsusb`**:</br> `/{,usr/}bin/lsusb`</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:97
+msgid ""
+"**For tools like `systemd-detect-virt`**:</br> `/{,usr/}bin/systemd-detect-"
+"virt`</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:100
+msgid "Capability access"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:102
+msgid "`hardware-observe` grants the following *capabilities*:"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:104
+msgid ""
+"**For tools like `lscpu` and `lspci -A` to inspect specific PCI access "
+"methods**:</br> `capability sys_rawio`</br> `capability sys_admin`</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:108
+msgid "Socket access"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:110
+msgid "`hardware-observe` grants the following *socket access:*"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:112
+msgid "**For udevadm to read netlink**:</br> `network netlink raw`</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:115
+msgid ""
+"The test code for the interface is in the snapd repository: [https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"hardware_observe_test.go](https://github.com/canonical/snapd/blob/master/"
+"interfaces/builtin/hardware_observe_test.go)"
+msgstr ""
+
+#: ../../../reference/interfaces/hardware-observe-interface.md:117
+msgid ""
+"The source code for the interface is in the snapd repository: [https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"hardware_observe.go](https://github.com/canonical/snapd/blob/master/"
+"interfaces/builtin/hardware_observe.go)"
+msgstr ""

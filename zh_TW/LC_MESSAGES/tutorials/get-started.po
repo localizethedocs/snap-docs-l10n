@@ -1,0 +1,789 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../tutorials/get-started.md:0
+msgid ""
+"Learn how to list, find, install, run, update and remove snap packages with "
+"a hands-on introduction to using snap packages for new users."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:9
+msgid "Get started"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:11
+msgid ""
+"A snap is a bundle of one or more applications that works without "
+"dependencies or modification across many different Linux distributions. "
+"Snaps are discoverable and installable from the [Snap Store](https://"
+"snapcraft.io/store), a public app store with an audience of millions."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:13
+msgid ""
+"This tour introduces all of snap's main features. We suggest going through "
+"the first few steps and then playing with what you've learnt. Come back when "
+"you feel comfortable and wish to further your knowledge."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:15
+msgid ""
+"By the end of the tour, you'll have a good understanding of how to use "
+"snaps, from how they're installed and updated, to how they're backed-up and "
+"removed."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:17
+msgid "Requirements"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:19
+msgid ""
+"Snaps can be installed and removed with a graphical package manager, such as "
+"Ubuntu Software Centre, but most advanced functionality is only available "
+"from the Linux command shell."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:21
+msgid ""
+"The command shell is accessible from [Terminal](https://ubuntu.com/tutorials/"
+"command-line-for-beginners#1-overview) and many similar applications. It "
+"helps if you have some familiarity with this, but if you don't, this tour is "
+"itself an ideal introduction to get you started."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:23
+msgid ""
+"Many Linux distributions, including Ubuntu, support _snap_ by default. You "
+"can check by running the `snap` command. If the snap command is not found, "
+"take a look at our {ref}`Installation guides <tutorials-install-the-daemon-"
+"index>` for further help."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:25
+msgid "List installed snaps"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:27
+msgid ""
+"Snap is installed with a few other snaps, and a good place to start is to "
+"display these with the `snap list` command:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:29
+msgid ""
+"$ snap list\n"
+"Name             Version        Rev    Tracking         Publisher   Notes\n"
+"core22           20231123       1033   latest/stable    canonical✓  base\n"
+"firefox          120.0.1-1      3504   latest/stable    mozilla✓    -\n"
+"snapd            2.60.4         20290  latest/stable    canonical✓  snapd\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:37
+msgid ""
+"Versions and revisions, under the _Version_ and _Rev_ columns respectively, "
+"convey different details about one specific release of a snap:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:39
+msgid ""
+"_Version_ : the version of the software being packaged, as assigned by the "
+"developers"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:40
+msgid ""
+"_Revision_: the sequence number assigned by the store when the snap file was "
+"uploaded"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:42
+msgid ""
+"The *version* is a name or number that was arbitrarily assigned to a release "
+"by its developers, according to their development practices. It tells the "
+"user what content to expect from a snap. The *revision* is an automatic "
+"number assigned by the store to give every snap release a unique identity "
+"within the channel across every architecture supported by the snap."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:44
+msgid "Finding snaps"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:46
+msgid ""
+"There are snaps for many popular applications, including [Spotify](https://"
+"snapcraft.io/spotify), [Slack](https://snapcraft.io/slack) and the [Chromium "
+"web browser](https://snapcraft.io/chromium)."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:48
+msgid ""
+"The best way to find new snaps is to use the online [Snap Store](https://"
+"snapcraft.io/store), either by searching for apps and words you’re "
+"interested in, such as \"Spotify\", “music” or “maths”, or by browsing "
+"through categories."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:50
+msgid ""
+"To search for snaps with ‘media player’ in either their names or "
+"descriptions, type `snap find \"media player\"` into your terminal:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:52
+msgid ""
+"$ snap find \"media player\"\n"
+"Name  Version  Developer    Notes  Summary\n"
+"vlc   3.0.4     videolan✓   -      The ultimate media player.\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:58
+msgid ""
+"The `✓` alongside *videolan* in the above output indicates that the snap "
+"publisher has been _verified_. Verified publishers are trusted to produce "
+"and maintain high-quality packages and include institutions, foundations, "
+"and companies."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:60
+msgid "Section categories"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:62
+msgid ""
+"Typing `snap find` without any arguments will return a list of suggested "
+"snaps and those suggestions can also be limited to a category with an "
+"additional `--section=` argument. The following section names are valid:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "art-and-design"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "books-and-reference"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "development"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "devices-and-iot"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "education"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "entertainment"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "featured"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "finance"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "games"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "health-and-fitness"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "music-and-audio"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "news-and-weather"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "personalisation"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "photo-and-video"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "productivity"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "science"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "security"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "server-and-cloud"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "social"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:0
+msgid "utilities"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:72
+msgid "Learn about a snap"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:74
+msgid ""
+"The `snap info` command makes it easy to find more details about a specific "
+"snap. These details include what a snap does, who publishes it, which "
+"commands it provides."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:76
+msgid "The final part of the output lists the _channels_ for the snap:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:78
+msgid ""
+"channels:\n"
+"  latest/stable:    3.0.19                      2023-10-13 (3721) 336MB -\n"
+"  latest/candidate: 3.0.19                      2023-10-02 (3721) 336MB -\n"
+"  latest/beta:      3.0.20-27-g795b1bc62b       2023-12-13 (3862) 336MB -\n"
+"  latest/edge:      4.0.0-dev-26928-g9bc7ded0f0 2023-12-13 (3863) 692MB -\n"
+"installed:          3.0.19                                 (3721) 336MB -\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:87
+msgid ""
+"{ref}`Channels <explanation-how-snaps-work-channels-and-tracks>` declare "
+"which release of a snap is installed and tracked for updates. The *latest/"
+"stable* channel is used by default, but opting to install from a different "
+"channel can be useful for testing new features, or for installing old legacy "
+"versions of an application. Which snaps are released to which channels is "
+"entirely up to the snap publisher."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:89
+msgid "Install the snap"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:91
+msgid ""
+"Type `snap install` followed by the name of the snap to install the snap:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:93
+msgid "sudo snap install vlc\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:97
+msgid ""
+"When _install_ is run for the first time, one or more dependencies may be "
+"automatically installed alongside the snap you requested. Your network speed "
+"will determine how long this process takes. Snap operations can always be "
+"safely cancelled with ctrl+c, and one of snap's best features is that an "
+"operation is either wholly successful, or it's cleanly rolled back to the "
+"previous state."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:99
+msgid "A channel can also be optionally specified with the `channel` option:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:101
+msgid "sudo snap install --channel=edge vlc\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:105
+msgid ""
+"After installation, the channel being monitored for updates can be changed "
+"with:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:107
+msgid "sudo snap switch --channel=stable vlc\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:111
+msgid "Run apps and commands from the snap"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:113
+msgid ""
+"The vast majority of snap-installed applications will run as you expect, "
+"from either the command line or from the desktop launcher."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:115
+msgid ""
+"If executing a command directly doesn't work, use the `snap run` command:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:117
+msgid "snap run vlc\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:121
+msgid ""
+"Links to snapped applications are located in `/snap/bin` which is added to "
+"the system \\$PATH."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:123
+msgid "Update an installed snap"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:125
+msgid ""
+"Snaps are updated automatically. However, to manually check for updates, use "
+"the following command:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:127
+msgid "sudo snap refresh vlc\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:131
+msgid ""
+"The above will check the channel being tracked by the snap. If a newer "
+"version of the snap is available, it will be downloaded and installed."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:133
+msgid ""
+"Changing the channel being tracked and refreshing the snap can be "
+"accomplished with a single command:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:135
+msgid "sudo snap refresh --channel=beta vlc\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:139
+msgid ""
+"Updates are automatically installed within 6 hours of a revision being made "
+"to a tracked channel, keeping most systems up-to-date. This schedule can be "
+"tuned via configuration options and disabled with the `--hold` option."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:141
+msgid "To check which channel a snap is tracking use the following command:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:143
+msgid "snap refresh --tracking vlc\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:147
+msgid "Pause or stop automatic updates"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:149
+msgid ""
+"The `snap refresh --hold` command holds, or postpones, snap updates for "
+"individual snaps, or for all snaps on the system, either indefinitely or for "
+"a specified period of time."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:151
+msgid "snap refresh --hold=<duration> <snap1> <snap2>...\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:155
+msgid ""
+"Time duration units can be seconds (s), minutes (m) or hours (h), or a "
+"combination of these.  To postpone updates indefinitely, a value of "
+"`forever` is also valid."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:157
+msgid ""
+"$ snap refresh --hold=24h firefox\n"
+"General refreshes of \"firefox\" held until 2023-10-26T14:10:53+01:00\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:162
+msgid "If no duration is specified, the hold period defaults to `forever`."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:164
+msgid ""
+"Refer to {ref}`Managing updates <how-to-guides-work-with-snaps-manage-"
+"updates>` for more details."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:166
+msgid "Revert to an earlier revision"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:168
+msgid ""
+"A snap may be reverted to an earlier revision with the `snap revert` "
+"command. By default, it will attempt to revert to the previous revision:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:170
+msgid ""
+"$ sudo snap revert vlc\n"
+"vlc reverted to 3.0.5-1\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:175
+msgid ""
+"The optional `--revision` argument can be specified to request a specific "
+"revision:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:177
+msgid "snap revert vlc --revision 500\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:181
+msgid ""
+"This operation will revert both the snap revision and the configuration data "
+"associated with the software. If the previously used revision of the snap is "
+"from a different channel, that snap will be installed but the channel being "
+"tracked won't change."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:183
+msgid ""
+"User data, such as data generated by the snap and stored in a database, is "
+"often stored in a _common_ directory and will not be reverted. See {ref}"
+"`Data locations <interfaces-data-locations>` for more details on what "
+"information is stored and where."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:185
+msgid ""
+"A snap won't automatically update to a version previously reverted from, and "
+"the output from `snap refresh` will continue to state *All snaps up to "
+"date*. A reverted snap will be automatically updated when a new and "
+"different revision is made available by the publisher."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:187
+msgid ""
+"However, explicitly adding the snap name to `snap refresh` *will* update the "
+"snap, regardless of whether the latest revision was previously reverted from "
+"or not:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:189
+msgid ""
+"$ snap list --all vlc\n"
+"Name  Version  Rev  Tracking  Publisher  Notes\n"
+"vlc   3.0.5-1  768  stable    videolan✓  -\n"
+"vlc   3.0.6    770  stable    videolan✓  disabled\n"
+"$ sudo snap refresh\n"
+"All snaps up to date.\n"
+"$ sudo snap refresh vlc\n"
+"vlc 3.0.6 from VideoLAN✓ refreshed\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:200
+msgid ""
+"A previously used snap that was reverted from will display *disabled* in the "
+"Notes column of the output."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:202
+msgid "Connect an interface"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:204
+msgid ""
+"Interfaces put you in control of what applications can and cannot do with "
+"your system by either permitting or denying access to resources outside a "
+"snap's confinement. They're most commonly used to enable access to a webcam, "
+"to permit sound recording, for network access, or to read and write to your "
+"$HOME directory or remote storage."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:206
+msgid ""
+"Which interfaces a snap requires, and *provides*, depends on the type of "
+"snap and its own requirements."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:208
+msgid ""
+"To see which interfaces a snap is using, and which interfaces it could use "
+"but isn't, type `snap connections <snapname>`:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:210
+msgid ""
+"$ snap connections vlc\n"
+"Interface       Plug                   Slot                 Notes\n"
+"audio-playback  vlc:audio-playback     :audio-playback      -\n"
+"audio-record    vlc:audio-record       -                    -\n"
+"camera          vlc:camera             -                    -\n"
+"desktop         vlc:desktop            :desktop             -\n"
+"home            vlc:home               :home                -\n"
+"(...)\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:221
+msgid ""
+"The slot is the provider of the resource while the plug is the consumer, and "
+"a slot can support multiple plug connections. In the above output, the {ref}"
+"`camera <interfaces-camera-interface>` interface is not connected because "
+"its slot is empty. This means VLC cannot access any connected cameras. The "
+"`<snap-name>:<interface-name>` syntax describes which snap is responsible "
+"for which component. If there's no snap, such as with `:audio-playback`, the "
+"component is directly connected to the system."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:223
+msgid ""
+"To allow a camera to be accessible to VLC, the interface can be connected "
+"with the `snap connect` command:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:225
+msgid "snap connect vlc:camera\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:228
+msgid ""
+"<!--\n"
+"\n"
+"The Ubuntu Software/[Snap Store](https://snapcraft.io/snap-store) desktop "
+"application can also be used to enable and disable interface connections.\n"
+"\n"
+"To access its interface management functions, either search for an installed "
+"snap, or select it from the *Manage* view. The interfaces for the selected "
+"application can then be viewed by selecting **Permissions** :\n"
+"\n"
+"![Snap Store VLC interface connections](https://assets.ubuntu.com/v1/"
+"a2609611-store-05.png)\n"
+"\n"
+"-->\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:238
+msgid ""
+"As you can see the output from `snap connections vlc`, and in the above "
+"image, VLC  already has access a  user's _/home_ directory because the {ref}"
+"`home <interfaces-home-interface>` interface is connected to the system "
+"`$HOME` directory. This is an {ref}`automatic connection <explanation-"
+"interfaces-interface-auto-connection>`, and is granted to certain interfaces "
+"and snaps when an interface provides fundamental functionality, such as VLC "
+"accessing your personal video and audio files."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:240
+msgid ""
+"Refer to {ref}`Interfaces <explanation-interfaces-all-about-interfaces>` for "
+"more information."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:242
+msgid "Where snaps store data"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:244
+msgid ""
+"Most snaps use strict confinement. This isolates both their execution "
+"environments and their data from your system (see {ref}`Snap Confinement "
+"<explanation-security-snap-confinement>` for further details). A confined "
+"snap that needs user-access to files will most likely use the {ref}`home "
+"<interfaces-home-interface>` interface to bridge this confinement gap, "
+"allowing you to save and load files from your home directory automatically."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:246
+msgid ""
+"You can see whether the _home_ interface is being used in the output to "
+"`snap connections <snap name>`:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:248
+msgid ""
+"$ snap connections nethack\n"
+"Interface  Plug          Slot   Notes\n"
+"home       nethack:home  :home  -\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:254
+msgid ""
+"Regardless of whether the home interface is used or not, a snap can also "
+"store user data, such as a database or configuration files, within its own "
+"directory under _$HOME/snap_. Data within this snap-specific directory is "
+"stored in one of two further directories, depending on whether the data "
+"needs to be tied to a specific release, or whether it can be used across "
+"multiple releases."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:256
+msgid ""
+"Data for a specific release is stored within a directory named after the "
+"{ref}`revision <reference-operations-glossary>` of a release. This is a "
+"numeric value, such as `55` or `56`. The data for each specific revision is "
+"often copied from one release to the next, so that reverting from one "
+"revision to a previous revision will restore a working configuration, for "
+"instance. The snap directory also contains a symbolic link called `current` "
+"that points to the snap revision currently active."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:258
+msgid ""
+"Data that can be shared across releases is stored in a directory called "
+"`common`, and might include image or audio caches, or a database. This data "
+"is not copied between releases."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:260
+msgid ""
+"For more details on where snaps store their data, see {ref}`Data locations "
+"<interfaces-data-locations>`."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:262
+msgid "Create and restore a snapshot"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:264
+msgid ""
+"A *snapshot* is a copy of the user, system and configuration data stored by "
+"*snapd* for one or more snaps on your system, and a snapshot of the data "
+"found in both `$HOME/snap/<snap-name>` and `/var/snap/<snap-name>` is stored "
+"in `/var/lib/snapd/snapshots/` (see {ref}`Data locations <interfaces-data-"
+"locations>` for more details)."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:266
+msgid ""
+"Snapshots are generated **manually** with the `snap save` command and "
+"**automatically when a snap is removed**. A snapshot can be used to backup "
+"the state of your snaps, revert snaps to a previous state and to restore a "
+"fresh snapd installation to a previously saved state."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:268
+msgid ""
+"The `snap save` command creates a snapshot for all installed snaps, or if "
+"declared individually, specific snaps:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:270
+msgid ""
+"$ sudo snap save\n"
+"Set  Snap         Age    Version               Rev   Size   Notes\n"
+"30   core         1.00s  16-2.37~pre1          6229   250B  -\n"
+"30   core18       886ms  18                    543    123B  -\n"
+"30   go           483ms  1.10.7                3092   387B  -\n"
+"30   vlc          529ms  3.0.6                 770   882kB  -\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:279
+msgid ""
+"The `restore` command replaces the current user, system and configuration "
+"data with the corresponding data from the specified snapshot:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:281
+msgid ""
+"$ sudo snap restore 30\n"
+"Restored snapshot #30.\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:286
+msgid ""
+"By default, this command restores all the data for all the snaps in a "
+"snapshot. You can restore data for specific snaps by simply listing them "
+"after the command, and for specific users with the `--users=<usernames>` "
+"argument."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:288
+msgid ""
+"Excluding a snap’s system and configuration data from *snap restore* is not "
+"currently possible."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:290
+msgid ""
+"See {ref}`Snapshots <how-to-guides-manage-snaps-create-data-snapshots>` for "
+"further details on creating, exporting, importing and validating snapshots."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:292
+msgid "Remove a snap"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:294
+msgid ""
+"To remove a snap from your system, along with its internal user, system and "
+"configuration data, use the *remove* command:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:296
+msgid ""
+"$ sudo snap remove vlc\n"
+"vlc removed\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:301
+msgid ""
+"Add the `--no-wait` option to return immediately to the command prompt and "
+"run the removal in the background."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:303
+msgid ""
+"By default, all of a snap's revisions are also removed. To remove a specific "
+"revision, add the `--revision=<revision-number>` argument to the *remove* "
+"command."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:305
+msgid ""
+"Prior to removal (except on [Ubuntu Core](https://www.ubuntu.com/core) "
+"systems), a snap's internal user, system, and configuration data is saved as "
+"a *snapshot* (_snapd 2.39+_), and retained for 31 days."
+msgstr ""
+
+#: ../../../tutorials/get-started.md:307
+msgid ""
+"To  remove a snap without generating a snapshot, use the additional `--"
+"purge` argument:"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:309
+msgid ""
+"$ sudo snap remove vlc --purge\n"
+"vlc removed\n"
+msgstr ""
+
+#: ../../../tutorials/get-started.md:314
+msgid ""
+"For more details information on using snaps, see our {ref}`Snap How-to "
+"guides <how-to-guides-index>`."
+msgstr ""

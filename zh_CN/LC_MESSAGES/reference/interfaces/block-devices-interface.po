@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/block-devices-interface.md:0
+#: ../../../reference/interfaces/block-devices-interface.md:8
+msgid "block-devices interface"
+msgstr ""
+
+#: ../../../reference/interfaces/block-devices-interface.md:10
+msgid ""
+"`block-devices` provides the ability to perform operations on raw disk block "
+"devices (e.g. `/dev/sda`, `/dev/mmcblk0`). This interface grants privileged "
+"access to the device."
+msgstr ""
+
+#: ../../../reference/interfaces/block-devices-interface.md:12
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`**: yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/block-devices-interface.md:12
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/block-devices-interface.md:16
+msgid ""
+"This interface controls a resource shared by the whole system. Snaps that "
+"use it can be installed as parallel instances, but every instance acts on "
+"the same system resource and snapd does not coordinate between them. Make "
+"sure each instance manages different resources, or run only one instance at "
+"a time. See {ref}`Snaps that are unsupported as parallel instances "
+"<interfaces-parallel-installs-shared-resources>` for details.."
+msgstr ""
+
+#: ../../../reference/interfaces/block-devices-interface.md:19
+msgid "Requires snapd version _2.37+_."
+msgstr ""
+
+#: ../../../reference/interfaces/block-devices-interface.md:21
+msgid ""
+"When the plug sets `allow-partitions` boolean attribute to `true`, the "
+"interface will grant access to individual partition devices (e.g. `/dev/"
+"sda1`, `/dev/mmcblk0p1`). The plug needs to be declared in the following "
+"manner:"
+msgstr ""
+
+#: ../../../reference/interfaces/block-devices-interface.md:23
+msgid ""
+"plugs:\n"
+"  block-devices:\n"
+"    allow-partitions: true\n"
+msgstr ""
+
+#: ../../../reference/interfaces/block-devices-interface.md:28
+msgid "The `allow-partitions` attribute requires snapd version *2.71+*."
+msgstr ""
+
+#: ../../../reference/interfaces/block-devices-interface.md:30
+msgid ""
+"Consumers of this interface require a {ref}`snap declaration <interfaces-"
+"process-for-aliases-auto-connections-and-tracks>` for distribution via the "
+"Snap Store."
+msgstr ""

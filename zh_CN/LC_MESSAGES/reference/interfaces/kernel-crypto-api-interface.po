@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/kernel-crypto-api-interface.md:2
+msgid "kernel-crypto-api interface"
+msgstr ""
+
+#: ../../../reference/interfaces/kernel-crypto-api-interface.md:4
+msgid ""
+"The `kernel-crypto-api` interface allows access to the [Linux kernel crypto "
+"API](https://www.kernel.org/doc/html/v4.11/crypto/index.html), which itself "
+"provides a set of cryptographic ciphers and other data transformation "
+"mechanisms."
+msgstr ""
+
+#: ../../../reference/interfaces/kernel-crypto-api-interface.md:7
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/kernel-crypto-api-interface.md:10
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/kernel-crypto-api-interface.md:10
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/kernel-crypto-api-interface.md:12
+msgid ""
+"The kernel crypto API has been designed to be used by any process such that "
+"using it requires no special privileges. As this provides a kernel surface, "
+"and has a CVE history, this interface needs to be manually connected."
+msgstr ""
+
+#: ../../../reference/interfaces/kernel-crypto-api-interface.md:14
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/kernel-crypto-api-interface.md:16
+msgid ""
+"The test code can be found in the snapd repository: https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/kernel_crypto_api_test.go"
+msgstr ""
+
+#: ../../../reference/interfaces/kernel-crypto-api-interface.md:18
+msgid ""
+"The source code for the interface is in the snapd repository: https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"kernel_crypto_api.go"
+msgstr ""

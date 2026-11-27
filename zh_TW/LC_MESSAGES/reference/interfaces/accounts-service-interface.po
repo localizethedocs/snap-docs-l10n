@@ -1,0 +1,67 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/accounts-service-interface.md:2
+msgid "accounts-service interface"
+msgstr ""
+
+#: ../../../reference/interfaces/accounts-service-interface.md:4
+msgid ""
+"`accounts-service` allows communication with the *accounts* service, such as "
+"[GNOME Online Accounts](https://wiki.gnome.org/Projects/GnomeOnlineAccounts)."
+msgstr ""
+
+#: ../../../reference/interfaces/accounts-service-interface.md:6
+msgid "<h2 id='heading--example'>Example</h2>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/accounts-service-interface.md:8
+msgid ""
+"This interface automatically connected by the [ONLY OFFICE Document Server]"
+"(https://snapcraft.io/onlyoffice-ds) snap to provide better integration with "
+"pre-configured accounts."
+msgstr ""
+
+#: ../../../reference/interfaces/accounts-service-interface.md:11
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/accounts-service-interface.md:13
+msgid "**Auto-connect**: no"
+msgstr ""
+
+#: ../../../reference/interfaces/accounts-service-interface.md:15
+msgid "<h3 id='heading-code'>Code examples</h3>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/accounts-service-interface.md:17
+msgid ""
+"The snapcraft.yaml for ONLY OFFICE Document Server can be found in the "
+"project’s GitHub repository: [https://github.com/ONLYOFFICE/snap-"
+"documentserver/blob/master/snap/snapcraft.yaml](https://github.com/"
+"ONLYOFFICE/snap-documentserver/blob/d6ab8c34d3601d177b08c2ebaa68eb8fc98b8898/"
+"snap/snapcraft.yaml#L52)"
+msgstr ""
+
+#: ../../../reference/interfaces/accounts-service-interface.md:19
+msgid ""
+"The source code for this interface is in the *snapd* repository: <https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"accounts_service.go>"
+msgstr ""

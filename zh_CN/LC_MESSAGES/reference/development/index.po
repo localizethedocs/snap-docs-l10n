@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/development/index.md:26
+msgid "Environment variables"
+msgstr ""
+
+#: ../../../reference/development/index.md:26
+msgid "API Error codes"
+msgstr ""
+
+#: ../../../reference/development/index.md:26
+msgid "Supported hooks"
+msgstr ""
+
+#: ../../../reference/development/index.md:26
+msgid "Full-disk-encryption hooks"
+msgstr ""
+
+#: ../../../reference/development/index.md:26
+msgid "Experimental features"
+msgstr ""
+
+#: ../../../reference/development/index.md:26
+msgid "SnapD REST API"
+msgstr ""
+
+#: ../../../reference/development/index.md:15
+#: ../../../reference/development/index.md:26
+msgid "YAML schemas"
+msgstr ""
+
+#: ../../../reference/development/index.md:0
+msgid ""
+"Extend snap functionality with API access and customised environments for "
+"your applications and devices. Learn about environment variables, the SnapD "
+"REST API, YAML schemas and more for snap users and snap package developers."
+msgstr ""
+
+#: ../../../reference/development/index.md:8
+msgid "Development"
+msgstr ""
+
+#: ../../../reference/development/index.md:10
+msgid ""
+"Extend snap functionality with API access and customised environments for "
+"your applications and devices."
+msgstr ""
+
+#: ../../../reference/development/index.md:12
+msgid ""
+"{ref}`Environment variables <reference-development-environment-variables>`: "
+"Internal values accessible to snapped applications."
+msgstr ""
+
+#: ../../../reference/development/index.md:13
+msgid ""
+"{ref}`REST API error codes <reference-development-rest-api-error-"
+"responses>`: The types of errors returned by the API."
+msgstr ""
+
+#: ../../../reference/development/index.md:17
+msgid ""
+"YAML schemas define exactly what a device, kernel and snap is capable of."
+msgstr ""
+
+#: ../../../reference/development/index.md:18
+msgid ""
+"{ref}`snap.yaml <reference-development-yaml-schemas-the-snap-format>`: The "
+"metadata for a snap."
+msgstr ""
+
+#: ../../../reference/development/index.md:19
+msgid ""
+"{ref}`Gadget snap <reference-development-yaml-schemas-the-gadget-snap>`: "
+"System and device properties."
+msgstr ""
+
+#: ../../../reference/development/index.md:20
+msgid ""
+"{ref}`Kernel snap <reference-development-yaml-schemas-the-kernel-snap>`: The "
+"Linux kernel snap, its metadata and setup files."
+msgstr ""
+
+#: ../../../reference/development/index.md:22
+msgid "Client libraries"
+msgstr ""
+
+#: ../../../reference/development/index.md:24
+msgid ""
+"[snap-http](https://github.com/canonical/snap-http): A Python library for "
+"interacting with the snapd REST API (`pip install snap-http`)."
+msgstr ""

@@ -1,0 +1,175 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:2
+msgid "The kernel snap"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:4
+msgid ""
+"The kernel snap is responsible for providing the Linux kernel image and "
+"modules for the system. The kernel snap to be used is defined in the "
+"device's model assertion, which is produced and signed by the Brand "
+"authority."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:8
+msgid ""
+"Canonical publishes some reference kernel snaps as well as kernel snaps for "
+"main Canonical models such as official Ubuntu Core VMs on various certified "
+"public clouds, as well as general purpose computing images for popular "
+"physical devices such as the 64-bit x86 PC and Raspberry Pi."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:13
+msgid ""
+"For details on building a kernel snap, see [Build a kernel snap](https://"
+"documentation.ubuntu.com/core/how-to-guides/image-creation/build-a-kernel-"
+"snap/) in the Ubuntu Core documentation."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:16
+msgid "Setup files"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:18
+msgid ""
+"In addition to traditional snap metadata, the kernel snap also holds some "
+"setup files fundamental to the initialization and lifecycle of the device."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:21
+msgid "The layout for a kernel snap has some variation, but usually follows:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:23
+msgid ""
+"`meta/snap.yaml` - Traditional snap details, with `type: kernel` explicitly "
+"defined"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:24
+msgid ""
+"`meta/kernel.yaml` - Optional kernel-specific metadata defining kernel-"
+"provided assets"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:25
+msgid "`snapd-info` - Information about the snapd packaged in the initrd"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:26
+msgid ""
+"`modules/<version>/` - Kernel modules; version must match the one in "
+"`snap.yaml`"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:27
+msgid "`firmware/` - Optional firmware files"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:28
+msgid ""
+"`dtbs/` - Optional binary device-tree files, if gadget.yaml states `device-"
+"tree-origin: kernel`"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:29
+msgid "kernel - The actual kernel image"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:30
+msgid "initrd - The initrd image"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:32
+msgid ""
+"The kernel and initrd may be discrete objects, usually named `kernel.img` "
+"and `initrd.img`, respectively. However, they could also be distributed as a "
+"single [Unified Kernel Image](https://uapi-group.org/specifications/specs/"
+"unified_kernel_image/) (UKI) or as a [Flatted Image Tree](https://"
+"fitspec.osfw.foundation/) (FIT) image. These are usually named `kernel.efi` "
+"or `kernel.img`, respectively."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:37
+msgid "kernel.yaml"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:39
+msgid ""
+"The `kernel.yaml` provides information used by snapd to determine kernel-"
+"specific asset information. Primarily, this is about device trees and kernel "
+"modules. The standard format is:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:43
+msgid ""
+"dynamic-modules: $SNAP_DATA\n"
+"assets:\n"
+"  dtbs:\n"
+"    update: true\n"
+"    content:\n"
+"      - dtbs/\n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:52
+msgid ""
+"`dynamic-modules` points to a folder which contains `modules/` and `firmware/"
+"` directories, usually created by a kernel component."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:55
+msgid ""
+"`assets` details a list of content the kernel snap provides, usually device "
+"tree files, to the gadget snap. These are then citable in the gadget snap's "
+"`gadget.yaml` like so:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:59
+msgid ""
+"volumes:\n"
+"  platform:\n"
+"    schema: gpt\n"
+"    bootloader: grub\n"
+"    structure:\n"
+"      - name: ubuntu-seed\n"
+"        role: system-seed\n"
+"        filesystem: vfat\n"
+"        type: C12A7328-F81F-11D2-BA4B-00A0C93EC93B\n"
+"        size: 800M\n"
+"        offset: 8M\n"
+"        content:\n"
+"          - source: $kernel:dtbs/dtbs/\n"
+"            target: /dtbs/\n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-kernel-snap.md:76
+msgid ""
+"<!--\n"
+"TODO -- document the initrd more thoroughly\n"
+"## initrd\n"
+"\n"
+"The initrd component of the kernel snap plays a fundamental role in the "
+"booting\n"
+"of an Ubuntu Core system.\n"
+"\n"
+"The initrd is usually built using the ubuntu-core-initramfs tool.\n"
+"-->\n"
+msgstr ""

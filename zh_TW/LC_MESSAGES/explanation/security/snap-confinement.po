@@ -1,0 +1,160 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/security/snap-confinement.md:0
+msgid ""
+"Understand how snap confinement isolates applications, protects your system, "
+"and controls access to files, networks, and devices through interfaces."
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:8
+msgid "Snap confinement"
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:10
+msgid ""
+"Snap confinement determines the amount of access an application has to "
+"system resources, such as files, the network, peripherals and services. "
+"There are several levels of confinement."
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:12
+msgid ""
+"Confinement ensures that individual pieces of software do not impact the "
+"robustness of the user's system or cause issues with other applications. As "
+"a result, when the user runs a snap, the software it provides is isolated "
+"from the system to some degree, with a default that limits access to a "
+"strict minimum of features."
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:14
+msgid "Confinement levels"
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:16
+msgid ""
+"A snap's confinement level controls the degree of isolation it has from the "
+"user's system. Application developers or packagers can adjust the "
+"confinement level to specify in broad terms how much access to system "
+"resources an application needs, either for normal use or during development."
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:18
+msgid "There are two levels of snap confinement for published snaps:"
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:19
+msgid ""
+"**Strict**   Used by the majority of snaps. Strictly confined snaps run in "
+"complete isolation, up to a minimal access level that's deemed always safe. "
+"Consequently, strictly confined snaps can not access files, network, "
+"processes or any other system resource without requesting specific access "
+"via an interface."
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:21
+msgid ""
+"**{ref}`Classic <explanation-security-classic-confinement>`**  Allows access "
+"to the system's resources in much the same way traditional packages do. To "
+"safeguard against abuse, publishing a classic snap requires {ref}`manual "
+"approval <interfaces-reviewing-classic-confinement-snaps>`, and installation "
+"requires the `--classic` command line argument."
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:24
+msgid "An additional mode is useful during the development process:"
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:25
+msgid ""
+"**Devmode**  A special mode for snap creators and developers. A *devmode* "
+"snap runs as a strictly confined snap with full access to system resources, "
+"and produces debug output to identify unspecified interfaces. Installation "
+"requires the `--devmode` command line argument. Devmode snaps cannot be "
+"released to the stable channel, do not appear in search results, and do not "
+"automatically refresh."
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:28
+msgid ""
+"Strict confinement uses security features of the Linux kernel, including "
+"AppArmor, seccomp and namespaces, to prevent applications and services "
+"accessing the wider system."
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:30
+msgid ""
+"For details on how confinement is implemented, see {ref}`Snap system "
+"architecture <reference-operations-system-architecture>`."
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:32
+msgid "Getting the confinement level"
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:34
+msgid "Use the `snap` command to discover the confinement level for a snap:"
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:36
+msgid ""
+"$ snap info --verbose vlc\n"
+"[...]\n"
+"  confinement:       strict\n"
+"  devmode:           false\n"
+"[...]\n"
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:44
+msgid ""
+"To see which installed snaps are using classic confinement, look for "
+"*classic* under the *Notes* column in the output of `snap list`:"
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:46
+msgid ""
+"$ snap list\n"
+"Name      Version   Rev   Tracking  Publisher       Notes\n"
+"vlc       3.0.6     770   stable    videolan✓       -\n"
+"code      0dd516dd  5     stable    vscode✓         classic\n"
+"wormhole  0.11.2    112   stable    snapcrafters    -\n"
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:53
+msgid "<a name=\"interfaces\"></a>"
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:53
+msgid "<a name=\"interfaces\">"
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:53
+msgid "</a>"
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:55
+msgid "Interfaces and confinement"
+msgstr ""
+
+#: ../../../explanation/security/snap-confinement.md:57
+msgid ""
+"Snaps with strict confinement must use {ref}`interfaces <explanation-"
+"interfaces-all-about-interfaces>` to access resources on the user's system, "
+"including those provided by other snaps."
+msgstr ""

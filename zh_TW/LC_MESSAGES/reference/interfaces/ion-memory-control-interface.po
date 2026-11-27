@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/ion-memory-control-interface.md:2
+msgid "ion-memory-control interface"
+msgstr ""
+
+#: ../../../reference/interfaces/ion-memory-control-interface.md:4
+msgid ""
+"The `ion-memory-control` interface allows access to the Android ION memory "
+"allocator, a Linux kernel feature for managing one or more memory pools."
+msgstr ""
+
+#: ../../../reference/interfaces/ion-memory-control-interface.md:6
+msgid ""
+"This interface is primarily intended to be used with {ref}`Ubuntu Core <ref-"
+"glossary_ubuntu-core>`."
+msgstr ""
+
+#: ../../../reference/interfaces/ion-memory-control-interface.md:9
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/ion-memory-control-interface.md:11
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`**: yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/ion-memory-control-interface.md:11
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/ion-memory-control-interface.md:14
+msgid "The device is expected in the following location:"
+msgstr ""
+
+#: ../../../reference/interfaces/ion-memory-control-interface.md:15
+msgid "`/dev/ion`"
+msgstr ""
+
+#: ../../../reference/interfaces/ion-memory-control-interface.md:17
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/ion-memory-control-interface.md:19
+msgid ""
+"The test code can be found in the snapd repository: https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/ion_memory_control_test.go"
+msgstr ""
+
+#: ../../../reference/interfaces/ion-memory-control-interface.md:21
+msgid ""
+"The source code for the interface is in the snapd repository: https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"ion_memory_control.go"
+msgstr ""

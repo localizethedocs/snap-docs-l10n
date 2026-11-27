@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/scsi-generic-interface.md:2
+msgid "scsi-generic interface"
+msgstr ""
+
+#: ../../../reference/interfaces/scsi-generic-interface.md:4
+msgid ""
+"The `scsi-generic` interface allows read and write access to [SCSI Generic "
+"driver](https://www.kernel.org/doc/html/latest/scsi/scsi-generic.html) (sg) "
+"devices."
+msgstr ""
+
+#: ../../../reference/interfaces/scsi-generic-interface.md:6
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/scsi-generic-interface.md:8
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`** : "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`** : yes"
+msgstr ""
+
+#: ../../../reference/interfaces/scsi-generic-interface.md:8
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/scsi-generic-interface.md:10
+msgid "`shared-memory` (slot and plug):"
+msgstr ""
+
+#: ../../../reference/interfaces/scsi-generic-interface.md:12
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/scsi-generic-interface.md:14
+msgid ""
+"apps:\n"
+" app:\n"
+"  command: foo\n"
+"  plugs: [scsi-generic]\n"
+msgstr ""
+
+#: ../../../reference/interfaces/scsi-generic-interface.md:21
+msgid ""
+"The test code can be found in the snapd repository: https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/scsi_generic_test.go"
+msgstr ""
+
+#: ../../../reference/interfaces/scsi-generic-interface.md:23
+msgid ""
+"The source code for the interface is in the snapd repository: https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/scsi_generic.go"
+msgstr ""

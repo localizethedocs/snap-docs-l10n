@@ -1,0 +1,1637 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/release-notes.md:0
+msgid ""
+"Snapd release notes. Review new features, bug fixes, and changes across "
+"recent stable, beta, and earlier snapd releases."
+msgstr ""
+
+#: ../../../reference/release-notes.md:8
+msgid "Release notes"
+msgstr ""
+
+#: ../../../reference/release-notes.md:10
+msgid ""
+"This page outlines the release notes of all recent versions of Snapd, "
+"summarising new features, bug fixes and changes in each version."
+msgstr ""
+
+#: ../../../reference/release-notes.md:12
+msgid "Recent releases"
+msgstr ""
+
+#: ../../../reference/release-notes.md:14
+msgid "Latest stable release"
+msgstr ""
+
+#: ../../../reference/release-notes.md:16
+msgid ""
+"**{ref}`Snapd 2.73 <ref-release-notes_snapd-2-73-release-notes>`** (27th "
+"November 2025)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:18
+msgid "Latest beta release"
+msgstr ""
+
+#: ../../../reference/release-notes.md:19
+msgid ""
+"{ref}`Snapd 2.74 <ref-release-notes_snapd-2-74-release-notes>` (21st January "
+"2026)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:21
+msgid "Older releases"
+msgstr ""
+
+#: ../../../reference/release-notes.md:22
+msgid ""
+"{ref}`Snapd 2.73 <ref-release-notes_snapd-2-73-release-notes>` (27th "
+"November 2025)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:23
+msgid ""
+"{ref}`Snapd 2.72 <ref-release-notes_snapd-2-72-release-notes>` (30th "
+"September 2025)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:24
+msgid ""
+"{ref}`Snapd 2.71 <ref-release-notes_snapd-2-71-release-notes>` (14th August "
+"2025)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:25
+msgid ""
+"{ref}`Snapd 2.70 <ref-release-notes_snapd-2-70-release-notes>` (31th June "
+"2025)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:26
+msgid ""
+"{ref}`Snapd 2.68 <ref-release-notes_snapd-2-68-release-notes>` (31st March "
+"2025)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:27
+msgid ""
+"{ref}`Snapd 2.67 <ref-release-notes_snapd-2-67-release-notes>` (13th January "
+"2025)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:28
+msgid ""
+"{ref}`Snapd 2.66 <ref-release-notes_snapd-2-66-release-notes>` (26th "
+"November 2024)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:29
+msgid "Snapd 2.65  (8th October 2024)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:30
+msgid ""
+"{ref}`Snapd 2.64 <ref-release-notes_snapd-2-64-release-notes>` (25th July "
+"2024)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:31
+msgid ""
+"{ref}`Snapd 2.63 <ref-release-notes_snapd-2-63-release-notes>` (6th June "
+"2024)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:32
+msgid ""
+"{ref}`Snapd 2.62 <ref-release-notes_snapd-2-62-release-notes>` (15th April "
+"2024)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:33
+msgid ""
+"{ref}`Snapd 2.61 <ref-release-notes_snapd-2-61-release-notes>` (3rd January "
+"2024)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:35
+msgid "Release policy and schedule"
+msgstr ""
+
+#: ../../../reference/release-notes.md:37
+msgid ""
+"The snapd package updates automatically, and by default, checks for updates "
+"4 times a day. To manually update or modify this process, see {ref}`Managing "
+"updates <how-to-guides-work-with-snaps-manage-updates>`."
+msgstr ""
+
+#: ../../../reference/release-notes.md:39
+msgid ""
+"{ref}`Channels <explanation-how-snaps-work-channels-and-tracks>` are used to "
+"distinguish between stable releases, which are always available from the "
+"stable channel, and beta and testing releases, which can be installed from "
+"the candidate, beta and edge channels."
+msgstr ""
+
+#: ../../../reference/release-notes.md:41
+msgid ""
+"To install snapd from the beta channel, for example, use the following "
+"command:"
+msgstr ""
+
+#: ../../../reference/release-notes.md:43
+msgid "sudo snap refresh snapd --beta\n"
+msgstr ""
+
+#: ../../../reference/release-notes.md:47
+msgid ""
+"To ensure you receive latest security updates and bug fixes, ensure you "
+"upgrade to a new release of Snapd shortly after it is released."
+msgstr ""
+
+#: ../../../reference/release-notes.md:49
+msgid ""
+"For the release plan and complete list of changes, please refer to the {ref}"
+"`snapd roadmap <reference-release-notes>`. Feel free to provide your test "
+"feedback on the [forum](https://forum.snapcraft.io/c/snapd/5), or directly "
+"in [Launchpad](https://bugs.launchpad.net/snapd/+filebug)."
+msgstr ""
+
+#: ../../../reference/release-notes.md:51
+msgid "We greatly appreciate your contributions and support!"
+msgstr ""
+
+#: ../../../reference/release-notes.md:56
+msgid "Snapd 2.74 release notes"
+msgstr ""
+
+#: ../../../reference/release-notes.md:58
+msgid ""
+"We’re pleased to share that Snapd 2.74 snap is available for testing in the "
+"beta channel."
+msgstr ""
+
+#: ../../../reference/release-notes.md:60
+#: ../../../reference/release-notes.md:217
+#: ../../../reference/release-notes.md:269
+msgid "**Highlights**"
+msgstr ""
+
+#: ../../../reference/release-notes.md:62
+msgid "FDE: use new activation API from secboot"
+msgstr ""
+
+#: ../../../reference/release-notes.md:63
+msgid "FDE: use activation API also with non keydata keys"
+msgstr ""
+
+#: ../../../reference/release-notes.md:64
+msgid "FDE: ignore internal recovery key expiration during install"
+msgstr ""
+
+#: ../../../reference/release-notes.md:65
+msgid "FDE: support adding/removing PINs post-installation"
+msgstr ""
+
+#: ../../../reference/release-notes.md:66
+msgid "FDE: support changing PINs post-installation"
+msgstr ""
+
+#: ../../../reference/release-notes.md:67
+msgid "FDE: support adding a recovery key post-installation"
+msgstr ""
+
+#: ../../../reference/release-notes.md:68
+msgid ""
+"FDE: provide activation status via new endpoint v2/system-info/storage-"
+"encrypted"
+msgstr ""
+
+#: ../../../reference/release-notes.md:69
+msgid "FDE: support sealing and resealing using the preinstall check result"
+msgstr ""
+
+#: ../../../reference/release-notes.md:70
+msgid "FDE: disable passphrase support during install"
+msgstr ""
+
+#: ../../../reference/release-notes.md:71
+msgid "FDE: add keyboard configuration helpers"
+msgstr ""
+
+#: ../../../reference/release-notes.md:72
+msgid "FDE: lazily inject keyboard layout configuration in kernel cmdline"
+msgstr ""
+
+#: ../../../reference/release-notes.md:73
+msgid "FDE: enable pin tries and limits PIN entry attempts to 3"
+msgstr ""
+
+#: ../../../reference/release-notes.md:74
+msgid "FDE: extend secureboot endpoint to accept DB, KEK, and PK"
+msgstr ""
+
+#: ../../../reference/release-notes.md:75
+msgid ""
+"FDE: simplify /v2/system-volumes keyslots handling by allowing name-only "
+"entries, implicitly expanding to all system containers"
+msgstr ""
+
+#: ../../../reference/release-notes.md:76
+msgid ""
+"FDE: support extra non-system key slot names to support agents such as "
+"Landscape to set dedicated recovery keys"
+msgstr ""
+
+#: ../../../reference/release-notes.md:77
+msgid "FDE: initialize fde state after device state"
+msgstr ""
+
+#: ../../../reference/release-notes.md:78
+msgid "FDE: use device node to find the storage container and keys"
+msgstr ""
+
+#: ../../../reference/release-notes.md:79
+msgid "FDE: provide user visible name for disk based on ID_MODEL"
+msgstr ""
+
+#: ../../../reference/release-notes.md:80
+msgid "FDE: update secboot in snapd with latest additions and fixes"
+msgstr ""
+
+#: ../../../reference/release-notes.md:81
+msgid ""
+"core-initrd: add systemd service for setting plymouth keyboard layout and "
+"X11 keyboard layouts"
+msgstr ""
+
+#: ../../../reference/release-notes.md:82
+msgid "core-initrd: set plymouth cleartext toggle option"
+msgstr ""
+
+#: ../../../reference/release-notes.md:83
+msgid "core-initrd: fix plymouth missing font issue"
+msgstr ""
+
+#: ../../../reference/release-notes.md:84
+msgid "core-initrd: update dependency from libteec1 to libteec2"
+msgstr ""
+
+#: ../../../reference/release-notes.md:85
+msgid "core-initrd: add new dlopened libs"
+msgstr ""
+
+#: ../../../reference/release-notes.md:86
+msgid ""
+"LP: #2116949 Preseeding: add support for preseeding of hybrid systems via "
+"the installer API$"
+msgstr ""
+
+#: ../../../reference/release-notes.md:87
+msgid "Preseeding: check whether a path is a mount point before remounting"
+msgstr ""
+
+#: ../../../reference/release-notes.md:88
+msgid "Confdb: support tagging paths as secret in storage schemas"
+msgstr ""
+
+#: ../../../reference/release-notes.md:89
+msgid "Confdb: support filtering on placeholder sub-keys"
+msgstr ""
+
+#: ../../../reference/release-notes.md:90
+msgid "Confdb: support filtering in API and confdbstate"
+msgstr ""
+
+#: ../../../reference/release-notes.md:91
+msgid "Confdb: support field filtering on reads"
+msgstr ""
+
+#: ../../../reference/release-notes.md:92
+msgid "Confdb: support \"parameters\" stanza and check filters against them"
+msgstr ""
+
+#: ../../../reference/release-notes.md:93
+msgid "Confdb: add support for '--with' constraints"
+msgstr ""
+
+#: ../../../reference/release-notes.md:94
+msgid "Confdb: parsing fixes and error handling improvements"
+msgstr ""
+
+#: ../../../reference/release-notes.md:95
+msgid "Assertions: restrict serials to new format in confdb-control"
+msgstr ""
+
+#: ../../../reference/release-notes.md:96
+msgid "Assertions: add verify signature function"
+msgstr ""
+
+#: ../../../reference/release-notes.md:97
+msgid ""
+"Remote device management: modify request-message assertion to expose its "
+"time constraints for remote device management"
+msgstr ""
+
+#: ../../../reference/release-notes.md:98
+msgid "Remote device management: support polling of store messages"
+msgstr ""
+
+#: ../../../reference/release-notes.md:99
+msgid ""
+"Remote device management: add signing of response messages with device key"
+msgstr ""
+
+#: ../../../reference/release-notes.md:100
+msgid ""
+"Prompting: enable notify protocol v5 and test prompt restoration after snapd "
+"restart"
+msgstr ""
+
+#: ../../../reference/release-notes.md:101
+msgid "snap: change malformed '--channel=' warning to error"
+msgstr ""
+
+#: ../../../reference/release-notes.md:102
+msgid ""
+"snap: add 'snap report-issue' command to get the available contact details "
+"for the specified snap"
+msgstr ""
+
+#: ../../../reference/release-notes.md:103
+msgid ""
+"snap: add 'snap version --verbose' flag to include information on snap "
+"binaries origin"
+msgstr ""
+
+#: ../../../reference/release-notes.md:104
+msgid "snap: create the XDG_RUNTIME_DIR folder"
+msgstr ""
+
+#: ../../../reference/release-notes.md:105
+msgid "LP: #2068493 snap: add support for 'snap refresh --tracking'"
+msgstr ""
+
+#: ../../../reference/release-notes.md:106
+msgid "snapctl: add '--tracking' flag to 'snapctl refresh'"
+msgstr ""
+
+#: ../../../reference/release-notes.md:107
+msgid "Reexec: include the info filepath in the version compare debug log"
+msgstr ""
+
+#: ../../../reference/release-notes.md:108
+msgid ""
+"Reexec: add support for forcing reexec into and older snapd snap by setting "
+"SNAP_REEXEC=force in the environment"
+msgstr ""
+
+#: ../../../reference/release-notes.md:109
+msgid ""
+"snap-confine: correct error message related to snap-confine group policy "
+"validation"
+msgstr ""
+
+#: ../../../reference/release-notes.md:110
+msgid "snap-confine: ensure we only mount existing directories"
+msgstr ""
+
+#: ../../../reference/release-notes.md:111
+msgid ""
+"LP: #2134364 snap-confine: handle potential race when creating /tmp/snap-"
+"private-tmp when lacking systemd-tmpfiles support"
+msgstr ""
+
+#: ../../../reference/release-notes.md:112
+msgid "snap-confine: filter plus characters from security tags"
+msgstr ""
+
+#: ../../../reference/release-notes.md:113
+msgid "Desktop: use desktop file IDs as desktop IDs"
+msgstr ""
+
+#: ../../../reference/release-notes.md:114
+msgid "Desktop: store the common ID in the desktop file"
+msgstr ""
+
+#: ../../../reference/release-notes.md:115
+msgid "Desktop: allow graphical daemons to show icons in the dock"
+msgstr ""
+
+#: ../../../reference/release-notes.md:116
+msgid ""
+"Desktop: change user daemons with desktop plug defined to depend on "
+"graphical-session.target"
+msgstr ""
+
+#: ../../../reference/release-notes.md:117
+msgid "dm-verity for essential snaps: made change to prerequisite struct"
+msgstr ""
+
+#: ../../../reference/release-notes.md:118
+msgid "Cross-distro: modify SELinux profile to allow connecting to squid proxy"
+msgstr ""
+
+#: ../../../reference/release-notes.md:119
+msgid "Cross-distro: add support for migrating snap mount directory"
+msgstr ""
+
+#: ../../../reference/release-notes.md:120
+msgid "Packaging: drop ubuntu-14.04 packaging"
+msgstr ""
+
+#: ../../../reference/release-notes.md:121
+msgid "Packaging: drop ubuntu-{14.04,16.04} transitional binary packages"
+msgstr ""
+
+#: ../../../reference/release-notes.md:122
+msgid "Packaging: remove desktop files and state lock file during snapd purge"
+msgstr ""
+
+#: ../../../reference/release-notes.md:123
+msgid ""
+"Packaging: fix inhibition hint file being left behind on failed unlink-"
+"current-snap"
+msgstr ""
+
+#: ../../../reference/release-notes.md:124
+msgid "Disallow timeouts < 1us in systemd units"
+msgstr ""
+
+#: ../../../reference/release-notes.md:125
+msgid "Add snap-store to the user-daemons support overrides"
+msgstr ""
+
+#: ../../../reference/release-notes.md:126
+msgid "Support for `SuccessExitStatus=` generation for systemd daemon"
+msgstr ""
+
+#: ../../../reference/release-notes.md:127
+msgid "Make standby output more verbose"
+msgstr ""
+
+#: ../../../reference/release-notes.md:128
+msgid "Add prepare-serial-request hook"
+msgstr ""
+
+#: ../../../reference/release-notes.md:129
+msgid ""
+"Try to discard snap mount namespaces when no processes are running during "
+"snap updates"
+msgstr ""
+
+#: ../../../reference/release-notes.md:130
+msgid ""
+"Improve handling of snap downloads cache by introducing periodic cleanup "
+"with more aggressive policy"
+msgstr ""
+
+#: ../../../reference/release-notes.md:131
+msgid "Interfaces: mediatek-accel | create new interface"
+msgstr ""
+
+#: ../../../reference/release-notes.md:132
+msgid "Interfaces: nvidia-video-driver-libs | create new interface"
+msgstr ""
+
+#: ../../../reference/release-notes.md:133
+msgid "Interfaces: *-driver-libs | accept component paths"
+msgstr ""
+
+#: ../../../reference/release-notes.md:134
+msgid ""
+"Interfaces: desktop-legacy, unity7 | remove workaround for slash filtering "
+"in ibus address"
+msgstr ""
+
+#: ../../../reference/release-notes.md:135
+msgid "Interfaces: fwupd | allow writing reboot notification in /run"
+msgstr ""
+
+#: ../../../reference/release-notes.md:136
+msgid "Interfaces: add 'install' coreutils to base AppArmor template"
+msgstr ""
+
+#: ../../../reference/release-notes.md:137
+msgid ""
+"Interfaces: u2f-devices | add apparmor permissions to allow the use of the "
+"libfido2 library in snaps"
+msgstr ""
+
+#: ../../../reference/release-notes.md:138
+msgid "Interfaces: u2f-devices | add support for Thetis security key"
+msgstr ""
+
+#: ../../../reference/release-notes.md:139
+msgid "Interfaces: add AppArmor workaround for mmap MAP_HUGETLB"
+msgstr ""
+
+#: ../../../reference/release-notes.md:140
+msgid ""
+"Interfaces: timeserver-control | manage per-link ntp settings via systemd-"
+"networkd"
+msgstr ""
+
+#: ../../../reference/release-notes.md:143
+msgid "Snapd 2.73 release notes"
+msgstr ""
+
+#: ../../../reference/release-notes.md:145
+msgid "FDE: do not save incomplete FDE state when resealing was skipped"
+msgstr ""
+
+#: ../../../reference/release-notes.md:146
+msgid "FDE: warn of inconsistent primary or policy counter"
+msgstr ""
+
+#: ../../../reference/release-notes.md:147
+msgid "Confdb: document confdb in snapctl help messages"
+msgstr ""
+
+#: ../../../reference/release-notes.md:148
+msgid "Confdb: only confdb hooks wait if snaps are disabled"
+msgstr ""
+
+#: ../../../reference/release-notes.md:149
+msgid "Confdb: relax confdb change conflict checks"
+msgstr ""
+
+#: ../../../reference/release-notes.md:150
+msgid "Confdb: remove empty parent when removing last leaf"
+msgstr ""
+
+#: ../../../reference/release-notes.md:151
+msgid "Confdb: support parsing field filters"
+msgstr ""
+
+#: ../../../reference/release-notes.md:152
+msgid "Confdb: wrap confdb write values under \"values\" key"
+msgstr ""
+
+#: ../../../reference/release-notes.md:153
+msgid ""
+"dm-verity for essential snaps: add new naming convention for verity files"
+msgstr ""
+
+#: ../../../reference/release-notes.md:154
+msgid "dm-verity for essential snaps: add snap integrity discovery"
+msgstr ""
+
+#: ../../../reference/release-notes.md:155
+msgid "dm-verity for essential snaps: fix verity salt calculation"
+msgstr ""
+
+#: ../../../reference/release-notes.md:156
+msgid "Assertions: add hardware identity assertion"
+msgstr ""
+
+#: ../../../reference/release-notes.md:157
+msgid "Assertions: add integrity stanza in snap resources revisions"
+msgstr ""
+
+#: ../../../reference/release-notes.md:158
+msgid ""
+"Assertions: add request message assertion required for remote device "
+"management"
+msgstr ""
+
+#: ../../../reference/release-notes.md:159
+msgid ""
+"Assertions: add response-message assertion for secure remote device "
+"management"
+msgstr ""
+
+#: ../../../reference/release-notes.md:160
+msgid "Assertions: expose WithStackedBackstore in RODatabase"
+msgstr ""
+
+#: ../../../reference/release-notes.md:161
+msgid ""
+"Packaging: cross-distro | install upstream NEWS file into relevant snapd "
+"package doc directory"
+msgstr ""
+
+#: ../../../reference/release-notes.md:162
+msgid ""
+"Packaging: cross-distro | tweak how the blocks injecting $SNAP_MOUNT_DIR/bin "
+"are generated as required for openSUSE"
+msgstr ""
+
+#: ../../../reference/release-notes.md:163
+msgid ""
+"Packaging: remove deprecated snap-gdb-shim and all references now that snap "
+"run --gdb is unsupported and replaced by --gdbserver"
+msgstr ""
+
+#: ../../../reference/release-notes.md:164
+msgid "Preseed: call systemd-tmpfiles instead handle-writable-paths on uc26"
+msgstr ""
+
+#: ../../../reference/release-notes.md:165
+msgid ""
+"Preseed: do not remove the /snap dir but rather all its contents during reset"
+msgstr ""
+
+#: ../../../reference/release-notes.md:166
+msgid ""
+"snap-confine: attach name derived from security tag to BPF maps and programs"
+msgstr ""
+
+#: ../../../reference/release-notes.md:167
+msgid "snap-confine: ensure permitted capabilities match expectation"
+msgstr ""
+
+#: ../../../reference/release-notes.md:168
+msgid ""
+"snap-confine: fix cached snap-confine profile cleanup to report the correct "
+"error instead of masking backend setup failures"
+msgstr ""
+
+#: ../../../reference/release-notes.md:169
+msgid "snap-confine: Improve validation of user controlled paths"
+msgstr ""
+
+#: ../../../reference/release-notes.md:170
+msgid ""
+"snap-confine: tighten snap cgroup checks to ensure a snap cannot start "
+"another snap in the same cgroup, preventing incorrect device-filter "
+"installation"
+msgstr ""
+
+#: ../../../reference/release-notes.md:171
+msgid "core-initrd: add 26.04 ubuntu-core-initramfs package"
+msgstr ""
+
+#: ../../../reference/release-notes.md:172
+msgid ""
+"core-initrd: add missing order dependency for setting default system files"
+msgstr ""
+
+#: ../../../reference/release-notes.md:173
+msgid ""
+"core-initrd: avoid scanning loop and mmc boot partitions as the boot disk "
+"won't be any of these"
+msgstr ""
+
+#: ../../../reference/release-notes.md:174
+msgid "core-initrd: make cpio a Depends and remove from Build-Depends"
+msgstr ""
+
+#: ../../../reference/release-notes.md:175
+msgid "core-initrd: start plymouth sooner and reload when gadget is available"
+msgstr ""
+
+#: ../../../reference/release-notes.md:176
+msgid ""
+"Cross-distro: modify syscheck to account for differences in openSUSE 16.0+"
+msgstr ""
+
+#: ../../../reference/release-notes.md:177
+msgid ""
+"Validation sets: use in-flight validation sets when calling 'snapctl "
+"install' from hook"
+msgstr ""
+
+#: ../../../reference/release-notes.md:178
+msgid "Prompting: enable prompting for the camera interface"
+msgstr ""
+
+#: ../../../reference/release-notes.md:179
+msgid ""
+"Prompting: remove polkit authentication when modifying/deleting prompting "
+"rules"
+msgstr ""
+
+#: ../../../reference/release-notes.md:180
+msgid ""
+"LP: #2127189 Prompting: do not record notices for unchanged rules on snapd "
+"startup"
+msgstr ""
+
+#: ../../../reference/release-notes.md:181
+msgid "AppArmor: add free and pidof to the template"
+msgstr ""
+
+#: ../../../reference/release-notes.md:182
+msgid "AppArmor: adjust interfaces/profiles to cope with coreutils paths"
+msgstr ""
+
+#: ../../../reference/release-notes.md:183
+msgid "Interfaces: add support for compatibility expressions"
+msgstr ""
+
+#: ../../../reference/release-notes.md:184
+msgid "Interfaces: checkbox-support | complete overhaul"
+msgstr ""
+
+#: ../../../reference/release-notes.md:185
+msgid ""
+"Interfaces: define vulkan-driver-libs, cuda-driver-libs, egl-driver-libs, "
+"gbm-driver-libs, opengl-driver-libs, and opengles-driver-libs"
+msgstr ""
+
+#: ../../../reference/release-notes.md:186
+msgid ""
+"Interfaces: allow snaps on classic access to nvidia graphics libraries "
+"exported by *-driver-libs interfaces"
+msgstr ""
+
+#: ../../../reference/release-notes.md:187
+msgid "Interfaces: fwupd | broaden access to /boot/efi/EFI"
+msgstr ""
+
+#: ../../../reference/release-notes.md:188
+msgid ""
+"Interfaces: gsettings | set dconf-service as profile for "
+"ca.desrt.dconf.Writer"
+msgstr ""
+
+#: ../../../reference/release-notes.md:189
+msgid ""
+"Interfaces: iscsi-initiator, dm-multipath, nvme-control | add new interfaces"
+msgstr ""
+
+#: ../../../reference/release-notes.md:190
+msgid ""
+"Interfaces: opengl | grant read/write permission to /run/nvidia-persistenced/"
+"socket"
+msgstr ""
+
+#: ../../../reference/release-notes.md:191
+msgid "interfaces: ros-snapd-support | add access to /v2/changes/"
+msgstr ""
+
+#: ../../../reference/release-notes.md:192
+msgid ""
+"Interfaces: system-observe | read access to btrfs/ext4/zfs filesystem "
+"information"
+msgstr ""
+
+#: ../../../reference/release-notes.md:193
+msgid "Interfaces: system-trace | allow /sys/kernel/tracing/** rw"
+msgstr ""
+
+#: ../../../reference/release-notes.md:194
+msgid "Interfaces: usb-gadget | add support for ffs mounts in attributes"
+msgstr ""
+
+#: ../../../reference/release-notes.md:195
+msgid "Add autocompletion to run command"
+msgstr ""
+
+#: ../../../reference/release-notes.md:196
+msgid ""
+"Introduce option for disallowing auto-connection of a specific interface"
+msgstr ""
+
+#: ../../../reference/release-notes.md:197
+msgid ""
+"Only log errors for user service operations performed as a part of snap "
+"removal"
+msgstr ""
+
+#: ../../../reference/release-notes.md:198
+msgid "Patch snap names in service requests for parallel installed snaps"
+msgstr ""
+
+#: ../../../reference/release-notes.md:199
+msgid "Simplify traits for eMMC special partitions"
+msgstr ""
+
+#: ../../../reference/release-notes.md:200
+msgid "Strip apparmor_parser from debug symbols shrinking snapd size by ~3MB"
+msgstr ""
+
+#: ../../../reference/release-notes.md:201
+msgid "Fix InstallPathMany skipping refresh control"
+msgstr ""
+
+#: ../../../reference/release-notes.md:202
+msgid "Fix waiting for GDB helper to stop before attaching gdbserver"
+msgstr ""
+
+#: ../../../reference/release-notes.md:203
+msgid "Protect the per-snap tmp directory against being reaped by age"
+msgstr ""
+
+#: ../../../reference/release-notes.md:204
+msgid "Prevent disabling base snaps to ensure dependent snaps can be removed"
+msgstr ""
+
+#: ../../../reference/release-notes.md:205
+msgid ""
+"Modify API endpoint /v2/logs to reject n <= 0 (except for special case -1 "
+"meaning all)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:206
+msgid ""
+"Avoid potential deadlock when task is injected after the change was aborted"
+msgstr ""
+
+#: ../../../reference/release-notes.md:207
+msgid ""
+"Avoid race between store download stream and cache cleanup executing in "
+"parallel when invoked by snap download task"
+msgstr ""
+
+#: ../../../reference/release-notes.md:208
+msgid "LP: #1851490 Use \"current\" instead of revision number for icons"
+msgstr ""
+
+#: ../../../reference/release-notes.md:209
+msgid "LP: #2121853 Add snapctl version command"
+msgstr ""
+
+#: ../../../reference/release-notes.md:210
+msgid ""
+"LP: #2127214 Ensure no more than one partition on disk can match a gadget "
+"partition"
+msgstr ""
+
+#: ../../../reference/release-notes.md:211
+msgid ""
+"LP: #2127244 snap-confine: update AppArmor profile to allow read/write to "
+"journal as workaround for snap-confine fd inheritance prevented by newer "
+"AppArmor"
+msgstr ""
+
+#: ../../../reference/release-notes.md:212
+msgid ""
+"LP: #2127766 Add new tracing mechanism with independently running strace and "
+"shim synchronization"
+msgstr ""
+
+#: ../../../reference/release-notes.md:215
+msgid "Snapd 2.72 release notes"
+msgstr ""
+
+#: ../../../reference/release-notes.md:219
+msgid ""
+"Enable the gpio-chardev interface now with the more robust gpio-aggregator "
+"configfs kernel interface ([LP: #1916244](https://bugs.launchpad.net/snapd/"
+"+bug/1916244))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:220
+msgid ""
+"FDE enhancements and additions: add generic reseal function and correct "
+"sealing with kernel command line defaults, support replacing TPM protected "
+"keys at runtime, secboot preinstall check fix actions and using OPTEE "
+"(Ubuntu Core & arm) for protecting keys, as an alternative to existing fde-"
+"setup hooks."
+msgstr ""
+
+#: ../../../reference/release-notes.md:222
+#: ../../../reference/release-notes.md:273
+msgid "**Notable updates**"
+msgstr ""
+
+#: ../../../reference/release-notes.md:224
+msgid ""
+"snap-confine: fix non-suid limitation by switching to root:root to operate "
+"v1 freezer"
+msgstr ""
+
+#: ../../../reference/release-notes.md:225
+msgid "Fix preseeding failure due to scan-disk issue on RPi"
+msgstr ""
+
+#: ../../../reference/release-notes.md:226
+msgid ""
+"Snap installation: skip snap icon download when running in a cloud or using "
+"a proxy store ([LP: #2122054](https://bugs.launchpad.net/snapd/+bug/2122054))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:227
+msgid ""
+"snap-confine: fix error message with /root/snap not accessible ([LP: "
+"#2117558](https://bugs.launchpad.net/snapd/+bug/2117558))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:228
+msgid ""
+"Interfaces: do not expose Kerberos tickets for classic snaps ([LP: #2121238]"
+"(https://bugs.launchpad.net/snapd/+bug/2121238))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:229
+msgid ""
+"Cleanly support socket activation for classic snap ([LP: #2117121](https://"
+"bugs.launchpad.net/snapd/+bug/2117121))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:230
+msgid ""
+"Improve progress reporting for snap install/refresh ([LP: #2112626](https://"
+"bugs.launchpad.net/snapd/+bug/2112626))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:231
+msgid ""
+"Extend output to indicate when snap data snapshot was created during remove "
+"([LP: #2114704](https://bugs.launchpad.net/snapd/+bug/2114704))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:233
+msgid ""
+"For the release plan and complete list of changes, please refer to the [full "
+"release notes](https://forum.snapcraft.io/t/the-snapd-roadmap/1973)."
+msgstr ""
+
+#: ../../../reference/release-notes.md:235
+msgid "**More about GPIO Chardev**"
+msgstr ""
+
+#: ../../../reference/release-notes.md:237
+msgid ""
+"This release supports the kernel GPIO character device API with specific "
+"GPIO lines mediation through the new gpio-chardev interface which offers "
+"more fine-grained control over the gpio-control interface that allowed "
+"unrestricted access to all GPIO chips when needed."
+msgstr ""
+
+#: ../../../reference/release-notes.md:239
+msgid ""
+"For historical context: traditionally Snapd supported mediation of the sysfs "
+"interface for GPIO access. This sysfs kernel interface is considered legacy "
+"by upstream kernel developers (and will be removed from UC26+ kernels) and "
+"it has been replaced by a new character device API, commonly referred to as "
+"gpiod."
+msgstr ""
+
+#: ../../../reference/release-notes.md:241
+msgid ""
+"The new kernel GPIO APIs are typically consumed through the libgpiod library "
+"(C or various bindings) or a set of command line utilities provided by said "
+"library."
+msgstr ""
+
+#: ../../../reference/release-notes.md:243
+msgid ""
+"For more information on how to use the new interface (and migration from the "
+"older gpio interface), please check the official documentation for the {ref}"
+"`gpio-chardev interface <interfaces-gpio-chardev>`."
+msgstr ""
+
+#: ../../../reference/release-notes.md:245
+msgid "**More about our FDE journey**"
+msgstr ""
+
+#: ../../../reference/release-notes.md:247
+msgid ""
+"***The previous release***, 2.71, concluded the Snapd contribution to TPM "
+"FDE for the 25.10 [install image](https://releases.ubuntu.com/25.10/"
+"ubuntu-25.10-desktop-amd64.iso)."
+msgstr ""
+
+#: ../../../reference/release-notes.md:249
+msgid "Progression through the 25.10 cycle up to 2.71:"
+msgstr ""
+
+#: ../../../reference/release-notes.md:250
+msgid ""
+"2.68.* - introduced a new key format, added support for passphrases during "
+"installation, and included various fixes."
+msgstr ""
+
+#: ../../../reference/release-notes.md:251
+msgid ""
+"2:70 - set roles in TPM keys and fixed resealing with the v1 hook key format."
+msgstr ""
+
+#: ../../../reference/release-notes.md:252
+msgid ""
+"2.71 - added recovery key auto-repair, delivered many additional APIs needed "
+"to support installation and use of TPM-backed FDE on hybrid Ubuntu 25.10, "
+"and included further fixes."
+msgstr ""
+
+#: ../../../reference/release-notes.md:254
+msgid ""
+"As part of this work, secboot has been improved to more extensively check "
+"whether the platform can support secure boot, which is used by one of the "
+"new Snapd APIs introduced in 2.71 and used by the installer to determine TPM "
+"FDE availability during hybrid Ubuntu installation."
+msgstr ""
+
+#: ../../../reference/release-notes.md:256
+msgid ""
+"***This release***, along with releases 2.73 and 2.74 planned for next "
+"cycle, will extend and refine the TPM FDE hybrid Ubuntu installation and "
+"overall user experience for the Ubuntu 26.04 LTS release."
+msgstr ""
+
+#: ../../../reference/release-notes.md:258
+msgid ""
+"A lot of care goes into continually ensuring compatibility with Ubuntu Core, "
+"previous versions of Snapd and targeted hardware. Each release must pass "
+"extensive testing, including test suites for certified hardware. In addition "
+"to our own rigorous testing, we strongly advise all users to also thoroughly "
+"test all their hardware variations and inform us of potential issues or "
+"concerns as soon as possible."
+msgstr ""
+
+#: ../../../reference/release-notes.md:260
+msgid ""
+"For a broader overview on TPM backed FDE for hybrid Ubuntu 25.10, see: [TPM/"
+"FDE progress for Ubuntu 25.10](https://discourse.ubuntu.com/t/tpm-fde-"
+"progress-for-ubuntu-25-10/65146)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:262
+msgid "**Test Feedback**"
+msgstr ""
+
+#: ../../../reference/release-notes.md:264
+msgid ""
+"Feel free to provide your test feedback here or directly in [Launchpad]"
+"(https://bugs.launchpad.net/snapd/+filebug). To help fast track "
+"investigations please provide (1) details about the system, (2) Snapd "
+"version(s) and (3) steps to reproduce the issue."
+msgstr ""
+
+#: ../../../reference/release-notes.md:267
+msgid "Snapd 2.71 release notes"
+msgstr ""
+
+#: ../../../reference/release-notes.md:271
+msgid "Support for TPM backed Full Disk Encryption on Ubuntu 25.10"
+msgstr ""
+
+#: ../../../reference/release-notes.md:274
+msgid ""
+"Fix offline remodel case where we switched to a channel without an actual "
+"refresh"
+msgstr ""
+
+#: ../../../reference/release-notes.md:275
+msgid ""
+"Reject system key mismatch advice when not yet seeded ([LP: #2114923]"
+"(https://bugs.launchpad.net/ubuntu-desktop-provision/+bug/2114923))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:276
+msgid ""
+"Make removal of last active revision of a snap equal to snap remove ([LP: "
+"#2112551](https://bugs.launchpad.net/bugs/2112551))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:277
+msgid ""
+"Allow non-gpt in fallback mode to support RPi ([LP: #2114779](https://"
+"bugs.launchpad.net/ubuntu/+source/linux-raspi/+bug/2114779))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:278
+msgid ""
+"Fix \\`snap debug connectivity\\` check for RISC-V ([LP: #2112544](https://"
+"bugs.launchpad.net/ubuntu/+source/snapd/+bug/2112544))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:279
+msgid ""
+"Exclude snap/snapd/preseeding when generating preseed tarball ([LP: #2112332]"
+"(https://bugs.launchpad.net/snapd/+bug/2112332))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:280
+msgid ""
+"Fix snap command progress reporting ([LP: #1952500](https://"
+"bugs.launchpad.net/bugs/1952500))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:281
+msgid ""
+"Interfaces: kerberos-tickets | add new interface ([LP: #1849346](https://"
+"bugs.launchpad.net/ubuntu/+source/chromium-browser/+bug/1849346))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:282
+msgid ""
+"Interfaces: log-observe | add capability dac_read_search ([LP: #2098780]"
+"(https://bugs.launchpad.net/bugs/2098780))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:283
+msgid ""
+"Interfaces: block-devices | opt-in access to individual partitions ([LP: "
+"#2033883](https://bugs.launchpad.net/snapd/+bug/2033883))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:285
+msgid "**More about TPM backed FDE on Ubuntu Core and Ubuntu 25.10**"
+msgstr ""
+
+#: ../../../reference/release-notes.md:287
+msgid ""
+"To support hybrid Ubuntu 25.10+ systems, we’ve introduced a new key format. "
+"On Ubuntu Core this change is transparent to users, but it enables us to "
+"transition from file-based key storage to storing keys in the LUKS2 header "
+"(with header redundancy) on core26."
+msgstr ""
+
+#: ../../../reference/release-notes.md:289
+msgid ""
+"On previous versions of Ubuntu Core, once a reboot required a recovery key, "
+"the device would continue prompting for that key on every subsequent boot. "
+"This could be particularly problematic for unattended or remote devices. "
+"This behavior was improved so that after a firmware update, entering the "
+"recovery key triggers an automatic repair and restores normal unattended "
+"boot operation without further prompts."
+msgstr ""
+
+#: ../../../reference/release-notes.md:291
+msgid ""
+"The [fwupd](https://snapcraft.io/fwupd) tool is available both as a deb and "
+"as a snap providing a unified way to install and manage system firmware "
+"updates. Support has been added for updating the UEFI DBX (UEFI Secure Boot "
+"forbidden signatures database) without requiring a recovery key on reboot. "
+"This ensures that both hybrid Ubuntu 25.10+ and Ubuntu Core devices with "
+"Full Disk Encryption seamlessly apply DBX updates."
+msgstr ""
+
+#: ../../../reference/release-notes.md:293
+msgid ""
+"For an overview on TPM backed FDE for hybrid Ubuntu 25.10, see: [TPM/FDE "
+"progress for Ubuntu 25.10](https://discourse.ubuntu.com/t/tpm-fde-progress-"
+"for-ubuntu-25-10/65146)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:296
+msgid "Snapd 2.70 release notes"
+msgstr ""
+
+#: ../../../reference/release-notes.md:298
+#: ../../../reference/release-notes.md:322
+msgid "Highlights"
+msgstr ""
+
+#: ../../../reference/release-notes.md:300
+msgid ""
+"`snap-confine` no longer requires to be `setuid` root, now uses file "
+"capabilities and executes in the security context of the user who invokes it."
+msgstr ""
+
+#: ../../../reference/release-notes.md:301
+msgid ""
+"snapd.apparmor is now enabled on Fedora, so that a Fedora container running "
+"on an apparmor-capable kernel works correctly."
+msgstr ""
+
+#: ../../../reference/release-notes.md:303
+#: ../../../reference/release-notes.md:329
+msgid "Notable updates"
+msgstr ""
+
+#: ../../../reference/release-notes.md:305
+msgid ""
+"Reset SHELL to /bin/bash in non-classic snaps ([LP: #2107443](https://"
+"bugs.launchpad.net/snapd/+bug/2107443))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:306
+msgid ""
+"Only cancel notices requests on stop/shutdown ([LP: #2104066](https://"
+"bugs.launchpad.net/snapstore-server/+bug/2104066))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:307
+msgid ""
+"Fix GLX on nvidia when xorg is confined by AppArmor ([LP: #2088456](https://"
+"bugs.launchpad.net/canonical-kernel-snaps/+bug/2102456))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:308
+msgid ""
+"Fix snap-bootstrap busy loop ([LP: #2106121](https://bugs.launchpad.net/"
+"snapd/+bug/2106121))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:309
+msgid ""
+"Update secboot and modify snap-bootstrap to remove usage of go templates to "
+"reduce size by 4MB ([LP: #2102456](https://bugs.launchpad.net/canonical-"
+"kernel-snaps/+bug/2102456))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:311
+msgid "More about no-setuid snap confine"
+msgstr ""
+
+#: ../../../reference/release-notes.md:313
+msgid ""
+"In an effort to increase the security and have better control over the "
+"execution of privileged binaries, the snap application bootstrapping helper, "
+"snap-confine, no longer requires to be setuid root. Instead it relies on "
+"file capabilities and executes in the security context of the user who "
+"invoked it. The required capabilities are effectively a subset of all the "
+"capabilities which were previously obtained immediately when executing the "
+"privileged binary. The effective capabilities are dynamically switched at "
+"runtime, such that the helper executes with the least set of effective "
+"privileges at any given time."
+msgstr ""
+
+#: ../../../reference/release-notes.md:315
+msgid ""
+"For the release plan and complete list of changes, please refer to the [full "
+"release notes](https://forum.snapcraft.io/t/the-snapd-roadmap/1973). Please "
+"note that 2.70 includes all the changes in the superseded 2.69 and 2.69.1 "
+"releases."
+msgstr ""
+
+#: ../../../reference/release-notes.md:318
+msgid "Snapd 2.68 release notes"
+msgstr ""
+
+#: ../../../reference/release-notes.md:320
+msgid "The official release for this version was Snapd 2.68.4."
+msgstr ""
+
+#: ../../../reference/release-notes.md:324
+msgid ""
+"[FDE](https://ubuntu.com/core/docs/full-disk-encryption): Add support for a "
+"new and more extensible key format and passphrases for encrypted partitions "
+"can now be specified during installation"
+msgstr ""
+
+#: ../../../reference/release-notes.md:325
+msgid ""
+"{ref}`Components <how-to-guides-manage-snaps-using-components>`: Support "
+"online/offline [remodeling](https://ubuntu.com/core/docs/remodelling) and "
+"the creation of new recovery systems for models that contain components, on "
+"Ubuntu Core as well as Hybrid systems. Components are useful for "
+"distributing optional resources for a snap, such as debug symbols alongside "
+"snap binaries, and kernel modules alongside a kernel snap."
+msgstr ""
+
+#: ../../../reference/release-notes.md:326
+msgid ""
+"[Kernel Components](https://documentation.ubuntu.com/snapcraft/stable/"
+"reference/components/): Make kernel components and modules available in "
+"early boot"
+msgstr ""
+
+#: ../../../reference/release-notes.md:327
+msgid ""
+"Interfaces: Added {ref}`auditd-support interface <interfaces-auditd-"
+"support>` that allows a snap to ship auditd as part of a snap and `checkbox-"
+"support` interface that allows unrestricted access to devices when testing "
+"with checkbox"
+msgstr ""
+
+#: ../../../reference/release-notes.md:330
+msgid "Fix issue preventing hybrid systems from being seeded on first boot"
+msgstr ""
+
+#: ../../../reference/release-notes.md:331
+msgid ""
+"Modify AppArmor template to allow using setpriv to run ([LP: #20729871]"
+"(https://bugs.launchpad.net/snapd/+bug/2072987))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:332
+msgid ""
+"Disable udev backend when inside a container ([LP: #1712808](https://"
+"bugs.launchpad.net/snapd/+bug/1712808)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:333
+msgid ""
+"Remove auto-import udev rules not required by deb package to avoid unwanted "
+"syslog errors ([LP: #1966203](https://bugs.launchpad.net/snapd/+bug/1966203))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:334
+msgid ""
+"Fix progress reporting when stdout is on a tty, but stdin is not ([LP: "
+"#1886414](https://bugs.launchpad.net/ubuntu/+source/chromium-browser/+bug/"
+"1886414))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:336
+msgid "Experimental Features"
+msgstr ""
+
+#: ../../../reference/release-notes.md:337
+msgid "Removed stale `robust-mount-namespace-updates` experimental flag"
+msgstr ""
+
+#: ../../../reference/release-notes.md:338
+msgid "Removed rejected `snapd-snap` experimental feature and its feature flag"
+msgstr ""
+
+#: ../../../reference/release-notes.md:340
+msgid "Impact on Ubuntu Core using Full Disk Encryption"
+msgstr ""
+
+#: ../../../reference/release-notes.md:342
+msgid ""
+"If you are planning to test or use this snapd release and you are using full "
+"disk encryption (with both hooks and TPM), some updates to your kernel snap "
+"are needed:"
+msgstr ""
+
+#: ../../../reference/release-notes.md:343
+msgid ""
+"If you maintain your own kernel snap, you will need to include the new snap-"
+"bootstrap."
+msgstr ""
+
+#: ../../../reference/release-notes.md:344
+msgid ""
+"If you are using a kernel snap maintained by Canonical, all our kernel snaps "
+"will be updated to the new version of snap-bootstrap in due course."
+msgstr ""
+
+#: ../../../reference/release-notes.md:346
+msgid ""
+"Until all kernel snaps are updated, snapd from latest/edge cannot be used "
+"for installation or remodeling if you are using FDE. If you have not updated "
+"the kernel snap, do not report bugs you encountered when:"
+msgstr ""
+
+#: ../../../reference/release-notes.md:347
+msgid "Remodeling with a snapd from latest/edge, then doing factory reset."
+msgstr ""
+
+#: ../../../reference/release-notes.md:348
+msgid "Installing fresh images with snapd from latest/edge"
+msgstr ""
+
+#: ../../../reference/release-notes.md:351
+msgid "Snapd 2.67 release notes"
+msgstr ""
+
+#: ../../../reference/release-notes.md:353
+msgid "*Released 13th January 2025*"
+msgstr ""
+
+#: ../../../reference/release-notes.md:355
+msgid "Highlights:"
+msgstr ""
+
+#: ../../../reference/release-notes.md:357
+msgid "**Registry views**"
+msgstr ""
+
+#: ../../../reference/release-notes.md:359
+msgid ""
+"This feature has evolved beyond cross-snap configuration, now enabling "
+"custodian snaps to validate changes and store registry data outside of snapd."
+msgstr ""
+
+#: ../../../reference/release-notes.md:361
+msgid "**Components**"
+msgstr ""
+
+#: ../../../reference/release-notes.md:363
+msgid ""
+"Standard components are now broadly usable, after the addition of the `snap "
+"components` command, support for joint install of snaps and components from "
+"local files, and tab completion."
+msgstr ""
+
+#: ../../../reference/release-notes.md:365
+msgid ""
+"Building on standard components, kernel components have been enhanced with "
+"support for the `snapctl model` command for kernel snaps as well as other "
+"improvements to enable kernel drivers for proprietary hardware on Ubuntu "
+"Core."
+msgstr ""
+
+#: ../../../reference/release-notes.md:367
+msgid "Notable bug fixes:"
+msgstr ""
+
+#: ../../../reference/release-notes.md:369
+msgid ""
+"AppArmor Prompting: Fixed an issue with overlapping rules ([bug report]"
+"(https://github.com/canonical/desktop-security-center/issues/74))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:370
+msgid ""
+"Resolved a deadlock edge case related to app awareness during refresh "
+"operations ([LP2084730](https://bugs.launchpad.net/snapd/+bug/2084730))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:371
+msgid ""
+"Addressed issues with reloading service activation units to prevent systemd "
+"errors ([LP2083961](https://bugs.launchpad.net/snapd/+bug/2083961))"
+msgstr ""
+
+#: ../../../reference/release-notes.md:372
+msgid ""
+"Fixed the generation of AppArmor profiles with incorrect revisions during "
+"concurrent refreshes of snaps using the content interface"
+msgstr ""
+
+#: ../../../reference/release-notes.md:373
+msgid ""
+"Fix AppArmor permissions to allow snaps access to kernel modules and "
+"firmware on UC24, which also fixes the kernel-modules-control interface on "
+"UC24"
+msgstr ""
+
+#: ../../../reference/release-notes.md:374
+msgid ""
+"Fix ‘snap run’ getent based user lookup in case of bad PATH (LP2090938 2)"
+msgstr ""
+
+#: ../../../reference/release-notes.md:375
+msgid ""
+"Fix snapd using the incorrect AppArmor version during undo of an refresh"
+msgstr ""
+
+#: ../../../reference/release-notes.md:376
+msgid ""
+"Extended hardware-observe interface to allow support riscv_hwprobe syscall "
+"and mount-observe interface to allow listmount and statmount syscalls"
+msgstr ""
+
+#: ../../../reference/release-notes.md:379
+msgid ""
+"For the release plan and the complete list of changes, please refer to the "
+"[Snapd roadmap](https://forum.snapcraft.io/t/the-snapd-roadmap/1973)."
+msgstr ""
+
+#: ../../../reference/release-notes.md:382
+msgid "Snapd 2.66 release notes"
+msgstr ""
+
+#: ../../../reference/release-notes.md:384
+#: ../../../reference/release-notes.md:403
+msgid "*Released 26th November 2024*"
+msgstr ""
+
+#: ../../../reference/release-notes.md:386
+msgid ""
+"This release added the ability for Snapcraft 8.x to build snapd using with "
+"core22 base, and support for building a snapd variant that's [FIPS](https://"
+"en.wikipedia.org/wiki/FIPS_140-3) compliant."
+msgstr ""
+
+#: ../../../reference/release-notes.md:388
+msgid "Other highlights include:"
+msgstr ""
+
+#: ../../../reference/release-notes.md:390
+msgid "**AppArmor prompting**"
+msgstr ""
+
+#: ../../../reference/release-notes.md:392
+msgid ""
+"In collaboration with the security and desktop teams at Canonical, this "
+"release of snapd includes the functionality required for snaps to request "
+"interface access from the user."
+msgstr ""
+
+#: ../../../reference/release-notes.md:394
+msgid ""
+"For more information on this feature, including design details and how it "
+"can be tested in Ubuntu 24.10, see [Introducing Permissions Prompting]"
+"(https://discourse.ubuntu.com/t/ubuntu-desktop-s-24-10-dev-cycle-part-5-"
+"introducing-permissions-prompting/47963)."
+msgstr ""
+
+#: ../../../reference/release-notes.md:396
+msgid "**Experimental confdb support**"
+msgstr ""
+
+#: ../../../reference/release-notes.md:398
+msgid ""
+"This release includes many updates to support _confdb_, formerly known as "
+"Registry, which will significantly improve how we handle configuration data "
+"and share that data between snaps and devices."
+msgstr ""
+
+#: ../../../reference/release-notes.md:401
+msgid "Snapd 2.64 release notes"
+msgstr ""
+
+#: ../../../reference/release-notes.md:405
+msgid ""
+"For the 2.64 release, we updated the build process to use Ubuntu 22.04 "
+"instead of Ubuntu 16.04. This change only affected the snapd.snap, and had "
+"impact on builds for Debian, Fedora, Arch, openSUSE, or any other classic "
+"package"
+msgstr ""
+
+#: ../../../reference/release-notes.md:407
+msgid ""
+"Users should see no changes or compatibility issues, and if you are a snapd "
+"developer, this change makes building snapd easier. The latest Snapcraft "
+"releases can now be used to build a local version of the snapd package. In "
+"the long term, this will also improve our iteration speed as we’ll require "
+"fewer snapd builds, providing developers with faster feedback on their "
+"changes."
+msgstr ""
+
+#: ../../../reference/release-notes.md:409
+msgid ""
+"As part of this release cycle, our `ubuntu-image` and validation-sets "
+"documentation also improved."
+msgstr ""
+
+#: ../../../reference/release-notes.md:412
+msgid "Snapd 2.63 release notes"
+msgstr ""
+
+#: ../../../reference/release-notes.md:414
+msgid "*Released 6th June 2024*"
+msgstr ""
+
+#: ../../../reference/release-notes.md:416
+msgid ""
+"Snap-based [Ubuntu Core](https://ubuntu.com/core) devices will benefit from "
+"many of our the features for this release, including support for [Offline "
+"remodelling](https://documentation.ubuntu.com/core/explanation/remodeling/"
+"#offline-remodeling), the use of {ref}`Validation sets <explanation-how-"
+"snaps-work-validation-sets>` in the [model assertion](https://ubuntu.com/"
+"core/docs/reference/assertions/model) and setting a custom port for SSH."
+msgstr ""
+
+#: ../../../reference/release-notes.md:418
+msgid ""
+"There’s also a new `snap sign` [`--chain`](https://documentation.ubuntu.com/"
+"core/how-to-guides/manage-ubuntu-core/add-a-system-user/#generating-auto-"
+"import-assert) argument in this release, that can be used to aggregate all "
+"the assertions required to create a new system user."
+msgstr ""
+
+#: ../../../reference/release-notes.md:421
+msgid "Snapd 2.62 release notes"
+msgstr ""
+
+#: ../../../reference/release-notes.md:423
+msgid "*Released 15th April 2024*"
+msgstr ""
+
+#: ../../../reference/release-notes.md:425
+msgid ""
+"The functionality to add custom device interfaces to an app is now complete, "
+"as is our create and removal functionality for Ubuntu Core recovery systems. "
+"We’ve also finally made a commitment on what minimum [system requirements]"
+"(https://ubuntu.com/core/docs/system-requirements) might actually be for "
+"Ubuntu Core, even if you can’t actually buy a device with less than several "
+"gigabytes of on-board RAM."
+msgstr ""
+
+#: ../../../reference/release-notes.md:427
+msgid ""
+"This release also included two significant additions to our documentation. "
+"Firstly, the Docker interface now includes a fully realised example "
+"implementation, and secondly, we’ve completed a new page on recovery system "
+"via the REST API, thanks to Andrew."
+msgstr ""
+
+#: ../../../reference/release-notes.md:429
+msgid ""
+"Finally, this release included new packages for Arch Linux, Amazon Linux, "
+"Debian, Fedora, openSUSE and Solus."
+msgstr ""
+
+#: ../../../reference/release-notes.md:432
+msgid "Snapd 2.61 release notes"
+msgstr ""
+
+#: ../../../reference/release-notes.md:434
+msgid "*Released 3rd January 2024*"
+msgstr ""
+
+#: ../../../reference/release-notes.md:436
+msgid ""
+"This release included a lot of background work that will later be used by "
+"`confdb` (see Snapd 2.66), to help with  cross-snap configuration. This "
+"includes new rules for parsing assertions and a per-aspect field, plus a "
+"vital new ability to unset values from the command line."
+msgstr ""
+
+#: ../../../reference/release-notes.md:438
+msgid ""
+"We also got closer to finishing our opt-in AppArmor prompting support , with "
+"some important background improvements, and created a specification for the "
+"desktop user-experience flow. Our cross-distribution support also improved "
+"with this release, with a new repository and packages for Amazon Linux , and "
+"snapd 2.61.1 releases for Debian Sid and Fedora 38, 39, Rawhide and EPEL 7, "
+"8 and 9."
+msgstr ""

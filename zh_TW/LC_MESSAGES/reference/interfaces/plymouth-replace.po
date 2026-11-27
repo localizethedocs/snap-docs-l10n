@@ -1,0 +1,104 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/plymouth-replace.md:0
+msgid ""
+"Reference documentation for the plymouth-replace interface, which lets snaps "
+"transition smoothly from the Ubuntu Core boot splash to a graphical "
+"interface."
+msgstr ""
+
+#: ../../../reference/interfaces/plymouth-replace.md:8
+msgid "plymouth-replace interface"
+msgstr ""
+
+#: ../../../reference/interfaces/plymouth-replace.md:10
+msgid ""
+"`plymouth-replace` allows a snap to provide a flicker-free transition from "
+"the graphical boot splash screen on an Ubuntu Core device."
+msgstr ""
+
+#: ../../../reference/interfaces/plymouth-replace.md:13
+msgid "**Auto-connect**: no<br/> **Super-privileged**: yes"
+msgstr ""
+
+#: ../../../reference/interfaces/plymouth-replace.md:13
+msgid "<br/>"
+msgstr ""
+
+#: ../../../reference/interfaces/plymouth-replace.md:16
+msgid "Requires snapd version _2.79+_."
+msgstr ""
+
+#: ../../../reference/interfaces/plymouth-replace.md:18
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/plymouth-replace.md:20
+msgid ""
+"Ubuntu Core devices can [enable a graphical boot splash screen][core-splash] "
+"implemented by the [plymouth daemon][plymouth]. The default behaviour is for "
+"the system to return to text mode once the boot up process has completed."
+msgstr ""
+
+#: ../../../reference/interfaces/plymouth-replace.md:25
+msgid ""
+"If the device provides a graphical interface, this can result in unwanted "
+"flicker as the screen switches modes. The `plymouth-replace` interface "
+"allows a snap to provide a smooth transition from the boot splash to their "
+"own interface."
+msgstr ""
+
+#: ../../../reference/interfaces/plymouth-replace.md:30
+msgid ""
+"The expectation is that the snap provides a system daemon that will draw to "
+"virtual terminal 1. If the daemon plugs the `plymouth-replace` interface, "
+"it's startup will be sequenced to the end of the boot process where plymouth "
+"would normally quit. It will also prevent plymouth from quitting at this "
+"point, and stop a text mode login prompt from showing on VT1."
+msgstr ""
+
+#: ../../../reference/interfaces/plymouth-replace.md:37
+msgid "To complete the process some additional work is required from the snap:"
+msgstr ""
+
+#: ../../../reference/interfaces/plymouth-replace.md:39
+msgid ""
+"The snap daemon should run `plymouth deactivate` before generating any "
+"output. This will instruct the plymouth daemon to stop updating the screen."
+msgstr ""
+
+#: ../../../reference/interfaces/plymouth-replace.md:42
+msgid ""
+"When the snap daemon has first painted the screen, it should run `plymouth "
+"quit --retain-splash` to instruct the plymouth daemon to quit without "
+"switching back to text mode."
+msgstr ""
+
+#: ../../../reference/interfaces/plymouth-replace.md:46
+msgid ""
+"If the snap daemon fails to start, the system will recover by telling the "
+"plymouth daemon to quit. This will return the system to text mode."
+msgstr ""
+
+#: ../../../reference/interfaces/plymouth-replace.md:49
+msgid ""
+"The [Ubuntu Frame snap][ubuntu-frame] uses the interface and can be used as "
+"an example."
+msgstr ""

@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/netlink-driver-interface.md:2
+msgid "netlink-driver interface"
+msgstr ""
+
+#: ../../../reference/interfaces/netlink-driver-interface.md:4
+msgid ""
+"The `netlink-driver` interface allows a kernel module to expose itself to "
+"user-space via the Netlink protocol, typically to transfer information "
+"between the kernel and user-space processes."
+msgstr ""
+
+#: ../../../reference/interfaces/netlink-driver-interface.md:6
+msgid ""
+"See also {ref}`netlink-audit <interfaces-netlink-audit-interface>` and {ref}"
+"`netlink-connector <interfaces-netlink-connector-interface>`."
+msgstr ""
+
+#: ../../../reference/interfaces/netlink-driver-interface.md:9
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/netlink-driver-interface.md:11
+msgid "**Auto-connect**: no"
+msgstr ""
+
+#: ../../../reference/interfaces/netlink-driver-interface.md:13
+msgid ""
+"Further confinement for particular families/protocols is implemented via "
+"Seccomp filtering network Netlink."
+msgstr ""
+
+#: ../../../reference/interfaces/netlink-driver-interface.md:15
+msgid "Requires snapd version _2.51.1+_."
+msgstr ""
+
+#: ../../../reference/interfaces/netlink-driver-interface.md:17
+msgid "<h3 id='heading-code'>Code examples</h3>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/netlink-driver-interface.md:19
+msgid ""
+"The source code for this interface is in the *snapd* repository: <https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/netlink_driver.go>"
+msgstr ""

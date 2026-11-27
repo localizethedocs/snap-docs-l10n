@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/how-snaps-work/debuging-startup-performance.md:2
+msgid "Debug startup performance"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/debuging-startup-performance.md:4
+msgid ""
+"Sometimes a snap is slow to start. This may be related to the helper scripts "
+"that are used when creating the snap. To help pinpoint these issues, from "
+"snapd 2.36 on it is possible to use `snap run --trace-exec` to see what "
+"helpers are launched and how long they run. This can be useful when "
+"debugging why a app start-up is slow. Here is an example:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/debuging-startup-performance.md:6
+msgid ""
+"$ snap run --trace-exec  test-snapd-tools.echo hello\n"
+"hello\n"
+"Slowest 3 exec calls during snap run:\n"
+"  0.010s snap-update-ns\n"
+"  0.177s /snap/core/6135/usr/lib/snapd/snap-confine\n"
+"  0.086s /usr/lib/snapd/snap-exec\n"
+"Total time: 0.270s\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/debuging-startup-performance.md:16
+msgid ""
+"This example shows that there are 3 helpers executed. First snap-update-ns "
+"which takes 0.010s to run, then snap-confine and finally snap-exec. This "
+"examples shows the minimum amount of setup that each snap requires. Some "
+"snap that use desktop components may have extra scripts running (e.g. via "
+"the desktop-helpers component)."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/debuging-startup-performance.md:18
+msgid "At most the slowest 10 execve() calls will be displayed."
+msgstr ""

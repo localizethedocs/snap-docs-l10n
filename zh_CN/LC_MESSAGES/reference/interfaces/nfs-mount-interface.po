@@ -1,0 +1,156 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/nfs-mount-interface.md:2
+msgid "nfs-mount interface"
+msgstr ""
+
+#: ../../../reference/interfaces/nfs-mount-interface.md:4
+msgid ""
+"The `nfs-mount` interface allows the mounting and unmounting of Network File "
+"System mount points within a snap's writable areas."
+msgstr ""
+
+#: ../../../reference/interfaces/nfs-mount-interface.md:6
+msgid ""
+"**Note:** This interface only supports NFSv4. This should not cause problems "
+"as earlier versions are now considerably old and are unlikely to be being "
+"used."
+msgstr ""
+
+#: ../../../reference/interfaces/nfs-mount-interface.md:9
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/nfs-mount-interface.md:11
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`** : "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`** : no"
+msgstr ""
+
+#: ../../../reference/interfaces/nfs-mount-interface.md:11
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/nfs-mount-interface.md:14
+msgid "Requires snapd version _2.62+_."
+msgstr ""
+
+#: ../../../reference/interfaces/nfs-mount-interface.md:16
+msgid ""
+"This interface requires only the addition of `nfs-mount` to a snap's list of "
+"`plugs` , unlike other mounting interfaces which require additional rules."
+msgstr ""
+
+#: ../../../reference/interfaces/nfs-mount-interface.md:18
+msgid ""
+"Additionally, the userspace binaries required to mount shares are not "
+"included in base snaps. They will need to be installed manually from the "
+"`nfs-common` package."
+msgstr ""
+
+#: ../../../reference/interfaces/nfs-mount-interface.md:20
+msgid "<h3 id='heading-code'>Code examples</h3>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/nfs-mount-interface.md:22
+msgid ""
+"The following is a simple example `snapcraft.yaml` with accompanying _mount_ "
+"and _unmount_ scripts for a snap that will mount and unmount an NFS share "
+"within `$SNAP_COMMON`:"
+msgstr ""
+
+#: ../../../reference/interfaces/nfs-mount-interface.md:24
+msgid ""
+"name: nfs4-example\n"
+"base: core22\n"
+"version: '0.1'\n"
+"summary: Example Snap showing off the new nfs-mount interface.\n"
+"description: |\n"
+"  This snap provides two commands: nfs-mount and nfs-unmount.\n"
+"  Mount takes a single argument in the form of <hostname>:<nfs-share-name>.\n"
+"\n"
+"grade: stable\n"
+"confinement: strict\n"
+"\n"
+"apps:\n"
+"  nfs-mount:\n"
+"    command: bin/nfs-mount.sh\n"
+"    plugs: [nfs-mount]\n"
+"  nfs-unmount:\n"
+"    command: bin/nfs-unmount.sh\n"
+"    plugs: [nfs-mount]\n"
+"\n"
+"parts:\n"
+"  scripts:\n"
+"    plugin: dump\n"
+"    source: ./src\n"
+"    organize:\n"
+"      '*': bin/\n"
+"  packages:\n"
+"    plugin: nil\n"
+"    stage-packages: [nfs-common]\n"
+msgstr ""
+
+#: ../../../reference/interfaces/nfs-mount-interface.md:55
+msgid "The mount script `nfs-mount.sh`:"
+msgstr ""
+
+#: ../../../reference/interfaces/nfs-mount-interface.md:56
+msgid ""
+"#!/bin/sh -eux\n"
+"\n"
+"# If not argument is provided, print help and exit\n"
+"[ -n \"$1\" ] || {\n"
+"  printf '%s <hostname>:<nfs-share-path>\\n' \"$0\"\n"
+"  exit 1\n"
+"}\n"
+"\n"
+"# Ensure that the mount point has been created\n"
+"[ -d \"${SNAP_COMMON}/mnt\" ] \\\n"
+"  || mkdir -p \"${SNAP_COMMON}/mnt\"\n"
+"\n"
+"# Attempt to mount the share\n"
+"mount.nfs4 \"$1\" \"${SNAP_COMMON}/mnt\"\n"
+msgstr ""
+
+#: ../../../reference/interfaces/nfs-mount-interface.md:73
+msgid "And the unmount script, `nfs-unmount.sh`:"
+msgstr ""
+
+#: ../../../reference/interfaces/nfs-mount-interface.md:75
+msgid ""
+"#!/bin/sh -eux\n"
+"\n"
+"umount \"${SNAP_COMMON}/mnt\"\n"
+msgstr ""
+
+#: ../../../reference/interfaces/nfs-mount-interface.md:81
+msgid ""
+"The test code for this interface can be found in the snapd repository: "
+"<https://github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"nfs_mount_test.go>"
+msgstr ""
+
+#: ../../../reference/interfaces/nfs-mount-interface.md:84
+msgid ""
+"The source code for this interface is in the *snapd* repository: <https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/nfs_mount.go>"
+msgstr ""

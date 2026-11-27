@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/dm-crypt-interface.md:0
+#: ../../../reference/interfaces/dm-crypt-interface.md:8
+msgid "dm-crypt interface"
+msgstr ""
+
+#: ../../../reference/interfaces/dm-crypt-interface.md:10
+msgid ""
+"The `dm-crypt`  interface enables the following access functions to  [dm-"
+"crypt](https://www.kernel.org/doc/html/latest/admin-guide/device-mapper/dm-"
+"crypt.html) encrypted external block storage devices:"
+msgstr ""
+
+#: ../../../reference/interfaces/dm-crypt-interface.md:12
+msgid "setting up a LUKS partition"
+msgstr ""
+
+#: ../../../reference/interfaces/dm-crypt-interface.md:13
+msgid "locking and unlocking _dm-crypt_ partitions"
+msgstr ""
+
+#: ../../../reference/interfaces/dm-crypt-interface.md:14
+msgid "adding key(s) to kernel keyring"
+msgstr ""
+
+#: ../../../reference/interfaces/dm-crypt-interface.md:15
+msgid "formatting encrypted partition(s) ( creation of fs)"
+msgstr ""
+
+#: ../../../reference/interfaces/dm-crypt-interface.md:16
+msgid "mounting of encrypted partition(s)"
+msgstr ""
+
+#: ../../../reference/interfaces/dm-crypt-interface.md:19
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/dm-crypt-interface.md:21
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`**: yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/dm-crypt-interface.md:21
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/dm-crypt-interface.md:25
+msgid ""
+"The `dm-crypt` plug is {ref}`unsupported for parallel instances <interfaces-"
+"parallel-installs-unsupported>`. Instances would perform conflicting "
+"operations on the same system resources."
+msgstr ""
+
+#: ../../../reference/interfaces/dm-crypt-interface.md:28
+msgid ""
+"Often, _dm-crypt_ is statically linked into the kernel "
+"(`CONFIG_DM_CRYPT=y`). This is expected when working with custom kernels on "
+"projects where disk encryption is required."
+msgstr ""
+
+#: ../../../reference/interfaces/dm-crypt-interface.md:30
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/dm-crypt-interface.md:32
+msgid ""
+"The test code can be found in the snapd repository: https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/dm_crypt_test.go"
+msgstr ""
+
+#: ../../../reference/interfaces/dm-crypt-interface.md:34
+msgid ""
+"The source code for the interface is in the snapd repository:[ https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/dm_crypt.go]"
+"(https://github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"dm_crypt.go)"
+msgstr ""

@@ -1,0 +1,225 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/cups-interface.md:2
+msgid "cups interface"
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:4
+msgid ""
+"The `cups` interface allows access to the CUPS socket for printing via the "
+"[`cups` snap](https://snapcraft.io/cups)."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:6
+msgid ""
+"This interface is intended to be used by snap developers who wish to add "
+"safe printing functionality to their snapped applications without requiring "
+"their users to make make a manual interface connection. This is possible "
+"because the cups interface does not permit administration or configuration "
+"of printers via the CUPS socket, only the submission of print jobs and "
+"auxiliary tasks, such as listing available printers."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:8
+msgid ""
+"Formerly, to print from a snapped application, the {ref}`cups control "
+"interface <interfaces-cups-control-interface>` was required. This needs "
+"either a manual connection or Snap Store permissions to auto-connect. "
+"Alongside printer access, the _cups control interface_ also allows any user "
+"to create and modify queues, and their permissions, and to read and delete "
+"anyone’s print jobs. This isn't ideal in a multi-user environment."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:10
+msgid ""
+"The `cups-control` interface will continue to be available to allow printer "
+"setup tools (and general system admin tools, like [this one](https://"
+"github.com/ubuntu-flutter-community/settings)) to be snapped."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:12
+msgid "Available since _snapd 2.55.3_."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:14
+msgid "On systems with a classically installed CUPS"
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:15
+msgid "(Via a deb, RPM, or from source, for example)."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:17
+msgid ""
+"The CUPS snap will run in proxy mode, working as a proxy or firewall between "
+"the application snaps and the system’s CUPS. The CUPS snap will replicate "
+"the system print queues and pass jobs through to the system’s CUPS. The user "
+"will be able to access the same queues and printer drivers when printing "
+"from classically installed applications *and* application snaps."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:19
+msgid "On systems with no CUPS installed"
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:20
+msgid "(or using the CUPS snap)."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:22
+msgid ""
+"The CUPS snap will run in standalone mode, listening not only on "
+"`$SNAP_COMMON/run/cups.sock` but also on `/run/cups/cups.sock`. This way all "
+"applications, both classically installed or snapped, print via the CUPS "
+"Snap. Queues have to be created on the snapped CUPS, drivers have to be "
+"[Printer Applications](https://snapcraft.io/search?q=OpenPrinting). Also "
+"here the user sees the same print queues for both classic and snapped "
+"applications."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:24
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:26
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"not applicable"
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:28
+msgid ""
+"If you are snapping a **new application** that has print functionality, add "
+"the `cups` interface."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:29
+msgid ""
+"If you are **maintaining an application snap** currently using `cups-"
+"control` for printing, switch to the `cups` interface."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:30
+msgid ""
+"If you are creating or maintaining a **snap of a printer setup tool**, you "
+"have to plug {ref}`cups-control interface <interfaces-cups-control-"
+"interface>` and ask your users to manually connect the interface, or request "
+"an auto-connection from the Snap Store team."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:32
+msgid ""
+"The slot side of the interface is intended to be provided by a reference "
+"snap, such as the [`cups` snap](https://snapcraft.io/cups). The reference "
+"snap will permit any connecting snap to connect automatically, which snaps "
+"with the `cups` plug can _auto-connect_ to the reference snap's `cups` slot, "
+"and print, without any further action from the user."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:34
+msgid ""
+"On systems where this slot is provided by a snap application, the _cups_ "
+"interface is the companion interface to the {ref}`cups control interface "
+"<interfaces-cups-control-interface>`."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:36
+msgid ""
+"However, the _cups_ interface and the _cups-control_ interface should not be "
+"used as plugs in the same snap."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:38
+msgid ""
+"The design of both of these interfaces is based on the idea that the slot "
+"implementation (eg. _cupsd_) is expected to query snapd to determine if the "
+"cups-control interface is connected or not for the peer-client process. The "
+"print service will then mediate admin functionality (ie, the rules in these "
+"interfaces allow connecting to the print service, but do not implement "
+"enforcement rules; it is up to the print service to provide enforcement)."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:40
+msgid "Current requirements"
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:42
+msgid ""
+"As the CUPS interface is new, we currently recommend the following additions "
+"be made to the top level of your  [snapcraft.yaml](https://"
+"documentation.ubuntu.com/snapcraft/stable/reference/project-file/snapcraft-"
+"yaml/)."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:44
+msgid ""
+"Adding _assumes_ will ensure snapd is updated to a CUPS interface compatible "
+"version:"
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:46
+msgid ""
+"# snapd 2.55 or later is needed for cups interface support\n"
+"assumes: [snapd2.55]\n"
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:51
+msgid "The following will trigger the automatic installation of the cups snap:"
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:53
+msgid ""
+"plugs:\n"
+"  foo-install-cups:\n"
+"    interface: content\n"
+"    content: foo\n"
+"    default-provider: cups\n"
+"    target: $SNAP_DATA/foo\n"
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:62
+msgid ""
+"The above additions should only be temporary and can be removed after the "
+"CUPS interface becomes better established."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:64
+msgid ""
+"For background information and design discussions about this interface, see "
+"[About the cups interface](https://forum.snapcraft.io/t/the-cups-interface/"
+"29873)."
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:66
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:68
+msgid ""
+"See the test CUPS consumer snap: https://github.com/canonical/test-snapd-"
+"cups-consumer"
+msgstr ""
+
+#: ../../../reference/interfaces/cups-interface.md:71
+msgid ""
+"The source code for the interface is in the snapd repository: [https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/cups.go](https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/cups.go)"
+msgstr ""

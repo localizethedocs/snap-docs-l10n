@@ -1,0 +1,65 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/fpga-interface.md:0
+#: ../../../reference/interfaces/fpga-interface.md:8
+msgid "fpga interface"
+msgstr ""
+
+#: ../../../reference/interfaces/fpga-interface.md:10
+msgid ""
+"The `fpga` interface allows access to the [FPGA subsystem](https://"
+"www.kernel.org/doc/html/latest/driver-api/fpga/index.html)."
+msgstr ""
+
+#: ../../../reference/interfaces/fpga-interface.md:13
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/fpga-interface.md:15
+msgid "**Auto-connect**: no **Allow-installation**: yes"
+msgstr ""
+
+#: ../../../reference/interfaces/fpga-interface.md:19
+msgid ""
+"The `fpga` plug is {ref}`unsupported for parallel instances <interfaces-"
+"parallel-installs-unsupported>`. Instances would perform conflicting "
+"operations on the same system resources."
+msgstr ""
+
+#: ../../../reference/interfaces/fpga-interface.md:22
+msgid "Devices: `/dev/fpga[0-9]* rw,`"
+msgstr ""
+
+#: ../../../reference/interfaces/fpga-interface.md:26
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/fpga-interface.md:28
+msgid ""
+"The test code can be found in the snapd repository: https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/fpga_test.go"
+msgstr ""
+
+#: ../../../reference/interfaces/fpga-interface.md:30
+msgid ""
+"The source code for the interface is in the snapd repository:[https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/fpga.go](https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/fpga.go)"
+msgstr ""

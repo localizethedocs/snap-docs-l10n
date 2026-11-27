@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/network-observe-interface.md:0
+msgid ""
+"The network-observe interface lets a snap query network status. Covers what "
+"read-only means here and which sockets it still allows."
+msgstr ""
+
+#: ../../../reference/interfaces/network-observe-interface.md:8
+msgid "network-observe interface"
+msgstr ""
+
+#: ../../../reference/interfaces/network-observe-interface.md:10
+msgid ""
+"`network-observe` enables the querying of the network's status, giving "
+"privileged read-only access to networking information."
+msgstr ""
+
+#: ../../../reference/interfaces/network-observe-interface.md:12
+msgid ""
+"'Read-only access' means the snap can't change network settings. It can "
+"still open TCP and UDP connections, through the name-resolution rules the "
+"interface includes, and raw sockets for `ping`. A snap with `network-"
+"observe` connected can therefore reach the network even without the {ref}"
+"`network interface <interfaces-network-interface>`."
+msgstr ""
+
+#: ../../../reference/interfaces/network-observe-interface.md:14
+msgid "**Auto-connect**: no"
+msgstr ""

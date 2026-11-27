@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/desktop-launch-interface.md:2
+msgid "desktop-launch interface"
+msgstr ""
+
+#: ../../../reference/interfaces/desktop-launch-interface.md:4
+msgid ""
+"The `desktop-launch` interface allows {ref}`strictly confined <explanation-"
+"security-snap-confinement>` snaps to identify and launch desktop "
+"applications in (or from) other snaps."
+msgstr ""
+
+#: ../../../reference/interfaces/desktop-launch-interface.md:7
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/desktop-launch-interface.md:9
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`**: yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/desktop-launch-interface.md:9
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/desktop-launch-interface.md:12
+msgid ""
+"<h3 id='heading--endpoint-access'>Endpoint access permissions</h3>\n"
+"<ul>\n"
+"<li>/v2/snaps/{name}</li>\n"
+"<li>/v2/snaps</li>\n"
+"<li>/v2/icons/{name}/icon</li>\n"
+"</ul>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/desktop-launch-interface.md:20
+msgid "Requires snapd version _2.52+_."
+msgstr ""
+
+#: ../../../reference/interfaces/desktop-launch-interface.md:22
+msgid "<h3 id='heading-code'>Code examples</h3>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/desktop-launch-interface.md:24
+msgid ""
+"The source code for this interface is in the *snapd* repository: <https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/desktop_launch.go>"
+msgstr ""

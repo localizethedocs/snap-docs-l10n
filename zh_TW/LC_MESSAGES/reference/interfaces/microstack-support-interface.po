@@ -1,0 +1,127 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/microstack-support-interface.md:0
+#: ../../../reference/interfaces/microstack-support-interface.md:8
+msgid "microstack-support interface"
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:10
+msgid ""
+"The `microstack-support` interface enables multiple service access for the "
+"_Microstack infrastructure_. It's used by the [Microstack](https://"
+"microstack.run/) snap, a full OpenStack deployment within a single snap "
+"package."
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:12
+msgid ""
+"Virtual machines are spawned as QEMU processes with libvirt acting as a "
+"management daemon (including for activities such as applying AppArmor "
+"profiles)."
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:14
+msgid ""
+"Networking is provided largely via OpenVSwitch and Neutron, with dnsmasq "
+"acting as an auxiliary daemon. A tun/tap kernel module is used for creating "
+"virtual interfaces."
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:16
+msgid ""
+"Virtual machines rely on KVM for virtualisation acceleration and the vhost "
+"framework in the kernel (vhost_net, vhost_scsi, vhost_vsock)."
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:19
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:21
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`**: yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:21
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:25
+msgid ""
+"The `microstack-support` plug is {ref}`unsupported for parallel instances "
+"<interfaces-parallel-installs-unsupported>`."
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:28
+msgid ""
+"This interface allows MicroStack to operate by allowing the necessary system "
+"calls to be used by the following services:"
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:29
+msgid "libvirt"
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:30
+msgid "qemu"
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:31
+msgid "qemu-img"
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:32
+msgid "Nova"
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:33
+msgid "Neutron"
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:34
+msgid "Keystone"
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:35
+msgid "Glance"
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:36
+msgid "Cinder"
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:38
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:40
+msgid ""
+"The snapcraft.yaml for MicroStack can be found here: https://github.com/"
+"coreycb/microstack/blob/1-tls/snapcraft.yaml"
+msgstr ""
+
+#: ../../../reference/interfaces/microstack-support-interface.md:42
+msgid ""
+"The source code for the interface is in the snapd repository: https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"microstack_support.go"
+msgstr ""

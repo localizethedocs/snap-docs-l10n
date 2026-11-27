@@ -1,0 +1,200 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:2
+msgid "ros-opt-data interface"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:4
+msgid ""
+"The `ros-opt-data` interface creates a read-only mount from within a snap to "
+"the standard Robot Operating System (ROS) directory (`/opt/ros/*`) on the "
+"host system, enabling robotics-based snaps to share ROS robot data, such as "
+"the URDF."
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:6
+msgid ""
+"This interface cannot currently be used on Ubuntu Core. Requires snapd "
+"version *2.62+*."
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:8
+msgid ""
+"To add this interface to a snap, define a plug in the app section of its "
+"[snapcraft.yaml](https://documentation.ubuntu.com/snapcraft/stable/reference/"
+"project-file/anatomy-of-snapcraft-yaml/) for the application that requires "
+"ROS data access:"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:10
+msgid ""
+"apps:\n"
+"  hello-world:\n"
+"    command: ./hello.sh\n"
+"    plugs: [ros-opt-data]   #this is the new interface plug name\n"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:17
+msgid "Mount location"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:19
+msgid ""
+"This interface uses the standard snap location for mounted directories: `/"
+"var/lib/snapd/hostfs/`."
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:22
+msgid ""
+"For example, if this interface is used to access `/opt/ros/noetic/robot-urdf/"
+"models` on the host machine, it will be found within the snap at `/var/lib/"
+"snapd/hostfs/opt/ros/noetic/robot-urdf/models`."
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:24
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:26
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:26
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:28
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:30
+msgid ""
+"The following is a simple _hello-world_ example that includes an additional "
+"plug/slot mechanism for enabling the `ros-opt-data` interface. We're going "
+"to modify this example to show how the interface can access ROS-related data "
+"on the host system."
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:32
+msgid "The initial snapcraft.yaml is as follows:"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:34
+msgid ""
+"name: hello-world\n"
+"version: '0.1'\n"
+"summary: A simple hello world application\n"
+"description: |\n"
+"  A simple hello world application.\n"
+"base: core22\n"
+"\n"
+"grade: devel\n"
+"confinement: strict\n"
+"\n"
+"apps:\n"
+"  hello-world:\n"
+"    command: ./hello.sh\n"
+"\n"
+"parts:\n"
+"  hello-world:\n"
+"    plugin: dump\n"
+"    source: files\n"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:55
+msgid ""
+"When the snap is built, installed and executed, it runs the following "
+"`hello.sh` script (which for now only outputs  “hello world”)."
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:57
+msgid ""
+"#!/bin/bash\n"
+"echo \"hello world\"\n"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:62
+msgid ""
+"We now want to change the above script to output the contents of a "
+"`setup.bash` file located in the host's `/opt/ros` directory."
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:64
+msgid ""
+"The following modification assumes we're using ROS Noetic Ninjemys, but the "
+"file location can be adapted for any other ROS distro:"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:66
+msgid ""
+"#!/bin/bash\n"
+"cat /var/lib/snapd/hostfs/opt/ros/noetic/setup.bash\n"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:71
+msgid "We now modify the snapcraft.yaml to insert the new plug:"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:73
+msgid ""
+"name: hello-world\n"
+"version: '0.1'\n"
+"summary: A simple hello world application\n"
+"description: |\n"
+"  A simple hello world application.\n"
+"base: core22\n"
+"\n"
+"grade: devel # must be 'stable' to release into candidate/stable channels\n"
+"confinement: strict\n"
+"\n"
+"apps:\n"
+"  hello-world:\n"
+"    command: ./hello.sh\n"
+"    plugs: [ros-opt-data]\n"
+"\n"
+"parts:\n"
+"  hello-world:\n"
+"    plugin: dump\n"
+"    source: files\n"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:95
+msgid ""
+"When the new snap is built, installed and executed, the output will now be "
+"the contents of `/opt/ros/noetic/setup.bash`."
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:99
+msgid ""
+"The test code can be found in the snapd repository: [https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/ros_opt_data_test.go](https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"ros_opt_data_test.go)"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-opt-data-interface.md:101
+msgid ""
+"The source code for the interface is in the snapd repository: [https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/ros_opt_data.go]"
+"(https://github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"ros_opt_data.go)"
+msgstr ""

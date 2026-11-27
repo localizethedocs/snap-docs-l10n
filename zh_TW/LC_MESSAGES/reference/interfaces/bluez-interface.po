@@ -1,0 +1,51 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/bluez-interface.md:0
+#: ../../../reference/interfaces/bluez-interface.md:8
+msgid "bluez interface"
+msgstr ""
+
+#: ../../../reference/interfaces/bluez-interface.md:10
+msgid "`bluez` enables access to the bluez Bluetooth service."
+msgstr ""
+
+#: ../../../reference/interfaces/bluez-interface.md:12
+msgid ""
+"The plug is the client and the slot provides access to the bluez (Bluetooth) "
+"service. Connecting the two allows a client to access devices registered by "
+"the bluez service through the slot."
+msgstr ""
+
+#: ../../../reference/interfaces/bluez-interface.md:14
+msgid ""
+"For example, a game with a _bluez_ plug could connect to the system's "
+"_bluez_ slot to access a Bluetooth game controller."
+msgstr ""
+
+#: ../../../reference/interfaces/bluez-interface.md:17
+msgid "**Auto-connect**: no"
+msgstr ""
+
+#: ../../../reference/interfaces/bluez-interface.md:20
+msgid ""
+"The `bluez` slot is {ref}`unsupported for parallel instances <interfaces-"
+"parallel-installs-unsupported>`. The slot owns a unique system-wide resource "
+"that instances would conflict over."
+msgstr ""

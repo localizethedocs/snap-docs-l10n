@@ -1,0 +1,916 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:0
+msgid ""
+"Use snapctl within snaps to manage configuration, confdb, components, "
+"health, interfaces, services, mounts, models, and refreshes."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:8
+msgid "Use snapctl"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:10
+msgid ""
+"The `snapctl` tool is bundled with _snapd_ to provide specific environmental "
+"feedback and a limited set of controls from **within the context** of a "
+"snap's execution environment in relation to snapd. It can be used, for "
+"example, to retrieve and set snap configuration options, check the status of "
+"a running snap, and reboot an Ubuntu Core 20 environment."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:12
+msgid ""
+"`snapctl` is typically run from a script _within a snap_, rather than on the "
+"host system. These scripts are used by snap developers to implement {ref}"
+"`hooks <reference-development-supported-snap-hooks>`, or from within "
+"[snapcraft.yaml](https://documentation.ubuntu.com/snapcraft/stable/reference/"
+"project-file/snapcraft-yaml/), to augment a snap's execution environment."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:14
+msgid ""
+"For details on using _snapctl_ to add user options to a snap, see {ref}"
+"`Adding snap configuration <how-to-guides-manage-snaps-set-system-options>`."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:16
+msgid "Configuration options"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:18
+msgid ""
+"A snap's configuration options can be queried and altered with the `snapctl "
+"get`, `snapctl set` and `snapctl unset` commands. These work very similar to "
+"the analogous {ref}`snap get/set/.. commands <how-to-guides-work-with-snaps-"
+"configure-snaps>` outside the snap. The main difference is that using these "
+"commands from within a snap will *not* trigger {ref}`the configure hook "
+"<reference-development-supported-snap-hooks>`."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:20
+msgid ""
+"The `snapctl` command uses the same get, set and unset syntax as the snap "
+"command:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:22
+msgid "snapctl get <configuration option>\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:26
+msgid "For example, the following sets a value of `80` for *http*:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:28
+msgid "snapctl set ports.http=80\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:32
+msgid ""
+"To unset a value, pass its name with `snapctl unset`, and more than one "
+"value can be passed at a time:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:34
+msgid "snapctl unset ports.http ports.https\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:38
+msgid ""
+"For convenience, an option can also be unset by adding an exclamation mark "
+"(`!`) to the end of a value. For example, the following *unsets* `https`:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:40
+msgid "snapctl set ports.http=80 ports.https!\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:44
+msgid ""
+"By using a dot in the key of an option, you create a nested configuration. "
+"You can retrieve multiple nested options by specifying their common key:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:46
+msgid ""
+"$ snapctl get ports\n"
+"{\n"
+"\"http\": \"80\",\n"
+"\"https\": \"443\"\n"
+"}\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:54
+msgid ""
+"To see this in action, look at the [NextCloud snap](https://github.com/"
+"nextcloud/nextcloud-snap). It uses `snapctl` within its [various hooks]"
+"(https://github.com/nextcloud/nextcloud-snap/blob/master/src/hooks/utilities/"
+"configuration-utilities) to set configuration options such as `snapctl get "
+"private.mode` and `snapctl set private.mode=\"$1\"`."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:56
+msgid "Confdb"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:58
+msgid ""
+"The `snapctl get`, `snapctl set` and `snapctl unset` commands can also be "
+"used to access and modify {ref}`confdb configurations <explanation-how-snaps-"
+"work-confdb-configuration-mechanism>`. To use `snapctl` to access confdb, "
+"you can include the `--view` flag as well as the name of the snap's {ref}"
+"`interface plug <explanation-interfaces-all-about-interfaces>` that refers "
+"to the [confdb view](https://documentation.ubuntu.com/core/reference/"
+"assertions/confdb-schema/) being accessed, prefixed with a colon."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:60
+msgid ""
+"$ snapctl get --view :setup-wifi ssid\n"
+"foo\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:65
+msgid ""
+"When using `snapctl get` in {ref}`confdb hooks <ref-confdb-configuration-"
+"mechanism_hooks>`, the data returned will reflect the changes being "
+"committed as part of the ongoing transaction that resulted in the hooks "
+"being invoked. To read the state of the confdb without the uncommitted "
+"changes, you can use the `--previous` flag."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:67
+msgid ""
+"$ snapctl get --view --previous :setup-wifi ssid\n"
+"bar\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:72
+msgid ""
+"You can also use the `--default` flag to provide a default value to be "
+"returned if no data is stored under the requested configuration path."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:74
+msgid ""
+"If the data being requested can be filtered, due to the path specifying "
+"placeholders or field filters, we can constrain the filter parameters using "
+"the `--with` flag:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:76
+msgid ""
+"$ snapctl get --view :setup-wifi routes --with to=default\n"
+"{\n"
+"    \"enp3s0\": {\n"
+"        \"to\": \"default\",\n"
+"        \"via\": \"10.12.34.3\",\n"
+"        \"metric\": 100\n"
+"    },\n"
+"    \"eth0\": {\n"
+"        \"to\": \"default\",\n"
+"        \"via\": \"10.0.0.1\",\n"
+"        \"metric\": 200\n"
+"    }\n"
+"}\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:92
+msgid ""
+"Concurrent accesses may block if they would result in writes running "
+"concurrently with another access. If any access is blocked, subsequent "
+"accesses will also be queued to ensure that they are run in order."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:94
+msgid ""
+"For example, if there is an ongoing read and a write is requested, the write "
+"will be blocked. A new read would then also be queued and only run after the "
+"write finishes, even though reads are normally run concurrently. This "
+"ensures that a stream of reads cannot starve a write access."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:96
+msgid ""
+"The `--wait-for` flag can be used to specify a timeout after which the "
+"command will stop waiting for other accesses to complete and cancel the "
+"request."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:98
+msgid ""
+"For further information on confdb, see {ref}`Configure snaps with confdb "
+"<how-to-guides-manage-snaps-configure-snaps-with-confdb>` and {ref}`Confdb "
+"configuration mechanism <explanation-how-snaps-work-confdb-configuration-"
+"mechanism>`."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:101
+msgid "Components"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:103
+msgid "Component support requires *snapd 2.67+* ."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:105
+msgid ""
+"{ref}`Components <explanation-how-snaps-work-snap-components>` are exposed "
+"in the snap mountspace under `/snap/<snap_name>/components/<snap_revision>/"
+"<component_name>`. This is a symlink to `/snap/<snap_name>/components/mnt/"
+"<component_name>/<component_revision>`."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:107
+msgid ""
+"There is only one component revision active for a snap revision at a given "
+"time."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:109
+msgid ""
+"From within a snap, the _snapctl_ command can be used to install and remove "
+"components from an application, including snap hooks and component hooks. "
+"The syntax for both commands are as follows:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:111
+msgid ""
+"snapctl install +<comp_name>\n"
+"snapctl remove +<comp_name>\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:116
+msgid ""
+"If these commands are run from a {ref}`hook <reference-development-supported-"
+"snap-hooks>`, the components will be installed/removed after the hook itself "
+"has run if it ended successfully."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:118
+msgid "Asynchronous Operation"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:119
+msgid ""
+"By default, the `install` and `remove` sub-commands run synchronously and "
+"will block until the change they create is completed."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:121
+msgid ""
+"The `--no-wait` flag can be used with `install` and `remove` to indicate "
+"that snapctl should not block on the created change. Instead, snapctl will "
+"immediately return the change ID. This has similar semantics to `--no-wait` "
+"when used with `snap install/refresh`. This change ID should be used with "
+"the `is-ready` and `tasks` sub-commands. Note that `--no-wait` is not "
+"allowed to be used within a hook."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:123
+msgid ""
+"The `is-ready` sub-command enables polling the given change until it has "
+"reached a terminal state. See `snapctl is-ready --help` for a detailed "
+"breakdown of the exit codes used."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:125
+msgid ""
+"The `tasks` sub-command prints detailed information about the given change. "
+"This includes information such as the exact state of the change and the "
+"progress of individual tasks within the change. Provide the `--format=json` "
+"argument to receive JSON output, rather than the default tabular "
+"representation."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:127
+msgid ""
+"Note that both `snapctl is-ready` and `snapctl tasks` can only be used with "
+"changes that were created by the snap in which they are being invoked. "
+"Arbitrary changes on the system cannot be introspected via these sub-"
+"commands."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:129
+msgid "Health state"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:131
+msgid ""
+"ⓘ  Health reporting is under development and its capabilities and syntax may "
+"change."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:133
+msgid ""
+"Snap developers can use `snapctl set-health` to provide feedback on the "
+"operational state, or health, of a snap."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:135
+msgid "It uses the following syntax:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:137
+msgid "snapctl set-health [--code=<error code>] <status> [<message>]\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:141
+msgid "`status` can be one of the following:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:143
+msgid "`okay`: which takes no message and no code"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:144
+msgid ""
+"`waiting`: some resource the snap needs isn't ready yet, and there's nothing "
+"for the user to do but wait. A message (+code) must explain what it's "
+"waiting for"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:145
+msgid ""
+"`blocked`: the user needs to do something for the snap to do something. A "
+"message (+code) must say what"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:146
+msgid ""
+"`error`: something went wrong; a message (+code) must explain what has broken"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:148
+msgid ""
+"Outside the snap, health status in included as a note in the output to `snap "
+"list`, and as a category in `snap info` for a specific snap:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:150
+msgid ""
+"$ snap info nextcloud\n"
+"name:    nextcloud\n"
+"summary: Nextcloud Server - A safe home for all your data\n"
+"health:\n"
+"  status:  blocked\n"
+"  message: Backing up database.\n"
+"  checked: today at 10:44 GMT\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:160
+msgid ""
+"For more comprehensive information on using `snapctl set-health`, see "
+"[Health checks](https://forum.snapcraft.io/t/health-checks/10605)."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:162
+msgid "Interface connections"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:164
+msgid "(from _snapd 2.43+_)"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:166
+msgid ""
+"The state of a specific snap interface can be probed with the `snapctl is-"
+"connected` sub-command by supplying either a slot or plug name as an "
+"argument:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:168
+msgid "snapctl is-connected <plug|slot>\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:172
+msgid ""
+"The plug or slot is always the name of the plug/slot from the calling snap."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:174
+msgid ""
+"If the given plug or slot is connected, the command returns the standard "
+"exit code for success, which is `0` on POSIX systems. A non-zero exit code "
+"is returned in all other cases."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:176
+msgid ""
+"For example, the following indicates the camera interface **is not** "
+"connected:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:178
+msgid ""
+"$ snapctl is-connected camera; echo $?\n"
+"1\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:183
+msgid "This behaviour can be easily used within a hook, for example:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:185
+msgid ""
+"if snapctl is-connected camera; then\n"
+"  # exit status=0. logic when connected\n"
+"  echo \"connected\"\n"
+"else\n"
+"  # logic when not connected; note if this is run from hooks.\n"
+"  # printing to stdout/stderr is not visible to the user\n"
+"  # (unless the hook fails entirely with exit status > 0)\n"
+"  echo \"not connected\"\n"
+"fi\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:197
+msgid ""
+"Snaps can only query their own plugs and slots because the snap name is "
+"implicit and implied by the snapctl execution context."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:199
+msgid ""
+"See {ref}`Snapcraft interfaces <ref-index_interfaces>` for more details on "
+"manipulating interfaces from a snap."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:201
+msgid "Model information"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:203
+msgid "(from _snapd 2.56+_ onwards)"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:205
+msgid ""
+"A [model assertion](https://ubuntu.com/core/docs/reference/assertions/model) "
+"contains the fundamental definition of a snap-based device, such as a device "
+"running [Ubuntu Core](https://ubuntu.com/core/)."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:208
+msgid ""
+"The _snap model_ command can be used to return to the active model "
+"identification for the device, and `snapctl model` returns the equivalent to "
+"`snap model --verbose` from within a snap. However, for this to work, the "
+"requesting snap needs to meet _one_ of the following criteria:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:210
+msgid "The requesting snap must be either:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:211
+msgid ""
+"a {ref}`gadget snap <reference-development-yaml-schemas-the-gadget-snap>`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:212
+msgid "published from the same brand as the device model assertion"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:213
+msgid "have the {ref}`snapd-control <interfaces-snapd-control-interface>` plug"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:215
+msgid ""
+"By default, the output model identification information is presented in a "
+"structured yaml-like format:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:217
+msgid ""
+"brand-id:      canonical\n"
+"model:         ubuntu-core-22-amd64\n"
+"grade:         signed\n"
+"[...]\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:224
+msgid "This can be changed to JSON with the `--json` flag:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:226
+msgid ""
+"{\n"
+"  \"architecture\": \"amd64\",\n"
+"  \"base\": \"core22\",\n"
+"  \"brand-id\": \"canonical\",\n"
+"  \"grade\": \"signed\",\n"
+"  \"model\": \"ubuntu-core-22-amd64\",\n"
+"  \"serial\": \"5f1ee168-ee21-4c38-b03c-5ff9bef64c1e\",\n"
+"  \"snaps\": [\n"
+"    {\n"
+"      \"default-channel\": \"22/stable\",\n"
+"      \"id\": \"UqFziVZDHLSyO3TqSWgNBoAdHbLI4dAH\",\n"
+"      \"name\": \"pc\",\n"
+"      \"type\": \"gadget\"\n"
+"    },\n"
+"    [...]\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:244
+msgid "The raw assertion can also be requested with the `--assertion` flag."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:246
+msgid "Mount control"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:248
+msgid ""
+"When the {ref}`mount-control interface <interfaces-mount-control-interface>` "
+"is connected, a snapped application or service can use the _mount_ command "
+"to mount transient (non-persistent) and persistent filesystem mount points:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:250
+msgid ""
+"snapctl mount -o <options> -t <fstype> </path/to/device> </target/mount/"
+"point>\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:254
+msgid "To mount a persistent mount point, add the `--persistent` option:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:256
+msgid "$ snapctl mount --persistent -o bind,rw /usr/share /media/mount\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:260
+msgid "A corresponding _umount_ command can be used to remove a mount point:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:262
+msgid "snapctl umount </path/to/mount/point>\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:266
+msgid ""
+"See {ref}`mount-control interface <interfaces-mount-control-interface>` for "
+"further details on permitted filesystems and mount options."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:268
+msgid "Mounts in SNAP_DATA and snap refreshes"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:270
+msgid ""
+"`SNAP_DATA` is revision-specific (see {ref}`Environment variables <reference-"
+"development-environment-variables>`): its path changes when a snap refreshes "
+"to a new revision. Any mounts under `SNAP_DATA` are therefore not "
+"automatically carried over to the new revision's data directory."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:272
+msgid ""
+"If a mount inside `SNAP_DATA` must be preserved across a refresh, the snap "
+"developer must manage it explicitly in the snap's refresh hooks:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:274
+msgid "The `pre-refresh` hook should unmount it:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:276
+msgid "snapctl umount \"$SNAP_DATA/my/mount/point\"\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:280
+msgid ""
+"The `post-refresh` hook, or an application or service whenever it's run for "
+"the first time, can re-establish it under the new revision's path:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:282
+msgid ""
+"snapctl mount -o <options> -t <fstype> </path/to/device> \"$SNAP_DATA/my/"
+"mount/point\"\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:286
+msgid ""
+"Mounts under `SNAP_COMMON` (`/var/snap/<snap-name>/common`) are not affected "
+"by revision changes and do not require this handling."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:289
+msgid "Reboot control (from the UC20+ install-device hook)"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:291
+msgid ""
+"The `snapctl reboot` command can be used to control reboot behaviour from "
+"the gadget `install-device hook` during UC20+ **install mode**."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:293
+msgid ""
+"See the [UC20+ installation process](https://documentation.ubuntu.com/core/"
+"explanation/how-installation-works/#the-install-device-hook) documentation "
+"for further details."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:295
+msgid "Refresh control (from the UC20+ gate-auto-refresh hook)"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:297
+msgid ""
+"The gate-auto-refresh hook is executed by snapd for every snap that will be "
+"updated with the next automatic refresh. It's also executed for every snap "
+"that is dependent on a snap that will be updated."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:299
+msgid ""
+"This hook is capable of executing the _snapctl refresh_ command with 3 "
+"specific arguments, `hold`, `proceed` and `pending`:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:301
+msgid ""
+"This feature is currently considered experimental. See {ref}`Refresh control "
+"<how-to-guides-work-with-snaps-manage-updates>` for further details."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:303
+msgid "snapctl refresh --hold"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:305
+msgid ""
+"Requests that snapd does not refresh the calling snap, nor the snaps it "
+"depends upon, during the current automatic refresh. A snap can hold its own "
+"refresh for up to 90 days and other snaps for up to 48 hours. The command "
+"prints an error and returns a non-zero exit status if these deadlines are "
+"reached and the refresh can no longer be held."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:307
+msgid "snapctl refresh --proceed"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:309
+msgid ""
+"Signals to snapd that a refresh can proceed for both the calling snap and "
+"the snaps it depends upon. This does not necessarily mean the update will "
+"happen, because they may be held by other snaps, and snapd only proceeds "
+"with auto-refresh after consulting gate-auto-refresh hooks of all "
+"potentially affected snaps."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:311
+msgid "snapctl refresh --pending"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:313
+msgid ""
+"Checks whether the executing snap has a pending refresh, or will be affected "
+"by the refresh of its base snap."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:315
+msgid ""
+"The output from `snapctl refresh --pending` includes the following details:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:317
+msgid "**pending**: none, inhibited or ready"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:318
+#: ../../../how-to-guides/snap-development/use-snapctl.md:332
+msgid "**channel**: tracking-channel"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:319
+msgid ""
+"**version**: version (only if there is a pending refresh for the snap itself)"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:320
+msgid ""
+"**revision**: revision (only if there is a pending refresh for the snap "
+"itself)"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:321
+msgid ""
+"**base**: true or false (true if the snap is affected by refresh of its base "
+"snap)"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:322
+msgid "**restart**: true or false (true if refresh will cause system restart)"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:324
+msgid ""
+"The pending output value is set to \"none\" if there is no pending refresh "
+"for the snap and the value is \"ready\" if there is a pending refresh. A "
+"pending value of \"inhibited\" indicates that the next refresh is inhibited "
+"because one or more of the snap's applications are running. This currently "
+"requires the experimental refresh app awareness feature to be enabled (see "
+"below)."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:326
+msgid "snapctl refresh --tracking"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:328
+msgid "Checks which channel the snap is currently tracking."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:330
+msgid ""
+"The output from `snapctl refresh --tracking` includes the following details:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:334
+msgid "The snap-refresh-control interface"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:336
+msgid ""
+"The `snapctl refresh --proceed` command can be executed by a snapped "
+"application outside of the gate-auto-refresh hook if the snap has the `snap-"
+"refresh-control` interface and the interface is connected. This enables the "
+"snap to trigger an auto-refresh outside of the normal auto-refresh schedule "
+"and should be used cautiously."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:338
+msgid ""
+"Please note that the  \"snapctl refresh\" commands cannot be used from hooks "
+"other than gate-auto-refresh hook."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:340
+msgid ""
+"If the gate-auto-refresh hook doesn't invoke \"snapctl refresh --proceed\" "
+"or \"snapctl refresh --hold\" commands and exits with exit code 0, the "
+"refresh proceeds normally as if the hook didn't exist (except for respecting "
+"\"inhibited\" status if refresh app awareness is in use)."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:342
+msgid ""
+"If the hook fails with an error, snapd assumes \"hold\" as long as the "
+"maximum deadline hasn't been reached."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:344
+msgid "Services"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:346
+msgid ""
+"As with configuration options (see above), snapctl sub-commands for managing "
+"services are the same as those used by the snap command. See {ref}`Services "
+"and daemons <how-to-guides-manage-snaps-control-services>` for further "
+"details."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:348
+msgid ""
+"To query the startup and running state of a service, for example, use "
+"`snapctl services <service-name>`:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:350
+msgid ""
+"$ snapctl services nextcloud.mysql\n"
+"Service          Startup  Current  Notes\n"
+"nextcloud.mysql  enabled  active   -\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:356
+msgid ""
+"The `start`, `stop` and `restart` snapctl commands can be used to start, "
+"stop and restart services:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:358
+msgid ""
+"$ snapctl stop nextcloud.mysql\n"
+"$ snapctl services nextcloud.mysql\n"
+"Service          Startup  Current   Notes\n"
+"nextcloud.mysql  enabled  inactive  -\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:365
+msgid ""
+"Services can be enabled and disabled by adding the `--enable` argument to "
+"_snapctl start_ and `--disable` to _snapctl stop_ respectively:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:367
+msgid ""
+"$ snapctl start nextcloud.myql --enable\n"
+"$ snapctl stop nextcloud.mysql --disable\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:372
+msgid "Snaps can only query their own services."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:374
+msgid "System mode"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:376
+msgid ""
+"The `snapctl system-mode` command returns YAML-formatted details about "
+"specific system states:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:378
+msgid ""
+"$ snapctl system-mode\n"
+"system-mode: install\n"
+"seed-loaded: true\n"
+"factory: true\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:385
+msgid "The following keys and values can potentially be returned:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:387
+msgid ""
+"**system-mode**: `install`, `factory-reset`, `recover`, `run`</br>  The "
+"current (operational) system mode:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:387
+#: ../../../how-to-guides/snap-development/use-snapctl.md:392
+#: ../../../how-to-guides/snap-development/use-snapctl.md:396
+#: ../../../how-to-guides/snap-development/use-snapctl.md:398
+msgid "</br>"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:389
+msgid "`install`: denotes the system is installing"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:390
+msgid "`factory-reset`: a factory reset has been triggered"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:391
+msgid "`recover`: the system is in _recovery mode_"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:392
+msgid ""
+"`run`: indicates the system has booted normally.</br>This is the only "
+"reported system mode on UC16/UC18 system."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:394
+msgid ""
+"See [Recovery modes](https://ubuntu.com/core/docs/recovery-modes) for more "
+"details on each mode."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:396
+msgid ""
+"**seed-loaded**: `true` </br>   Set when the installation of seeded snaps "
+"for the model has finished."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/use-snapctl.md:398
+msgid ""
+"**factory**: `true`</br>  Only possible on a [UC20+](https://ubuntu.com/core/"
+"docs/uc20) system in install mode (`system-mode: install`) with the factory "
+"image hint set. This  value can be used to govern whether factory-only "
+"resources may be available. See [Factory image hint](https://"
+"documentation.ubuntu.com/core/explanation/how-installation-works/) for more "
+"details."
+msgstr ""

@@ -1,0 +1,419 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:0
+msgid ""
+"Inspect snap interfaces and connections, then connect, disconnect, and "
+"restore automatic access between snap plugs and system or snap slots."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:8
+msgid "Connect interfaces"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:10
+msgid ""
+"Interfaces permit or deny access to a resource outside of a snap's "
+"confinement."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:12
+msgid ""
+"Most users don't need to worry about interfaces. Snaps are designed for "
+"strong application isolation and safe interface connections are made "
+"automatically."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:14
+msgid ""
+"An interface is most commonly used to enable a snap to access sound playback "
+"or recording, your network, and your $HOME directory. But which interfaces a "
+"snap requires, and *provides*, is very much dependent on the type of snap "
+"and its own requirements."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:16
+msgid ""
+"See {ref}`Interfaces <ref-index_interfaces>` for a comprehensive list of "
+"interfaces and what kind of access they permit."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:18
+msgid "Plugs and slots"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:20
+msgid ""
+"An interface provides a level of access to resources, such as audio "
+"playback, as defined by a *slot*. One or more snaps can access this resource "
+"by connecting a corresponding *plug* to the slot."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:22
+msgid ""
+"In other words, the slot is the provider of the resource while the plug is "
+"the consumer, and a slot can support multiple plug connections."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:24
+msgid ""
+"![How an interfaces uses a plug and a slot](https://assets.ubuntu.com/"
+"v1/59c290a8-snapd-interfaces.png)"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:24
+msgid "How an interfaces uses a plug and a slot"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:26
+msgid ""
+"In the output to `snap connections vlc` (see above), every interface used by "
+"VLC is listed in the first column. The *Plug* and *Slot* columns then "
+"describe how each interface is connected."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:28
+msgid ""
+"For instance, the `audio-playback` interface connects VLC's audio-playback "
+"plug to the system's audio-playback slot so you can hear the sound it "
+"produces."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:30
+msgid "Listing interfaces"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:32
+msgid ""
+"You can see which snaps are using an interface with the `interface` command:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:34
+msgid ""
+"$ snap interface audio-playback\n"
+"name:    audio-playback\n"
+"summary: allows audio playback via supporting services\n"
+"plugs:\n"
+"  - chromium\n"
+"  - vlc\n"
+"  - zoom-client\n"
+"slots:\n"
+"  - snapd\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:46
+msgid ""
+"In the above output, you can see that Chromium, VLC and the Zoom snaps are "
+"connected to _snapd's_ audio-playback slot, which is synonymous with *Core* "
+"and *system*."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:48
+msgid ""
+"To see all the interfaces being used by your system, run `snap interface`. "
+"To see all the interfaces available to your system, including those not "
+"currently being used, run `snap interface --all`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:50
+msgid ""
+"<!-- GUI interface connections are currently not available.\n"
+"\n"
+"## Using a GUI\n"
+"\n"
+"The Ubuntu Software/[Snap Store](https://snapcraft.io/snap-store) desktop "
+"application is installed by default on Ubuntu and can be used to list an "
+"application's interfaces and to connect and disconnect them.\n"
+"\n"
+"An application first needs to be installed as a snap:\n"
+"\n"
+"![Snap Store VLC install from snap](https://assets.ubuntu.com/v1/8905c627-"
+"store-01.png)\n"
+"\n"
+"To access the interface management functions, either search for an installed "
+"snap, or select it from the _Installed_ view. The interfaces for the "
+"selected application can then be viewed by selecting **Permissions**:\n"
+"\n"
+"![Snap store permissions](https://assets.ubuntu.com/v1/7fbcf74c-"
+"store-04.png)\n"
+"\n"
+"Each interface can now be connected or disconnected by selecting the toggle "
+"switch to the right of its description, and you may be prompted for your "
+"password.\n"
+"\n"
+"-->\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:68
+msgid "Snap connections"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:70
+msgid ""
+"On the terminal, the _snap_ command provides more granular control over "
+"interface connections and which interfaces are operational on your system."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:72
+msgid ""
+"The `snap connections` command lists which interfaces are connected and "
+"being used, while adding `--all` additionally shows interfaces with "
+"unconnected slots or plugs (shown in the output as a `-`):"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:74
+msgid ""
+"$ snap connections --all\n"
+"Interface            Plug                           Slot                     "
+"Notes\n"
+"adb-support          scrcpy:adb-support             :adb-support             "
+"-\n"
+"alsa                 ffmpeg:alsa                    :alsa                    "
+"manual\n"
+"appstream-metadata   snap-store:appstream-metadata  :appstream-metadata      "
+"-\n"
+"iaudio-playback      ardour:audio-playback          :audio-playback          "
+"-\n"
+"dbus                 -                              cameractrls:dbus-daemon  "
+"-\n"
+"[...]\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:85
+msgid ""
+"To see which interfaces a snap is using, and which interfaces it could use "
+"but isn't, type `snap connections <snapname>`:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:87
+msgid ""
+"$ snap connections vlc\n"
+"Interface       Plug                   Slot                 Notes\n"
+"audio-playback  vlc:audio-playback     :audio-playback      -\n"
+"audio-record    vlc:audio-record       -                    -\n"
+"camera          vlc:camera             -                    -\n"
+"desktop         vlc:desktop            :desktop             -\n"
+"home            vlc:home               :home                -\n"
+"(...)\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:98
+msgid ""
+"In the above output, the {ref}`camera <interfaces-camera-interface>` "
+"interface is not connected because its slot is empty. This means VLC cannot "
+"access any connected cameras."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:100
+msgid ""
+"VLC can access the user's _/home_ directory because the {ref}`home "
+"<interfaces-home-interface>` interface is connected to the system `$HOME` "
+"directory (denoted by the `:home` slot name)."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:102
+msgid ""
+"To see all connected interfaces on your system, use the _snap connections_ "
+"command without a snap name:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:104
+msgid ""
+"$ snap connections\n"
+"Interface      Plug                    Slot                 Notes\n"
+"adb-support    scrcpy:adb-support      :adb-support         -\n"
+"alsa           ffmpeg:alsa             :alsa                manual\n"
+"alsa           telegram-desktop:alsa   :alsa                manual\n"
+"audio-playback ardour:audio-playback   :audio-playback      -\n"
+"audio-playback chromium:audio-playback :audio-playback      -\n"
+"(...)\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:115
+msgid ""
+"Adding `--all` to the _snap connections_ command will list all interfaces, "
+"including those without a connection:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:117
+msgid ""
+"$ snap connections --all\n"
+"Interface      Plug                    Slot                 Notes\n"
+"adb-support    scrcpy:adb-support      :adb-support         -\n"
+"alsa           entropypianotuner:alsa  -                    -\n"
+"alsa           ffmpeg:alsa             :alsa                manual\n"
+"alsa           guvcview:alsa           -                    -\n"
+"(...)\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:127
+msgid "Auto-connections"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:129
+msgid ""
+"Many interfaces are automatically connected when a snap is installed, and "
+"this ability is a property of either the interface itself, or the snap."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:131
+msgid ""
+"Automatically connecting interfaces include the {ref}`network <interfaces-"
+"network-interface>`, {ref}`audio-playback <interfaces-audio-playback-"
+"interface>` and {ref}`opengl <interfaces-opengl-interface>` interfaces. This "
+"_auto-connection_ ability is carefully reviewed for each interface, where "
+"permissiveness, security and privacy implications, and the expectations of "
+"the user, are all considered."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:133
+msgid ""
+"A snap's developer can also request that an interface is connected "
+"automatically through a {ref}`manual review process <how-to-guides-work-with-"
+"snaps-apps-and-aliases>`. As above, these requests are carefully considered "
+"and reviewed before being granted or denied."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:135
+msgid ""
+"Interfaces not connected automatically require the user to make a manual "
+"connection (see below), such as the {ref}`camera <interfaces-camera-"
+"interface>`, {ref}`removable-media <interfaces-removable-media-interface>` "
+"and {ref}`audio-record <interfaces-audio-record-interface>` interfaces. "
+"Manual connections enable the user to have a complete control over what kind "
+"of access they allow."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:137
+msgid ""
+"If a snap is installed prior to an interface being granted auto-connect "
+"permission, and permission is subsequently granted and the snap updated, "
+"when the installed snap updates, the interface will be auto-connected."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:139
+msgid ""
+"For more technical details on how interface auto-connections are processed, "
+"see {ref}`The interface auto-connection mechanism <explanation-interfaces-"
+"interface-auto-connection>`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:141
+msgid ""
+"See the _Auto-connect_ column in the {ref}`Supported interfaces <ref-"
+"index_interfaces>` table for which interfaces are connected automatically."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:143
+msgid "Manual connections"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:145
+msgid ""
+"When you need to connect an interface manually, such as when you want to "
+"grant a snap access to {ref}`audio-record <interfaces-audio-record-"
+"interface>` for audio input, use the `snap connect` command:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:147
+msgid "snap connect <snap>:<plug interface>\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:151
+msgid ""
+"With no further arguments, the plug will connect to the system via the snap "
+"daemon, _snapd_."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:153
+msgid ""
+"For example, to connect VLC's _audio-record_ plug to the system's _audio-"
+"record_, you'd enter the following:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:155
+msgid "sudo snap connect vlc:audio-record\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:159
+msgid ""
+"To connect an interface to a slot provided by another snap, provide this as "
+"an additional argument:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:161
+msgid "snap connect <snap>:<plug interface> <snap>:<slot interface>\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:165
+msgid ""
+"A slot and a plug can only be connected if they have the same interface name."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:167
+msgid ""
+"Add the `--no-wait` option to _snap connect_ or _snap disconnect_ to run the "
+"process in the background and return immediately to the command prompt."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:169
+msgid ""
+"A successful connection grants any necessary permissions that may be "
+"required by the interface to function."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:171
+msgid "Disconnect interfaces"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:174
+msgid "To disconnect an interface, use `snap disconnect`:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:176
+msgid "snap disconnect <snap>:<plug interface>\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:180
+msgid ""
+"Following our previous example, you would disconnect *vlc:audio-record* with "
+"the following command:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:182
+msgid "sudo snap disconnect vlc:audio-record\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:186
+msgid "Forget manual disconnections"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:188
+msgid ""
+"When an _automatic connection_ is manually disconnected, its disconnected "
+"state is retained after a `snap refresh`. This state is even stored **after "
+"a snap has been removed**, including removal with the `--purge` option."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/connect-interfaces.md:190
+msgid ""
+"The `--forget` flag can be added to the disconnect command to reset this "
+"behaviour, and consequently, re-enable the automatic re-connection after a "
+"snap refresh."
+msgstr ""

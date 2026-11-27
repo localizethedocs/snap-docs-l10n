@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/desktop-interface.md:0
+#: ../../../reference/interfaces/desktop-interface.md:8
+msgid "desktop interface"
+msgstr ""
+
+#: ../../../reference/interfaces/desktop-interface.md:10
+msgid ""
+"`desktop` allows access to basic graphical desktop resources, such as "
+"Wayland."
+msgstr ""
+
+#: ../../../reference/interfaces/desktop-interface.md:12
+msgid "**Auto-connect**: yes</br> **Attributes**:</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/desktop-interface.md:12
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/desktop-interface.md:14
+msgid ""
+"`desktop-file-ids` (plug): optional, list of desktop file ids with valid D-"
+"Bus well-known names (e.g. `[org.example, org.example.Foo]`). This would "
+"indicate that the snap would like to install desktop file(s) named "
+"`org.example.desktop` and `org.example.Foo.desktop` (found under `meta/gui`) "
+"without name mangling (ie, without the snap name prefix) (requires *snapd "
+"2.66*)."
+msgstr ""
+
+#: ../../../reference/interfaces/desktop-interface.md:17
+msgid ""
+"The `desktop` slot is {ref}`unsupported for parallel instances <interfaces-"
+"parallel-installs-unsupported>`. The `desktop` plug is supported for "
+"parallel instances only if it does not set `desktop-file-ids`."
+msgstr ""

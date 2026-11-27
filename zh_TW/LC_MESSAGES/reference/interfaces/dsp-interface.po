@@ -1,0 +1,65 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/dsp-interface.md:0
+#: ../../../reference/interfaces/dsp-interface.md:8
+msgid "dsp interface"
+msgstr ""
+
+#: ../../../reference/interfaces/dsp-interface.md:10
+msgid ""
+"The `dsp` interface allows for the control of digital signal processors "
+"(DSPs) on specific devices and systems (such as specific _Ambarella_ devices)"
+msgstr ""
+
+#: ../../../reference/interfaces/dsp-interface.md:14
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/dsp-interface.md:16
+msgid "**Auto-connect**: no"
+msgstr ""
+
+#: ../../../reference/interfaces/dsp-interface.md:19
+msgid ""
+"The `dsp` plug is {ref}`unsupported for parallel instances <interfaces-"
+"parallel-installs-unsupported>`. Instances would perform conflicting "
+"operations on the same system resources."
+msgstr ""
+
+#: ../../../reference/interfaces/dsp-interface.md:22
+msgid ""
+"This interface allows privileged access to hardware and kernel drivers "
+"related to the digital signal processor and thus is only allowed on specific "
+"devices providing the slot via a gadget and is also not auto-connected."
+msgstr ""
+
+#: ../../../reference/interfaces/dsp-interface.md:24
+msgid "Requires snapd version _2.51+_."
+msgstr ""
+
+#: ../../../reference/interfaces/dsp-interface.md:26
+msgid "<h3 id='heading-code'>Code examples</h3>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/dsp-interface.md:28
+msgid ""
+"The source code for this interface is in the *snapd* repository: <https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/dsp.go>"
+msgstr ""

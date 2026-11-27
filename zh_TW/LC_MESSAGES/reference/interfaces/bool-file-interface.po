@@ -1,0 +1,190 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/bool-file-interface.md:2
+msgid "bool-file interface"
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:4
+msgid ""
+"The `bool-file` interface allows access to a specific class of file that "
+"contains boolean semantics, typically used to toggle or represent the state "
+"of binary hardware values."
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:6
+msgid ""
+"This interface is primarily intended to be used with {ref}`Ubuntu Core <ref-"
+"glossary_ubuntu-core>` devices, it's also restricted because it provides "
+"privileged access to hardware."
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:8
+msgid ""
+"These kinds of file are located within specific directories inside the "
+"[sysfs](https://man7.org/linux/man-pages/man5/sysfs.5.html) filesystem (`/"
+"sys`) and this  interface allows a file to be _read_, to obtaining a current "
+"value, or _written to_, setting a new value."
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:10
+msgid ""
+"The [LED class](https://www.kernel.org/doc/html/latest/leds/leds-class.html) "
+"is a good example of file type for this interface, as it potentially allows "
+"LEDs to be turned on and off, and have their brightness modified."
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:12
+msgid ""
+"Use the  `snap interface bool-file` command to see which boolean files are "
+"available on the system:"
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:14
+msgid ""
+"$ snap interface bool-file\n"
+"name:    bool-file\n"
+"summary: allows access to specific file with bool semantics\n"
+"slots:\n"
+"  - my-gadget:green-led\n"
+"  - my-gadget:red-led\n"
+"[...]\n"
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:25
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:28
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:28
+#: ../../../reference/interfaces/bool-file-interface.md:31
+#: ../../../reference/interfaces/bool-file-interface.md:34
+#: ../../../reference/interfaces/bool-file-interface.md:35
+#: ../../../reference/interfaces/bool-file-interface.md:71
+#: ../../../reference/interfaces/bool-file-interface.md:74
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:30
+msgid "**Attributes**:"
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:31
+msgid ""
+"`path` (slot): path to the file in _sysfs_</br>   Example: `/sys/class/leds/"
+"green/brightness`</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:34
+msgid ""
+"The path value must match one of the following regular expressions:</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:35
+msgid "For GPIO devices: `^/sys/class/gpio/gpio[0-9]+/value$`</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:37
+msgid "For LED devices: `^/sys/class/leds/[^/]+/brightness$`"
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:39
+msgid ""
+"The {ref}`gpio interface <interfaces-gpio-interface>`  provides another "
+"option for accessing GPIO devices."
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:41
+msgid ""
+"To use a boolean file, the snap developer must add `plugs: [ bool-file ]` to "
+"a snap's [snapcraft.yaml](https://documentation.ubuntu.com/snapcraft/stable/"
+"reference/project-file/anatomy-of-snapcraft-yaml/). The snap user can then "
+"access a specific boolean file with an {ref}`interface connection "
+"<explanation-interfaces-all-about-interfaces>`."
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:43
+msgid ""
+"Unless a snap specifically expects a set of boolean files that cannot be "
+"predefined, the recommended approach is to define distinct plugs for each "
+"boolean file the snap wishes to use:"
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:45
+msgid ""
+"plugs:\n"
+"  green-led:\n"
+"    interface: bool-file\n"
+"  red-led:\n"
+"    interface: bool-file\n"
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:53
+msgid ""
+"Defining distinct plugs for each boolean file has the advantage of being "
+"self-documenting, and 1:1  connections like these are easier to track and "
+"setup with {ref}`auto-connections <explanation-interfaces-interface-auto-"
+"connection>`, if needed."
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:55
+msgid ""
+"Once connected, the consuming snap can use the boolean file via the path "
+"mentioned in the `path` attribute specified by the connected slot."
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:57
+msgid "The slot side on a gadget snap may be declared as follows:"
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:59
+msgid ""
+"slots:\n"
+"  green-led:\n"
+"    interface: bool-file\n"
+"    path: /sys/class/leds/green0/brightness\n"
+"  red-led:\n"
+"    interface: bool-file\n"
+"    path: /sys/class/leds/red0/brightness\n"
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:69
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:71
+msgid ""
+"The test code for this interface can be found in the snapd repository:</br> "
+"[https://github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"bool_file_test.go](https://github.com/canonical/snapd/blob/master/interfaces/"
+"builtin/bool_file_test.go)"
+msgstr ""
+
+#: ../../../reference/interfaces/bool-file-interface.md:74
+msgid ""
+"The source code for the interface is in the snapd repository:</br> [https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/bool_file.go]"
+"(https://github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"bool_file.go)"
+msgstr ""

@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/audio-playback-interface.md:0
+#: ../../../reference/interfaces/audio-playback-interface.md:8
+msgid "audio-playback interface"
+msgstr ""
+
+#: ../../../reference/interfaces/audio-playback-interface.md:10
+msgid ""
+"The `audio-playback` interface allows a snap to play sounds and music, via "
+"the supporting audio service running on the system, such as PulseAudio. It's "
+"used by many applications and utilities, and as such, is enabled by default."
+msgstr ""
+
+#: ../../../reference/interfaces/audio-playback-interface.md:12
+msgid ""
+"Audio recording is enabled with the companion {ref}`audio-record <interfaces-"
+"audio-record-interface>` interface, and unlike `audio-playback`, is not "
+"enabled (auto-connected) by default."
+msgstr ""
+
+#: ../../../reference/interfaces/audio-playback-interface.md:14
+msgid "<h2 id='heading--example'>Example</h2>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/audio-playback-interface.md:16
+msgid ""
+"The [VLC snap](https://snapcraft.io/vlc) is a good example of an application "
+"using the  audio-playback interface:"
+msgstr ""
+
+#: ../../../reference/interfaces/audio-playback-interface.md:19
+msgid ""
+"$ snap connections vlc\n"
+"Interface               Plug                        Slot                     "
+"Notes\n"
+"audio-playback          vlc:audio-playback          :audio-playback          "
+"-\n"
+"audio-record            vlc:audio-record            -                        "
+"-\n"
+msgstr ""
+
+#: ../../../reference/interfaces/audio-playback-interface.md:26
+msgid ""
+"If for some reason you want to disable audio playback for a snap, use the "
+"disconnect command:"
+msgstr ""
+
+#: ../../../reference/interfaces/audio-playback-interface.md:28
+msgid "snap disconnect vlc:audio-playback\n"
+msgstr ""
+
+#: ../../../reference/interfaces/audio-playback-interface.md:32
+msgid "The connect command can be used to re-enable audio playback:"
+msgstr ""
+
+#: ../../../reference/interfaces/audio-playback-interface.md:34
+msgid "snap connect vlc:audio-playback\n"
+msgstr ""
+
+#: ../../../reference/interfaces/audio-playback-interface.md:39
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/audio-playback-interface.md:41
+msgid "**Auto-connect**: yes"
+msgstr ""
+
+#: ../../../reference/interfaces/audio-playback-interface.md:44
+msgid ""
+"The `audio-playback` slot is {ref}`unsupported for parallel instances "
+"<interfaces-parallel-installs-unsupported>`. The slot owns a unique system-"
+"wide resource that instances would conflict over."
+msgstr ""
+
+#: ../../../reference/interfaces/audio-playback-interface.md:47
+msgid "<h3 id='heading-code'>Code examples</h3>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/audio-playback-interface.md:49
+msgid ""
+"The snapcraft.yaml for [VLC](https://github.com/videolan/vlc) includes audio-"
+"playback configuration: [https://github.com/videolan/vlc/blob/master/extras/"
+"package/snap/snapcraft.yaml](https://github.com/videolan/vlc/blob/"
+"75bca603749d8bfb7048a84ea811cbdb19447596/extras/package/snap/"
+"snapcraft.yaml#L36)"
+msgstr ""
+
+#: ../../../reference/interfaces/audio-playback-interface.md:52
+msgid ""
+"The source code for this interface is in the *snapd* repository: <https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/audio_playback.go>"
+msgstr ""

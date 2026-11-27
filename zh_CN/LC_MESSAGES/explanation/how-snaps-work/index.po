@@ -1,0 +1,124 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/how-snaps-work/index.md:18
+msgid "Channels and tracks"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:18
+msgid "Home locations"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:18
+msgid "Snap deltas"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:18
+msgid "Snap revisions"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:18
+msgid "Snap components"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:18
+msgid "Parallel installs"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:18
+msgid "Refresh awareness"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:18
+msgid "Confdb"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:18
+msgid "Validation sets"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:18
+msgid "Transactional updates"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:18
+msgid "Hotplug support"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:18
+msgid "Hotplug development"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:18
+msgid "Snap performance"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:18
+msgid "Startup performance"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:18
+msgid "System snap"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:0
+msgid ""
+"Explanatory and conceptual guides for snap packages, covering how snaps "
+"work, interfaces, updates, and security for users and developers."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:8
+msgid "How snaps work"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:10
+msgid ""
+"Understand how snaps update automatically, and use revisions and "
+"transactional updates to manage risk and mitigate potential issues."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:12
+msgid ""
+"{ref}`Refresh awareness <explanation-how-snaps-work-refresh-awareness>`: How "
+"updates are handled when apps are running."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:13
+msgid ""
+"{ref}`Using channels <explanation-how-snaps-work-channels-and-tracks>`: "
+"Understanding channels, tracks, risk-levels and branches."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:14
+msgid ""
+"{ref}`Revisions <explanation-how-snaps-work-revisions>`: The unique identity "
+"for each and every snap version."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:15
+msgid ""
+"{ref}`Transactional updates <explanation-how-snaps-work-transactional-"
+"updates>`: Update a group of snaps together, or none at all."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/index.md:16
+msgid ""
+"{ref}`Snap performance <explanation-how-snaps-work-snap-performance>`: How "
+"snaps limit any performance overhead."
+msgstr ""

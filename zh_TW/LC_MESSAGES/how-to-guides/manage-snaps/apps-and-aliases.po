@@ -1,0 +1,263 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:0
+msgid ""
+"Run snap applications, inspect available commands, manage default and manual "
+"aliases, and choose preferred aliases when commands conflict."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:8
+msgid "Apps and aliases"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:10
+msgid ""
+"When installing a snap, you're often installing an application. If an "
+"application uses a GUI, it will be integrated into your desktop environment "
+"and it can be launched just like any other GUI application."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:12
+msgid ""
+"But applications installed from a snap can also be run from the command "
+"line, regardless of whether they're GUI-based or terminal-based."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:14
+msgid ""
+"The following sections describe how to work with such snap applications."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:16
+msgid "Running applications"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:18
+msgid ""
+"As covered in {ref}`Get started <tutorials-get-started>`, a snap's installed "
+"application(s) can be found under `/snap/bin`, and subsequently, often added "
+"to _$PATH_. This makes commands directly accessible from the command line."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:20
+msgid ""
+"If executing a command directly doesn't work, try prefixing it with the */"
+"snap/bin* path:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:22
+msgid "$ /snap/bin/vlc\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:25
+msgid ""
+"Adding `/snap/bin` to your default _$PATH_ makes running snaps that don't "
+"automatically add themselves more convenient."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:29
+msgid ""
+"A few Linux distributions use a path of `/var/lib/snapd/snap/bin` instead of "
+"the standard `/snap/bin`. You may need to experiment and update your path "
+"accordingly."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:32
+msgid "Application commands"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:34
+msgid ""
+"The output of `snap info` lists the applications a snap makes available "
+"beneath the *commands:* section:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:36
+msgid ""
+"$ snap info vlc\n"
+"name:      vlc\n"
+"summary:   The ultimate media player\n"
+"(...)\n"
+"commands:\n"
+"  - vlc\n"
+"(...)\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:46
+msgid ""
+"To avoid the potential conflict of snaps exposing applications with the same "
+"name, every snap has a namespace reserved for itself.  The namespace uses "
+"the following syntax:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:48
+msgid "`<snap name>`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:49
+msgid "`<snap name>.<application name>`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:51
+msgid ""
+"The first option is used automatically when the exposed application name "
+"matches the name of the  snap, such as with *vlc*. The second option is used "
+"for every other case."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:53
+msgid "<h2 id='heading--aliases'>Application aliases</h2>\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:55
+msgid ""
+"The namespace syntax (see above) is effective at preventing conflicts, but "
+"it's not ideal when applications have well known names that third-party "
+"scripts depend upon. This is where *aliases* are useful."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:57
+msgid ""
+"For example, [LXD](https://canonical.com/lxd) snap exposes the application "
+"as *lxd*. However, many third-party scripts depend on this being  *lxc*. To "
+"solve this issue, the LXD snap creates an alias for *lxc*."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:59
+msgid "Aliases can be viewed with the `snap aliases` command:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:61
+msgid ""
+"$ snap aliases lxd\n"
+"Command  Alias  Notes\n"
+"lxd.lxc  lxc    -\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:66
+msgid ""
+"Unlike applications that use a snap's namespace, there is no guarantee that "
+"an alias is going to be unique. For this reason, aliases can be easily "
+"disabled and re-enabled with the `unalias` and `prefer` commands:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:68
+msgid ""
+"$ sudo snap unalias lxd\n"
+"Removed:\n"
+"  - lxd.lxc as lxc\n"
+"\n"
+"$ sudo snap prefer lxd \n"
+"Added:\n"
+"  - lxd.lxc as lxc\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:78
+msgid ""
+"The *prefer* command enables all aliases for a given snap in preference to "
+"conflicting aliases from other snaps. This allows you to switch application "
+"preference between alternative options provided by other snaps."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:80
+msgid ""
+"A snap can also be installed with an additional `--unaliased` argument to "
+"prevent aliases being created automatically:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:82
+msgid ""
+"$ snap install lxd --unaliased\n"
+"lxd 4.22 from canonical✓ installed\n"
+"$ snap aliases lxd\n"
+"Command  Alias  Notes\n"
+"lxd.lxc  lxc    disabled\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:90
+msgid "Requesting aliases"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:92
+msgid ""
+"As there is no guarantee that an alias is going to be unique, and potential "
+"conflicts create a minor inconvenience, a snap's *default aliases* are only "
+"enabled after a simple public review process."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:94
+msgid ""
+"The same review process also ensures that any default commands exposed by a "
+"snap are either named after the snap or, when different, reviewed to ensure "
+"the alias is relevant within the context of the application. This helps "
+"maintain a sane shared namespace for everyone."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:96
+msgid ""
+"If you want an alias enabled for your snap, please open a forum topic [in "
+"the store requests forum category](https://forum.snapcraft.io/c/store-"
+"requests) with the details."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:98
+msgid "Manual aliases"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:100
+msgid ""
+"Snap's aliasing system supports the creation of arbitrary custom aliases "
+"defined for the local system. This allows applications to be exposed under "
+"any name that is convenient locally."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:102
+msgid ""
+"For example, the following exposes a new command under `/snap/bin` to "
+"support calling the `vlc` application as `my-vlc`:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:104
+msgid ""
+"$ sudo snap alias vlc my-vlc\n"
+"Added:\n"
+"  - vlc as my-vlc\n"
+"\n"
+"$ snap aliases vlc\n"
+"Command  Alias   Notes\n"
+"vlc      my-vlc  manual\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:114
+msgid ""
+"When a manual alias is set, the original application name will continue to "
+"function."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:116
+msgid "Removing a manually created alias is also straightforward:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/apps-and-aliases.md:118
+msgid ""
+"$ sudo snap unalias my-vlc    \n"
+"Removed:\n"
+"  - vlc as my-vlc\n"
+msgstr ""

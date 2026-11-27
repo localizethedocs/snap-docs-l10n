@@ -1,0 +1,138 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/interfaces/all-about-interfaces.md:0
+msgid ""
+"Understand snap interfaces, which give confined snaps access to system "
+"resources and other snaps using plugs and slots, either automatically or "
+"manually."
+msgstr ""
+
+#: ../../../explanation/interfaces/all-about-interfaces.md:8
+msgid "All about interfaces"
+msgstr ""
+
+#: ../../../explanation/interfaces/all-about-interfaces.md:10
+msgid ""
+"By default, snaps with strict confinement are only able to access a limited "
+"set of resources outside the environment they run in. Snaps can only access "
+"resources from the system and other snaps via interfaces that describe the "
+"resources they provide."
+msgstr ""
+
+#: ../../../explanation/interfaces/all-about-interfaces.md:12
+msgid ""
+"The creator of a snap selects the interfaces that a snap requires in order "
+"to function correctly. Common interfaces include those that provide access "
+"to the {ref}`network <interfaces-network-interface>`, {ref}`desktop features "
+"<interfaces-desktop-interface>` and {ref}`audio recording <interfaces-audio-"
+"record-interface>`."
+msgstr ""
+
+#: ../../../explanation/interfaces/all-about-interfaces.md:14
+msgid "Connecting interfaces"
+msgstr ""
+
+#: ../../../explanation/interfaces/all-about-interfaces.md:16
+msgid ""
+"A connection between snaps is made when a plug from a snap needing a "
+"resource is connected to a slot in another snap providing that resource. A "
+"analogy to this is plugging an appliance into an electrical outlet that "
+"provides the power it needs."
+msgstr ""
+
+#: ../../../explanation/interfaces/all-about-interfaces.md:21
+msgid ""
+"![How an interfaces uses a plug and a slot](https://assets.ubuntu.com/"
+"v1/59c290a8-snapd-interfaces.png)"
+msgstr ""
+
+#: ../../../explanation/interfaces/all-about-interfaces.md:21
+msgid "How an interfaces uses a plug and a slot"
+msgstr ""
+
+#: ../../../explanation/interfaces/all-about-interfaces.md:23
+msgid ""
+"Connections are made either automatically at install time or manually, "
+"depending on their function. The desktop interface is connected "
+"automatically, for instance, whereas the camera interface is not. The *Auto-"
+"connect* column in the {ref}`Supported interfaces <ref-index_interfaces>` "
+"table for lists  whether an interface automatically connects or not. See the "
+"{ref}`Interface Auto-connection mechanism <explanation-interfaces-interface-"
+"auto-connection>` for implementation details."
+msgstr ""
+
+#: ../../../explanation/interfaces/all-about-interfaces.md:25
+msgid ""
+"As with {ref}`classic confinement <explanation-security-classic-"
+"confinement>`, a snap's publisher can request an *assertion* to "
+"automatically connect an otherwise non-auto-connecting interface."
+msgstr ""
+
+#: ../../../explanation/interfaces/all-about-interfaces.md:27
+msgid ""
+"If a snap is upgraded and includes a new assertion, the user will still need "
+"to connect the interface manually. Similarly, if an installed classic snap "
+"is upgraded to use strict confinement, its interfaces won't be automatically "
+"configured."
+msgstr ""
+
+#: ../../../explanation/interfaces/all-about-interfaces.md:29
+msgid ""
+"If a snap is installed prior to an interface being granted auto-connect "
+"permission, and permission is subsequently granted and the snap updated, "
+"when the installed snap updates, the interface will be auto-connected."
+msgstr ""
+
+#: ../../../explanation/interfaces/all-about-interfaces.md:31
+msgid "Getting the interfaces for a snap"
+msgstr ""
+
+#: ../../../explanation/interfaces/all-about-interfaces.md:33
+msgid ""
+"Use the `snap connections` command to see which interfaces a snap needs, and "
+"which are currently connected:"
+msgstr ""
+
+#: ../../../explanation/interfaces/all-about-interfaces.md:35
+msgid ""
+"$ snap connections vlc\n"
+"Interface         Plug                  Slot               Notes\n"
+"camera            vlc:camera            -                  -\n"
+"desktop           vlc:desktop           :desktop           -\n"
+"desktop-legacy    vlc:desktop-legacy    :desktop-legacy    -\n"
+"home              vlc:home              :home              -\n"
+"mount-observe     vlc:mount-observe     -                  -\n"
+"[...]\n"
+msgstr ""
+
+#: ../../../explanation/interfaces/all-about-interfaces.md:46
+msgid ""
+"In the above example,  we can see that the `vlc:camera` interface is "
+"disconnected because it has an empty *Slot* entry."
+msgstr ""
+
+#: ../../../explanation/interfaces/all-about-interfaces.md:48
+msgid ""
+"See {ref}`Interface management <how-to-guides-work-with-snaps-connect-"
+"interfaces>` for further interface details, including how to disconnect "
+"interfaces and make manual connections, and {ref}`Security policy and "
+"sandboxing <explanation-security-security-policies>` for more information on "
+"how confinement is implemented."
+msgstr ""

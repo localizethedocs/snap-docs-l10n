@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/remoteproc-interface.md:2
+msgid "remoteproc interface"
+msgstr ""
+
+#: ../../../reference/interfaces/remoteproc-interface.md:4
+msgid ""
+"The `remoteproc` interface enables developers to interact with the [Remote "
+"Processor Framework](https://docs.kernel.org/staging/remoteproc.html) of the "
+"Linux kernel, typically allowing them to upload firmware to a SoC embedded "
+"microcontroller."
+msgstr ""
+
+#: ../../../reference/interfaces/remoteproc-interface.md:6
+msgid ""
+"Modern ARM-based silicon contain have additional Cortex M4 or M7 based "
+"microcontrollers within the SoC."
+msgstr ""
+
+#: ../../../reference/interfaces/remoteproc-interface.md:8
+msgid ""
+"This interface allows a snap to load a firmware to such microcontrollers via "
+"a snap, and permits the microcontroller to be started and stopped."
+msgstr ""
+
+#: ../../../reference/interfaces/remoteproc-interface.md:10
+msgid "Requires snapd version _2.62+_."
+msgstr ""
+
+#: ../../../reference/interfaces/remoteproc-interface.md:14
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/remoteproc-interface.md:16
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`** : "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`** : yes"
+msgstr ""
+
+#: ../../../reference/interfaces/remoteproc-interface.md:16
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/remoteproc-interface.md:19
+msgid "<h3 id='heading-code'>Code examples</h3>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/remoteproc-interface.md:21
+msgid ""
+"The test code can be found in the snapd repository: <https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/remoteproc_test.go>"
+msgstr ""
+
+#: ../../../reference/interfaces/remoteproc-interface.md:24
+msgid ""
+"The source code for this interface is in the *snapd* repository: <https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/remoteproc.go>"
+msgstr ""
