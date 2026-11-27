@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/network-interface.md:2
+msgid "network interface"
+msgstr ""
+
+#: ../../../reference/interfaces/network-interface.md:4
+msgid "The `network` interface allows client access to the network."
+msgstr ""
+
+#: ../../../reference/interfaces/network-interface.md:7
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/network-interface.md:9
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`** : "
+"yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/network-interface.md:9
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/network-interface.md:11
+msgid ""
+"The `network` interface allows all outbound network access from the "
+"application as a client. Should the application bind to a port, for example "
+"to run a server, then the {ref}`network-bind <interfaces-network-bind-"
+"interface>` interface should also be used."
+msgstr ""
+
+#: ../../../reference/interfaces/network-interface.md:13
+msgid ""
+"Both `network` and `network-bind` interfaces are automatically connected on "
+"installation, and require no additional store review to be used."
+msgstr ""
+
+#: ../../../reference/interfaces/network-interface.md:15
+msgid "<h3 id='heading-code'>Code examples</h3>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/network-interface.md:17
+msgid ""
+"apps:\n"
+"  client:\n"
+"    command: bin/client-application\n"
+"    plugs:\n"
+"      - network\n"
+"  frontend:\n"
+"    command: bin/server-application\n"
+"    plugs:\n"
+"      - network\n"
+"      - network-bind\n"
+msgstr ""
+
+#: ../../../reference/interfaces/network-interface.md:30
+msgid ""
+"Further network-related interfaces are typically not required, unless the "
+"application needs to interrogate or control network interfaces, or manage "
+"the local firewall. Most of these are not automatically connected, but can "
+"be manually connected by the end user. In addition, the publisher may "
+"request auto-connection of these interfaces via a snapcraft forum thread."
+msgstr ""
+
+#: ../../../reference/interfaces/network-interface.md:32
+msgid ""
+"The test code for this interface can be found in the snapd repository: "
+"<https://github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"network_test.go>"
+msgstr ""
+
+#: ../../../reference/interfaces/network-interface.md:35
+msgid ""
+"The source code for this interface is in the *snapd* repository: <https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/network.go>"
+msgstr ""

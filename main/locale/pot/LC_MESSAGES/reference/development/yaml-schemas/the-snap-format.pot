@@ -1,0 +1,549 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:0
+msgid ""
+"Complete reference for the snap format and snap.yaml metadata, including "
+"package structure, hooks, interfaces, layouts, and desktop files."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:8
+msgid "The snap format"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:10
+msgid ""
+"ⓘ  This page documents the format of the **built** snaps. See [The snapcraft "
+"format](https://documentation.ubuntu.com/snapcraft/stable/reference/project-"
+"file/snapcraft-yaml) for more information about the `snapcraft.yaml` file "
+"used to build these snaps."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:12
+msgid ""
+"A snap is a *SquashFS* file carrying content alongside metadata to tell the "
+"system how it should be manipulated. When installed, the SquashFS file for "
+"the snap is mounted read-only at the following location:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:14
+msgid "`/snap/<snap name>/<revision>/`"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:16
+msgid ""
+"This method delivers fast and extremely predictable installations, with no "
+"installation remnants, and no way for a snap's content to be mutated or "
+"interfered with. A snap is either installed and available as originally "
+"built, or it is not available at all."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:18
+msgid "Applications declared in the snap become commands at:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:20
+msgid "`/snap/bin/<snap name>[.<app name>]`"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:22
+msgid "The suffix is omitted if `<app name>` matches `<snap name>`."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:24
+msgid ""
+"That snap command file is not the actual application, but rather a link to "
+"the real application under the isolation and confinement rules of the snap's "
+"default restricted environment, plus any allowances granted to it via the "
+"interface system."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:26
+msgid "<a name=\"files\"></a>"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:26
+msgid "<a name=\"files\">"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:26
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:246
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:252
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:260
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:268
+msgid "</a>"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:28
+msgid "Setup files"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:30
+msgid "The following files control the behaviour of a snap:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:32
+msgid "`meta/snap.yaml`: Basic snap details (see below)"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:33
+msgid "`meta/hooks/`: Hooks called on specific events (see below)"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:34
+msgid "`meta/gui/icon.{svg,png}`: Icon for the snap"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:35
+msgid "`meta/gui/*.desktop`: Desktop files for the snap (see below)"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:37
+msgid "<h3 id='heading--snapyaml'>snap.yaml</h3>\n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:39
+msgid ""
+"Every snap package contains a `meta/snap.yaml` file that holds the basic "
+"metadata for the snap."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:41
+msgid "Please take note of this important distinction:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:43
+msgid "**snap.yaml** lives inside every snap package, read by snapd"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:44
+msgid ""
+"**snapcraft.yaml** contains instructions to create a snap package, read by "
+"the *snapcraft* command used to build snaps"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:46
+msgid ""
+"Most of the metadata supported by _snap.yaml_ is optional. In fact, the "
+"simplest `snap.yaml` could contain as little as the following:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:48
+msgid ""
+"name: simplest\n"
+"version: 1.0\n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:53
+msgid ""
+"An example *snap.yaml* that offers an application to run is still very "
+"simple:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:55
+msgid ""
+"name: simple\n"
+"version: 1.0\n"
+"apps:\n"
+"    hello:\n"
+"        command: bin/hello --world\n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:63
+msgid ""
+"The following is the complete specification for the metadata in *snap.yaml*:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:65
+msgid ""
+"# The suggested snap name, constrained to the [a-z0-9] charset and inner\n"
+"# dashes. The final name when the snap is installed is defined by the\n"
+"# snap-declaration assertion associated with the snap, if any.\n"
+"name: <name>\n"
+"\n"
+"# An optional title for the snap, may contain uppercase letters and spaces.\n"
+"title: <title>\n"
+"\n"
+"# Version of the software packed inside the snap. Has no semantic value\n"
+"# in the system (no greater/lower-than rules are ever applied to it).\n"
+"version: <version>\n"
+"\n"
+"# More details about what is contained in the snap.\n"
+"summary: <line>\n"
+"description: <text>\n"
+"\n"
+"# License for the snap content, based on SPDX license expressions.\n"
+"license: <expression>\n"
+"\n"
+"# Type of snap, defaults to \"app\". The `core` type has been deprecated.\n"
+"type: app | gadget | kernel | base\n"
+"\n"
+"# List of architectures the snap may run on. Defaults to [all].\n"
+"architectures:\n"
+"    - all | amd64 | i386 | armhf | ...\n"
+"\n"
+"# The base snap that defines the underlying filesystem this snap\n"
+"# will be assembled on top of.\n"
+"base: <name>\n"
+"\n"
+"\n"
+"# A list of features that must be supported by the core for \n"
+"# the snap to install. For example, the following sets a requirement for\n"
+"# snapd2.38 or later:\n"
+"# assumes:\n"
+"# - snapd2.38\n"
+"assumes:\n"
+"    - <feature>\n"
+"\n"
+"# The epoch this release is intended for. For further details, see:\n"
+"# https://documentation.ubuntu.com/snapcraft/stable/how-to/crafting/manage-"
+"data-compatibility/\n"
+"# (snapd 2.38+)\n"
+"epoch: <value>\n"
+"\n"
+"# Additional usernames the snap may use. Currently, the only supported\n"
+"# values for <name> is '_daemon_' (snapd 2.61+), and the now deprecated\n"
+"# 'snap-daemon'. For further details, see:\n"
+"# https://snapcraft.io/docs/explanation/snap-development/system-usernames/\n"
+"\n"
+"system-usernames:\n"
+"  <name>: shared\n"
+"\n"
+"# Alternative form:\n"
+"# system-usernames:\n"
+"#   <name>:\n"
+"#     scope: shared\n"
+"\n"
+"\n"
+"# List of applications (commands, binaries, daemons) in the snap. \n"
+"apps:\n"
+"\n"
+"  <app name>:\n"
+"\n"
+"      # Path to executable (relative to snap base) and arguments to use\n"
+"      # when this application is run.\n"
+"      command: <command line>\n"
+"\n"
+"      # A list of commands to be executed, in order, prior to the `command:` "
+"executable\n"
+"      # or from within a hook (see below). \n"
+"      command-chain: <list of commands>\n"
+"\n"
+"      # An identifier to a desktop-id within an external appstream file.\n"
+"      # See https://documentation.ubuntu.com/snapcraft/stable/reference/"
+"external-package-information/\n"
+"      common-id: <desktop file id>\n"
+"\n"
+"      # Path to a bash snippet to use for tab completion.\n"
+"      # (snapcraft 2.33+, snapd 2.30+)\n"
+"      # See https://snapcraft.io/docs/explanation/snap-development/tab-"
+"completion/\n"
+"      completer: <path to file>\n"
+"\n"
+"      # List of plug names the application is associated with.\n"
+"      # When a plug is connected to one of these slots, the application\n"
+"      # will be granted the permissions specified for that interface.\n"
+"      # If attributes are required, or the plug name does not match the\n"
+"      # interface name, more details must be declared under the top-level\n"
+"      # \"plugs\" field (see below).\n"
+"      plugs:\n"
+"          - <plug name>\n"
+"\n"
+"      # List of slot names this application is associated with.\n"
+"      # Same details as described above, but for slots.\n"
+"      slots:\n"
+"          - <slot name>\n"
+"\n"
+"      # If daemon is set, the command is a daemon to run as specified.\n"
+"      # See systemd documentation for further details.\n"
+"      daemon: simple | forking | oneshot | notify\n"
+"\n"
+"      # Defines whether a freshly installed daemon is started automatically "
+"(enabled), \n"
+"      # or whether startup is deferred to the snap (disabled). Defaults to "
+"enable.\n"
+"      install-mode: enable | disable\n"
+"     \n"
+"      # Controls whether the daemon should be restarted during a snap "
+"refresh. Defaults to 'restart'.\n"
+"      refresh-mode:  endure | restart\n"
+"\n"
+"      # Maps a daemon’s sockets to services and activates them.\n"
+"      sockets:\n"
+"          - <socket name>\n"
+"\n"
+"      # The mode of a socket in octal, such as `0644`.\n"
+"      socket-mode: <mode>\n"
+"     \n"
+"      # Controls how the daemon should be stopped.  The given signal is sent "
+"to the main PID \n"
+"      # (when used without -all) or to all PIDs in the process group when "
+"the -all suffix is used.\n"
+"      stop-mode:  sigterm | sigterm-all | sighup | sighup-all | sigusr1 | "
+"sigusr1-all | sigusr2 | sigusr2-all\n"
+"\n"
+"      # Optional command to stop a daemon.\n"
+"      stop-command: <command line>\n"
+"\n"
+"      # Optional time to wait for daemon to start.\n"
+"      start-timeout: <n>ns | <n>us | <n>ms | <n>s | <n>m\n"
+"\n"
+"      # Optional time to wait for daemon to stop.\n"
+"      stop-timeout: <n>ns | <n>us | <n>ms | <n>s | <n>m\n"
+"\n"
+"      # Optional command to run after daemon stops.\n"
+"      post-stop-command: <command line>\n"
+"\n"
+"      # Condition to restart the daemon under. Defaults to on-failure.\n"
+"      # See the systemd.service manual on Restart for details.\n"
+"      restart-condition: \\\n"
+"          on-failure | on-success | on-abnormal | on-abort | always | never\n"
+"\n"
+"      # Delay between service restarts. Defaults to unset. \n"
+"      # See the systemd.service manual on RestartSec for details.\n"
+"      # (snapd 2.36+)\n"
+"      restart-delay: <n>ns | <n>us | <n>ms | <n>s | <n>m\n"
+"\n"
+"      # Service watchdog timeout. For watchdog to work, the application\n"
+"      # requires access to systemd notification socket, which can be \n"
+"      \n"
+"      # declared by listing a daemon-notify plug in the plugs section.\n"
+"      # Note, the interface is not auto connected  and needs to be\n"
+"      # connected manually.\n"
+"      # (snapd 2.33+)\n"
+"      watchdog-timeout: <n>ns | <n>us | <n>ms | <n>s | <n>m\n"
+"\n"
+"      # Command to use to ask the service to reload its configuration.\n"
+"      # In the absence of this, when asked to reload  (e.g. via\n"
+"      # `snap restart --reload snap.app`) the service is restarted instead.\n"
+"      reload-command: <command line>\n"
+"\n"
+"      # List of applications that are ordered to be started before\n"
+"      # the current one. Applications must be part of the same snap.\n"
+"      # (snapd 2.31+)\n"
+"      before:\n"
+"          - <other app name>\n"
+"\n"
+"      # List of applications that are ordered to be started after\n"
+"      # the current one. Applications must be part of the same snap.\n"
+"      # (snapd 2.31+)\n"
+"      after:\n"
+"          - <other app name>\n"
+"\n"
+"      # The service is activated by a timer, app must be a daemon. See "
+"timer\n"
+"      # documentation for examples.\n"
+"      # (snapd 2.33+)\n"
+"      timer: <timer string>\n"
+"\n"
+"      # Name of the desktop file placed by the application in \n"
+"      # $SNAP_USER_DATA/.config/autostart to indicate that application \n"
+"      # should be started with the user's desktop session. The application\n"
+"      # is started using the app's command wrapper (<name>.<app>) plus\n"
+"      # any arguments  present in the Exec=.. line inside the autostart\n"
+"      # desktop file.\n"
+"      # (snapd 2.32.4+)\n"
+"      autostart: <command line>\n"
+"\n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:246
+msgid "<a name=\"hooks\"></a>"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:246
+msgid "<a name=\"hooks\">"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:248
+msgid "Hooks"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:250
+msgid ""
+"Hooks provide a mechanism for snapd to alert snaps that something has "
+"happened, or to ask the snap to provide its opinion about an operation that "
+"is in progress. See the topic on {ref}`supported hooks <reference-"
+"development-supported-snap-hooks>` for more details."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:252
+msgid "<a name=\"interfaces\"></a>"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:252
+msgid "<a name=\"interfaces\">"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:254
+msgid "Interfaces"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:256
+msgid ""
+"Interfaces allow snaps to communicate or share resources according to the "
+"protocol established by the interface. They play an important part in "
+"security policy configuration."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:258
+msgid ""
+"See {ref}`Supported interfaces <ref-index_interfaces>` for more details."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:260
+msgid "<a name=\"layouts\"></a>"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:260
+msgid "<a name=\"layouts\">"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:262
+msgid "Layouts"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:264
+msgid ""
+"Layouts enable snap developers to modify the execution environment of their "
+"snap. They simplify the process of using pre-compiled binaries and libraries "
+"that expect to find files and directories outside of locations referenced by "
+"$SNAP or $SNAP_DATA."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:266
+msgid ""
+"For more details, see [Snap layouts](https://documentation.ubuntu.com/"
+"snapcraft/stable/how-to/crafting/use-layouts/)."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:268
+msgid "<a name=\"desktop-files\"></a>"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:268
+msgid "<a name=\"desktop-files\">"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:270
+msgid "Desktop files"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:272
+msgid ""
+"The `meta/gui/` directory (`snap/gui/` with snapcraft) may contain "
+"`*.desktop` files for the snap. These desktop files may contain valid "
+"desktop entries from the XDG Desktop Entry Specification version 1.1 with "
+"some exceptions listed below. Lines with unknown keys are silently removed "
+"from the desktop file on install."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:274
+msgid "The *Exec=* line must use the following syntax:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:276
+msgid "`Exec=<snap name>[.<app name>] [<argument> ...]`"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:278
+msgid ""
+"As in the executables contained under `/snap/bin`, the `.<app name>` suffix "
+"is omitted if the application name and snap name are the same."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:280
+msgid "For example, assuming this content in `snap.yaml`:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:282
+msgid ""
+"name: http\n"
+"version: 1.0\n"
+"apps:\n"
+"    get:\n"
+"        command: bin/my-downloader\n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:290
+msgid "... the following desktop file would be valid:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:292
+msgid ""
+"[Desktop Entry]\n"
+"Name=My Downloader\n"
+"Exec=http.get %U\n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:298
+msgid ""
+"<h3 id='heading--autostart'>Autostart desktop files<sup><a href='#heading--"
+"autostart'>⚓</a></sup></h3>\n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:301
+msgid ""
+"An application may put a desktop file under `$SNAP_USER_DATA/.config/"
+"autostart` in order to be automatically started with the user's desktop "
+"session. The file is matched with a corresponding application based on the "
+"`autostart` property of an app inside `meta/snap.yaml`. For example:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:303
+msgid ""
+"name: my-chat\n"
+"version: 1.0\n"
+"apps:\n"
+"    chat:\n"
+"        command: bin/my-chat\n"
+"        autostart: my-chat.desktop\n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:311
+msgid ""
+"Assuming `my-chat` has written a file `$SNAP_USER_DATA/.config/autostart/my-"
+"chat.desktop` with the following contents:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:313
+msgid ""
+"[Desktop Entry]\n"
+"Name=My Chat\n"
+"Exec=/usr/bin/my-chat --autostart a b c\n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:318
+msgid ""
+"The *Exec=* line is used to obtain any command line parameters, and the "
+"application will be started as:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:319
+msgid "my-chat.chat --autostart a b c \n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:323
+msgid "Unsupported desktop keys"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-snap-format.md:325
+msgid ""
+"The `DBusActivatable`, `TryExec` and `Implements` keys are currently not "
+"supported and will be silently removed from the desktop file on install."
+msgstr ""

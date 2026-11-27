@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/unity8-interface.md:0
+#: ../../../reference/interfaces/unity8-interface.md:8
+msgid "unity8 interface"
+msgstr ""
+
+#: ../../../reference/interfaces/unity8-interface.md:10
+msgid ""
+"`unity8` provides access to data from Unity 8 desktop applications. This "
+"interface is in active development and should not yet be used in production. "
+"Its use is therefore restricted."
+msgstr ""
+
+#: ../../../reference/interfaces/unity8-interface.md:12
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`**: yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/unity8-interface.md:12
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/unity8-interface.md:16
+msgid ""
+"The `unity8` slot is {ref}`unsupported for parallel instances <interfaces-"
+"parallel-installs-unsupported>`."
+msgstr ""
+
+#: ../../../reference/interfaces/unity8-interface.md:19
+msgid "Requires snapd version _2.22+_."
+msgstr ""

@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/interfaces/index.md:16
+msgid "How interfaces work"
+msgstr ""
+
+#: ../../../explanation/interfaces/index.md:16
+msgid "Interface hooks"
+msgstr ""
+
+#: ../../../explanation/interfaces/index.md:16
+msgid "Hardware interfaces"
+msgstr ""
+
+#: ../../../explanation/interfaces/index.md:16
+msgid "Auto-connections"
+msgstr ""
+
+#: ../../../explanation/interfaces/index.md:16
+msgid "Super-privileged interfaces"
+msgstr ""
+
+#: ../../../explanation/interfaces/index.md:0
+msgid ""
+"Explanations of how the snap interface system works, including how "
+"interfaces manage access to resources and how interface hooks control "
+"connections."
+msgstr ""
+
+#: ../../../explanation/interfaces/index.md:8
+msgid "Interfaces"
+msgstr ""
+
+#: ../../../explanation/interfaces/index.md:10
+msgid ""
+"As you begin to use snaps more, interfaces can be used to carefully permit "
+"and limit access to resources."
+msgstr ""
+
+#: ../../../explanation/interfaces/index.md:12
+msgid ""
+"{ref}`All about interfaces <explanation-interfaces-all-about-interfaces>`: "
+"The permission system used to manage access to resources."
+msgstr ""
+
+#: ../../../explanation/interfaces/index.md:13
+msgid ""
+"{ref}`Interface auto-connection <explanation-interfaces-interface-auto-"
+"connection>`: How snaps gain automatic access to resources."
+msgstr ""
+
+#: ../../../explanation/interfaces/index.md:14
+msgid ""
+"{ref}`Interface hooks <explanation-interfaces-interface-hooks>`: A feature "
+"to help developers control what happens when an interface is used."
+msgstr ""

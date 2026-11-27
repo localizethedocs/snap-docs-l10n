@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/account-control-interface.md:2
+msgid "account-control interface"
+msgstr ""
+
+#: ../../../reference/interfaces/account-control-interface.md:4
+msgid ""
+"`account-control` allows managing non-system user accounts on [Ubuntu Core]"
+"(https://ubuntu.com/core/docs) systems."
+msgstr ""
+
+#: ../../../reference/interfaces/account-control-interface.md:6
+msgid ""
+"This interface enables the management of the `extrausers` table in the Name "
+"Service Switch (NSS) databases on Ubuntu Core to manage both non-system "
+"unprivileged and privileged users and groups."
+msgstr ""
+
+#: ../../../reference/interfaces/account-control-interface.md:8
+msgid ""
+"The interface **does not** allow the management of users and groups for the "
+"system NSS databases in */etc*."
+msgstr ""
+
+#: ../../../reference/interfaces/account-control-interface.md:10
+msgid ""
+"Due to the privileged nature of access enabled by this interface, its use is "
+"reserved exclusively for \"management snaps\" from [brand stores](https://"
+"ubuntu.com/core/docs/brand-stores)."
+msgstr ""
+
+#: ../../../reference/interfaces/account-control-interface.md:14
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/account-control-interface.md:16
+msgid "**Auto-connect**: no"
+msgstr ""
+
+#: ../../../reference/interfaces/account-control-interface.md:19
+msgid "<h3 id='heading-code'>Code examples</h3>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/account-control-interface.md:21
+msgid ""
+"The account-control interface is used in the _usbtop_ snap to help monitor "
+"USB traffic: <https://github.com/ogra1/usbtop/blob/master/snap/"
+"snapcraft.yaml>"
+msgstr ""
+
+#: ../../../reference/interfaces/account-control-interface.md:23
+msgid ""
+"The source code for this interface is in the *snapd* repository: <https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/account_control.go>"
+msgstr ""

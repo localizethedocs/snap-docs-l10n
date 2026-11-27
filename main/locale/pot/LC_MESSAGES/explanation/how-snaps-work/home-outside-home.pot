@@ -1,0 +1,154 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:0
+msgid ""
+"Understand snapd support for home directories outside /home, using the "
+"homedirs system option or bind mounts for snap user data."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:8
+msgid "Home outside home"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:10
+msgid ""
+"The snap daemon (snapd) looks for a user's home directory ($HOME) under `/"
+"home` on the local filesystem. However, from _snapd 2.59_ onwards, the snap "
+"daemon can access an additional location using the `homedirs` {ref}`system "
+"option <how-to-guides-manage-snaps-set-system-options>`:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:12
+msgid "sudo snap set system homedirs=<destination-directory>\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:15
+msgid ""
+"This allows a snap's user data to be stored in a user's home location other "
+"under `/home`."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:17
+msgid ""
+"The following command will permit home directories to be accessible from `/"
+"remote/users`, for instance:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:19
+msgid "sudo snap set system homedirs=/remote/users\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:22
+msgid ""
+"The new location needs to exist and be accessible, but it can be on a "
+"different filesystem or even mounted across a network. The original `/home` "
+"location remains valid but it is no longer a requirement that directories be "
+"stored there."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:24
+msgid ""
+"Once set, the `homedirs` system option can be retrieved with the `snap get` "
+"command:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:26
+msgid ""
+"$ sudo snap get system homedirs\n"
+"/remote/users\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:31
+msgid ""
+"The `homedirs` value can be cleared and restored to only `/home` with the "
+"`snap unset` command:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:33
+msgid "sudo snap unset system homedirs\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:37
+msgid "Bind mount home directories"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:39
+msgid ""
+"While the _homedirs_ system option should work for the majority users, it's "
+"also possible to _bind mount_ an alternative $HOME location to `/home` to "
+"allow other locations to be found by snapd. This process is outlined below."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:41
+msgid ""
+"ⓘ  A **bind mount** allows a mounted filesystem to be accessible from more "
+"than one location at the filesystem level. This is unlike a hard or symbolic "
+"link, for instance, which operate as special additional files that point to "
+"a destination."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:43
+msgid ""
+"There are two steps to bind mount a home directory to a different location:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:44
+msgid "**the bind mount:** create the mount point and run the _mount_ command:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:45
+msgid ""
+"$ sudo mkdir -p /home/$USER\n"
+"$ sudo mount --bind <original-home-location> /home/$USER\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:49
+msgid ""
+"**edit `/etc/passwd`**: backup `passwd` and edit the home location for your "
+"user:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:50
+msgid ""
+"$ cp /etc/passwd passwd.backup\n"
+"# sudo edit /etc/passwd with your favourite editor\n"
+"$ cat /etc/passwd | grep $USER\n"
+"  ubuntu:x:1000:1000:ubuntu,,,:/home/ubuntu:/bin/bash\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:56
+msgid ""
+"The following `awk` command can be used to edit `/etc/passwd` (change "
+"OLD_HOME to your old home directory):"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:57
+msgid ""
+"$ awk -vold=$\"OLD_HOME\" -vnew=$\"/home/$USER\" -F: ' BEGIN {OFS = \":\"} "
+"\\\n"
+"  {sub(old,new,$6);print}' /etc/passwd > passwd.new\n"
+"$ sudo cp passwd.new /etc/passwd\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/home-outside-home.md:63
+msgid ""
+"Log out and back in again, and snap will work from the freshly mounted home "
+"location. If you run into difficulties, copy the backup passwd file to `/etc/"
+"passwd`."
+msgstr ""

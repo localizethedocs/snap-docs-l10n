@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/system-backup-interface.md:2
+msgid "system-backup interface"
+msgstr ""
+
+#: ../../../reference/interfaces/system-backup-interface.md:4
+msgid ""
+"`system-backup` provides read-only access to the system via `/var/lib/snapd/"
+"hostfs`. This interface gives privileged access to system data."
+msgstr ""
+
+#: ../../../reference/interfaces/system-backup-interface.md:6
+msgid "**Auto-connect**: no **Transitional**: no"
+msgstr ""
+
+#: ../../../reference/interfaces/system-backup-interface.md:9
+msgid "Requires snapd version _2.43+_."
+msgstr ""
+
+#: ../../../reference/interfaces/system-backup-interface.md:11
+msgid ""
+"By design, snaps using `strict` and `devmode` {ref}`confinement <explanation-"
+"security-snap-confinement>` run with a different root filesystem than the "
+"host. Snaps that implement a backup function, however, need access to the "
+"host's snap-related files outside of this confinement, and this is where the "
+"`system-backup` interface can help."
+msgstr ""
+
+#: ../../../reference/interfaces/system-backup-interface.md:13
+msgid ""
+"The system-backup interface provides read-only access to files under the "
+"following location:"
+msgstr ""
+
+#: ../../../reference/interfaces/system-backup-interface.md:15
+msgid "`/var/lib/snapd/hostfs`"
+msgstr ""
+
+#: ../../../reference/interfaces/system-backup-interface.md:17
+msgid "With the following exceptions:"
+msgstr ""
+
+#: ../../../reference/interfaces/system-backup-interface.md:18
+msgid "`/var/lib/snapd/hostfs/dev`"
+msgstr ""
+
+#: ../../../reference/interfaces/system-backup-interface.md:19
+msgid "`/var/lib/snapd/hostfs/proc`"
+msgstr ""
+
+#: ../../../reference/interfaces/system-backup-interface.md:20
+msgid "`/var/lib/snapd/hostfs/sys`"
+msgstr ""
+
+#: ../../../reference/interfaces/system-backup-interface.md:22
+msgid ""
+"Importantly, neither snapd nor this interface provide any mechanisms to "
+"ensure the system is in a ready state for backups. Reliable backup "
+"strategies with snaps utilising this interface will need to account for this "
+"themselves."
+msgstr ""

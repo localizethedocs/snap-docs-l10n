@@ -1,0 +1,224 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/security/decommissioning.md:2
+msgid "Decommissioning"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:4
+msgid "Snapd runs on three system types:"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:6
+msgid "[Ubuntu Core]"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:7
+msgid "Hybrid Classic"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:8
+msgid "Classic"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:10
+msgid ""
+"The approach to decommissioning snapd differs depending on the system type, "
+"as snapd provides core system functionality on Ubuntu Core and Hybrid "
+"Classic systems, but is an optional package on Classic Ubuntu systems."
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:14
+msgid "Ubuntu Core systems"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:16
+msgid ""
+"On Ubuntu Core systems, snapd is a fundamental component of the operating "
+"system and part of the overall device image and product lifecycle. Ubuntu "
+"Core devices are typically deployed as integrated IoT or appliance-style "
+"systems with a fixed software lifetime."
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:18
+msgid ""
+"Decommissioning of Ubuntu Core systems should be performed at the system "
+"level rather than by removing snapd, and is therefore outside the scope of "
+"this section."
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:20
+msgid "Hybrid Classic systems"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:22
+msgid ""
+"Hybrid Classic system is a classic system with kernel snap e.g. Ubuntu 26.04 "
+"using the TPM backed FDE installation option. It provides a Classic Ubuntu "
+"user experience but relies on snapd for essential system functionality such "
+"as system snaps, recovery, and full disk encryption. On these systems, snapd "
+"is not an optional component and should not be removed."
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:24
+msgid ""
+"Decommissioning of Hybrid Classic systems should be performed at the system "
+"level rather than by removing snapd, and is therefore outside the scope of "
+"this section."
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:26
+msgid "Classic systems"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:28
+msgid ""
+"On Classic Ubuntu systems, snapd is an optional component and may be "
+"decommissioned if it is no longer required. Snapd is bootstrapped by the "
+"snapd deb package, but installation of any non-essential snap (core, gadget, "
+"kernel, snapd) would also trigger installation of snapd snap. On Classic "
+"Ubuntu systems, re-execution is enabled by default, which means the deb "
+"package will re-execute to snapd provided by the snap package whenever that "
+"version is more recent than the deb package version."
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:30
+msgid "Decommissioning snapd on Classic systems involves:"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:32
+#: ../../../explanation/security/decommissioning.md:47
+msgid "Removing installed snaps"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:33
+msgid "Removing the snapd package"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:34
+msgid ""
+"Removing remaining snap data, state directories, and stored snapshots "
+"(including user, system, and configuration data)"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:36
+msgid "Typical locations where snap data may remain include:"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:38
+msgid "`/var/snap/`:         Snap system data and persistent application data"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:39
+msgid ""
+"`/var/lib/snapd/`:    Snapd state, installed snap revisions, assertions, "
+"snapshots"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:40
+msgid "`/var/cache/snapd/`:  Downloaded snap packages and cache"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:41
+msgid ""
+"`/snap/`:             Mounted snap squashfs files (read-only runtime files)"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:42
+msgid "`/home/$USER/snap/`:  Per-user snap data, configuration, and user files"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:43
+msgid "`/home/$USER/.snap/`: Authentication data and signing keys"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:44
+msgid "`/var/log/journal/`:  Persistent logging (configurable)"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:45
+msgid "`/run/log/journal/`:  Non-persistent logging (default)"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:49
+msgid ""
+"Removal of the snapd snap requires first removing all other snaps. Removing "
+"installed snaps with `snap remove --purge <snap>` prevents taking an "
+"automatic snapshot, however existing {ref}`snapshots <how-to-guides-manage-"
+"snaps-create-data-snapshots>` still remain."
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:51
+msgid "Removing the snapd snap"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:53
+msgid ""
+"When all other snaps have been removed the snapd snap can also be removed. "
+"Removal of the snapd snap does not remove /var/lib/ in order to allow the "
+"snapd deb package to function."
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:56
+msgid "Removing the snapd deb package"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:58
+msgid ""
+"Removal of the snapd deb package with `sudo apt remove --purge snapd` "
+"removes:"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:59
+msgid "`/var/snap`"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:60
+msgid "`/var/lib/snapd/`"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:61
+msgid "`/var/cache/snapd/`"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:62
+msgid "`/snap/`"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:64
+msgid "User data"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:66
+msgid ""
+"If required, root and other user data should be manually removed by wiping `/"
+"root/snap/` and `/root/.snap/` as well as `/home/$USER/snap/` and `/home/"
+"$USER/.snap/`."
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:68
+msgid "Removing journal logs"
+msgstr ""
+
+#: ../../../explanation/security/decommissioning.md:70
+msgid ""
+"If deemed necessary, journal containing snapd logs can be removed, but this "
+"cannot be done cleanly without impacting non-snapd logging. Identify if the "
+"journal contains any snapd files using `journalctl --directory=/var/log/"
+"journal -u snapd` and remove the log if required."
+msgstr ""

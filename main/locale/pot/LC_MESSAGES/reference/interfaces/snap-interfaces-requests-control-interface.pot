@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/snap-interfaces-requests-control-interface.md:2
+msgid "snap-interfaces-requests-control interface"
+msgstr ""
+
+#: ../../../reference/interfaces/snap-interfaces-requests-control-interface.md:4
+msgid ""
+"The `snap-interfaces-requests-control` interface enables the prompting API "
+"and its access to prompting-related notice types. This is used internally by "
+"snapd to request and manage system resource access."
+msgstr ""
+
+#: ../../../reference/interfaces/snap-interfaces-requests-control-interface.md:8
+msgid ""
+"See {ref}`Interface management <how-to-guides-work-with-snaps-connect-"
+"interfaces>` and {ref}`Supported interfaces <ref-index_interfaces>` for "
+"further details on how interfaces are used."
+msgstr ""
+
+#: ../../../reference/interfaces/snap-interfaces-requests-control-interface.md:12
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/snap-interfaces-requests-control-interface.md:14
+msgid "**Auto-connect**: no"
+msgstr ""
+
+#: ../../../reference/interfaces/snap-interfaces-requests-control-interface.md:16
+msgid ""
+"<h3 id='heading--endpoint-access'>Endpoint access permissions</h3>\n"
+"<ul>\n"
+"<li>/v2/system-info</li>\n"
+"<li>/v2/icons/{name}/icon</li>\n"
+"<li>/v2/notices</li>\n"
+"<li>/v2/notices/{id}</li>\n"
+"<li>/v2/snaps/{name}</li>\n"
+"<li>/v2/interfaces/requests/prompts</li>\n"
+"<li>/v2/interfaces/requests/prompts/{id}</li>\n"
+"<li>/v2/interfaces/requests/rules</li>\n"
+"<li>/v2/interfaces/requests/rules/{id}</li>\n"
+"</ul>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/snap-interfaces-requests-control-interface.md:29
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/snap-interfaces-requests-control-interface.md:31
+msgid ""
+"The test code can be found in the snapd repository:</br>https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/"
+"snap_interfaces_requests_control_test.go"
+msgstr ""
+
+#: ../../../reference/interfaces/snap-interfaces-requests-control-interface.md:31
+#: ../../../reference/interfaces/snap-interfaces-requests-control-interface.md:33
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/snap-interfaces-requests-control-interface.md:33
+msgid ""
+"The source code for the interface is in the snapd repository: </br>https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"snap_interfaces_requests_control.go"
+msgstr ""

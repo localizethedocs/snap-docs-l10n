@@ -1,0 +1,260 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:0
+msgid ""
+"Understand how XDG Desktop Portals let confined snaps securely access host "
+"resources such as files, URLs, notifications, screenshots, and screencasts."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:8
+msgid "XDG Desktop Portals"
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:10
+msgid ""
+"Portals are a standardised framework allowing desktop applications to use "
+"resources outside of their sandbox. The file chooser portal, for example, "
+"opens a native file chooser on the host system. When the user selects a "
+"file, the application is granted access to that file."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:12
+msgid "Portals provide a range of common features to applications, including:"
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:14
+msgid "Opening a file with a file chooser"
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:15
+msgid "Opening URIs in other applications"
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:16
+msgid "Preventing the device from suspend/sleep/powering off"
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:17
+msgid "Sending email"
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:18
+msgid "Showing notifications"
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:19
+msgid "Taking screenshots and screencasts"
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:21
+msgid ""
+"See the [Portal API reference](https://docs.flatpak.org/en/latest/portal-api-"
+"reference.html) for all supported portals."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:23
+msgid ""
+"ⓘ Portals originated from the [Flatpak](https://flatpak.org/) project, but "
+"are now a common Linux desktop standard with support from GNOME, KDE and "
+"Snapcraft. They are even used outside of sandboxes to provide a standardised "
+"API to common desktop features such as [screenshots and screen casts on "
+"wayland](https://github.com/emersion/xdg-desktop-portal-wlr/wiki/FAQ)."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:25
+msgid "How to use portals in your snap"
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:27
+msgid ""
+"**Use the Portal APIs in your application** Unlike regular {ref}`Snapcraft "
+"interfaces <ref-index_interfaces>`, *portals require applications to use a "
+"new API* in order to access resources. Toolkits like GTK 3 and Qt5, however, "
+"provide transparent support for portals. See [Portal support in GTK 3]"
+"(https://docs.flatpak.org/en/latest/portals.html#portal-support-in-gtk) or "
+"[Portal support in Qt5 and KDE](https://docs.flatpak.org/en/latest/"
+"portals.html#portal-support-in-qt-and-kde) for detailed information. If your "
+"application is not using one of those toolkits, you will need to use the "
+"Portals API directly. See [the Portals API documentation](https://"
+"flatpak.github.io/xdg-desktop-portal/docs/api-reference.html) for more "
+"information."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:31
+msgid ""
+"**Add the `desktop` interface to your snap** This interface gives your snap "
+"access to the portals."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:34
+msgid "**Enable Portal support in your application.**"
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:35
+msgid ""
+"**GTK 3**:  turn on portal support in GTK 3 by setting the following "
+"environment variable: `GTK_USE_PORTAL=1`"
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:38
+msgid ""
+"**Qt**:  often defaults to using portals, but you can enable it manually by "
+"changing the platform theme:    Set `QT_QPA_PLATFORMTHEME=gtk3` on GTK based "
+"desktops and    Set `QT_QPA_PLATFORMTHEME=flatpak` and "
+"`QT_QPA_FLATPAK_PLATFORMTHEME=kde` for Qt based desktops."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:42
+msgid "**Electron**:  portal support is present in the Electron file chooser."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:44
+msgid ""
+"ⓘ Both the [`gnome` extension](https://documentation.ubuntu.com/snapcraft/"
+"stable/reference/extensions/gnome-extension/) and the  [`kde-neon` extension]"
+"(https://documentation.ubuntu.com/snapcraft/stable/reference/extensions/kde-"
+"neon-extensions/) automatically enable portal support for GTK 3 and Qt "
+"applications on GTK-based desktops. If your snap uses either extension, you "
+"only need to do step 1."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:46
+msgid "File chooser portal vs home interface"
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:48
+msgid ""
+"It is recommended to use the file chooser portal instead of the {ref}`home "
+"<interfaces-home-interface>` and {ref}`removable-media <interfaces-removable-"
+"media-interface>` interfaces for the following reasons:"
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:50
+msgid ""
+"The portal gives the user complete control over what exact files your "
+"application should access while the interfaces are all-or-nothing toggles."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:51
+msgid ""
+"The portal works with hidden files and folders in the home directory. If a "
+"user chooses a hidden file, the portal will give your application access to "
+"it. The `home` interface does not give your app access to hidden files and "
+"folders in the home directory for security reasons. Note that the `home` "
+"interface does give access to hidden files and folders elsewhere, just not "
+"in the home directory itself."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:52
+msgid ""
+"The portal works with removable-media out of the box. If a user chooses a "
+"file from a USB stick, your app will get access to it. The `removable-media` "
+"interface, however, does not auto-connect by default."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:54
+msgid ""
+"However, the file chooser portal works a bit differently than the home "
+"interface:"
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:56
+msgid ""
+"Files are fuse-mounted to `/run/user/<uid>/doc/<hash>/` in order to give "
+"your application access to it. So the path your application sees is "
+"different from the path a user chose, even though both are the same file."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:58
+msgid "The FileChooser portal also contains a few bugs:"
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:60
+msgid ""
+"[\"Executable\" permissions are currently not retained](https://github.com/"
+"flatpak/xdg-desktop-portal/issues/517). All files will appear as non-"
+"executable to your application."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:61
+msgid ""
+"Support for selecting folders instead of files will only work on "
+"distributions using `xdg-desktop-portal` > 1.8.0."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:62
+msgid ""
+"Currently, the files are mounted even if your application has access to the "
+"file using another interface. See [Improving XDG Desktop Support](https://"
+"forum.snapcraft.io/t/improving-xdg-desktop-portal-support/13035) for the "
+"current status on fixing this issue."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:64
+msgid "Secret portal vs password-manager-service interface"
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:66
+msgid ""
+"Both the {ref}`Secret portal<how-to-guides-use-the-secret-portal>` and the "
+"{ref}`password-manager-service interface <interfaces-password-manager-"
+"service-interface>` allow applications to retrieve user secrets, such as "
+"passwords. The Secret portal method is recommended, however, as it limits "
+"access *only* to those secrets owned by an application, and no others."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:68
+msgid ""
+"Unlike the password-manager-service interface, the Secret portal provides a "
+"per-application master secret, enabling applications to manage their own "
+"encryption."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:69
+msgid ""
+"The Secret portal requires `xdg-desktop-portal` version 1.5.0 or later. "
+"Supported by Ubuntu 20.04 onwards."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:71
+msgid "Known Limitations"
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:73
+msgid ""
+"`org.freedesktop.portal.Flatpak.Spawn` only works in a Flatpak. If your "
+"application needs to run arbitrary binaries on the host system, you can use "
+"{ref}`classic confinement <explanation-security-classic-confinement>`."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:74
+msgid ""
+"Portal support depends on the version of `xdg-desktop-portal` in the host "
+"system. Older versions do not support all portals. [Repology](https://"
+"repology.org/project/xdg-desktop-portal/versions) shows what version of `xdg-"
+"desktop-portal` each distribution has and the [portals NEWS](https://"
+"github.com/flatpak/xdg-desktop-portal/blob/main/NEWS.md) file explains what "
+"portals each version supports."
+msgstr ""
+
+#: ../../../explanation/snap-development/xdg-desktop-portals.md:76
+msgid ""
+"ⓘ See Desktop applications for more information on how to snap a desktop "
+"application."
+msgstr ""

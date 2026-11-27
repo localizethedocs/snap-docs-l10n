@@ -1,0 +1,152 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/gpio-interface.md:2
+msgid "gpio interface"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:4
+msgid ""
+"`gpio` allows access to a specific GPIO pin. The interface is restricted "
+"because it provides privileged access to GPIO hardware."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:7
+msgid ""
+"Use  `snap interface gpio` to see which gpio devices are available on the "
+"system:"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:9
+msgid ""
+"$ snap interface gpio\n"
+"name:    gpio\n"
+"summary: allows access to a specific GPIO pin\n"
+"slots:\n"
+"  - pi:bcm-gpio-0\n"
+"  - pi:bcm-gpio-1\n"
+"  - pi:bcm-gpio-10\n"
+"[...]\n"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:20
+msgid "<h2 id='heading--example'>Example</h2>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:22
+msgid ""
+"The [pi-fancontrol](https://snapcraft.io/pi-fancontrol) snap provides simple "
+"fan control on a Raspberry Pi with a fan connected to GPIO 14 (pin 8). With "
+"the snap installed, the following command will connect the interface to the "
+"pin:"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:24
+msgid "snap connect pi-fancontrol:gpio pi:bcm-gpio-14\n"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:29
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:31
+msgid "**Auto-connect**: no</br> **Attributes**:"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:31
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:33
+msgid ""
+"`number` (slot): GPIO pin number to export and expose to consuming snaps"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:35
+msgid ""
+"Hardware IO interfaces covers some general considerations common to these "
+"kinds of devices."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:37
+msgid ""
+"To use a gpio device, the snap developer must add `plugs: [ gpio ]` to a "
+"snap's [snapcraft.yaml](https://documentation.ubuntu.com/snapcraft/stable/"
+"reference/project-file/anatomy-of-snapcraft-yaml/). The snap user can then "
+"access a specific gpio device with an {ref}`interface connection "
+"<explanation-interfaces-all-about-interfaces>`."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:39
+msgid ""
+"Unless the snap is expected to actually use a set of gpio pins that is not "
+"predefined,  it is recommended to define distinct plugs for each used gpio "
+"pin, like:"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:41
+msgid ""
+"plugs:\n"
+"  activity-led:\n"
+"    interface: gpio\n"
+"  warning-led:\n"
+"    interface: gpio\n"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:49
+msgid ""
+"This has the advantage of being self-documenting and 1-1  connections like "
+"these are easier to track and setup with {ref}`auto-connections <explanation-"
+"interfaces-interface-auto-connection>`, if the latter is needed."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:51
+msgid ""
+"When the interface is connected, `\"echo (pin number) > /sys/class/gpio/"
+"export\"`  is run internally to enable access to the GPIO pin."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:53
+msgid ""
+"Once connected, the consuming snap can use the device via `/sys/class/gpio/"
+"gpioN` where `N` is the pin number specified by the connected slot."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:55
+msgid ""
+"Finally, when the interface is disconnected,  `\"echo (pin number) > /sys/"
+"class/gpio/unexport\"`  is run internally to disable access to the GPIO pin."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:57
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:59
+msgid ""
+"The hook and control scripts for _pi-fancontrol_ can be found in the "
+"project's GitHub repository: [https://github.com/ogra1/pi-fancontrol-snap]"
+"(https://github.com/ogra1/pi-fancontrol-snap)"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-interface.md:61
+msgid ""
+"The source code for the GPIO interface is in the _snapd_ repository: "
+"[https://github.com/canonical/snapd/blob/master/interfaces/builtin/gpio.go]"
+"(https://github.com/canonical/snapd/blob/master/interfaces/builtin/gpio.go)."
+msgstr ""

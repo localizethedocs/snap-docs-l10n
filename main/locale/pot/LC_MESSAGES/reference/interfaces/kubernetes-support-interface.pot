@@ -1,0 +1,49 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/kubernetes-support-interface.md:0
+#: ../../../reference/interfaces/kubernetes-support-interface.md:8
+msgid "kubernetes-support interface"
+msgstr ""
+
+#: ../../../reference/interfaces/kubernetes-support-interface.md:10
+msgid ""
+"`kubernetes-support` allows operating as the Kubernetes service and running "
+"application containers."
+msgstr ""
+
+#: ../../../reference/interfaces/kubernetes-support-interface.md:12
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`**: yes"
+msgstr ""
+
+#: ../../../reference/interfaces/kubernetes-support-interface.md:12
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/kubernetes-support-interface.md:16
+msgid ""
+"The `kubernetes-support` plug is {ref}`unsupported for parallel instances "
+"<interfaces-parallel-installs-unsupported>`."
+msgstr ""
+
+#: ../../../reference/interfaces/kubernetes-support-interface.md:19
+msgid "Requires snapd version _2.25+_."
+msgstr ""

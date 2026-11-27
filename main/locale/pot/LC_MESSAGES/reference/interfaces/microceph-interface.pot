@@ -1,0 +1,61 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/microceph-interface.md:2
+msgid "microceph interface"
+msgstr ""
+
+#: ../../../reference/interfaces/microceph-interface.md:4
+msgid ""
+"The `microceph` interface permits access to  the [MicroCeph](https://"
+"canonical-microceph.readthedocs-hosted.com/en/reef-stable/) socket, which is "
+"used internally by the [microceph](https://snapcraft.io/microceph) snap."
+msgstr ""
+
+#: ../../../reference/interfaces/microceph-interface.md:6
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/microceph-interface.md:8
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`**: yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/microceph-interface.md:8
+#: ../../../reference/interfaces/microceph-interface.md:13
+#: ../../../reference/interfaces/microceph-interface.md:15
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/microceph-interface.md:11
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/microceph-interface.md:13
+msgid ""
+"The test code can be found in the snapd repository:</br>https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/microceph_test.go"
+msgstr ""
+
+#: ../../../reference/interfaces/microceph-interface.md:15
+msgid ""
+"The source code for the interface is in the snapd repository: </br>https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/microceph.go"
+msgstr ""

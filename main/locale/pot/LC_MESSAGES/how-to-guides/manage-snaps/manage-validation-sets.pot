@@ -1,0 +1,486 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:2
+msgid "Manage validation sets"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:4
+msgid ""
+"A {ref}`validation sets <explanation-how-snaps-work-validation-sets>` "
+"ensures only specific snaps are installed, and optionally, only specific "
+"snaps at fixed {ref}`revisions <ref-glossary_revision>`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:6
+msgid ""
+"For [Landscape](https://ubuntu.com/landscape)-managed devices, see [How to "
+"manage snaps in Landscape with validation sets](https://"
+"documentation.ubuntu.com/landscape/how-to-guides/iot-for-devices/manage-"
+"snaps-with-validation-sets/) after a validation set has been created."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:8
+msgid "Create a validation set"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:11
+msgid ""
+"For devices running {ref}`Ubuntu Core <ref-glossary_ubuntu-core>`, a "
+"validation set can be declared as part of the [model](https://ubuntu.com/"
+"core/docs/reference/assertions/model) definition."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:14
+msgid ""
+"Ensure you have an [Ubuntu One](https://documentation.ubuntu.com/core/"
+"tutorials/build-your-first-image/access-ubuntu-one/) and know your "
+"*Developer account id*."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:16
+msgid ""
+"The `snapcraft edit-validation-sets` command is used to create a validation "
+"set from the command line:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:18
+msgid "snapcraft edit-validation-sets <account-id> <set-name> <sequence>\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:22
+msgid ""
+"This command requires your developer account id (`<account-id>`), an "
+"arbitrary name for the validation set (`<set-name>`), and a sequence number "
+"(`<sequence>`). The sequence number starts at 1:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:24
+msgid ""
+"snapcraft edit-validation-sets xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f myset1 1\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:28
+msgid ""
+"An additional `--key-name` argument can be used to specify a key other than "
+"the default."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:30
+msgid "Validation set template"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:32
+msgid ""
+"After running the `edit-validation-sets` command, a text editor will open "
+"containing the following template for a validation set assertion that needs "
+"to be filled in by the developer issuing the assertion:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:34
+msgid ""
+"account-id: <account-id>\n"
+"name: <set-name>\n"
+"sequence: <sequence>\n"
+"# The revision for this validation set\n"
+"# revision: 0\n"
+"snaps:\n"
+"#  - name: <name>  # The name of the snap.\n"
+"#    id:   <id>    # The ID of the snap. Optional, defaults to the current "
+"ID for\n"
+"                   # the provided name.\n"
+"#    presence: [required|optional|invalid]  # Optional, defaults to "
+"required.\n"
+"#    revision: <n> # The revision of the snap. Optional.\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:47
+msgid "Template fields"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:49
+msgid ""
+"The template validation set assertion needs to be populated with the details "
+"of the snaps you wish to include in the set. These are listed beneath the "
+"`snaps:` section, and each snap can use the following fields:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:51
+msgid ""
+"**account-id** (*required*) the brand account associated with this "
+"validation set, as retrieved with `snapcraft whoami`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:52
+msgid "**name** your descriptive name for this validation set."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:53
+msgid ""
+"**sequence** an integer that should be manually incremented with each "
+"updated validation set snap or snap revision. If an update fails to apply, "
+"snapd can revert only to a previous sequence."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:54
+msgid ""
+"**revision** defaults to 0 if not included. An arbitrary number used to "
+"differentiate between different uploaded versions of the validation set."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:57
+msgid "**snaps:**"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:58
+msgid ""
+"**`name`** (*required*):  The name of the snap, as you find on the store or "
+"in _snap search_."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:60
+msgid ""
+"**`id`** (*optional*):   The unique snap-id of the snap (see _snap info "
+"\\<snap name\\>_ ).  Defaults to the snap-id of the named snap."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:63
+msgid ""
+"**`presence`** (*optional*):  Can be either `required`, `optional` or "
+"`invalid`.   `required` snaps need to be installed, `optional` snaps are "
+"permitted to be installed and `invalid` snaps explicitly must not be "
+"installed.  Defaults to _required_."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:67
+msgid ""
+"**`revision`** (*optional*):  Specifies which revision of the snap needs to "
+"be installed."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:70
+msgid ""
+"We strongly recommend incrementing the sequence number whenever a validation "
+"set used on production devices is modified—especially when updating snap "
+"revisions."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:72
+msgid ""
+"This enables snapd to revert to the previous validation set if applying the "
+"updated assertion fails. The sequence mechanism was introduced to enable "
+"safe rollbacks, because reverting to an earlier validation set revision of "
+"the same sequence is not supported."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:74
+msgid "Template example"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:76
+msgid "A basic validation set template example:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:77
+msgid ""
+"account-id: xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f\n"
+"name: myset1\n"
+"# revision: 0\n"
+"sequence: 1\n"
+"snaps:\n"
+"  - name: hello-world\n"
+"    id: buPKUD3TKqCOgLEjjHx5kSiCpIs5cMuQ\n"
+"    presence: required\n"
+"  - name: test-snapd-base-bare\n"
+"    id: oXC9AkhtCxhlY80KZA3peZzWbnO4xPOT\n"
+"    presence: optional\n"
+"  - name: bare\n"
+"    id: EISPgh06mRh1vordZY9OZ34QHdd7OrdR\n"
+"    presence: optional\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:94
+msgid ""
+"We also recommend making a copy of the saved validation set assertion before "
+"closing the editor.  Closing the editor will first check the integrity of "
+"the assertion before automatically uploading it to the store."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:96
+msgid ""
+"To modify the assertion at a later point, run the same `snapcraft edit-"
+"validation-sets` command with the same name but an incremented sequence "
+"number and/or revision."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:100
+msgid ""
+"Modifying a validation set without updating the sequence can violate the "
+"constraints of an enforced validation set, leading to an invalid state that "
+"cannot be automatically recovered. For example, accidentally specifying an "
+"approved revision of a snap meant for a different architecture will cause "
+"the refresh to fail, leaving the validation set in an invalid state."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:103
+msgid "<h2 id='heading--listing'>Listing validation sets</h2>\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:105
+msgid ""
+"Use the `snapcraft validation-sets` command to check which validation sets "
+"are available in the store:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:107
+msgid ""
+"$ snapcraft validation-sets\n"
+"Account-ID                       Name      Sequence  Revision  When\n"
+"xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f myset1    1         0         2021-04-08\n"
+"xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f testset1  2         0         2021-03-31\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:114
+msgid ""
+"To list only validation-sets with a specific set name, use the additional `--"
+"name` argument:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:116
+msgid ""
+"$ snapcraft validation-sets --name myset1\n"
+"Account-ID                       Name      Sequence  Revision  When\n"
+"xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f myset1    1         0         2021-04-08\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:122
+msgid ""
+"An additional `--sequence` argument can be used to list validation sets with "
+"a specific sequence number:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:124
+msgid ""
+"$ snapcraft validation-sets --name myset1 --sequence 1\n"
+"Account-ID                       Name      Sequence  Revision  When\n"
+"xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f myset1    1         0         2021-04-08\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:130
+msgid ""
+"By default, only the _latest_ validation sets are listed. To list every "
+"validation set available, add the `--all` argument."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:132
+msgid "<h2 id='heading--using'>Monitoring assertion validity</h2>\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:134
+msgid ""
+"The `snap validate --monitor` command is used to enable monitoring of a "
+"validation assertion on the system; in this mode the constraints of the "
+"assertion are not enforced (e.g. snaps may get automatically refreshed to "
+"newer revisions that make the assertion invalid as shown in the next "
+"example):"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:136
+msgid "snap validate --monitor xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f/testset1\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:140
+msgid ""
+"The `snap validate` command, with no further arguments, checks whether the "
+"`snaps:` rules for all validation set assertions in the store are valid for "
+"the system:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:142
+msgid ""
+"$ snap validate\n"
+"Validation                                 Mode     Seq  Current    Notes\n"
+"xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f/myset1    monitor  1    valid  \n"
+"xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f/testset1  monitor  2    invalid\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:149
+msgid ""
+"An assertion is invalid if snaps in the system do not satisfy the "
+"constraints of the assertion, such as if required snaps are missing or "
+"whether unwanted snaps are present. Multiple validation sets can be used, as "
+"shown above, as long as they don't have conflicting constraints and that "
+"they can cover different sets of snaps."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:151
+msgid ""
+"A specific validation set can be checked with `snap validate <account id>/"
+"<validation set name>`, with an optional sequence point set by adding "
+"`=<sequence>` to the validation set name:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:153
+msgid ""
+"$ snap validate xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f/myset1=1\n"
+"valid\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:158
+msgid ""
+"A validation set assertion can be _pinned_ by the system administrator at "
+"the given sequence number:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:160
+msgid "snap validate --monitor xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f/testset1=3\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:164
+msgid ""
+"A pinned validation set is kept at the given sequence number, even if "
+"there's a higher sequence number in the store. However, the validation will "
+"be updated to a newer version if one becomes available with the same "
+"sequence number."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:166
+msgid ""
+"Monitor mode validation requires a manual action (`snap validate`, as shown "
+"above), but nothing is enforced in the system. Only when _enforce mode_ has "
+"been implemented will validation sets have an impact on the system and will "
+"prevent installing/removing snaps that violate an assertion's constraints."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:168
+msgid ""
+"Finally, to remove a validation set from the system, use the `--forget` "
+"argument:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:170
+msgid "snap validate --forget xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f/myset1\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:174
+msgid "<h2 id='heading--enforcing'>Enforcing assertion validity</h2>\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:176
+msgid ""
+"When validation set validity is enforced, snapd will block most operations "
+"that would result in snap revisions violating the validation set’s "
+"constraints and rendering it invalid. Notably, snapd will not block "
+"operations with the `--ignore-validation` flag or local installs by manually "
+"downloading and installing a snap."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:178
+msgid ""
+"A validation set can only be enforced if all required snaps are installed, "
+"and at the correct revision if specified. This is done by adding the `--"
+"enforce` argument to the ‘snap validate’ command:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:180
+msgid "snap validate --enforce xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f/myset1\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:184
+msgid ""
+"This command will fetch the validation set assertion from the store if not "
+"available on the system, but will not refresh assertions, install missing "
+"snaps or remove invalid snaps. However, the `--refresh --enforce` arguments "
+"can be used to refresh the validation set assertion, install or refresh any "
+"snaps and revisions required for the assertion to become valid. Note that, "
+"if the assertion requires snaps to be removed, the `--refresh --enforce` "
+"request will not remove them and will instead quit without making any "
+"changes."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:186
+msgid ""
+"snap validate --refresh --enforce xSfWKGdLoQBoQx88vIM1MpbFNMq53t1f/myset1\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:190
+msgid ""
+"After enforcement is enabled, snapd ensures the consistency of the enforced "
+"validation sets, and the snaps they reference, during install (only when "
+"installing through the store), refresh and remove operations."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:192
+msgid ""
+"During auto-refreshes or manual refreshes, enforced validation set "
+"assertions on the system may be updated to a newer revision."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:194
+msgid ""
+"If a validation set assertion is not pinned to a specific sequence, the "
+"system will move to the latest sequence available in the store, provided "
+"that the installed snaps, including any newer revisions available in store, "
+"satisfy its constraints."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:196
+msgid ""
+"However, if the assertion is pinned to a specific sequence, or if a newer "
+"revision of the same sequence is available, the system will move to that "
+"revision without re-evaluating whether its constraints are still satisfied. "
+"This can cause the validation set to become invalid without warning."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:198
+msgid ""
+"To ensure safe rollbacks and consistent behavior, always increment the "
+"sequence number when creating a new revision of a validation set used in "
+"production."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:200
+msgid ""
+"In this way, the `snapcraft edit-validation-sets` command can be used to "
+"control the updates of multiple snaps at the same time."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:202
+msgid ""
+"For brief periods during multi-snap updates, different snap revisions, from "
+"previous and incoming validation set sequence points, can co-exist. "
+"Validation set enforcement is not intended to deal with any breaking hard "
+"version dependencies during transitions."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:204
+msgid ""
+"As with monitor mode, enforcing can be disabled for select validation sets "
+"with the ‘snap validate --forget’ command."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-validation-sets.md:206
+msgid ""
+"When using `snap install` and `snap refresh`, the `--ignore-validation` flag "
+"can be added to bypass validation set enforcement for the snaps affected. "
+"Doing so will ignore the validation of the given snap, and for subsequent "
+"refresh operations. This may result in the validation set becoming _invalid_ "
+"in `snap validate` output. Local snap installation will always bypass "
+"validation set enforcement since the purposeful act of installing a specific "
+"snap already indicates that a user is acting intentionally."
+msgstr ""

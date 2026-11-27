@@ -1,0 +1,64 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/netlink-audit-interface.md:2
+msgid "netlink-audit interface"
+msgstr ""
+
+#: ../../../reference/interfaces/netlink-audit-interface.md:4
+msgid ""
+"The `netlink-audit` interface allows access to the kernel part of the Linux "
+"Audit Subsystem through Netlink."
+msgstr ""
+
+#: ../../../reference/interfaces/netlink-audit-interface.md:6
+msgid ""
+"See also {ref}`netlink-driver <interfaces-netlink-driver-interface>` and "
+"[netlink-connector]()."
+msgstr ""
+
+#: ../../../reference/interfaces/netlink-audit-interface.md:9
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/netlink-audit-interface.md:11
+msgid "**Auto-connect**: no"
+msgstr ""
+
+#: ../../../reference/interfaces/netlink-audit-interface.md:13
+msgid "Requires snapd version _2.26+_."
+msgstr ""
+
+#: ../../../reference/interfaces/netlink-audit-interface.md:15
+msgid "<h3 id='heading-code'>Code examples</h3>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/netlink-audit-interface.md:17
+msgid ""
+"The snap of the [usbtop]() kernel module, used to monitor the bandwidth of "
+"USB buses and devices, uses the _netlink-audit_ interface: [https://"
+"github.com/ogra1/usbtop/blob/master/snap/snapcraft.yaml](https://github.com/"
+"ogra1/usbtop/blob/3743b5a55e6df70e6dd95292121279f1013ba570/snap/"
+"snapcraft.yaml#L50)"
+msgstr ""
+
+#: ../../../reference/interfaces/netlink-audit-interface.md:21
+msgid ""
+"The source code for this interface is in the *snapd* repository: <https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/netlink_audit.go>"
+msgstr ""

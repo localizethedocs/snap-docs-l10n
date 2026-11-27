@@ -1,0 +1,277 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/administration/data-locations.md:0
+msgid ""
+"Complete reference for Data locations in Snap and snapd, covering "
+"configuration, behavior, requirements, and practical implementation details."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:8
+msgid "Data locations"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:10
+msgid ""
+"A vast majority of snaps use strict confinement to isolate both their "
+"execution environments and their data from your system (see {ref}`Snap "
+"Confinement <explanation-security-snap-confinement>` for further details)."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:12
+msgid ""
+"This confinement is an important security feature, but it can affect how and "
+"where you access a snap's files, including:"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:14
+msgid "configuration files"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:15
+msgid "user documents"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:16
+msgid "internal databases"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:18
+msgid ""
+"Access to files like these is fundamental to the operation of most "
+"applications and snap confinement has been designed to always permit access "
+"to snap-specific locations for these files when required. These locations "
+"are described below."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:20
+msgid "System data"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:22
+msgid ""
+"Within the snap environment, environment variables are used to reference "
+"different accessible locations.  The following variables and default "
+"referenced locations are used to store system data:"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:24
+msgid ""
+"**SNAP_COMMON**: `/var/snap/<snap name>/common`</br> This directory is owned "
+"and writable by root and is used to store data that is common across "
+"multiple {ref}`revisions <explanation-how-snaps-work-revisions>` of the snap "
+"(e.g.: revision 6, revision 7, etc.)."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:24
+#: ../../../reference/administration/data-locations.md:27
+#: ../../../reference/administration/data-locations.md:36
+#: ../../../reference/administration/data-locations.md:39
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:27
+msgid ""
+"**SNAP_ DATA**: `/var/snap/<snap name>/<revision number>`</br> This location "
+"it is also used to store data, mostly information utilised by background "
+"application and services, for logging, and other tasks that require "
+"persistence between snap launches."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:30
+msgid ""
+"A {ref}`snapshot <how-to-guides-manage-snaps-create-data-snapshots>` of "
+"`SNAP_DATA` and `SNAP_COMMON` is created and restored when performing a snap "
+"update (refresh) or revert operation. The contents of `SNAP_DATA` is "
+"specific to the snap revision, while the contents of `SNAP_COMMON` is "
+"applicable to all revisions and will overwrite the contents of `SNAP_COMMON` "
+"when restored. See {ref}`What a snapshot stores <ref-create-data-"
+"snapshots_what-a-snapshot-stores>` for more details."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:32
+msgid "User data"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:34
+msgid ""
+"Snaps can also contain user data. As with the system data environment "
+"variables, `SNAP_COMMON` and `SNAP_DATA`,  the following user-specific "
+"environment variables point to directories for user data:"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:36
+msgid ""
+"**SNAP_USER_COMMON**: `/home/<username>/snap/<snap name>/common`</br> This "
+"location maps user data across each revision of a snap. This data is only "
+"copied or backed-up through {ref}`Snapshots <how-to-guides-manage-snaps-"
+"create-data-snapshots>`."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:39
+msgid ""
+"**SNAP_USER_DATA**: `/home/<username>/snap/<snap name>/<revision>`</br> This "
+"contains any user data that the snap writes to its own home. This is *in "
+"contrast* to what the Linux user would consider *their* home. It is "
+"important to note this distinction, because it can be useful, and even "
+"important when users decide to perform maintenance operations with their "
+"snaps (like removal). By default, every snap will use a symlink *current*, "
+"pointing to the latest available revision."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:42
+msgid ""
+"Both `SNAP_USER_COMMON` and `SNAP_USER_DATA` only become available after a "
+"snap has been run once."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:45
+msgid "Ubuntu Core"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:47
+msgid ""
+"On Ubuntu Core, the **`SNAP_SAVE_DATA`** environment variable within a "
+"snap's environment points to a snap-specific location on the [ubuntu-save]"
+"(https://documentation.ubuntu.com/core/explanation/core-elements/inside-"
+"ubuntu-core/#volume-layouts) volume. This is used to store data that can be "
+"accessed during recovery or after re-installation of Ubuntu Core."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:49
+msgid ""
+"For example, in the reference Ubuntu Core 22 image, from within the _hello-"
+"world_ snap, `SNAP_SAVE_DATA` has the following value:"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:51
+msgid "SNAP_SAVE_DATA=/var/lib/snapd/save/snap/hello-world\n"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:55
+msgid ""
+"The above environment variable references a mount point at the following "
+"location:"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:57
+msgid ""
+"$ mount | grep \"snapd/save\"\n"
+"/dev/mapper/ubuntu-save on /var/lib/snapd/save type ext4 (rw,relatime)\n"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:62
+msgid "Other locations"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:64
+msgid "There are several other directories you should be aware of:"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:66
+msgid ""
+"**`/var/lib/snapd/cache`** This is the working cache and is used to minimise "
+"download size and speed-up refreshes."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:68
+msgid ""
+"**`/var/lib/snapd/snaps`** Contains all the versions of snaps installed on "
+"your system."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:70
+msgid ""
+"**`/var/lib/snapd/snapshots/`** Contains both the manually generated and "
+"automatically generated {ref}`snapshots <how-to-guides-manage-snaps-create-"
+"data-snapshots>`."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:74
+msgid "Snap installation locations"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:76
+msgid ""
+"When a user {ref}`installs a snap <tutorials-get-started>` from the [Snap "
+"Store](https://snapcraft.io/store), the following happens:"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:78
+msgid ""
+"The {ref}`snapd services <how-to-guides-manage-snaps-control-services>` "
+"downloads the snap as a single file – a SquashFS archive with a _.snap_ "
+"suffix."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:79
+msgid ""
+"The snap file is stored in `/var/lib/snaps/snaps`. It is then *loop mounted* "
+"to `/snap` from where its contents become readable by the system. See {ref}"
+"`The snap format <reference-development-yaml-schemas-the-snap-format>` for "
+"further details on what is included in a snap."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:81
+msgid ""
+"By design, the read-only filesystem cannot provide a persistent experience "
+"between application launches, which is why snaps also have writable parts "
+"for system data and for user data."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:83
+msgid "Snap deletion data remnants"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:85
+msgid ""
+"When deleting and removing a snap from a system, the following will happen:"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:87
+msgid "The snap will be unmounted and no longer shown under `/snap`."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:88
+msgid ""
+"The data under `/var/snap/<snap name>/` and `/home/<username>/snap/` will be "
+"deleted. However, a copy is be retained as a {ref}`snapshot <how-to-guides-"
+"manage-snaps-create-data-snapshots>` for 30-days (except on Ubuntu Core "
+"systems), allowing data to be restored or manually retrieved."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:90
+msgid ""
+"{ref}`Snapshot management <how-to-guides-manage-snaps-create-data-"
+"snapshots>` can be used to restore data, or unzip the archives, and only "
+"copy the data you consider necessary. With the right permissions, you can "
+"also create your own backup routine, which copies the important data like "
+"application databases, configurations or similar content to a backup path."
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:92
+msgid ""
+"To remove a snap without generating a snapshot, use the additional ‘–purge’ "
+"argument:"
+msgstr ""
+
+#: ../../../reference/administration/data-locations.md:94
+msgid ""
+"$ sudo snap remove vlc --purge\n"
+"vlc removed\n"
+msgstr ""

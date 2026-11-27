@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/confdb-interface.md:2
+msgid "confdb interface"
+msgstr ""
+
+#: ../../../reference/interfaces/confdb-interface.md:4
+msgid ""
+"The `confdb` interface enables snaps to access to specific  {ref}`confdb "
+"<ref-confdb-configuration-mechanism_confdb-views>` views."
+msgstr ""
+
+#: ../../../reference/interfaces/confdb-interface.md:6
+msgid ""
+"There are two fields that together identify the view being accessed: "
+"`account` and `view`. There is also an optional `role` field which may only "
+"take the value of \"custodian\", if the snap is a custodian for the confdb-"
+"schema being accessed."
+msgstr ""
+
+#: ../../../reference/interfaces/confdb-interface.md:8
+msgid ""
+"See the {ref}`Confdb configuration mechanism <explanation-how-snaps-work-"
+"confdb-configuration-mechanism>` for implementation details, and {ref}"
+"`Configure snaps with confdb <how-to-guides-manage-snaps-configure-snaps-"
+"with-confdb>` to use confdb with your own snaps."
+msgstr ""
+
+#: ../../../reference/interfaces/confdb-interface.md:10
+msgid ""
+"[...]\n"
+" sensors-sensor1-state:\n"
+"  interface: confdb\n"
+"  account: acme\n"
+"  view: sensors/sensor1-state\n"
+msgstr ""
+
+#: ../../../reference/interfaces/confdb-interface.md:19
+msgid ""
+"Confdb is currently considered an {ref}`Experimental feature <ref-"
+"experimental-features_experimental-features>` and implementation details may "
+"change as development progresses."
+msgstr ""
+
+#: ../../../reference/interfaces/confdb-interface.md:22
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/confdb-interface.md:24
+msgid ""
+"**Auto-connect**: no, but plugs are auto-connected if the confdb's account "
+"is the same as the snap's publisher."
+msgstr ""
+
+#: ../../../reference/interfaces/confdb-interface.md:26
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/confdb-interface.md:28
+msgid ""
+"The test code can be found in the snapd repository:</br>https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/confdb_test.go"
+msgstr ""
+
+#: ../../../reference/interfaces/confdb-interface.md:28
+#: ../../../reference/interfaces/confdb-interface.md:30
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/confdb-interface.md:30
+msgid ""
+"The source code for the interface is in the snapd repository: </br>https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/confdb.go"
+msgstr ""

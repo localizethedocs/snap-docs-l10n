@@ -1,0 +1,226 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:2
+msgid "Work with components"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:4
+msgid ""
+"A snap *component* is part of a snap that has been declared as optional. A "
+"snap component may then be either installed or not installed alongside its "
+"host snap. See {ref}`How components work <explanation-how-snaps-work-snap-"
+"components>` for further details."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:7
+msgid "Component support requires _snapd 2.67+_."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:9
+msgid "Installing components"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:11
+msgid "Components can be installed with the snap install command:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:13
+msgid "snap install my-snap+comp1+comp2\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:17
+msgid ""
+"The syntax `<snap_name>+<comp_1>+...+<comp_N>` will be used to refer to "
+"components from the command line."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:19
+msgid ""
+"The above command will install _my-snap_ alongside components _comp1_ and "
+"_comp2_. If the snap is already installed, the command will instead install "
+"only the missing components."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:21
+msgid ""
+"Once installed, the (asserted) components will refresh when new revisions "
+"are available in the store, in the same way as for snaps."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:23
+msgid ""
+"It is also possible to install components from local files. If {ref}"
+"`unasserted <explanation-security-assertions>`, they can be installed only "
+"if the host snap is unasserted too and you will need to use the --dangerous "
+"flag:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:25
+msgid "snap install --dangerous ./my-snap+comp1+comp2_1.0.comp\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:29
+msgid ""
+"When refreshing a snap, all components will refresh to the new revisions "
+"tuple. If the new snap revision does not define some components defined in "
+"the previously installed snap and that are currently installed, those "
+"components will be removed."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:31
+msgid ""
+"Refreshing an unasserted snap requires  new component builds to be installed "
+"manually."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:33
+msgid "Updating components"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:35
+msgid ""
+"It is also possible to refresh a snap and install a component at the same "
+"time:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:37
+msgid "snap refresh my-snap+comp1\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:41
+msgid "Listing components"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:43
+msgid ""
+"The `snap components` command is used to list the components installed and "
+"available on the system:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:45
+msgid ""
+"$ snap components\n"
+"Component                    Status     Type\n"
+"snap-with-comps+one          installed  standard\n"
+"snap-with-comps+two          installed  standard\n"
+"snap-with-comps+three        available  standard\n"
+"other-snap-with-comps+one    installed  standard\n"
+"other-snap-with-comps+two    installed  standard\n"
+"other-snap-with-comps+three  available  standard\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:56
+msgid ""
+"A snap name can be optionally provided to filters the list of reported "
+"components to those only associated with the provided snap:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:58
+msgid ""
+"$ snap components snap-with-comps\n"
+"Component                \tStatus \tType\n"
+"snap-with-comps+one      \tinstalled  standard\n"
+"snap-with-comps+two      \tinstalled  standard\n"
+"snap-with-comps+three    \tavailable  standard\n"
+"Note that there are some plans for a \"snap component\" subcommand, but that "
+"is not yet implemented and there are talks of changing its design.\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:67
+msgid ""
+"Using the `snap info` command displays a summary of the ratio of installed "
+"components to components available from the store. If both installed and "
+"available components are zero, the summary will be omitted"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:69
+msgid ""
+"$ snap info qwen-vl \n"
+"name:      qwen-vl\n"
+"summary:   Qwen VL inference snap\n"
+"...\n"
+"installed:          2.5            (248) 332MB -\n"
+"components: 4/14\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:78
+msgid "Introspecting components"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:80
+msgid ""
+"In order to view information regarding an installed/available component(s), "
+"the `snap component` command may be used."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:82
+msgid ""
+"$ snap component qwen-vl+llamacpp\n"
+"component: qwen-vl+llamacpp\n"
+"type: standard\n"
+"summary: llama.cpp Engine using default CPU instruction sets\n"
+"description: |\n"
+"  LLM inference in C/C++\n"
+"installed: b5794 (240) 30MB\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:92
+msgid ""
+"The last line, `installed:` is only printed if a component is installed."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:94
+msgid ""
+"$ snap component qwen-vl+llamacpp+model-qwen2-5-vl-3b-instruct-q4-k-m\n"
+"component: qwen-vl+llamacpp\n"
+"type: standard\n"
+"summary: llama.cpp Engine using default CPU instruction sets\n"
+"description: |\n"
+"  LLM inference in C/C++\n"
+"installed: b5794 (247) 31MB\n"
+"---\n"
+"component: qwen-vl+model-qwen2-5-vl-3b-instruct-q4-k-m\n"
+"type: standard\n"
+"summary: Qwen 2.5 VL 3B Q4\n"
+"description: |\n"
+"  Quantized model with 3B parameters in gguf format with Q4_K_M weight "
+"encoding\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:110
+msgid "Removing components"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:112
+msgid ""
+"To remove only the components, use the \"remove\" command, followed by the "
+"snap and component names:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:114
+msgid "snap remove my-snap+comp1+comp2\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:118
+msgid "To remove the snap plus any installed components, just remove the snap:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/using-components.md:120
+msgid "snap remove my-snap\n"
+msgstr ""

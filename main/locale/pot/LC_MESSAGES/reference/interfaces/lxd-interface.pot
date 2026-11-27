@@ -1,0 +1,39 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/lxd-interface.md:2
+msgid "lxd interface"
+msgstr ""
+
+#: ../../../reference/interfaces/lxd-interface.md:4
+msgid ""
+"`lxd` allows access to the LXD API via the socket provided by the *lxd* "
+"snap. *LXD_DIR* must be set to `/var/snap/lxd/common/lxd`. This interface "
+"requires manual connection."
+msgstr ""
+
+#: ../../../reference/interfaces/lxd-interface.md:6
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`**: yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/lxd-interface.md:6
+msgid "</br>"
+msgstr ""

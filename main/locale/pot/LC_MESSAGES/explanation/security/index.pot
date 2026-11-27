@@ -1,0 +1,104 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/security/index.md:21
+msgid "Security policies"
+msgstr ""
+
+#: ../../../explanation/security/index.md:21
+msgid "Assertions"
+msgstr ""
+
+#: ../../../explanation/security/index.md:21
+msgid "Snap confinement"
+msgstr ""
+
+#: ../../../explanation/security/index.md:21
+msgid "Classic confinement"
+msgstr ""
+
+#: ../../../explanation/security/index.md:21
+msgid "API authentication and authorization"
+msgstr ""
+
+#: ../../../explanation/security/index.md:21
+msgid "Decommissioning"
+msgstr ""
+
+#: ../../../explanation/security/index.md:21
+msgid "Release process"
+msgstr ""
+
+#: ../../../explanation/security/index.md:0
+msgid ""
+"Learn how snaps use Linux security policies for isolation. Understand snap "
+"confinement, security policies, and the snapd release process."
+msgstr ""
+
+#: ../../../explanation/security/index.md:8
+msgid "Security"
+msgstr ""
+
+#: ../../../explanation/security/index.md:10
+msgid ""
+"Learn about how snaps use standard Linux security policies to isolate "
+"themselves from the system, and from each other."
+msgstr ""
+
+#: ../../../explanation/security/index.md:12
+msgid ""
+"{ref}`Security policies <explanation-security-security-policies>`: How we "
+"use AppArmor, Seccomp and cgroups to secure snaps."
+msgstr ""
+
+#: ../../../explanation/security/index.md:13
+msgid ""
+"{ref}`Assertions <explanation-security-assertions>`: Digitally signed "
+"documents used to verify all snap artefacts."
+msgstr ""
+
+#: ../../../explanation/security/index.md:14
+msgid ""
+"{ref}`Snap confinement <explanation-security-snap-confinement>`: Learn more "
+"about Snap's various degrees of isolation."
+msgstr ""
+
+#: ../../../explanation/security/index.md:15
+msgid ""
+"{ref}`Classic confinement <explanation-security-classic-confinement>`: Learn "
+"more about classic confinement."
+msgstr ""
+
+#: ../../../explanation/security/index.md:16
+msgid ""
+"{ref}`API authentication and authorization <explanation-security-api-"
+"authentication-and-authorization>`: How snapd authenticates API callers and "
+"authorizes operations."
+msgstr ""
+
+#: ../../../explanation/security/index.md:17
+msgid ""
+"{ref}`Decommissioning <explanation-security-decommissioning>`: How to "
+"completely remove snapd and associated data."
+msgstr ""
+
+#: ../../../explanation/security/index.md:18
+msgid ""
+"{ref}`Snapd release process <explanation-security-snapd-release-process>`: "
+"How and when we update the snapd package."
+msgstr ""

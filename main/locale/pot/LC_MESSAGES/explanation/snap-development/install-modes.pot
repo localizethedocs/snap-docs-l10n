@@ -1,0 +1,193 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/snap-development/install-modes.md:0
+msgid ""
+"Understand snap install modes, including classic, devmode, jailmode, and "
+"dangerous options for testing, troubleshooting, and development."
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:8
+msgid "Install modes"
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:10
+msgid ""
+"A snap can be installed with the following optional arguments, typically "
+"used to help test a snap under development, troubleshoot interface issues, "
+"or debug application crashes."
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:12
+msgid ""
+"In addition to the modes described below, `--transaction` can be used to "
+"install a set of snaps as a single transaction. See {ref}`Transactional "
+"updates <explanation-how-snaps-work-transactional-updates>` for more details."
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:14
+msgid "Classic confinement"
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:16
+msgid ""
+"The `--classic` argument is required for snaps that need access to more "
+"system resources."
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:18
+msgid ""
+"By default, a snap will attempt to install with _strict confinement_. Strict "
+"confinement is used by the majority of snaps, enabling them to run their "
+"applications and services in complete isolation with a minimal access level "
+"that’s always deemed safe."
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:20
+msgid ""
+"Certain snaps, however, require unfettered access to the system, and these "
+"are packaged as _classic snaps_. Installing a snap that requires classic "
+"access will prompt the user to use the additional `--classic` argument:"
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:22
+msgid "sudo snap install snapcraft --classic\n"
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:26
+msgid ""
+"Only _classic_ snaps can be installed with the `--classic` argument. "
+"However, while the argument is silently accepted when installing a strict "
+"snap, it won't make any difference to its confinement. The snap will still "
+"be strictly confined."
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:28
+msgid ""
+"See {ref}`Snap confinement <explanation-security-snap-confinement>` for more "
+"details on confinement levels."
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:31
+msgid "Dangerous mode"
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:33
+msgid ""
+"The `--dangerous` argument will install a local snap without validating or "
+"checking its assertions or signatures. These signatures are used to link a "
+"snap to its publisher and store, and to ensure that a snap remains unchanged "
+"during delivery and storage."
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:35
+msgid ""
+"This option is useful when testing snaps shared through a trusted channel, "
+"and for testing snaps built locally, before eventually being published to "
+"the store."
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:37
+msgid ""
+"The `snap refresh --amend` command can be used to replace a locally "
+"installed snap with an identically named snap on the store."
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:39
+msgid "Developer mode"
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:41
+msgid ""
+"The `--devmode` argument grants the snap **full access to system resources** "
+"but will also report each access when no appropriate interface has been "
+"specified. This report is sent to the system log. This mode is intended to "
+"help snap developers identify the {ref}`interfaces <explanation-interfaces-"
+"all-about-interfaces>` an application needs."
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:43
+msgid ""
+"This feature allows developers to iterate over their snap, selectively "
+"adding interfaces to their application before switching to _strict mode_ "
+"after all necessary interfaces have been specified."
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:45
+msgid ""
+"The validity of a snap's signed assertions will also be checked, linking a "
+"snap to its developer and store, but the installation will progress even "
+"when the validity cannot be verified. In this case, the _devmode_ snap is "
+"additionally equivalent to being installed with `--dangerous`."
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:47
+msgid ""
+"A strictly confined snap running in _devmode_ will generate log and AppArmor "
+"profile output associated with the snap, helping snap developers and testers "
+"understand access issues and other confinement problems."
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:49
+msgid ""
+"The _devmode_ argument is also a requirement  if a snap has been built and "
+"published with `confinement: devmode` in its snapcraft.yaml. These snaps are "
+"built for testing and cannot be released to their respective stable channels."
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:51
+msgid ""
+"Additionally, snaps running in development mode will not be updated. This is "
+"because it's assumed the snap developer wishes to test, and continue "
+"testing, a specific release."
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:53
+msgid "Jail mode"
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:55
+msgid ""
+"The `--jailmode` argument will force the snap to install with strict "
+"confinement."
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:57
+msgid ""
+"Only non-classic snaps can be placed in jail mode. This can be useful when "
+"testing how a snap published with developer mode will behave when strictly "
+"confined, and is usually a precursor to a snap being published as confined "
+"and stable after a period of testing."
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:59
+msgid "Check snap install mode"
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:61
+msgid ""
+"The `snap list` command will include the install mode status in the _Notes_ "
+"column for each respective snap:"
+msgstr ""
+
+#: ../../../explanation/snap-development/install-modes.md:63
+msgid ""
+"Name        Version            Rev    Tracking        Publisher     Notes\n"
+"liquidctl   1.7.1-11-g6295354  1      latest/stable   morrisong     devmode\n"
+"snapcraft   5.0                6751   latest/stable   canonical✓    classic\n"
+msgstr ""

@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/uio-interface.md:2
+msgid "uio interface"
+msgstr ""
+
+#: ../../../reference/interfaces/uio-interface.md:4
+msgid ""
+"`uio` provides access to a specific uio device. This interface is restricted "
+"because it provides privileged access to uio hardware."
+msgstr ""
+
+#: ../../../reference/interfaces/uio-interface.md:6
+msgid ""
+"The slot is intended to be implemented by a gadget snap and is not provided "
+"by the core system snap."
+msgstr ""
+
+#: ../../../reference/interfaces/uio-interface.md:8
+msgid "**Auto-Connect**: no **Attributes**:"
+msgstr ""
+
+#: ../../../reference/interfaces/uio-interface.md:10
+msgid "`path` (slot): path to uio device. e.g. `/dev/uio1`"
+msgstr ""
+
+#: ../../../reference/interfaces/uio-interface.md:12
+msgid "Requires snapd version *2.44+*."
+msgstr ""
+
+#: ../../../reference/interfaces/uio-interface.md:14
+msgid ""
+"To use the uio device, the snap developer must add `plugs: [ uio ]` to a "
+"snap's [snapcraft.yaml](https://documentation.ubuntu.com/snapcraft/stable/"
+"reference/project-file/anatomy-of-snapcraft-yaml/). The snap user can then "
+"access a specific disk partition with an {ref}`interface connection "
+"<explanation-interfaces-all-about-interfaces>`."
+msgstr ""
+
+#: ../../../reference/interfaces/uio-interface.md:16
+msgid ""
+"Use  `snap interface uio` to see which disk partitions are available on the "
+"system for snaps to use:"
+msgstr ""
+
+#: ../../../reference/interfaces/uio-interface.md:18
+msgid ""
+"$ snap interface uio\n"
+"name:    uio\n"
+"summary: allows access to specific uio device\n"
+"slots:\n"
+"  - foo:uio1\n"
+"  - foo:uio2\n"
+msgstr ""
+
+#: ../../../reference/interfaces/uio-interface.md:27
+msgid ""
+"Once connected, the consuming snap can use the device via the path specified "
+"by the connected slot."
+msgstr ""
