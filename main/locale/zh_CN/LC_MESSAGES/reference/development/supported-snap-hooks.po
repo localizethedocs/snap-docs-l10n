@@ -1,0 +1,651 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/development/supported-snap-hooks.md:0
+msgid ""
+"Complete reference for supported snap hooks, including lifecycle, "
+"configuration, interface, refresh, installation, and removal hooks."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:8
+msgid "Supported snap hooks"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:10
+msgid ""
+"A hook is an executable file that runs within a snap's confined environment "
+"when a certain action occurs."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:12
+msgid "Common examples of actions requiring hooks include:"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:14
+msgid ""
+"**notifying a snap that something has happened**      Example: If a snap has "
+"been upgraded, the snap may need to trigger a scripted migration process to "
+"port an old data format to the new one."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:0
+msgid "<br />\n"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:0
+msgid "\\\\\n"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:17
+msgid ""
+"**notifying a snap that a specific operation is in progress**      Example: "
+"A snap may need to know when a specific interface connects or disconnects."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:20
+msgid ""
+"A hook is defined as an executable within a snap's `meta/hooks/` directory, "
+"and consequently, also within `snap/hooks/` when building with *snapcraft*. "
+"See [Snapcraft hook support](https://documentation.ubuntu.com/snapcraft/"
+"stable/reference/hooks/) for more information."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:22
+msgid ""
+"The filename of the executable is based on the name of the hook. If this "
+"file exists, *snapd* will execute the file when required by that hook's "
+"action."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:24
+msgid "The following hooks are currently implemented:"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:25
+msgid "configure hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:26
+msgid "default-configure hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:27
+msgid "full-disk-encryption hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:28
+msgid "gate-auto-refresh"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:29
+msgid "install hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:30
+msgid "install-device hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:31
+msgid "interface hooks"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:32
+msgid "prepare-device hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:33
+msgid "prepare-serial hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:34
+msgid "pre-refresh hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:35
+msgid "post-refresh hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:36
+msgid "remove hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:38
+msgid ""
+"ⓘ **Default shell environment**: A hook script can only assume a POSIX-"
+"compliant shell environment for its execution. If your script needs a "
+"specific shell, such as *Bash* or *Zsh*, it needs to be explicitly declared "
+"within the script's *hashbang* header (`#!/bin/bash`, for example). Your "
+"snap also needs to ensure your chosen shell is available."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:40
+msgid "Accessing resources"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:42
+msgid ""
+"If a hook requires access to system resources outside of a snap's confined "
+"environment, it will need to use {ref}`slots and plugs <how-to-guides-work-"
+"with-snaps-connect-interfaces>` via the {ref}`interface <explanation-"
+"interfaces-all-about-interfaces>` mechanism to access those resources."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:44
+msgid ""
+"When using *Snapcraft* to build the snap, the interface definition will go "
+"inside [snapcraft.yaml](https://documentation.ubuntu.com/snapcraft/stable/"
+"reference/project-file/anatomy-of-snapcraft-yaml/), and the *snapcraft* "
+"command create a {ref}`snap.yaml <reference-development-yaml-schemas-the-"
+"snap-format>` within the snap to hold the required metadata."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:46
+msgid ""
+"For example, the following excerpt registers an _install_ hook making use of "
+"a {ref}`network <interfaces-network-interface>` plug:"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:48
+msgid ""
+"apps:\n"
+"    ...\n"
+"\n"
+"hooks:\n"
+"    install:\n"
+"        plugs: [network]\n"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:57
+msgid ""
+"Hooks are called with no parameters. When a hook needs to request or modify "
+"information within *snapd*,  they can do so via the *snapctl* tool, which is "
+"always available within a snap's environment. See {ref}`Using the snapctl "
+"tool <how-to-guides-manage-snaps-use-snapctl>` for further details."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:59
+msgid "Transactions and rollback"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:61
+msgid ""
+"A hook is executed as a single transaction, where a transaction object holds "
+"all the configuration changes for that hook. These changes are invisible to "
+"the running system until the hook completely finishes."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:63
+msgid ""
+"This allows for changes to be rolled back or *unset* if errors occur during "
+"the execution of a hook. This happens if a non-zero value is returned with "
+"either the _configure_ or _default-configure_ hooks, for example, or if an "
+"error occurs with any hook involved with an {ref}`interface auto-connection "
+"<explanation-interfaces-interface-auto-connection>`."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:67
+msgid "<span id=\"heading--the-configure-hook\"></span>"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:67
+msgid "<span id=\"heading--the-configure-hook\">"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:67
+#: ../../../reference/development/supported-snap-hooks.md:110
+#: ../../../reference/development/supported-snap-hooks.md:137
+#: ../../../reference/development/supported-snap-hooks.md:146
+#: ../../../reference/development/supported-snap-hooks.md:155
+#: ../../../reference/development/supported-snap-hooks.md:162
+#: ../../../reference/development/supported-snap-hooks.md:169
+#: ../../../reference/development/supported-snap-hooks.md:178
+#: ../../../reference/development/supported-snap-hooks.md:185
+#: ../../../reference/development/supported-snap-hooks.md:193
+#: ../../../reference/development/supported-snap-hooks.md:204
+#: ../../../reference/development/supported-snap-hooks.md:213
+msgid "</span>"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:68
+msgid "The configure hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:70
+msgid ""
+"The `configure` hook is called every time one the following actions happen:"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:72
+msgid "initial snap installation"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:73
+msgid "snap refresh"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:74
+msgid ""
+"whenever the user runs `snap set|unset` to change a configuration option"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:76
+msgid ""
+"ⓘ Note that this hook will *not* get called when the snap *itself* changes "
+"configuration options using `snapctl get|set|unset`."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:78
+msgid ""
+"The hook should use `snapctl get` to retrieve configuration values from "
+"snapd. If the hook exits with a non-zero status code, the configuration will "
+"not be applied."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:80
+msgid "For example, given the following command:"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:82
+msgid "$ snap set mysnap username=foo password=bar\n"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:86
+msgid ""
+"The `configure` hook located within the _mysnap_ snap at `meta/hooks/"
+"configure` would be called to apply the configuration changes, if necessary."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:88
+msgid "The hook might look similar to:"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:90
+msgid ""
+"#!/bin/sh -e\n"
+"\n"
+"username=\"$(snapctl get username)\"\n"
+"password=\"$(snapctl get password)\"\n"
+"\n"
+"if [ -z \"$username\" -o -z \"$password\" ]; then\n"
+"    echo \"Username and password are required.\"\n"
+"    exit 1\n"
+"fi\n"
+"\n"
+"mkdir -m 0600 $SNAP_DATA/options\n"
+"echo \"username: $username\" > $SNAP_DATA/options/credentials\n"
+"echo \"password: $password\" >> $SNAP_DATA/options/credentials\n"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:106
+msgid ""
+"The same hook can also modify the configuration of a snap within the context "
+"of the current transaction. This is accomplished using `snapctl set` and "
+"`snapctl unset`. For more information see {ref}`Adding Snap configuration "
+"<how-to-guides-manage-snaps-set-system-options>` and {ref}`Using the snapctl "
+"tool <how-to-guides-manage-snaps-use-snapctl>`."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:108
+msgid ""
+"ⓘ Note that configuration options do not need to be defined anywhere. "
+"`snapctl set` and `snap set` will accept any (valid) option name."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:110
+msgid "<span id=\"heading--default-configure\"></span>"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:110
+msgid "<span id=\"heading--default-configure\">"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:111
+msgid "The default-configure hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:113
+msgid ""
+"The default-configure-hook is an optional extension to the {ref}`configure "
+"hook <reference-development-supported-snap-hooks>` that executes only on "
+"snap installation and _before_ services are started to provide access to the "
+"default configuration values stored in a device’s {ref}`gadget snap "
+"<reference-development-yaml-schemas-the-gadget-snap>`."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:115
+msgid ""
+"The default-configure hook should be located within `meta/hooks` and "
+"requires a configure hook to be present. A missing configure hook will "
+"result in an error."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:117
+msgid ""
+"The hook should use `snapctl get` to retrieve default configuration options "
+"and `snapctl set` and `snapctl unset` to create/modify options. If the hook "
+"exits with a non-zero status code, the default configuration provided by the "
+"gadget snap as well as modifications by the hook will not be applied."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:119
+msgid "Example default-configure hook:"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:121
+msgid ""
+"#!/bin/sh -e\n"
+"\n"
+"DEFAULT_GADGET_OPTION=\"123\"\n"
+"\n"
+"gadget_option=\"$(snapctl get gadget-option)\"\n"
+"if [ -z \"$gadget_option\" ]; then\n"
+"gadget_option=\"$DEFAULT_GADGET_OPTION\"\n"
+"fi\n"
+"\n"
+"mkdir -m 0600 $SNAP_DATA/options\n"
+"echo \"option: $gadget_option\" > $SNAP_DATA/options/gadget\n"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:135
+msgid ""
+"For more information see {ref}`Adding Snap configuration <how-to-guides-"
+"manage-snaps-set-system-options>` and {ref}`Using the snapctl tool <how-to-"
+"guides-manage-snaps-use-snapctl>`."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:137
+msgid "<span id=\"heading--fde\"></span>"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:137
+msgid "<span id=\"heading--fde\">"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:138
+msgid "The full-disk-encryption hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:140
+msgid ""
+"[Ubuntu Core 20 ](https://ubuntu.com/core/docs/uc20/) (UC20) uses [full disk "
+"encryption](https://ubuntu.com/core/docs/uc20/full-disk-encryption) (FDE) "
+"whenever the hardware allows, protecting both the confidentiality and "
+"integrity of a device’s data when there’s physical access to a device, or "
+"after a device has been lost or stolen."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:142
+msgid ""
+"Creating a verifiable boot process on a non-standard (non-UEFI+TPM platform) "
+"FDE platform, such as a Raspberry Pi or other ARM devices, is board-specific "
+"and will typically involve creating custom gadget and kernel snaps. UC20, "
+"however, does provide a helper mechanism, via a hook interface, to ensure "
+"the integrity of any subsequently executed or accessed data."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:144
+msgid ""
+"See {ref}`Full-disk-encryption hooks <reference-development-uc20-fde-hooks>` "
+"for details on how this hook is implemented.."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:146
+msgid "<span id=\"heading--gate-auto-refresh\"></span>"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:146
+msgid "<span id=\"heading--gate-auto-refresh\">"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:147
+msgid "The gate-auto-refresh hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:149
+msgid ""
+"The gate-auto-refresh hook is executed by snapd for every snap that will be "
+"updated with the next automatic refresh. It’s also executed for every snap "
+"that is dependent on a snap that will be updated."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:151
+msgid ""
+"This hook is capable of executing the snapctl refresh command with 3 "
+"specific arguments, hold, proceed and pending."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:153
+msgid ""
+"This feature is currently considered experimental. See {ref}`Refresh control "
+"<how-to-guides-work-with-snaps-manage-updates>` for more details."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:155
+msgid "<span id=\"heading--install\"></span>"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:155
+msgid "<span id=\"heading--install\">"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:156
+msgid "The install hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:158
+msgid ""
+"The `install` hook is called upon initial install only, i.e. it's not called "
+"on subsequent refreshes."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:160
+msgid ""
+"The hook is executed before starting snap services (if it has any) and "
+"before the `configure` hook. The install hook is the place for one-time "
+"actions, such as an early initialisation of a resource when installed for "
+"the first time."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:162
+msgid "<span id=\"heading--install-device\"></span>"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:162
+msgid "<span id=\"heading--install-device\">"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:163
+msgid "The install-device hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:165
+msgid "This hook is supported in Ubuntu Core 20 and subsequent releases."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:167
+msgid ""
+"See [Installation process](https://documentation.ubuntu.com/core/explanation/"
+"how-installation-works/#the-install-device-hook) in the Ubuntu Core "
+"documentation for more details."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:169
+msgid "<span id=\"heading--interface\"></span>"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:169
+msgid "<span id=\"heading--interface\">"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:170
+msgid "The interface hooks"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:172
+msgid ""
+"Interface hooks are executed when an interface is either connected or "
+"disconnected via the interface’s plugs and slots mechanism."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:174
+msgid ""
+"They can be used to read or write attributes from a connection and, for "
+"example, acquire new resources, update internal options or update databases."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:176
+msgid ""
+"For further details, see {ref}`Interface hooks <explanation-interfaces-"
+"interface-hooks>`."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:178
+msgid "<span id=\"heading--prepare-device\"></span>"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:178
+msgid "<span id=\"heading--prepare-device\">"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:179
+msgid "The prepare-device hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:181
+#: ../../../reference/development/supported-snap-hooks.md:188
+msgid "This hook is only supported in gadget snaps."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:183
+#: ../../../reference/development/supported-snap-hooks.md:190
+msgid ""
+"See {ref}`The gadget snap <reference-development-yaml-schemas-the-gadget-"
+"snap>` documentation for more details."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:185
+msgid "<span id=\"heading--prepare-serial\"></span>"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:185
+msgid "<span id=\"heading--prepare-serial\">"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:186
+msgid "The prepare-serial hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:193
+msgid "<span id=\"heading--pre-refresh\"></span>"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:193
+msgid "<span id=\"heading--pre-refresh\">"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:194
+msgid "The pre-refresh hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:196
+msgid "The `pre-refresh` hook is called whenever the snap gets refreshed."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:198
+msgid ""
+"This hook is executed for the already installed revision of the snap with "
+"its services still running (if the snap has any services) and before "
+"switching to the newly installed revision."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:200
+msgid ""
+"This hook is a good place for any maintenance or cleanup actions that "
+"prepare the snap for switching to the new revision. It's also a good place "
+"to test whether a refresh will succeed,  because if the test causes the hook "
+"to fail, the refresh will not proceed."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:202
+msgid ""
+"The `pre-refresh` hook is not executed when {ref}`snap revert <tutorials-get-"
+"started>` is used to install an earlier revision of a snap. If such an "
+"operation affects snap functionality, the snap needs to detect this action "
+"and manually perform whatever actions may be necessary."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:204
+msgid "<span id=\"heading--post-refresh\"></span>"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:204
+msgid "<span id=\"heading--post-refresh\">"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:205
+msgid "The post-refresh hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:207
+msgid ""
+"The `post-refresh` hook is similar to `pre-refresh` (above) in that it is "
+"called whenever the snap gets refreshed."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:209
+msgid ""
+"This hook is executed for the newly installed revision of the snap, before "
+"starting new services (if applicable). This hook is a good place for any "
+"extra actions that need to be performed for the new revision of the snap. "
+"It's also a good place to test whether a refresh has succeeded, because if "
+"the test causes the hook to fail, the refresh will be rolled-back and the "
+"original state of the snap restored."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:211
+msgid ""
+"The `post-refresh` hook is not executed when {ref}`snap revert <tutorials-"
+"get-started>` is used to install an earlier revision of a snap. If such an "
+"operation affects snap functionality, the snap needs to detect this action "
+"and manually perform whatever actions may be necessary."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:213
+msgid "<span id=\"heading--remove\"></span>"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:213
+msgid "<span id=\"heading--remove\">"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:214
+msgid "The remove hook"
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:216
+msgid ""
+"The `remove` hook is called when the last revision of the snap gets removed "
+"from the system."
+msgstr ""
+
+#: ../../../reference/development/supported-snap-hooks.md:218
+msgid ""
+"This hook is executed after stopping the services of the snap (if the snap "
+"has any services), therefore it's useful for any custom cleanup logic."
+msgstr ""

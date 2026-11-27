@@ -1,0 +1,84 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/hidraw-interface.md:2
+msgid "hidraw interface"
+msgstr ""
+
+#: ../../../reference/interfaces/hidraw-interface.md:4
+msgid ""
+"`hidraw` enables raw access to USB and Bluetooth Human Interface (*hidraw*) "
+"devices. This interface is restricted because it provides privileged access "
+"to hardware devices."
+msgstr ""
+
+#: ../../../reference/interfaces/hidraw-interface.md:6
+msgid "**Auto-Connect**: no **Attributes**:"
+msgstr ""
+
+#: ../../../reference/interfaces/hidraw-interface.md:8
+msgid "Should specify a single path attribute:"
+msgstr ""
+
+#: ../../../reference/interfaces/hidraw-interface.md:9
+msgid "`path` (slot): path to hidraw device node e.g. /dev/hidraw0"
+msgstr ""
+
+#: ../../../reference/interfaces/hidraw-interface.md:10
+msgid "Or three attributes:"
+msgstr ""
+
+#: ../../../reference/interfaces/hidraw-interface.md:11
+msgid ""
+"`usb-vendor` (slot): integer representing the USB Vendor ID, must be in "
+"range 0 < vid <= 65535"
+msgstr ""
+
+#: ../../../reference/interfaces/hidraw-interface.md:12
+msgid ""
+"`usb-product` (slot): integer representing the USB Product ID, must be in "
+"range  0 <= vid <= 65535"
+msgstr ""
+
+#: ../../../reference/interfaces/hidraw-interface.md:13
+msgid ""
+"`path` (slot): path where a symlink will be created to the device e.g. `/dev/"
+"hidraw-mydevice`"
+msgstr ""
+
+#: ../../../reference/interfaces/hidraw-interface.md:15
+msgid ""
+"To use a hidraw device, the snap developer must add `plugs: [ hidraw ]` to a "
+"snap's [snapcraft.yaml](https://documentation.ubuntu.com/snapcraft/stable/"
+"reference/project-file/anatomy-of-snapcraft-yaml/). The snap user can then "
+"access a specific hidraw device with an {ref}`interface connection "
+"<explanation-interfaces-all-about-interfaces>`."
+msgstr ""
+
+#: ../../../reference/interfaces/hidraw-interface.md:17
+msgid ""
+"Use  `snap interface hidraw` to see which hidraw devices are available on "
+"the system."
+msgstr ""
+
+#: ../../../reference/interfaces/hidraw-interface.md:19
+msgid ""
+"Once connected, the consuming snap can use the device via the path specified "
+"by the connected slot."
+msgstr ""

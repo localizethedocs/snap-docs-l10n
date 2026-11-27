@@ -1,0 +1,57 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/physical-memory-control-interface.md:0
+#: ../../../reference/interfaces/physical-memory-control-interface.md:8
+msgid "physical-memory-control interface"
+msgstr ""
+
+#: ../../../reference/interfaces/physical-memory-control-interface.md:10
+msgid ""
+"`physical-memory-control` allows write access the to physical address space "
+"via the `/dev/mem` device."
+msgstr ""
+
+#: ../../../reference/interfaces/physical-memory-control-interface.md:12
+msgid ""
+"When the kernel is compiled with `STRICT_DEVMEM=y` (required for certified "
+"kernels), accessible memory is an architecture-specific subset for common "
+"use cases, such as (eg, X without KMS, DOSBox, etc)."
+msgstr ""
+
+#: ../../../reference/interfaces/physical-memory-control-interface.md:14
+msgid ""
+"This interface can write to all physical memory when the kernel is compiled "
+"with `STRICT_DEVMEM=n`."
+msgstr ""
+
+#: ../../../reference/interfaces/physical-memory-control-interface.md:16
+msgid "**Auto-connect**: no"
+msgstr ""
+
+#: ../../../reference/interfaces/physical-memory-control-interface.md:19
+msgid ""
+"The `physical-memory-control` plug is {ref}`unsupported for parallel "
+"instances <interfaces-parallel-installs-unsupported>`. Instances would "
+"perform conflicting operations on the same system resources."
+msgstr ""
+
+#: ../../../reference/interfaces/physical-memory-control-interface.md:22
+msgid "Requires snapd version _2.21+_."
+msgstr ""

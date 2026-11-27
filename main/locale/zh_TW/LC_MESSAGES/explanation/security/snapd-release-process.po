@@ -1,0 +1,105 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/security/snapd-release-process.md:2
+msgid "Snapd release process"
+msgstr ""
+
+#: ../../../explanation/security/snapd-release-process.md:4
+msgid ""
+"The snapd release process is maintained in the snapd repository. It is "
+"written primarily for release engineers on the snapd team, and it is "
+"published for transparency. Carrying out a release requires administrative "
+"privileges that most people do not have."
+msgstr ""
+
+#: ../../../explanation/security/snapd-release-process.md:6
+msgid "Release planning"
+msgstr ""
+
+#: ../../../explanation/security/snapd-release-process.md:8
+msgid ""
+"At the start of every six-month cycle, snapd agrees a release plan with "
+"stakeholders. The plan gives estimated start and end dates for each release, "
+"and those dates determine what the release contains. The process is date-"
+"driven: if you want a change in a particular release, it needs to fit that "
+"plan."
+msgstr ""
+
+#: ../../../explanation/security/snapd-release-process.md:10
+msgid "Release artifacts"
+msgstr ""
+
+#: ../../../explanation/security/snapd-release-process.md:12
+msgid "A release produces:"
+msgstr ""
+
+#: ../../../explanation/security/snapd-release-process.md:14
+msgid ""
+"The [snapd snap](https://snapcraft.io/snapd), as a regular build and a FIPS "
+"build"
+msgstr ""
+
+#: ../../../explanation/security/snapd-release-process.md:15
+msgid "[snapd Debian packages](https://launchpad.net/ubuntu/+source/snapd/)"
+msgstr ""
+
+#: ../../../explanation/security/snapd-release-process.md:16
+msgid "A [GitHub release](https://github.com/canonical/snapd/releases)"
+msgstr ""
+
+#: ../../../explanation/security/snapd-release-process.md:17
+msgid ""
+"{ref}`Cross-distro artifacts <reference-administration-distribution-support>`"
+msgstr ""
+
+#: ../../../explanation/security/snapd-release-process.md:19
+msgid "Security releases"
+msgstr ""
+
+#: ../../../explanation/security/snapd-release-process.md:21
+msgid ""
+"Security releases are prepared in private. They address vulnerabilities "
+"identified during routine security scanning and through external reports. To "
+"report a suspected vulnerability, see {ref}`How to report vulnerabilities "
+"<explanation-security-security-policies-how-to-report-vulnerabilities>`."
+msgstr ""
+
+#: ../../../explanation/security/snapd-release-process.md:23
+msgid "Ubuntu package updates"
+msgstr ""
+
+#: ../../../explanation/security/snapd-release-process.md:25
+msgid ""
+"Updates of the snapd Debian package in Ubuntu follow a package-specific, non-"
+"standard Stable Release Update (SRU) process. The [snapd SRU exception] "
+"documents where that process deviates from the standard SRU process. A "
+"refresh of that documentation is in progress and is expected to become "
+"available by November 2026."
+msgstr ""
+
+#: ../../../explanation/security/snapd-release-process.md:27
+msgid "Full process"
+msgstr ""
+
+#: ../../../explanation/security/snapd-release-process.md:29
+msgid ""
+"For the step-by-step release process, follow the instructions in "
+"[RELEASE.md]."
+msgstr ""

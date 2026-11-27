@@ -1,0 +1,67 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/accel-interface.md:2
+msgid "accel interface"
+msgstr ""
+
+#: ../../../reference/interfaces/accel-interface.md:4
+msgid ""
+"**This interface is under development and is not currently available for "
+"general use.**"
+msgstr ""
+
+#: ../../../reference/interfaces/accel-interface.md:6
+msgid ""
+"The `accel` interface allows access to device nodes in `/dev/accel` , which "
+"are managed by the [Linux compute accelerators subsystem](https://"
+"docs.kernel.org/accel/introduction.html)."
+msgstr ""
+
+#: ../../../reference/interfaces/accel-interface.md:8
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/accel-interface.md:10
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/accel-interface.md:10
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/accel-interface.md:12
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/accel-interface.md:14
+msgid ""
+"The test code can be found in the snapd repository: [https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/accel_test.go](https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/accel_test.go)"
+msgstr ""
+
+#: ../../../reference/interfaces/accel-interface.md:16
+msgid ""
+"The source code for the interface is in the snapd repository:[ https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/accel.go](https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/accel.go)"
+msgstr ""

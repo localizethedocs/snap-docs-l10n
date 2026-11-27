@@ -1,0 +1,73 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/adb-support-interface.md:0
+#: ../../../reference/interfaces/adb-support-interface.md:8
+msgid "adb-support interface"
+msgstr ""
+
+#: ../../../reference/interfaces/adb-support-interface.md:10
+msgid ""
+"`adb-support` allows a snap to operating the Android Debug Bridge service, "
+"providing privileged access to an Android device."
+msgstr ""
+
+#: ../../../reference/interfaces/adb-support-interface.md:12
+msgid "<h2 id='heading--example'>Example</h2>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/adb-support-interface.md:14
+msgid ""
+"[guiscrcpy](https://snapcraft.io/guiscrcpy) uses _adb-support_ to help share "
+"an Android screen on a Linux desktop."
+msgstr ""
+
+#: ../../../reference/interfaces/adb-support-interface.md:17
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/adb-support-interface.md:19
+msgid "**Auto-connect**: no"
+msgstr ""
+
+#: ../../../reference/interfaces/adb-support-interface.md:22
+msgid ""
+"The `adb-support` plug is {ref}`unsupported for parallel instances "
+"<interfaces-parallel-installs-unsupported>`."
+msgstr ""
+
+#: ../../../reference/interfaces/adb-support-interface.md:26
+msgid "Requires snapd version _2.36+_."
+msgstr ""
+
+#: ../../../reference/interfaces/adb-support-interface.md:28
+msgid "<h3 id='heading-code'>Code examples</h3>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/adb-support-interface.md:30
+msgid ""
+"The adb-support interface is used in the _guiscrcpy_ snap: <https://"
+"github.com/srevinsaju/guiscrcpy/blob/master/snap/snapcraft.yaml>"
+msgstr ""
+
+#: ../../../reference/interfaces/adb-support-interface.md:32
+msgid ""
+"The source code for this interface is in the *snapd* repository: <https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/adb_support.go>"
+msgstr ""

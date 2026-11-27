@@ -1,0 +1,1156 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/administration/system-options.md:0
+msgid ""
+"Complete reference for snap system options, including device, network, "
+"refresh, proxy, logging, and user account configuration."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:8
+msgid "System options"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:10
+msgid ""
+"Snap supports a set of system-wide options that allow you to customise your "
+"snap or Ubuntu Core environment. These are listed below."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:12
+msgid ""
+"See {ref}`Setting system options <how-to-guides-manage-snaps-set-system-"
+"options>` for further details on how they they are viewed and configured."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:14
+msgid "pi-config"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:16
+msgid ""
+"On a Raspberry Pi, the following options set corresponding values in the "
+"_config.txt_ system configuration file:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:18
+msgid "pi-config.disable-overscan"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:19
+msgid "pi-config.force-turbo"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:20
+msgid "pi-config.framebuffer-width"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:21
+msgid "pi-config.framebuffer-height"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:22
+msgid "pi-config.framebuffer-depth"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:23
+msgid "pi-config.framebuffer-ignore_alpha"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:24
+msgid "pi-config.overscan-left"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:25
+msgid "pi-config.overscan-right"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:26
+msgid "pi-config.overscan-top"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:27
+msgid "pi-config.overscan-bottom"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:28
+msgid "pi-config.overscan-scale"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:29
+msgid "pi-config.display-rotate"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:30
+msgid "pi-config.hdmi-cvt"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:31
+msgid "pi-config.hdmi-group"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:32
+msgid "pi-config.hdmi-mode"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:33
+msgid "pi-config.hdmi-timings"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:34
+msgid "pi-config.hdmi-drive"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:35
+msgid "pi-config.avoid-warnings"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:36
+msgid "pi-config.gpu-mem-256"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:37
+msgid "pi-config.gpu-mem-512"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:38
+msgid "pi-config.gpu-mem"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:39
+msgid "pi-config.sdtv-aspect"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:40
+msgid "pi-config.sdtv-mode"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:41
+msgid "pi-config.config-hdmi-boost"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:42
+msgid "pi-config.hdmi-force-hotplug"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:43
+msgid "pi-config.start-x"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:45
+msgid ""
+"Further details on the above, see the [official Raspberry Pi documentation]"
+"(https://www.raspberrypi.com/documentation/computers/config_txt.html)."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:47
+#: ../../../reference/administration/system-options.md:58
+#: ../../../reference/administration/system-options.md:69
+#: ../../../reference/administration/system-options.md:102
+#: ../../../reference/administration/system-options.md:180
+#: ../../../reference/administration/system-options.md:190
+#: ../../../reference/administration/system-options.md:278
+#: ../../../reference/administration/system-options.md:288
+#: ../../../reference/administration/system-options.md:298
+#: ../../../reference/administration/system-options.md:344
+#: ../../../reference/administration/system-options.md:379
+#: ../../../reference/administration/system-options.md:462
+#: ../../../reference/administration/system-options.md:494
+#: ../../../reference/administration/system-options.md:525
+#: ../../../reference/administration/system-options.md:543
+#: ../../../reference/administration/system-options.md:564
+#: ../../../reference/administration/system-options.md:582
+msgid "ⓘ Available only on Ubuntu Core."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:49
+msgid "system journal.persistent"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:51
+msgid ""
+"Enables or disables journal persistence. Can be `true` or `false`. If "
+"persistent journals were previously enabled by this setting, changing the "
+"value to `false` will **delete all saved logs**."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:53
+msgid "Example to enable the journal:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:54
+msgid "snap set system journal.persistent=true\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:60
+msgid "system proxy.{http,https,ftp}"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:62
+msgid ""
+"These options may be set to change the proxies to be used by the system when "
+"communicating with external sites that speak the respective protocols:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:64
+msgid ""
+"snap set system proxy.http=\"http://<proxy_addr>:<proxy_port>\"\n"
+"snap set system proxy.https=\"http://<proxy_addr>:<proxy_port>\"\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:71
+msgid "system pki.certs.custom"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:73
+msgid ""
+"Enables custom certificate management with the following options (replace "
+"`<name>` with the certificate name):"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:75
+msgid ""
+"**pki.certs.custom.\\<name>.content**: sets the certificate payload. This "
+"option must be set first to register the certificate in the database, and "
+"the `<name>` used in the option becomes the initially registered certificate "
+"name"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:76
+msgid ""
+"**pki.certs.custom.\\<name>.name**: changes the registered certificate name "
+"after the certificate content has been set"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:77
+msgid ""
+"**pki.certs.custom.\\<name>.state**: sets the certificate state to `blocked` "
+"or `accepted`. If not explicitly set, the default state is `accepted`. "
+"Setting the state to `unset` removes the certificate"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:79
+msgid ""
+"The following example sets the certificate content from a PEM-encoded "
+"certificate file, changes the certificate name, and blocks the certificate:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:81
+msgid ""
+"snap set system pki.certs.custom.<name>.content=\"$(cat my-root.crt)\"\n"
+"snap set system pki.certs.custom.<name>.name=new-name\n"
+"snap set system pki.certs.custom.<name>.state=blocked\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:87
+msgid "To remove the certificate, set its state to `unset` or unset it:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:89
+msgid ""
+"snap set system pki.certs.custom.<name>.state=unset\n"
+"snap unset system pki.certs.custom.<name>\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:94
+msgid "Use `snap get` to retrieve the list of custom certificates:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:96
+msgid "snap get system pki.certs.custom\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:100
+msgid ""
+"Any custom certificate change requires restarting the snap for it to see the "
+"updated system certificates."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:104
+msgid "ⓘ Available since snapd _2.79_."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:106
+msgid "system refresh"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:108
+msgid ""
+"There are four system-wide options that are used to manage how updates are "
+"handed:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:110
+msgid "**refresh.timer**: defines the refresh frequency and schedule"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:111
+msgid ""
+"**refresh.hold**: delays the next refresh until the defined time and date"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:112
+msgid ""
+"**refresh.metered**: pauses refresh updates when network connection is "
+"metered"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:113
+msgid ""
+"**refresh.retain**: sets how many revisions of a snap are stored on the "
+"system"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:115
+msgid ""
+"The following example asks the system to only refresh snaps between 4.00am "
+"and 7.00am, and 7.00pm and 10:10pm:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:117
+msgid "snap set system refresh.timer=4:00-7:00,19:00-22:10 \n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:121
+msgid ""
+"See {ref}`Controlling updates <how-to-guides-work-with-snaps-manage-"
+"updates>` for further details on how the above options are used."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:123
+msgid "system homedirs"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:125
+msgid ""
+"Allows a snap’s user data to be stored in a user’s home location other under "
+"`/home`."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:127
+msgid "snap set system homedirs=<destination-directory>\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:131
+msgid ""
+"See {ref}`Home directories outside of ‘/home’ <interfaces-home-outside-"
+"home>` for further details."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:133
+msgid "ⓘ Available since snapd _2.59_."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:135
+msgid "system interface"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:137
+msgid ""
+"Permits specific interfaces' options to be changed. Currently, only the {ref}"
+"`x11 interface<interfaces-x11-interface>` and option {ref}`auto-connection "
+"<explanation-interfaces-interface-auto-connection>` are supported."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:139
+msgid ""
+"**interface.allow-auto-connection**: configure auto-connection rules for the "
+"interface, options are `{false|true|verified}`."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:140
+msgid "`false` or `true` controls whether auto-connections are permitted."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:141
+msgid ""
+"`verified` means that only snaps carrying a snap declaration can auto-"
+"connect this interface."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:143
+msgid ""
+"The following example would configure the `x11` interface to deny all auto-"
+"connections:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:146
+msgid "snap set system interface.x11.allow-auto-connection=false\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:150
+msgid "ⓘ Available since snapd _2.73_."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:152
+msgid "system resilience.vitality-hint"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:154
+msgid ""
+"This option adjusts the Linux kernel's out-of-memory ([OOM](https://"
+"www.kernel.org/doc/gorman/html/understand/understand016.html)) killer "
+"behaviour for specific snap services."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:156
+msgid ""
+"By default, all snap services have the same value for systemd's "
+"`OOMScoreAdjust`. By passing a list of snaps ordered by decreasing "
+"importance to the `resilience.vitality-hint` system option, the order is "
+"respected if snap processes are killed in low memory situations."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:158
+msgid ""
+"The list of snaps need to be as string containing comma separated snap "
+"instance names in decreasing order of importance, such as:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:160
+msgid "snap set system resilience.vitality-hint=snapA,snapB,snapC\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:164
+msgid ""
+"In the above example, services inside `snapA` are the **least likely** to be "
+"killed in _out of memory_ situations, followed by services in `snapB`, "
+"services in `snapC`, and then the services in all the other snaps not "
+"referenced by the `vitality-hint` option."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:167
+msgid ""
+"ⓘ  Snaps added to `resilience.vitality-hint` are still _more likely_ to be "
+"killed than the snap daemon, snapd, itself."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:170
+msgid "system service.console-conf.disable"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:172
+msgid ""
+"May be set to _true_ on devices running Ubuntu Core to disable the console-"
+"conf system configuration wizard that is launched by default when booting an "
+"initialised Ubuntu Core image."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:174
+msgid "snap set system service.console-conf.disable=true\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:178
+msgid ""
+"This option is defined in the {ref}`gadget snap <reference-development-yaml-"
+"schemas-the-gadget-snap>` and cannot be changed at runtime."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:182
+msgid "system service.ssh.disable"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:184
+msgid "Can be set to _true_ to disable the SSH service at startup."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:186
+msgid "snap set system service.ssh.disable=true\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:192
+msgid "system service.ssh.listen-address"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:194
+msgid "Specifies the local address that the SSH daemon should listen on."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:196
+msgid ""
+"Can be a comma separated list of hostnames, IPs or ports. When set, the SSH "
+"[ListenAddress](https://man7.org/linux/man-pages/man5/sshd_config.5.html) "
+"configuration is configured accordingly."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:198
+msgid ""
+"Port configuration needs to be in the following format: `:<port-number>`"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:200
+msgid ""
+"snap set system service.ssh.listen-address=:8022\n"
+"snap set system service.ssh.listen-address=myhost\n"
+"snap set system service.ssh.listen-address=192.168.1.2,myhost,foo:8022\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:206
+msgid "ⓘ Available since snapd _2.59_ and only on Ubuntu Core 20 or later."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:208
+msgid "system snapshots.automatic.retention"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:210
+msgid ""
+"{ref}`Automatic snapshot <how-to-guides-manage-snaps-create-data-snapshots>` "
+"retention time is configured with the `snapshots.automatic.retention` system "
+"option. The default value is 31 days, and the value needs to be greater than "
+"24 hours:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:212
+msgid "snap set system snapshots.automatic.retention=30h\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:215
+msgid "To disable automatic snapshots, set the retention time to `no`:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:217
+msgid "snap set system snapshots.automatic.retention=no\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:221
+msgid ""
+"ⓘ Disabling automatic snapshots will *not* affect preexisting, automatically "
+"generated snapshots, but only those generated by subsequent snap removals."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:223
+msgid "ⓘ Automatic snapshots require snap version _2.39+_."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:225
+msgid "system store.access"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:227
+msgid ""
+"When set to `offline`, prevents the system for initiating connections to the "
+"Store."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:229
+msgid "snap set system store.access=offline\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:233
+msgid ""
+"Prevention includes explicit actions, such as installing a snap, and "
+"automatic actions, such as periodic refreshes."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:235
+msgid "Unsetting the parameter restores the default access to the store."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:237
+msgid "snap unset system store.access\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:241
+msgid "ⓘ Available since snapd _2.61_ and only on Ubuntu Core."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:243
+msgid "system store-certs"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:245
+msgid ""
+"A custom SSL certificate can be added to snapd's trusted certificates pool "
+"for the store communication with the `store-certs.<name>=<value>` system "
+"option."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:247
+msgid "To add a certificate, enter the following:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:249
+msgid "snap set system store-certs.cert1=\"$(cat /path/to/mycert)\"\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:253
+msgid "A certificate can be removed with _unset_:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:255
+msgid "snap unset system store-certs.cert1\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:259
+msgid "system swap.size"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:261
+msgid "Sets the swap size for the base system."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:263
+msgid ""
+"Value can be any integer multiple of a megabyte that is either larger than "
+"or equal to 1 MB, or 0 for no swap enabled:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:265
+msgid "snap set system swap.size=200M\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:269
+msgid ""
+"This option is typically defined in the {ref}`gadget.yaml <reference-"
+"development-yaml-schemas-the-gadget-snap>` file when building an Ubuntu Core "
+"image:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:271
+msgid ""
+"defaults:\n"
+"  system:\n"
+"    swap:\n"
+"      size: 200M\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:280
+msgid "system system.hostname"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:282
+msgid "May be used to set the static hostname of the host:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:284
+msgid "snap set system system.hostname=\"new_name\"\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:290
+msgid "system system.disable-backlight-service"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:292
+msgid "May be set to _true_ to disable the backlight service:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:294
+msgid "snap set core system.disable-backlight-service=true\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:301
+msgid "system system.kernel.cmdline-append"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:303
+msgid ""
+"Dynamically add permitted kernel boot parameters to the default kernel "
+"command line on devices using the GRUB bootloader and with [Ubuntu Core "
+"20/22](https://ubuntu.com/core/docs/uc20/inside) or later."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:305
+msgid "snap set system system.kernel.cmdline-append=”opt1=val1 opt2=val2”\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:308
+msgid ""
+"Proposed kernel boot parameters are verified against an _allow list_ in the "
+"{ref}`gadget snap <reference-development-yaml-schemas-the-gadget-snap>`. See "
+"{ref}`gadget.yaml <reference-development-yaml-schemas-the-gadget-snap>` for "
+"further details on the list syntax."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:310
+#: ../../../reference/administration/system-options.md:328
+msgid ""
+"This options requires the system or device to be manually restarted. The "
+"system will not restart automatically."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:312
+msgid "Consider using `system.kernel.dangerous-cmdline-append` instead if:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:314
+msgid ""
+"the gadget snap on your device is either the pc-gadget or pi-gadget, as the "
+"allow list isn’t defined."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:315
+msgid "you need to add kernel boot parameters without any verification filter."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:318
+msgid "system system.kernel.dangerous-cmdline-append"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:320
+msgid ""
+"Dynamically add any kernel boot parameters to the default kernel command "
+"line on devices using the GRUB bootloader with [Ubuntu Core 20](https://"
+"ubuntu.com/core/docs/uc20/inside) or later."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:322
+msgid ""
+"snap set system system.kernel.dangerous-cmdline-append=”opt1=val1 "
+"opt2=val2”\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:326
+msgid ""
+"This system setting is considered **dangerous** because any boot parameter "
+"is permitted, potentially making devices vulnerable. To add only permitted "
+"or filtered options, see `system.kernel.cmdline-append` above."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:330
+msgid "system system.kernel.printk.console-loglevel"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:332
+msgid "Override the console log level with a number between 0 and 7."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:334
+msgid ""
+"The configuration will be stored in `/etc/sysctl.d/99-snapd.conf` and the "
+"default value is **4**"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:336
+msgid "Example to set the log level to 1:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:338
+msgid ""
+"$ snap set system system.kernel.printk.console-loglevel=1\n"
+"$ cat /etc/sysctl.d/99-snapd.conf \n"
+"kernel.printk = 1 4 1 7\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:346
+msgid "system system.motd"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:348
+msgid ""
+"Ubuntu Core systems come with a default message of the day. From Ubuntu Core "
+"24 onwards, the message of the day can be customized from the defaults "
+"configuration section in the {ref}`gadget.yaml <reference-development-yaml-"
+"schemas-the-gadget-snap>` file to set a custom message available since first "
+"boot:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:350
+msgid ""
+"defaults:\n"
+"  system:\n"
+"    system:\n"
+"      motd: |\n"
+"        Welcome to Ubuntu Core\n"
+"        Wish you a great day\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:359
+msgid "Message of the day can also be configured in a running system:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:361
+msgid ""
+"snap set system system.motd=\"$(printf \"Welcome to Ubuntu Core\\nWish you a "
+"great day\")\"\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:365
+msgid ""
+"Here `printf` is used to handle the backslash-escaped characters such as "
+"newline."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:367
+msgid "To set a custom message from a file:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:369
+msgid "snap set system system.motd=\"$(cat /path/to/custom/motd)\"\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:373
+msgid ""
+"The custom message can be removed with _unset_ which will reset to the "
+"default message of the day:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:375
+msgid "snap unset system system.motd\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:381
+msgid "system system.network.netplan"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:383
+msgid ""
+"On systems that support [Netplan](https://netplan.io/), such as Ubuntu Core "
+"20 and 22, snapd can both query and configure the Netplan key and value "
+"notation through its _get_ and _set_ system options commands:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:386
+msgid ""
+"$ snap get -d system system.network.netplan\n"
+"{\n"
+"        \"system.network.netplan\": {\n"
+"                \"network\": {\n"
+"                        \"ethernets\": {\n"
+"                                \"enp0s2\": {\n"
+"                                        \"dhcp4\": true\n"
+"                                }\n"
+"                        },\n"
+"                        \"version\": 2\n"
+"                }\n"
+"        }\n"
+"}\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:401
+msgid ""
+"Netplan key names and properties reflect a device's specification, "
+"capabilities and configuration. The `network.ethernets.enp0s2` device listed "
+"above, for example, could be `eth0` or another network device name. Equally, "
+"a device with wireless capabilities would present key value configuration "
+"options beneath `system.network.netplan.network.wifi`."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:403
+msgid ""
+"For example, the following output is typical of a static network "
+"configuration:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:405
+msgid ""
+"{\n"
+"        \"system.network.netplan\": {\n"
+"                \"network\": {\n"
+"                        \"ethernets\": {\n"
+"                                \"enp0s2\": {\n"
+"                                        \"addresses\": [\n"
+"                                                \"10.0.2.15/24\"\n"
+"                                        ],\n"
+"                                        \"gateway4\": \"10.0.2.2\",\n"
+"                                        \"nameservers\": {\n"
+"                                                \"addresses\": [\n"
+"                                                        \"8.8.8.8\",\n"
+"                                                        \"8.8.4.4\"\n"
+"                                                ],\n"
+"                                                \"search\": []\n"
+"                                        }\n"
+"                                }\n"
+"                        },\n"
+"                        \"version\": 2\n"
+"                }\n"
+"        }\n"
+"}\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:430
+msgid ""
+"The following `snap set` command could be used to change the `gateway4` "
+"address in the above configuration:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:432
+msgid ""
+"snap set system "
+"system.network.netplan.network.ethernets.enp0s2.gateway4=10.0.2.1\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:436
+msgid ""
+"See [Netplan reference](https://netplan.io/reference) for details on the key "
+"and value pairs used for network configuration."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:438
+msgid "ⓘ Available since snapd _2.55.4_ and only on Ubuntu Core."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:440
+msgid "system system.power-key-action"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:442
+msgid "Defines the behaviour of the system when the power key is pressed."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:444
+msgid "May be set to one of:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:446
+msgid "ignore"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:447
+msgid "poweroff"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:448
+msgid "reboot"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:449
+msgid "halt"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:450
+msgid "kexec"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:451
+msgid "suspend"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:452
+msgid "hibernate"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:453
+msgid "hybrid-sleep"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:454
+msgid "lock"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:456
+msgid ""
+"To set the system power button behaviour to _hibernate_, for example, enter "
+"the following:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:458
+msgid "snap set system system.power-key-action=hibernate\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:464
+msgid "system system.timezone"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:466
+msgid ""
+"May be used to set a time zone value, as typically found in `/usr/share/"
+"zoneinfo`, such as `America/Chicago`."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:468
+msgid "snap set system system.timezone=\"America/Chicago\"\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:472
+msgid "To see the current timezone settings, use the `snap get -d system`:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:474
+msgid ""
+"$ snap get -d system\n"
+"{\n"
+"        \"experimental\": {\n"
+"                \"hotplug\": true,\n"
+"                \"layouts\": true\n"
+"        },\n"
+"        \"refresh\": {\n"
+"                \"last\": \"2017-05-25T09:03:58.664837614+01:00\",\n"
+"                \"retain\": 2\n"
+"        },\n"
+"        \"seed\": {\n"
+"                \"loaded\": true\n"
+"        },\n"
+"        \"system\": {\n"
+"                \"timezone\": \"America/Chicago\"\n"
+"        }\n"
+"}\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:496
+msgid "system tmp.size"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:498
+msgid ""
+"Configures the default size for the `/tmp` mount point on Ubuntu Core "
+"devices:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:500
+msgid "snap set system tmp.size=<size>\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:504
+msgid ""
+"Size can given as either bytes, megabytes or gigabytes: `<bytes>`, `<bytes/"
+"2^20>M`, or `<bytes/2^30>G`."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:506
+msgid ""
+"To set the `/tmp` mount point to a size of 2GB, for example, run the "
+"following command:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:508
+msgid "snap set system tmp.size=2G\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:512
+msgid "Use `snap get` to retrieve the current size:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:514
+msgid "snap get system tmp.size\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:518
+msgid "To set to `/tmp` to the default size, remove any custom setting:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:520
+msgid "snap unset system tmp.size\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:523
+msgid "By default, `/tmp` is set to use 50% of physical RAM."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:527
+msgid "system users.create.automatic"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:529
+msgid ""
+"When _true_, permits the system to create users automatically from a valid "
+"[system-user assertion](https://ubuntu.com/core/docs/reference/assertions/"
+"system-user), such as an assertion stored on external storage (see [System "
+"user](https://ubuntu.com/core/docs/system-user) for more details). When "
+"_false_, users can only created manually with _create user_ API calls:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:531
+msgid "snap set system users.create.automatic=false\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:535
+msgid "Default is **true**."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:537
+msgid "system users.lockout"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:539
+msgid ""
+"When set to `True`, Ubuntu Core user accounts will be locked for 900 seconds "
+"after 3 wrong passwords."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:541
+msgid "Can be either `True` or `False`."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:545
+msgid "system watchdog.runtime-timeout"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:547
+msgid "Configures the system's hardware watchdog _runtime_ timeout."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:549
+msgid ""
+"The watchdog runtime timeout is an interval during which the system manager "
+"must contact the hardware watchdog to prevent a device from being "
+"automatically rebooted. Usage of this feature requires corresponding "
+"hardware support as the watchdog hardware, `/dev/watchdog` or the kernel "
+"option `systemd.watchdog-device=`, will be programmed to automatically "
+"reboot the system when not contacted within the specified timeout interval."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:551
+msgid ""
+"A valid value is a non-negative time duration in seconds, or suffixed with "
+"`ms`, `min`, `h`, `d`, `w` for milliseconds, minutes, hours, days and weeks "
+"respectively."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:553
+msgid "The following example will set the timeout to 1 minute:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:555
+msgid "snap set system watchdog.runtime-timeout=1m\n"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:561
+msgid ""
+"The Raspberry Pi hardware watchdog timer is limited to a maximum timeout of "
+"15 seconds."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:566
+msgid "system watchdog.shutdown-timeout"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:568
+msgid "Configures the system's hardware watchdog _shutdown_ timeout."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:570
+msgid ""
+"The watchdog shutdown timeout is an interval to permit a clean reboot of the "
+"system. If the system fails to reboot within this interval, the watchdog "
+"will forcibly restart the system to protect against failed or hanging "
+"reboots. Usage of this feature requires hardware support."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:572
+msgid ""
+"Note that the shutdown-timeout applies only to the second phase of a reboot, "
+"after all regular services are terminated and the system and service manager "
+"process has been replaced by the systemd-shutdown binary."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:574
+msgid ""
+"As with the _watchdog runtime timeout_, a valid value is a non-negative time "
+"duration in seconds, or suffixed with `ms`, `m`, `h`, `d`, `w` for "
+"milliseconds, minutes, hours, days and weeks respectively."
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:576
+msgid "The following example will set the timeout to 500 seconds:"
+msgstr ""
+
+#: ../../../reference/administration/system-options.md:578
+msgid "snap set system watchdog.shutdown-timeout=500\n"
+msgstr ""

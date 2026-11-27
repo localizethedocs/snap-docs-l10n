@@ -1,0 +1,350 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/custom-device-interface.md:2
+msgid "custom-device interface"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:4
+msgid ""
+"The `custom-device` interface permits access to a device of a specific class "
+"and model without requiring the creation of an interface for that device "
+"alone. It’s intended to be used with {ref}`Ubuntu Core <ref-glossary_ubuntu-"
+"core>` and its scope and specification are defined as part of the {ref}"
+"`gadget snap <reference-development-yaml-schemas-the-gadget-snap>` for the "
+"deployed Ubuntu Core image."
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:6
+msgid ""
+"To permit access, the application snaps define a custom-device plug and the "
+"[gadget snap](https://documentation.ubuntu.com/core/reference/gadget-snap-"
+"format/) defines a custom-device slot, where both the plug and the slot have "
+"the identically-named `custom-device` attribute."
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:8
+msgid ""
+"Under specific and appropriate circumstances, it is possible to define the "
+"slot directly from the consuming application itself, together with the plug, "
+"which is an acceptable approach for applications that will be widely "
+"distributed but support very specific hardware."
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:10
+msgid ""
+"Using the custom-device requires {ref}`Store approval and permissions "
+"<interfaces-process-for-aliases-auto-connections-and-tracks>`, both to allow "
+"the presence of the slot, and to set up elements such as the slot self-"
+"connecting exactly to the plug on the app. The more specific the tagging "
+"information provided by the slot, the easier it will be to allow for this."
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:12
+msgid ""
+"The slot-side of the interface is used to derive which _udev_ rules are "
+"provided to the plug-side of the connection:"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:14
+msgid ""
+"slots:\n"
+"  dual-sd:\n"
+"    interface: custom-device\n"
+"    custom-device: my-dual-sd-device\n"
+"    devices:\n"
+"      - /dev/DualSD\n"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:23
+msgid ""
+"To prevent connection to arbitrary custom-device slots, the plug and slot "
+"must share the same custom-device attributes:"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:25
+msgid ""
+"plugs:\n"
+"  dual-sd:\n"
+"    interface: custom-device\n"
+"    custom-device: my-dual-sd-device\n"
+"apps:\n"
+"  app:\n"
+"    plugs: [dual-sd]\n"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:35
+msgid ""
+"When the slot and plug are connected, a udev rule is automatically generated "
+"and tagged for the plug side for each device path in the `devices` and `read-"
+"devices` attributes, such as:"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:37
+msgid "KERNEL==\"DualSD\",\n"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:41
+msgid ""
+"Note that here, the default udev `KERNEL` rule is the full device path "
+"following the leading `/dev/`. Depending on the device drivers, some devices "
+"expect the `KERNEL` rule to be only the basename of the device path, even if "
+"that device is in a subdirectory of `/dev/`. For this reason, when `udev-"
+"tagging` attributes are not given for a device which is in a subdirectory of "
+"`/dev/`, default `KERNEL` rules are generated for both the basename and for "
+"the full device path following the leading `/dev/`."
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:43
+msgid ""
+"If the `udev-tagging` attribute is used, this default udev rule is replaced "
+"with more specific rules, as described below. When a device name in the "
+"`kernel` attribute does not match the device path listed in the `devices` "
+"section, such as if the `KERNEL` udev attribute is different than the `/"
+"dev/...` path, an optional `for-device` attribute can be added to establish "
+"a correspondence, such that both udev matching rules and the AppArmor "
+"profile is generated correctly."
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:45
+msgid ""
+"Requires snapd version *2.55+*, while `udev-tagging.for-device` attribute "
+"support requires snapd version *2.66+*."
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:50
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:52
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`**: yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:52
+#: ../../../reference/interfaces/custom-device-interface.md:56
+#: ../../../reference/interfaces/custom-device-interface.md:58
+#: ../../../reference/interfaces/custom-device-interface.md:61
+#: ../../../reference/interfaces/custom-device-interface.md:63
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:55
+msgid "**Attributes**:"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:56
+msgid ""
+"`custom-device` (optional) (plug, slot): A label for the custom device.</br> "
+"The label must be identical across the plug and slot connections.</br>If "
+"omitted, the label defaults to either local slot name or local plug name."
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:58
+msgid ""
+"`devices` (slot): paths to device nodes.</br>   Example: `devices: [/dev/"
+"input/event[0-9], /dev/input/mice]`</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:60
+msgid "`files` (optional) (slot):"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:61
+msgid ""
+"`read` (slot): list of files and/or directories for read-only access by the "
+"device.</br>   Example:  `read: [ /dev/input/by-id/* ]`"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:63
+msgid ""
+"`write` (slot): list of files and/or directories for read/write access by "
+"the device.</br>   Example: `write: [ /etc/file-write, /etc/dir-write ]`"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:65
+msgid ""
+"`read-devices` (optional) (slot): paths to device nodes for read-only "
+"access.   Example: `read-devices: [ /dev/js* ]`"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:67
+msgid ""
+"`udev-tagging` (optional): used to tailor the generated udev rules. Can be "
+"one of the following:"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:68
+msgid ""
+"`kernel`: (mandatory): maps to the string used as the udev `KERNEL==` filter "
+"rule."
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:69
+msgid "`subsystem`: corresponds to the `SUBSYSTEM==` filters in a udev rule."
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:70
+msgid ""
+"`environment`: a map of expected environment variables for the udev rule to "
+"match with `ENV{...}==\"...\"`"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:71
+msgid "`attributes`: a map of attributes used with `ATTR{...}==\"...\"`"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:72
+msgid ""
+"`for-device`: indicates which device the `udev-tagging` snippet refers to"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:74
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:76
+msgid ""
+"A truncated example showing how the subsystem and attributes can be used:"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:78
+msgid ""
+"   udev-tagging:\n"
+"     - kernel: hiddev0\n"
+"       subsystem: usb\n"
+"       attributes:\n"
+"         idVendor: \"0x03f0\" # HP\n"
+"     - kernel: hiddev1\n"
+"       subsystem: usb\n"
+"       attributes:\n"
+"         idVendor: \"0x03fc\" # ECS\n"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:90
+msgid ""
+"An example slot declaration showing the how the kernel environment settings "
+"can be used with a custom joystick interface:"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:92
+msgid ""
+"slots:\n"
+"  hwdev:\n"
+"    interface: custom-device\n"
+"    custom-device: custom-joystick\n"
+"    devices:\n"
+"      - /dev/input/js{[0-9],[12][0-9],3[01]}\n"
+"      - /dev/input/event[0-9]*\n"
+"    files:\n"
+"      read:\n"
+"        - /run/udev/data/c13:{6[5-9],[7-9][0-9],[1-9][0-9][0-9]*}\n"
+"        - /run/udev/data/c13:{[0-9],[12][0-9],3[01]}\n"
+"        - /sys/devices/**/input[0-9]*/capabilities/*\n"
+"    udev-tagging:\n"
+"      - kernel: input/event[0-9]*\n"
+"        subsystem: input\n"
+"        environment:\n"
+"          ID_INPUT_JOYSTICK: \"1\"\n"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:112
+msgid "The above example will generate the following udev tags:"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:114
+msgid ""
+"spec.TagDevice(`KERNEL==\"js{[0-9],[12][0-9],3[01]}\"`)\n"
+"spec.TagDevice(`KERNEL==\"input/js{[0-9],[12][0-9],3[01]}\"`)\n"
+"spec.TagDevice(`SUBSYSTEM==\"input\", KERNEL==\"input/event[0-9]*\", "
+"ENV{ID_INPUT_JOYSTICK}==\"1\"`)\n"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:120
+msgid "The following example shows the `udev-tagging` syntax:"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:122
+msgid ""
+"   slots:\n"
+"      v4l:\n"
+"        interface: custom-device\n"
+"        devices:\n"
+"          - /dev/video[0-9]\n"
+"        files:\n"
+"          read:\n"
+"            - /sys/bus/usb/devices\n"
+"            - /sys/class/video4linux\n"
+"            - /sys/kernel/debug/sleep_time\n"
+"          write:\n"
+"            - /proc/sys/vm/stat_interval\n"
+"        udev-tagging:\n"
+"          - kernel: video[0-9]\n"
+"            subsystem: v4l\n"
+"            environment:\n"
+"              var1: foo\n"
+"              var2: bar\n"
+"            attributes:\n"
+"              attr1: one\n"
+"              attr2: two\n"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:146
+msgid ""
+"An additional example, showing how to match udev rules with a device which "
+"appears at a different path under `/dev/..`:"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:148
+msgid ""
+"   slots:\n"
+"      msr:\n"
+"        interface: custom-device\n"
+"        devices:\n"
+"          - /dev/cpu/[0-9]*/msr\n"
+"        udev-tagging:\n"
+"          - kernel: msr[0-9]*\n"
+"            subsystem: msr\n"
+"            for-device: /dev/cpu/[0-9]*/msr\n"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:160
+msgid ""
+"The above example generates a udev rule to match `KERNEL==\"msr[0-9]*\", "
+"SUBSYSTEM==\"msr\"` and an AppArmor rule allowing read/write access through "
+"`/dev/cpu/[0-9]*/msr`."
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:163
+msgid ""
+"The test code can be found in the snapd repository: [https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/custom_device_test.go]"
+"(https://github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"custom_device_test.go)"
+msgstr ""
+
+#: ../../../reference/interfaces/custom-device-interface.md:165
+msgid ""
+"The source code for the interface is in the snapd repository: [https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/custom_device.go]"
+"(https://github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"custom_device.go)"
+msgstr ""

@@ -1,0 +1,507 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:0
+msgid ""
+"Create, inspect, verify, export, import, restore, and delete snap data "
+"snapshots, with automatic retention and file exclusions."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:8
+msgid "Create data snapshots"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:10
+msgid ""
+"A *snapshot* is a copy of the user, system and configuration data stored by "
+"*snapd* for one or more snaps on your system. This data can be found in "
+"`$HOME/snap/<snap-name>` and `/var/snap/<snap-name>`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:12
+msgid ""
+"Snapshots are generated **manually** with the `snap save` command and "
+"**automatically when a snap is removed** (unless `--purge` is used with "
+"remove, in which case no snapshot is created). A snapshot can be used to "
+"backup the state of your snaps, revert snaps to a previous state and to "
+"restore a fresh snapd installation to a previously saved state."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:14
+msgid "Generating a snapshot"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:16
+msgid ""
+"The `snap save` command creates a snapshot for all installed snaps, or if "
+"declared individually, specific snaps:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:18
+msgid ""
+"$ sudo snap save\n"
+"Set  Snap         Age    Version               Rev   Size   Notes\n"
+"30   core         1.00s  16-2.37~pre1          6229   250B  -\n"
+"30   core18       886ms  18                    543    123B  -\n"
+"30   go           483ms  1.10.7                3092   387B  -\n"
+"30   vlc          529ms  3.0.6                 770   882kB  -\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:28
+msgid ""
+"Before using this command, stop any services for the snaps included in the "
+"snapshot (`snap stop <snap-name>`) and close any running applications "
+"provided by those snaps. Start them again once the snapshot has been saved."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:31
+msgid ""
+"Each snapshot has a unique ID, or revision, shown in the *Set* column above. "
+"This value is unique to each *save* operation, regardless of the number of "
+"snaps it includes. *Age* is the period of time since the snapshot was "
+"created, while *Version* and *Rev* refer to the specific snap at the time of "
+"the snapshot. *Size* is the amount of storage used by a snapshot."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:33
+msgid ""
+"If you'd rather not wait for the *save* operation to complete before "
+"regaining access to your terminal, add the `--no-wait` argument."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:35
+msgid ""
+"You can see the state of your system's snapshots with the `snap saved` "
+"command. Adding `--id=<set/unique ID>` allows you to query a specific "
+"snapshot:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:37
+msgid ""
+"$ snap saved --id=29\n"
+"Set  Snap             Age    Version               Rev   Size   Notes\n"
+"29   vlc              2h41m  3.0.6                 770   882kB  -\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:43
+msgid ""
+"Both the _saved_ and _check-snapshot_ commands accept a `–users=` option "
+"with a comma-separated list of users to filter on."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:46
+msgid "What a snapshot stores"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:48
+msgid ""
+"A snapshot is a copy of the user, system and configuration data stored by "
+"*snapd* for one or more snaps on your system. For each snap, this data can "
+"be found in `$HOME/snap/<snap-name>` and `/var/snap/<snap-name>`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:50
+msgid ""
+"More specifically, these are locations that snapped application access "
+"through the following environment variables from within the snap:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:52
+msgid "System-wide locations:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:53
+msgid "**SNAP_COMMON** ( `/var/snap/<snap-name>/common `)"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:54
+msgid "**SNAP_DATA** (`/var/snap/<snap-name>/<revision>`)"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:56
+msgid "User-specific locations:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:57
+msgid "**SNAP_USER_COMMON** (`/home/<username>/snap/<snap-name>/common`)"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:58
+msgid "**SNAP_USER_DATA** (`/home/<username>/snap/<snap-name>/<revision>`)"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:60
+msgid ""
+"[snapd _2.77_+] Data residing in mount points under the snap data "
+"directories listed above is excluded from all snapshots, whether created "
+"manually with `snap save` or automatically when a snap is removed."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:62
+msgid ""
+"It's important to note that **SNAP_DATA** and **SNAP_USER_DATA** place their "
+"data within a directory specific to each snap {ref}`revision <explanation-"
+"how-snaps-work-revisions>`, whereas  **SNAP_COMMON** and  "
+"**SNAP_USER_COMMON** do not."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:64
+msgid ""
+"You need to be aware of what data is copied forward when you move from one "
+"revision to the next and which data will be restored if you switch to a "
+"previous snapshot."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:66
+msgid ""
+"When you move from one revision to the next, the revision-specific contents "
+"of  **SNAP_DATA** and  **SNAP_USER_DATA** are copied into new directories "
+"for the new revision. The contents of  **SNAP_COMMON** and  "
+"**SNAP_USER_COMMON** remain the same. A snapshot **only** includes the data "
+"for the installed revision, plus the contents of the two **COMMON** "
+"directories."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:68
+msgid "When a snapshot is restored:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:69
+msgid ""
+"The contents of   **SNAP_COMMON** and  **SNAP_USER_COMMON** will be "
+"_overwritten_ and restored to their state when the restored snapshot was "
+"created."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:71
+msgid ""
+"The revision-specific contents of **SNAP_DATA** and  **SNAP_USER_DATA** will "
+"be copied into and _overwrite_ the contents of the revision-specific "
+"directory of the currently installed revision."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:73
+msgid ""
+"See {ref}`Data locations <interfaces-data-locations>` for more details on "
+"how these locations are intended to be used by a snap, and see {ref}`Inside "
+"a snapshot <ref-create-data-snapshots_inside-a-snapshot>` to see how they're "
+"stored within a snapshot."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:75
+msgid "Excluding data"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:77
+msgid "Static exclusion via meta/snapshots.yaml"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:78
+msgid ""
+"A snap can use the [`meta/snapshots.yaml`](https://documentation.ubuntu.com/"
+"snapcraft/latest/reference/snapshots/) file to exclude data from snapshots. "
+"This config file contains a single `exclude` keyword which lists one or more "
+"wildcard patterns of files or directories to exclude from snapshots. The "
+"wildcard patterns must start with the **SNAP_DATA**, **SNAP_COMMON**, "
+"**SNAP_USER_DATA**, or **SNAP_USER_COMMON** variable and cannot include `[`, "
+"`]`, `{`, `}`, `?`, or `**`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:80
+msgid ""
+"Since the exclusions are defined in the snap package, they do not change "
+"between snapshots and are fixed for a given revision. These static "
+"exclusions apply to both manual and automatic snapshots."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:82
+msgid ""
+"# meta/snapshots.yaml\n"
+"exclude:\n"
+"  - $SNAP_DATA/*.png\n"
+"  - $SNAP_COMMON/stories\n"
+"  - $SNAP_USER_DATA/data/transactions.db\n"
+"  - $SNAP_USER_COMMON/*/*\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:91
+msgid "Dynamic exclusion via snapd REST API"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:92
+msgid ""
+"A snapshot can also be created using a POST request to the [`/v2/snaps`]"
+"(https://snapcraft.io/docs/reference/development/snapd-rest-api/#/"
+"Asynchronous/manageSnaps) REST API endpoint. The request body includes a "
+"`snapshot-options` field that can be used to list snap-specific paths of "
+"files or directories to exclude from the snapshot. These paths follow the "
+"same patterns as mentioned above for the `meta/snapshots.yaml` file. The "
+"exclusion path patterns are specified per request and can vary across "
+"snapshots. This dynamic path exclusion is only available for manual "
+"snapshots."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:94
+msgid ""
+"{\n"
+"    \"action\": \"snapshot\",\n"
+"    \"snaps\": [\"<snap1>\", \"<snap2>\"],\n"
+"    \"snapshot-options\": {\n"
+"        \"<snap1>\": {\"exclude\": [\"<pattern1>\", \"<pattern2>\"]},\n"
+"        \"<snap2>\": {\"exclude\": [\"<pattern3>\"]}\n"
+"    }\n"
+"}\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:105
+msgid "Verifying a snapshot"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:107
+msgid ""
+"To verify the integrity of a snapshot, use the `check-snapshot` command:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:109
+msgid ""
+"$ sudo snap check-snapshot 30\n"
+"Snapshot #30 verified successfully.\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:114
+msgid "Exporting and importing a snapshot"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:116
+msgid ""
+"By default, snapshots are maintained and stored on the system that created "
+"them. However, to help with backup and recovery, individual snapshots can "
+"also be exported and restored."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:118
+msgid ""
+"To export a snapshot, use the `snap export-snapshot <set-id> <new-filename>` "
+"command:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:120
+msgid ""
+"$ sudo snap export-snapshot 30 my-snapshot.zip\n"
+"Exported snapshot #30 into \"my-snapshot.zip\"\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:125
+msgid ""
+"The resultant snapshot file is a _zip_ archive that contains two _json_ "
+"files to validate the snapshot and a _zip_ archive containing the user, "
+"system and configuration data for the specific revision of the snap "
+"installed when the snapshot was created."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:127
+msgid ""
+"To import a previously exported snap shot, use the `snap import-snapshot` "
+"command:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:129
+msgid ""
+"$ sudo snap import-snapshot mysnapshot\n"
+"Imported snapshot as #30\n"
+"Set  Snap  Age    Version  Rev   Size    Notes\n"
+"30   vlc   3d02h  1.11.13  4286  255B  -\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:136
+msgid ""
+"If the snapshot with the same snapshot identifier exists, the import will "
+"overwrite it. If the snapshot doesn't exist, it will be imported and "
+"assigned a new snapshot identifier."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:138
+msgid "Restoring a snapshot"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:140
+msgid ""
+"The `restore` command replaces the current user, system and configuration "
+"data with the corresponding data from the specified snapshot:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:142
+msgid ""
+"$ sudo snap restore 30\n"
+"Restored snapshot #30.\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:148
+msgid ""
+"Before using this command, make sure the snap is installed, then stop its "
+"services (`snap stop <snap-name>`) and close any running applications "
+"provided by that snap. Start them again once the snapshot has been "
+"successfully restored."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:151
+msgid ""
+"By default, this command restores all the data for all the snaps in a "
+"snapshot. You can restore data for specific snaps by simply listing them "
+"after the command and for specific users with the `--users=<usernames>` "
+"argument."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:153
+msgid ""
+"[snapd _2.77_+] Existing {ref}`mount-control <interfaces-mount-control-"
+"interface>` mount points under snap data directories are preserved when a "
+"snapshot is restored and are not overwritten."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:155
+msgid ""
+"Excluding a snap's system and configuration data from *snap restore* is not "
+"currently possible."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:157
+msgid "Deleting a snapshot"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:159
+msgid ""
+"The `forget` command deletes a snapshot. This operation removes a snapshot "
+"from local storage and can not be undone:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:161
+msgid ""
+"$ sudo snap forget 30\n"
+"Snapshot #30 forgotten.\n"
+"$ snap saved --id=30\n"
+"No snapshots found.\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:168
+msgid ""
+"By default, this command deletes all the data for all the snaps in a "
+"snapshot. You can delete the data for specific snaps by listing them after "
+"the command."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:171
+msgid "Automatic snapshots"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:173
+msgid ""
+"Apart from on [Ubuntu Core](https://www.ubuntu.com/core) devices, where the "
+"feature is disabled by default, a snapshot is generated automatically when a "
+"snap is removed. These snapshots are retained for 31 days before being "
+"deleted automatically."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:175
+msgid ""
+"To see which snapshots are generated automatically,  look for `auto` in the "
+"*Notes* column output from *snap saved*:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:177
+msgid ""
+"$ snap saved\n"
+"Set  Snap              Age    Version               Rev   Size   Notes\n"
+"30   go                25d5h  1.10.7                3092   387B  -\n"
+"30   vlc               25d0h  3.0.6                 770   882kB  -\n"
+"31   vlc               529ms  3.0.6                 770   882kB  auto\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:185
+msgid ""
+"As with manual snapshots, automatically generated snapshots can be manually "
+"deleted with `snap forget <set-id>`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:187
+msgid ""
+"Automatic snapshot retention time is configured with the "
+"`snapshots.automatic.retention` {ref}`system option <how-to-guides-manage-"
+"snaps-set-system-options>`. The value needs to be greater than 24 hours:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:189
+msgid "snap set system snapshots.automatic.retention=30h\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:193
+msgid "To disable automatic snapshots, set the retention time to `no`:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:195
+msgid "snap set system snapshots.automatic.retention=no\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:199
+msgid ""
+"Disabling automatic snapshots will *not* affect pre-existing automatically "
+"generated snapshots, only those generated by the removal of subsequent snaps."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:201
+msgid "Automatic snapshots require snap version _2.39+_."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:204
+msgid "Inside a snapshot"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:206
+msgid ""
+"On Ubuntu-based systems, snapshots are stored in the `/var/lib/snapd/"
+"snapshots` directory and are both stored and exported as a *zip* file. This "
+"zip file contains the following:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:208
+msgid ""
+"<snap-snapshot-zip>\n"
+"├── <snapshot-number>_<snap-name>_<revision>.zip\n"
+"└────── archive.tgz\n"
+"    │   ├── <revision-number>\n"
+"    │       └── $SNAP_DATA (/var/snap/<snap-name>-<revision>)\n"
+"    │   └── common\n"
+"    │       └── $SNAP_COMMON (/var/snap/<snap-name>/common)\n"
+"    ├── meta.json\n"
+"    ├── meta.sha3_384\n"
+"    └── user\n"
+"        └── <username>.tgz\n"
+"            ├── <revision-number>\n"
+"            │   └── $SNAP_USER_DATA (/home/<username>/snap/<snap-name>/"
+"<revision>)\n"
+"            └── common\n"
+"                └── $SNAP_USER_COMMON(/home/<username>/<snap-name>)\n"
+"\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/create-data-snapshots.md:227
+msgid ""
+"**meta.json**: describes the contents of the snapshot, alongside its "
+"configuration and checksums for the archives."
+msgstr ""

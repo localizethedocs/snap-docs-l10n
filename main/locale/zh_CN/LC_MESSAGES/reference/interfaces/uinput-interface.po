@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/uinput-interface.md:2
+msgid "uinput interface"
+msgstr ""
+
+#: ../../../reference/interfaces/uinput-interface.md:4
+msgid ""
+"`uinput` allows write access to `/dev/uinput` on the host system for "
+"emulating input devices from userspace that can send input events (such as a "
+"joystick)."
+msgstr ""
+
+#: ../../../reference/interfaces/uinput-interface.md:6
+msgid ""
+"By design, the `/dev/uinput` device allows for arbitrary input injection and "
+"its default permissions are the standard `root:root 0660` across Linux "
+"distributions."
+msgstr ""
+
+#: ../../../reference/interfaces/uinput-interface.md:8
+msgid ""
+"Third-party software sometimes installs _udev_ rules that change the `/dev/"
+"uinput` device permissions to world-writable permissions (`0666`) as a "
+"shortcut to allow all system users access."
+msgstr ""
+
+#: ../../../reference/interfaces/uinput-interface.md:10
+msgid ""
+"However, _snapd_ considers world-writable permissions for `/dev/uinput` to "
+"be unsafe for most systems because it potentially allows any user with "
+"access to the device the ability to inject input events into the kernel."
+msgstr ""
+
+#: ../../../reference/interfaces/uinput-interface.md:12
+msgid ""
+"This means snapd does not install additional _udev_ rules to modify device "
+"permissions on behalf of snaps, and consequently, will not interfere with "
+"the permissions set by third-party software. As a result, snaps that use "
+"this interface will have the same `/dev/uinput` access as other processes on "
+"the system."
+msgstr ""
+
+#: ../../../reference/interfaces/uinput-interface.md:14
+msgid ""
+"See {ref}`the joystick interface <interfaces-joystick-interface>` and {ref}"
+"`the raw-usb interface <interfaces-raw-usb-interface>` for potential "
+"alternatives."
+msgstr ""
+
+#: ../../../reference/interfaces/uinput-interface.md:16
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`**: yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/uinput-interface.md:16
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/uinput-interface.md:19
+msgid "Requires snapd version  *2.46+* ."
+msgstr ""

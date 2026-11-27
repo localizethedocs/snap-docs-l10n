@@ -1,0 +1,621 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/development/environment-variables.md:0
+msgid ""
+"Reference documentation for environment variables available to snap "
+"applications, including paths, data directories, revisions, libraries, and "
+"desktop support."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:8
+msgid "Environment variables"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:10
+msgid ""
+"Environment variables are widely used across Linux to provide convenient "
+"access to system and application properties."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:12
+msgid ""
+"Both Snapcraft and snapd consume, set, and pass-through specific environment "
+"variables to support building and running snaps."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:14
+msgid ""
+"See below for the various environment variables available to snap "
+"applications. For environment variables connected to Snapcraft, see [Parts "
+"environment variables](https://documentation.ubuntu.com/snapcraft/stable/"
+"reference/part-environment-variables/)."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:16
+msgid "List environment variables"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:18
+msgid ""
+"Each snap runs in a custom environment specifically made for it. To get an "
+"overview of the variables in it, you can open a shell as the snap and run "
+"the `env` command."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:20
+msgid ""
+"$ snap run --shell <snap>.<command>\n"
+"$ env\n"
+"XDG_VTNR=1\n"
+"SSH_AGENT_PID=5543\n"
+"XDG_SESSION_ID=2\n"
+"SNAP_USER_COMMON=/home/<user>/snap/<snap>/common\n"
+"SNAP_LIBRARY_PATH=/var/lib/snapd/lib/gl:\n"
+"SNAP_COMMON=/var/snap/<snap>/common\n"
+"[...]\n"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:33
+msgid "Snap specific environment variables"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:35
+msgid "<pre>SNAP</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:35
+#: ../../../reference/development/environment-variables.md:42
+#: ../../../reference/development/environment-variables.md:52
+#: ../../../reference/development/environment-variables.md:60
+#: ../../../reference/development/environment-variables.md:68
+#: ../../../reference/development/environment-variables.md:76
+#: ../../../reference/development/environment-variables.md:86
+#: ../../../reference/development/environment-variables.md:96
+#: ../../../reference/development/environment-variables.md:106
+#: ../../../reference/development/environment-variables.md:112
+#: ../../../reference/development/environment-variables.md:128
+#: ../../../reference/development/environment-variables.md:140
+#: ../../../reference/development/environment-variables.md:152
+#: ../../../reference/development/environment-variables.md:158
+#: ../../../reference/development/environment-variables.md:166
+#: ../../../reference/development/environment-variables.md:172
+#: ../../../reference/development/environment-variables.md:178
+#: ../../../reference/development/environment-variables.md:188
+#: ../../../reference/development/environment-variables.md:198
+#: ../../../reference/development/environment-variables.md:210
+#: ../../../reference/development/environment-variables.md:220
+#: ../../../reference/development/environment-variables.md:231
+#: ../../../reference/development/environment-variables.md:239
+msgid "<pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:35
+#: ../../../reference/development/environment-variables.md:42
+#: ../../../reference/development/environment-variables.md:52
+#: ../../../reference/development/environment-variables.md:60
+#: ../../../reference/development/environment-variables.md:68
+#: ../../../reference/development/environment-variables.md:76
+#: ../../../reference/development/environment-variables.md:86
+#: ../../../reference/development/environment-variables.md:96
+#: ../../../reference/development/environment-variables.md:106
+#: ../../../reference/development/environment-variables.md:112
+#: ../../../reference/development/environment-variables.md:128
+#: ../../../reference/development/environment-variables.md:140
+#: ../../../reference/development/environment-variables.md:152
+#: ../../../reference/development/environment-variables.md:158
+#: ../../../reference/development/environment-variables.md:166
+#: ../../../reference/development/environment-variables.md:172
+#: ../../../reference/development/environment-variables.md:178
+#: ../../../reference/development/environment-variables.md:188
+#: ../../../reference/development/environment-variables.md:198
+#: ../../../reference/development/environment-variables.md:210
+#: ../../../reference/development/environment-variables.md:220
+#: ../../../reference/development/environment-variables.md:231
+#: ../../../reference/development/environment-variables.md:239
+msgid "</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:37
+msgid ""
+"Directory where the snap is mounted. This is where all the files in your "
+"snap are visible in the filesystem. All of the data in the snap is read-only "
+"and cannot be changed."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:40
+msgid "Typical value: `/snap/hello-world/27`"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:42
+msgid "<pre>SNAP_USER_DATA</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:44
+msgid "Directory for user data."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:46
+msgid ""
+"This directory is backed up and restored across `snap refresh` and `snap "
+"revert` operations."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:48
+msgid "Typical value: `/home/zyga/snap/hello-world/27`"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:50
+msgid "The final number there is `$SNAP_REVISION`."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:52
+msgid "<pre>SNAP_USER_COMMON</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:54
+msgid "Directory for user data that is common across revisions of a snap."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:56
+msgid ""
+"Unlike `SNAP_USER_DATA`, data present in this directory is not backed up or "
+"restored across `snap refresh` and `snap revert` operations. The directory "
+"is suitable for large data that the application can access even if it was "
+"made or modified by a future version of a snap."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:58
+msgid "Typical value `/home/zyga/snap/hello-world/common`"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:60
+msgid "<pre>SNAP_DATA</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:62
+msgid "Directory for system data of a snap."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:64
+msgid ""
+"This directory is owned and writable by `root` and is meant to be used by "
+"background applications (daemons, services). Unlike `SNAP_COMMON` this "
+"directory is backed up and restored across `snap refresh` and `snap revert` "
+"operations."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:66
+msgid "Typical value `/var/snap/hello-world/27`"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:68
+msgid "<pre>SNAP_COMMON</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:70
+msgid "Directory for system data that is common across revisions of a snap."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:72
+msgid ""
+"This directory is owned and writable by `root` and is meant to be used by "
+"background applications (daemons, services). Unlike `SNAP_DATA` this "
+"directory **is not** backed up and restored across snap refresh and revert "
+"operations."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:74
+msgid "Typical value: `/var/snap/hello-world/common`"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:76
+msgid "<pre>SNAP_SAVE_DATA</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:78
+msgid ""
+"**This variable is only exposed on {ref}`Ubuntu Core <ref-glossary_ubuntu-"
+"core>` systems.**"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:80
+msgid ""
+"It points to a snap-specific location on the ubuntu-save partition where the "
+"snap is allowed to store persistent files (like certificates or "
+"configuration files) that will survive a [factory reset](https://"
+"documentation.ubuntu.com/core/explanation/recovery-modes/#factory-reset) of "
+"the Ubuntu Core device."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:82
+msgid ""
+"See [ubuntu-save](https://documentation.ubuntu.com/core/explanation/core-"
+"elements/storage-layout/#the-ubuntu-save-partition) in the Ubuntu Core "
+"documentation for more details on storage layout with this specific "
+"partition."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:84
+msgid "Requires _snapd_ 2.57+."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:86
+msgid "<pre>SNAP_INSTANCE_NAME</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:88
+msgid "The name of snap instance, including instance key if one is set."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:90
+msgid ""
+"For example snap `hello-world` with instance key `foo` has instance name "
+"equal to `hello-world_foo`."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:92
+#: ../../../reference/development/environment-variables.md:110
+msgid "Typical value: `hello-world`"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:94
+#: ../../../reference/development/environment-variables.md:104
+msgid "Requires _snapd_ 2.36+"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:96
+msgid "<pre>SNAP_INSTANCE_KEY</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:98
+msgid "Instance key if one was set during installation or empty."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:100
+msgid "For example instance `hello-world_foo` has an instance key `foo`."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:102
+msgid "Typical value: none"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:106
+msgid "<pre>SNAP_NAME</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:108
+msgid "The name of the snap as specified in the `snapcraft.yaml` file."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:112
+msgid "<pre>SNAP_REVISION</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:114
+msgid ""
+"Revision of the snap, as allocated by the Snap Store on upload or as "
+"allocated by snapd for locally installed snaps."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:116
+msgid ""
+"The Snap Store assigns monotonic revisions to each upload of a given snap. "
+"Snapd uses Snap Store revisions if accompanying assertions are available or "
+"uses a locally generated number. Locally generated numbers are prefixed with "
+"`x` to distinguish them from Snap Store uploads."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:118
+msgid "Typical value: `27` or `x1`"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:120
+msgid "<PRE>SNAP_ARCH</PRE>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:120
+msgid "<PRE>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:120
+msgid "</PRE>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:122
+msgid "CPU architecture of the running system."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:124
+msgid "Typical value `amd64`"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:126
+msgid "Other values are: `i386`, `armhf`, `arm64`."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:128
+msgid "<pre>SNAP_UID</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:130
+msgid ""
+"This variable contains the user ID (uid) of the user running this snap "
+"instance. See also SNAP_EUID."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:132
+#: ../../../reference/development/environment-variables.md:144
+msgid ""
+"For this variable to be exposed by a snap, the snap developer will need to "
+"include the following `assumes` value:"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:134
+#: ../../../reference/development/environment-variables.md:146
+msgid "assumes: [snap-uid-envvars]\n"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:138
+#: ../../../reference/development/environment-variables.md:150
+msgid "Requires _snapd_ 2.59+."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:140
+msgid "<pre>SNAP_EUID</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:142
+msgid ""
+"This variable contains the _effective_ user ID (euid) of the user running "
+"the snap instance. See also SNAP_UID."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:152
+msgid "<pre>SNAP_LAUNCHER_ARCH_TRIPLET</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:154
+msgid ""
+"**Only available in snaps built with a [desktop extension](https://"
+"documentation.ubuntu.com/snapcraft/stable/reference/extensions).**"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:156
+msgid ""
+"The host architecture triplet on which the snap is running. For `amd64` it's "
+"`x86_64-linux-gnu`. The runtime counterpart of "
+"`CRAFT_ARCH_TRIPLET_BUILD_FOR`."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:158
+msgid "<pre>SNAP_LIBRARY_PATH</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:160
+msgid ""
+"Directory with additional system libraries. This variable is used internally "
+"by snapcraft."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:162
+msgid ""
+"The value is always `/var/lib/snapd/lib/gl:` Please note the colon at the "
+"end of that value, the variable is a colon-separated list."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:164
+msgid ""
+"The referenced directory is typically empty unless Nvidia proprietary "
+"drivers are in use."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:166
+msgid "<pre>SNAP_VERSION</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:168
+msgid "The version string as specified in the `snapcraft.yaml`"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:170
+msgid "Typical value `6.3`"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:172
+msgid "<pre>SNAP_REAL_HOME</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:174
+msgid ""
+"The vanilla `HOME` environment variable before snapd-induced remapping, "
+"refer to [Any way to acquire the originally set `HOME` environment variable? "
+"- snapcraft - snapcraft.io](https://forum.snapcraft.io/t/any-way-to-acquire-"
+"the-originally-set-home-environment-variable/19475) for more info."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:176
+msgid "Requires _snapd_ 2.46+."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:178
+msgid "<pre>SNAP_APP_NAME</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:180
+msgid ""
+"The name of the application being run, as specified in the `snapcraft.yaml`."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:182
+msgid "Only set when running an application command."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:184
+msgid "Typical value: `my-snap-app`"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:186
+#: ../../../reference/development/environment-variables.md:196
+#: ../../../reference/development/environment-variables.md:208
+#: ../../../reference/development/environment-variables.md:218
+msgid "Requires _snapd_ 2.77+."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:188
+msgid "<pre>SNAP_APP_COMMON_ID</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:190
+msgid ""
+"The common identifier of the application, as specified by the `common-id` "
+"field in `snapcraft.yaml`. This is typically a reverse-DNS identifier used "
+"to associate the application with its desktop entry."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:192
+msgid "Only set when running an application that defines a `common-id`."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:194
+#: ../../../reference/development/environment-variables.md:216
+msgid "Typical value: `org.example.Foo`"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:198
+msgid "<pre>SNAP_APP_DESKTOP_FILE</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:200
+msgid "The absolute path to the application's installed desktop file."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:202
+msgid ""
+"Only set when running an application that has an associated desktop file on "
+"disk. The value depends on the use of the `common-id` property, or the "
+"`desktop-file-ids` attribute in the `desktop` interface plug."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:204
+msgid "Typical values:"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:205
+msgid "`/var/lib/snapd/desktop/applications/my-snap-name_my-snap-app.desktop`"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:206
+msgid "`/var/lib/snapd/desktop/applications/org.example.Foo.desktop`"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:210
+msgid "<pre>SNAP_APP_BUS_NAME</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:212
+msgid ""
+"The D-Bus bus name the application is allowed to own, as specified by the "
+"`bus-name` field in `snapcraft.yaml`."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:214
+msgid "Only set when running an application that defines a `bus-name`."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:220
+msgid "<pre>SNAP_COMPONENTS</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:222
+msgid ""
+"Path to components directory. Installed components are available under "
+"`$SNAP_COMPONENTS/<comp-name>/`."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:225
+msgid "Typical value: /snap/hello-world/components/27"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:227
+msgid "Requires _snapd_ 2.78+"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:229
+msgid "Generic variables"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:231
+msgid "<pre>HOME</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:233
+msgid ""
+"For non-classic snaps, this environment variable is re-written to "
+"`SNAP_USER_DATA` by snapd so that each snap appears to have a dedicated home "
+"directory that is a subdirectory of the real home directory."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:235
+msgid "For classic confinement snaps, the value remains unchanged."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:237
+msgid ""
+"Typical value: `/home/_user_name_/snap/_snap_name_/_snap_revision_` (e.g. `/"
+"home/zyga/snap/hello-world/27`)"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:239
+msgid "<pre>PATH</pre>"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:241
+msgid ""
+"This environment variable is re-written by snapd so that it is consistent "
+"with the view of the filesystem presented to snap applications."
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:243
+msgid "The value is always:"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:245
+msgid "For non-classic confinement snaps:"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:247
+msgid ""
+"$SNAP/usr/sbin:$SNAP/usr/bin:$SNAP/sbin:$SNAP/bin:/usr/local/sbin:/usr/local/"
+"bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games\n"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:249
+msgid ""
+"For classic confinement snaps:       `/usr/local/sbin:/usr/local/bin:/usr/"
+"sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games`"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:0
+msgid "<br />\n"
+msgstr ""
+
+#: ../../../reference/development/environment-variables.md:0
+msgid "\\\\\n"
+msgstr ""

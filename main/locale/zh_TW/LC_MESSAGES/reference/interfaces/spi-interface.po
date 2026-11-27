@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/spi-interface.md:2
+msgid "spi interface"
+msgstr ""
+
+#: ../../../reference/interfaces/spi-interface.md:4
+msgid ""
+"`spi` allows access to a specific Serial Peripheral Interface (SPI) "
+"controller. This snap interface is restricted because it provides privileged "
+"access to SPI hardware."
+msgstr ""
+
+#: ../../../reference/interfaces/spi-interface.md:8
+msgid "**Auto-Connect**: no</br> **Attributes**:"
+msgstr ""
+
+#: ../../../reference/interfaces/spi-interface.md:8
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/spi-interface.md:10
+msgid ""
+"`path` (slot): path to the specific SPI device node e.g. `/dev/spidev0.0`"
+msgstr ""
+
+#: ../../../reference/interfaces/spi-interface.md:12
+msgid ""
+"Snaps that want to consume an SPI device simply use `plugs: [ spi ]`. The "
+"SPI device to connect to is specified during the interface connection."
+msgstr ""
+
+#: ../../../reference/interfaces/spi-interface.md:14
+msgid ""
+"To see which SPI slots are available on your system, run `snap connections --"
+"all` to show all the possible slots on your system:"
+msgstr ""
+
+#: ../../../reference/interfaces/spi-interface.md:16
+msgid ""
+"$ snap connections --all | grep spi\n"
+"spi         -        pi:spidev0              -\n"
+"spi         -        pi:spidev1              -\n"
+msgstr ""
+
+#: ../../../reference/interfaces/spi-interface.md:22
+msgid ""
+"Once connected, the consuming snap can use the device via the path specified "
+"by the connected slot."
+msgstr ""
+
+#: ../../../reference/interfaces/spi-interface.md:24
+msgid "Requires snapd version _2.28+_."
+msgstr ""

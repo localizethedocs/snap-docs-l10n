@@ -1,0 +1,52 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/pwm-control-interface.md:2
+msgid "pwm-control interface"
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-control-interface.md:4
+msgid "`pwm-control` permits control over any aspect of all PWM channels."
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-control-interface.md:6
+msgid ""
+"This interface is currently **under development** and has not yet been "
+"released for general use. See [ interfaces: add pwm-control interface ]"
+"(https://github.com/canonical/snapd/pull/12347) for further details on this "
+"work."
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-control-interface.md:10
+msgid ""
+"The `pwm-control` interface can potentially impact the system and other "
+"snaps, and allows privileged access to hardware. See {ref}`The pwm interface "
+"<interfaces-pwm-interface>` to access a specific channel."
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-control-interface.md:12
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`**: yes"
+msgstr ""
+
+#: ../../../reference/interfaces/pwm-control-interface.md:12
+msgid "</br>"
+msgstr ""

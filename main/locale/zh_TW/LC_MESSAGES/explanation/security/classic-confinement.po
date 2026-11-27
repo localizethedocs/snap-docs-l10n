@@ -1,0 +1,317 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid ""
+"Understand classic confinement, the most permissive snap confinement level, "
+"which grants applications broad system access and requires Snap Store "
+"vetting."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:8
+msgid "Classic confinement"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:10
+msgid ""
+"Classic confinement is the most permissive level of {ref}`snap confinement "
+"<explanation-security-snap-confinement>`, equivalent to the full system "
+"access that traditional, unsandboxed packages have. Unlike strict "
+"confinement, classic confinement allows a snap to access the host system "
+"directly."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:12
+msgid ""
+"Classic confinement has a very high maintenance cost. Since classic snaps "
+"are not isolated from the host system, developers must ensure that all "
+"binaries and libraries in their snap use the libraries, interpreters, and "
+"dependencies shipped in the snap rather than those in the host system. "
+"Before attempting to craft a classic snap, check wether its use case appears "
+"in {ref}`the list of supported categories<interfaces-reviewing-classic-"
+"confinement-snaps-supported>`. For details on crafting snaps with classic "
+"confinement, see [Classic confinement](https://ubuntu.com/docs/snapcraft/"
+"latest/explanation/classic-confinement/) in the Snapcraft documentation."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:14
+msgid ""
+"This page provides explanations and examples of what happens during "
+"installation and at runtime with snaps packaged using classic confinement."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:16
+msgid "Rationale"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:18
+msgid ""
+"One of the main drives behind the invention of snaps was to guarantee safe "
+"execution of software and mandate that packages abide by the principle of "
+"least privilege. The snap package format places the software in a sandbox, "
+"and snapd mediates all access to host system resources. By default, a snap "
+"is strictly confined, where it only has host access that's explicitly "
+"granted through the interface system."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:20
+msgid ""
+"Apps can be packaged as classic snaps for a variety of reasons. Primarily, "
+"this level of confinement is provided for apps that need access to arbitrary "
+"binaries on the host, which isn't possible when using strict confinement."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:22
+msgid ""
+"Apps packaged as classic snaps behave similar to software provided and "
+"installed through the host's package manager, like Aptitude (`apt`) or Red "
+"Hat Package Manager (`rpm`)."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:24
+msgid "Security"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:26
+msgid ""
+"From a security standpoint, classic snaps are inherently riskier than "
+"standard snaps, as they lack the protections and guardrails offered by "
+"sandboxing. A malicious author could easily compromise a system by "
+"incorporating a compromising payload into a classic snap. And as Canonical "
+"finds is frequently the case, not all requests for classic confinement are "
+"necessary. Some authors misunderstand the snap build process, interfaces, or "
+"filesystem, and with some tweaking their snap is made to work without "
+"classic confinement."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:28
+msgid ""
+"Canonical must therefore audit and vet all classic snaps prior to "
+"distribution on any store. Without approval from the Store team, a classic "
+"snap can't be distributed. The review process that determines the "
+"eligibility and appropriateness as a classic snap is outlined in {ref}"
+"`Submit your snap for review <interfaces-reviewing-classic-confinement-"
+"snaps>`."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:30
+msgid ""
+"Canonical only manages risk for its own infrastructure and channels. If a "
+"user obtains a classic snap through unofficial channels and they understand "
+"the risks, they can manually install it."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:32
+msgid "Install-time process"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:34
+msgid ""
+"When a classic snap is installed, _snapd_ will perform the following actions:"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:36
+msgid ""
+"![Snap confinement at install time](https://assets.ubuntu.com/v1/35306066-"
+"confinement_02.png)"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:36
+msgid "Snap confinement at install time"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:38
+msgid "Mount the snap as a loopback device."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:40
+msgid "Skip the creation of the snap-specific private mount namespace."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:42
+msgid "Skip the configuration of the device cgroups."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:44
+msgid ""
+"Create a permissive AppArmor profile (which will be loaded in complain mode "
+"at runtime). The profile is stored under `/var/lib/snapd/apparmor/profiles`."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:46
+msgid ""
+"Create a permissive Seccomp profile (which will be parsed at runtime). The "
+"profile is stored under `/var/lib/snapd/seccomp/bpf` and will contain a "
+"`@unrestricted\\n` entry."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:48
+msgid "Runtime process"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:50
+msgid ""
+"When a classic snap is executed on the host system, snapd will perform the "
+"following actions:"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:52
+msgid ""
+"![Snap confinement at run time](https://assets.ubuntu.com/v1/d4018ec4-"
+"confinement_01.png)"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:52
+msgid "Snap confinement at run time"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:54
+msgid ""
+"snapd runs a sub-process called `snap-confine`, which is responsible for "
+"creating the necessary confinement for the snap (with the rules set during "
+"the installation process)."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:56
+msgid ""
+"The [AppArmor](https://ubuntu.com/server/docs/security-apparmor) profile "
+"will be loaded in complain mode."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:58
+msgid ""
+"This can be confirmed by running `apparmor_status`, which lists the relevant "
+"profiles in the complain section of the output, such as "
+"`snap.XXX.hook.configure` and `snap.XXX.snapcraft`."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:60
+msgid ""
+"For classic snaps, the permissive Seccomp profile will be parsed. This can "
+"be confirmed by running `grep Seccomp /proc/PID/status`, with the value of "
+"`0` indicating the process does not currently use any Seccomp filtering."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:62
+msgid ""
+"Load the dynamic library dependencies in the following order – staged "
+"packages, `/snap/<base>` (with the relevant base specified in snap.yaml "
+"derived from the developer edited snapcraft.yaml), and then the libraries in "
+"the host environment."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:64
+msgid ""
+"If not found, search through the host system using the system's `/etc/"
+"ld.so.cache`. Classic snaps should not have a `$LD_LIBRARY_PATH` configured "
+"as part of their runtime environment."
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "Feature"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "Strict"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "Classic"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "Mount namespace"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "Private"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "None"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "cgroups"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "Yes"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "No"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "AppArmor"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "Enforce mode"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "Complain mode"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "Seccomp"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "Strict filtering"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "No filtering"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "`LD_LIBRARY_PATH`"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "Depends"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "Empty"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "Library loading"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "Staged packages</br> Base"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:73
+#: ../../../explanation/security/classic-confinement.md:74
+msgid "</br>"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "Binary execution"
+msgstr ""
+
+#: ../../../explanation/security/classic-confinement.md:0
+msgid "Staged packages</br> Base</br> Host system"
+msgstr ""

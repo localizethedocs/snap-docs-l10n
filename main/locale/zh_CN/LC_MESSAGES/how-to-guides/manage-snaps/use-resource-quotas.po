@@ -1,0 +1,580 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:2
+msgid "Use resource quotas"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:4
+msgid ""
+"A quota group sets resource limits on {ref}`services <how-to-guides-manage-"
+"snaps-control-services>` running inside snaps."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:6
+msgid "Resource limits can be set for the following attributes:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:7
+msgid ""
+"**Journal log messages**: as a maximum size for the log and as a rate limit"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:8
+msgid "**Memory**: as a maximum amount of RAM"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:9
+msgid ""
+"**CPU usage**: as a percentage across a number - or specific - CPU cores, "
+"and as a given number of threads"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:11
+msgid ""
+"Quota groups are created, removed and queried with the following _snap_ "
+"commands:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:13
+msgid "**set-quota**: create or update a quota group"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:14
+msgid "**quota**: show quota group for a set of snaps"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:15
+msgid "**quotas**: show all quota groups"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:16
+msgid "**remove-quota**: remove a quota group"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:18
+msgid ""
+"Quota groups require snap version _2.59+_. Setting quotas for journal log "
+"messages is currently considered experimental and requires that an "
+"*experimental feature-flag* is first be enabled:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:20
+msgid "sudo snap set system experimental.quota-groups=true\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:24
+msgid "Create a quota group"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:26
+msgid ""
+"To create a quota group, use the `snap set-quota` command with a group name "
+"and a limiting attribute, such as `--memory=<amount>`:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:28
+msgid "`snap set-quota mygroup --memory=64MB`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:30
+msgid "Add snaps to a quota group"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:32
+msgid ""
+"Snaps that contain services can be optionally added to a quota group when a "
+"group is created:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:34
+msgid "`snap set-quota mygroup --memory=64MB snap1 snap2`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:36
+msgid ""
+"After a group has been created, a snap can be added to a group when it's "
+"installed:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:38
+msgid "`snap install snap1 --quota-group=mygroup`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:40
+msgid ""
+"A pre-installed snap can be added to a pre-existing quota group by running "
+"the `set-quota` command again:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:42
+msgid "`snap set-quota highmem hello-world`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:44
+msgid ""
+"See below for details on which limiting attributes are supported by quota "
+"groups."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:46
+msgid "Limiting attributes"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:49
+msgid "Journal log limits"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:51
+msgid ""
+"While the `snap logs` command is used to retrieve the _systemd journal_ logs "
+"for a specific service, or for all services within a snap (see {ref}"
+"`Inspecting logs <ref-control-services_inspecting-logs>` for further "
+"details), a quota can be used to limit the output."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:53
+msgid "Log output can be limited by both size and rate within a quota group."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:55
+msgid "Journal size"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:57
+msgid "`journal-size=<value>[KB|MB|GB]`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:59
+msgid ""
+"Limit the size of the aggregated journal log for all the snaps in the quota "
+"group. This is useful when service log output is verbose on devices with "
+"limited storage capacity."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:61
+msgid ""
+"Accepts a value in either kilobytes(KB), megabytes(MB) or gigabytes(GB), "
+"including aggregated values:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:63
+msgid "sudo snap set-quota loggroup --journal-size=64MB\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:67
+msgid "Journal rate limit"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:69
+msgid "`journal-rate-limit=<number-of-messages>/<time-period>`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:71
+msgid ""
+"Limit the number of messages logged to a maximum per time period. This is a "
+"useful way of limiting the number of messages for snaps."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:73
+msgid ""
+"The time period can be milliseconds (ms), seconds(s), minutes (m), and "
+"hours(h), including aggregated periods:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:75
+msgid "sudo snap set-quota loggroup --journal-rate-limit=10/1h2m3s4ms5us\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:79
+msgid "Memory limits"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:81
+msgid "`memory=value[KB|MB|GB]`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:83
+msgid ""
+"Memory units can be 'B', 'KB', 'MB or 'GB' with a size greater than 4KB:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:85
+msgid "sudo snap set-quota highmem --memory=2GB\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:89
+msgid ""
+"The memory limit for a quota group can only be increased.  Increasing the "
+"memory limit for a quota group *does not* restart any services associated "
+"with snaps in the quota group."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:91
+msgid ""
+"To decrease the memory limit for a quota group, the entire group must be "
+"removed with the _remove-quota_ command and recreated with a lower limit."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:93
+msgid "CPU limits"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:95
+msgid ""
+"CPU limits can be set in 4 different ways, some of which can be combined "
+"depending on requirements:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:97
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:104
+msgid "Percentage of total CPU resources"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:98
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:109
+msgid "Percentage of a given number of CPU cores"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:99
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:118
+msgid "Percentage for specific cores"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:100
+msgid "Limit the number of threads"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:102
+msgid ""
+"Without a specified CPU limit, all quota groups can use the full system "
+"capacity."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:105
+msgid "`cpu=<percentage>%`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:107
+msgid ""
+"Sets a relative percentage limit on how much execution time a process "
+"receives, regardless of the number of cores available, up to 100%."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:110
+msgid "`--cpu=<number of cores>x<percentage>%`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:112
+msgid ""
+"<!-- TODO: this behaviour is on systems using cgroupsv2 (grep ^cgroup /etc/"
+"mtab).  Without this, CPU limits use CPUQuota (200% means two cores). This "
+"needs to be tested and documented. -->\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:114
+msgid ""
+"One or more cores can be specified alongside a CPU percentage to allocate "
+"relative CPU resources across only that number of cores."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:116
+msgid ""
+"For example, `--cpu=2x100%` on a 4 core system would permit a process to run "
+"at full capacity on only two cores, which is equivalent to 50% of full "
+"system capacity."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:120
+msgid "`cpu-set=<core number 1>,<core number 2> --cpu=<percentage>%`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:122
+msgid ""
+"Using an additional `--cpu-set` argument with `--cpu` , it's possible to "
+"specify exactly which cores to be used as the CPU resources for that quota "
+"group."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:124
+msgid ""
+"For example, `--cpu-set=0,1 --cpu=100%` will permit up to 100% CPU resource "
+"usage on 2 specific cores (0 and 1)."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:126
+msgid ""
+"The following example will allow up to a maximum of half usage combined on "
+"four specific cores which means the sum of usage across all 4 specific cores "
+"cannot exceed 200%:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:128
+msgid "snap set-quota max-two-specific-cores --cpu-set=0,1,2,3 --cpu=50%\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:132
+msgid ""
+"In the above example, services in the _max-two-specific-cores_ quota group "
+"could run using 100% of two cores and 0% of the other two cores, or 25% of "
+"each core, 33% of 3 of the cores and 0% of the last core, or any other "
+"combination that does not exceed 200%. The number 200% comes from the size "
+"of the `--cpu-set` set multiplied by the `--cpu` setting."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:134
+msgid "4. Limit the number of threads"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:136
+msgid "`threads=<thread limit>`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:138
+msgid ""
+"The `--threads` option is used to limit the number of threads or processes "
+"that can be created by the snaps within the quota group."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:140
+msgid ""
+"For example, `--threads=4096` will limit a quota group to no more than 4096 "
+"threads or processes."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:142
+msgid ""
+"The _threads_ option can also be used with both `--cpu` and `--cpu-set` "
+"options to target specific requirements:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:144
+msgid ""
+"snap set-quota max-two-specific-cores --cpu-set=0,1,2,3 --cpu=50% --"
+"threads=8092\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:148
+msgid ""
+"By default, quota groups are not limited in the number of threads they can "
+"create."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:151
+msgid "View quotas"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:153
+msgid ""
+"If the group already exists, _set-quota_ will update its resource limits."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:155
+msgid "Use the _quotas_ command to view created quota groups:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:157
+msgid ""
+"$ snap quotas\n"
+"Quota      Parent  Constraints                        Current\n"
+"highmem            memory=2.00GB cpu=50%,cpu-set=0,1\n"
+"cpuhalf            cpu=50%,cpu-set=0,1\n"
+"manycores          cpu=2x,cpu=100%,threads=4096\n"
+"maxcores           cpu=100%\n"
+"memcpu             memory=2.00GB,cpu=50%\n"
+"threads            threads=4096\n"
+"loggroup           journal-size=64.0MB,journal-rate=10/1h2m3.004005s\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:168
+msgid ""
+"Snaps can belong to only one quota group, but quota groups can be nested."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:170
+msgid "Nested quota groups"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:172
+msgid ""
+"To create a nested quota group, add the `--parent=<parent group>` argument "
+"to the _set-quota_ command when creating a new quota group:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:174
+msgid "sudo snap set-quota lowmem --memory=1GB --parent=highmem\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:178
+msgid "The *quotas* command will also show nested quota groups:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:180
+msgid ""
+"$ snap quotas\n"
+"Quota    Parent   Constraints    Current\n"
+"highmem           memory=2.00GB  \n"
+"lowmem   highmem  memory=1.00GB  \n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:186
+msgid ""
+"The total resource use of nested quota groups cannot exceed that of the "
+"parent group."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:188
+msgid "Update a quota group"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:190
+msgid ""
+"Add the names of one or more snaps to the _set-quota_ command to include "
+"those snaps in the quota group when its created:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:192
+msgid "sudo snap set-quota lowmem go-example-webserver --parent=highmem\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:196
+msgid ""
+"If the quota group already exists, snaps can be added by using _set-quota_ "
+"without the resource limit:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:198
+msgid "sudo snap set-quota lowmem go-example-webserver\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:202
+msgid ""
+"Adding new a snap to a quota group will result in all non-disabled services "
+"in that snap being restarted."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:205
+msgid ""
+"New quotas can be set on existing quota groups, but existing quotas cannot "
+"be removed from a quota group, without removing and recreating the entire "
+"group."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:207
+msgid ""
+"The CPU set limit for a quota group can be modified to include new cores, or "
+"to remove existing cores from the quota already set."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:209
+msgid ""
+"The threads limit for a quota group can be increased but not decreased. To "
+"decrease the _threads_ limit for a quota group, the entire group must be "
+"removed with the remove-quota command and recreated with a lower limit."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:213
+msgid ""
+"Updating quotas in a group, or imposing new quotas on an existing quota "
+"group, will per default require restarting any running services in that "
+"quota group."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:215
+msgid "View group members and resource usage"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:217
+msgid ""
+"The _quota_ command shows information about a quota group, including the set "
+"of  snaps it includes and any subgroups it contains, as well as its resource "
+"constraints and  the current usage of those constrained resources by snap "
+"services in those snaps:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:221
+msgid ""
+"$ snap quota lowmem\n"
+"name:    lowmem\n"
+"parent:  highmem\n"
+"constraints:\n"
+"  memory:  1.00GB\n"
+"current:\n"
+"  memory:  5.32MB\n"
+"snaps:\n"
+"  - go-example-webserver\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:233
+msgid ""
+"Use the _quota_ command on the parent of any nested groups to view total "
+"resource usage and subgroups:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:235
+msgid ""
+"$ snap quota highmem\n"
+"name:  highmem\n"
+"constraints:\n"
+"  memory:  2.00GB\n"
+"current:\n"
+"  memory:  5.35MB\n"
+"subgroups:\n"
+"  - lowmem\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:246
+msgid "Remove snaps and quota groups"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:248
+msgid ""
+"To remove a snap from a quota group, the entire group must be removed with "
+"the _remove-quota_ command and the quota group recreated without the snaps:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:251
+msgid ""
+"$ sudo snap remove-quota lowmem\n"
+"$ sudo snap set-quota lowmem --memory=1GB\n"
+"$ snap quota lowmem\n"
+"name:  lowmem\n"
+"constraints:\n"
+"  memory:  1.00GB\n"
+"current:\n"
+"  memory:  0B\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:262
+msgid ""
+"Currently, only quota groups with no subgroups can be removed. In order to "
+"remove a quota group with subgroups, the subgroups must be first removed "
+"until there are no further subgroups in the group, then the group itself can "
+"be removed."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:264
+msgid "An existing subgroup cannot be moved from one parent to another."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/use-resource-quotas.md:266
+msgid ""
+"To remove a subgroup from a quota group, the subgroup must be first removed "
+"directly with the remove-quota command."
+msgstr ""

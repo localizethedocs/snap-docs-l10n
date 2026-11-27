@@ -1,0 +1,687 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:0
+msgid ""
+"Define and sign confdb schemas, then configure shared snap data through "
+"views, plugs, hooks, and granular access controls."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:8
+msgid "Configure snaps with confdb"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:10
+msgid ""
+"_Confdb_ is a configuration system that allows snaps to be configured in "
+"fine-grained ways using a [confdb-schema](https://documentation.ubuntu.com/"
+"core/reference/assertions/confdb-schema/) assertion."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:12
+msgid ""
+"This guide will detail the steps required to use confdb, as well as explore "
+"some of its features. For implementation details, see the {ref}`Confdb "
+"configuration mechanism <explanation-how-snaps-work-confdb-configuration-"
+"mechanism>`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:14
+msgid ""
+"We'll use an example where one snap creates a Wi-Fi configuration that "
+"another snap can view."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:17
+msgid ""
+"Confdb is currently considered an {ref}`Experimental feature <ref-"
+"experimental-features_experimental-features>` and implementation details may "
+"change as development progresses."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:20
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:22
+msgid ""
+"We first need to ensure the latest version of snapd is installed. This is "
+"important as confdb is still being actively developed:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:24
+msgid "snap refresh\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:28
+msgid "We can then enable confdb with its experimental feature flag:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:30
+msgid "sudo snap set system experimental.confdb=true\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:34
+msgid "Creating a confdb-schema assertion"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:36
+msgid ""
+"To use confdb, we must first create a [confdb-schema assertion](https://"
+"documentation.ubuntu.com/core/reference/assertions/confdb-schema/)."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:38
+msgid "There are two main parts to a confdb-schema assertion:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:39
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:94
+msgid "View rules"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:40
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:48
+msgid "Storage schema"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:42
+msgid ""
+"The *view rules* determine the “schema” of the configuration namespace "
+"exposed to the snap, i.e., what paths can be accessed and how they’re mapped "
+"onto the storage schema."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:44
+msgid ""
+"The *storage schema* determines what the actual stored data looks like and "
+"what constraints apply."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:46
+msgid "We’ll start by defining a storage schema."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:50
+msgid ""
+"When creating the storage schema, we can constrain the format and values "
+"that the stored data can take, such as the characters you can include in a "
+"password."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:52
+msgid "For example:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:54
+msgid ""
+"  {\n"
+"    \"storage\": {\n"
+"      \"aliases\": {\n"
+"        \"password\": {\n"
+"          \"type\": \"string\",\n"
+"          \"pattern\": \"^[\\w~!@#\\$%\\^&-\\+=\\;:,\\.\\/\\?]{8,63}$\"\n"
+"        }\n"
+"      },\n"
+"      \"schema\": {\n"
+"        \"v1\": {\n"
+"          \"schema\": {\n"
+"            \"wifi\": {\n"
+"              \"values\": {\n"
+"                \"schema\": {\n"
+"                  \"psk\": \"${password}\",\n"
+"                  \"ssid\": \"string\",\n"
+"                  \"state\": {\n"
+"                    \"type\": \"string\",\n"
+"                    \"choices\": [\n"
+"                      \"up\",\n"
+"                      \"down\"\n"
+"                    ]\n"
+"                  }\n"
+"                }\n"
+"              }\n"
+"            }\n"
+"          }\n"
+"        }\n"
+"      }\n"
+"    }\n"
+"  }\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:88
+msgid ""
+"The above schema describes three fields within each Wi-Fi entry: an SSID, a "
+"password and a connection state."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:90
+msgid ""
+"Snapd expects the storage schema to conform to a very precise format, using "
+"2 spaces for indentation and sorting map entries. Both Python 3’s "
+"`json.dump` and Golang’s `json.MarshalIndent` can be used to produce this "
+"format. `jq -S` can also be used to sort the schema. It’s useful to keep the "
+"storage schema in its own file so we can modify it over time."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:92
+msgid ""
+"See [confdb-schema types](https://documentation.ubuntu.com/core/reference/"
+"assertions/confdb-schema/#schema-types) for a detailed description of types "
+"and constraints."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:96
+msgid "Now let’s create some view rules to access confdb."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:98
+msgid ""
+"In our example, we’ll use one snap as the custodian of both views, which "
+"also allows changes to the network configuration, and another snap to access "
+"it. This means we need two views: `wifi-admin` and `wifi-state`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:100
+msgid "`wifi-admin` exposes parameters and allows them to be set."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:101
+msgid ""
+"`wifi-state` allows the snap to list Wi-Fi connections and read SSID and "
+"state information (e.g., up, down)."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:103
+msgid "Both of these can be defined as follows:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:105
+msgid ""
+"type:         confdb-schema\n"
+"authority-id: <account-id>\n"
+"account-id:   <account-id>\n"
+"name:         network\n"
+"summary:      Configure network parameters\n"
+"timestamp:    2025-04-02T19:31:32Z\n"
+"views:\n"
+"  wifi-admin:\n"
+"    summary: Configure Wi-Fi networks\n"
+"    rules:\n"
+"      -\n"
+"        request: \"{name}.ssid\"\n"
+"        storage: \"v1.wifi.{name}.ssid\"\n"
+"      -\n"
+"        request: \"{name}.password\"\n"
+"        storage: \"v1.wifi.{name}.psk\"\n"
+"      -\n"
+"        request: \"{name}.state\"\n"
+"        storage: \"v1.wifi.{name}.state\"\n"
+"\n"
+"  wifi-state:\n"
+"    summary: List and read Wi-Fi SSIDs\n"
+"    rules:\n"
+"      -\n"
+"        request: \"{name}\"\n"
+"        storage: \"v1.wifi.{name}\"\n"
+"        access: read\n"
+"        content:\n"
+"        -\n"
+"          storage: ssid\n"
+"        -\n"
+"          storage: state\n"
+"\n"
+"body-length: 552\n"
+"sign-key-sha3-384: 74KHeq1foV…\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:143
+msgid ""
+"See [Access Ubuntu One](https://documentation.ubuntu.com/core/tutorials/"
+"build-your-first-image/access-ubuntu-one/#retrieve-your-developer-account-"
+"id) for details on retrieving your `account-id`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:145
+msgid "Putting it together"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:147
+msgid ""
+"Now we’re ready to create the assertion. Run the following command, filling "
+"in the account ID and key name:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:149
+msgid ""
+"snapcraft edit-confdb-schema <account-id> network --key-name=<key-name>\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:153
+msgid ""
+"Next, edit the template assertion, replacing the views and storage schema "
+"with the ones we defined above."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:155
+msgid "The end result should look something like the following:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:157
+msgid ""
+"account-id: <account-id>\n"
+"name: network\n"
+"views:\n"
+"  wifi-admin:\n"
+"    rules:\n"
+"      -\n"
+"        request: \"{name}.ssid\"\n"
+"        storage: \"v1.wifi.{name}.ssid\"\n"
+"      -\n"
+"        request: \"{name}.password\"\n"
+"        storage: \"v1.wifi.{name}.psk\"\n"
+"      -\n"
+"        request: \"{name}.state\"\n"
+"        storage: \"v1.wifi.{name}.state\"\n"
+"\n"
+"  wifi-state:\n"
+"    rules:\n"
+"      -\n"
+"        request: \"{name}\"\n"
+"        storage: \"v1.wifi.{name}\"\n"
+"        access: read\n"
+"        content:\n"
+"          -\n"
+"            storage: ssid\n"
+"          -\n"
+"            storage: state\n"
+"\n"
+"body: |-\n"
+"  {\n"
+"    \"storage\": {\n"
+"      \"aliases\": {\n"
+"        \"password\": {\n"
+"          \"pattern\": \"^[a-zA-Z0-9~!@#\\\\$%&-=:,\\\\.]{8,63}$\",\n"
+"          \"type\": \"string\"\n"
+"        }\n"
+"      },\n"
+"      \"schema\": {\n"
+"        \"v1\": {\n"
+"          \"schema\": {\n"
+"            \"wifi\": {\n"
+"              \"values\": {\n"
+"                \"schema\": {\n"
+"                  \"psk\": \"${password}\",\n"
+"                  \"ssid\": \"string\",\n"
+"                  \"state\": {\n"
+"                    \"choices\": [\"up\", \"down\"],\n"
+"                    \"type\": \"string\"\n"
+"                  }\n"
+"                }\n"
+"              }\n"
+"            }\n"
+"          }\n"
+"        }\n"
+"      }\n"
+"    }\n"
+"  }\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:216
+msgid "Then exit the editor and sign the assertion when prompted."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:218
+msgid "Creating the snaps"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:220
+msgid ""
+"See [Create a new snap](https://documentation.ubuntu.com/snapcraft/stable/"
+"tutorials/craft-a-snap/) for a general overview of the snap creation process."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:222
+msgid "There are two things a snap needs to be able to use confdb:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:223
+msgid "a plug to declare its intent to use a confdb namespace and"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:224
+msgid ""
+"an optional set of {ref}`hooks <reference-development-supported-snap-hooks>` "
+"that snapd invokes when the namespace is accessed"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:226
+msgid "Custodian snap"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:228
+msgid ""
+"The interface plug specifies an `account` and a `view` which together "
+"identify the view through which the configuration is being accessed. It can "
+"also optionally declare a `role`, with a value of `custodian`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:230
+msgid ""
+"Custodian snaps have a special role when accessing ephemeral data. They're "
+"responsible for saving or loading this data to an external source outside of "
+"snapd."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:232
+msgid ""
+"The data that snapd stores for ephemeral configuration is only a cached, non-"
+"authoritative version of the external data. At least one custodian snap must "
+"be installed and connected for each non-system confdb view."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:234
+msgid ""
+"The first snap will act as the custodian for both views as well as allowing "
+"configuration of the Wi-Fi network, so let’s configure it accordingly:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:236
+msgid ""
+"plugs:\n"
+"  network-wifi-admin:\n"
+"    interface: confdb\n"
+"    account: <account-id>\n"
+"    view: network/wifi-admin\n"
+"    role: custodian\n"
+"  network-wifi-state:\n"
+"    interface: confdb\n"
+"    account: <account-id>\n"
+"    view: network/wifi-state\n"
+"    role: custodian\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:250
+msgid ""
+"The other component that must be defined in the snap are the {ref}`hooks "
+"<reference-development-supported-snap-hooks>`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:252
+msgid ""
+"Snaps interact with confdb through {ref}`snapctl <how-to-guides-manage-snaps-"
+"use-snapctl>` and, in turn, snapd invokes various hooks when confdb is read "
+"from or written to."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:254
+msgid ""
+"In this case, the custodian snap will only define the `change-view-<plug>`, "
+"which provides an opportunity for the snap to modify values being set."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:256
+msgid ""
+"As an example, we’ll say that the SSID must be prefixed with our company’s "
+"name: “Acme”. The configuration can be set by the administrator using {ref}"
+"`snap set <how-to-guides-work-with-snaps-configure-snaps>` or by any other "
+"snap with access to that view, so it’s the custodian snap’s responsibility "
+"to enforce the prefix."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:258
+msgid "Our `change-view-network-wifi-admin` hook looks like this:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:260
+msgid ""
+"#!/bin/bash -x\n"
+"\n"
+"# prefix the SSID with \"acme\", if not already present\n"
+"value=$(snapctl get --view :network-wifi-admin acme.ssid)\n"
+"if [[ \"$?\" -eq 0 && \"$value\" != acme-* ]]; then\n"
+"  snapctl set --view :network-wifi-admin acme.ssid=\"acme-$value\"\n"
+"fi\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:270
+msgid "That’s it for the custodian snap."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:272
+msgid "Reader snap"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:274
+msgid ""
+"Now we’ll create a snap that will only read the configuration. Its plug will "
+"reference the read-only view and it will omit the `role`:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:276
+msgid ""
+"plugs:\n"
+"  network-wifi-state:\n"
+"    interface: confdb\n"
+"    account: <account-id>\n"
+"    view: network/wifi-state\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:284
+msgid ""
+"Non-custodian snaps can only define an `observe-view-<plug>` hook, which "
+"allows them to be notified when the confdb-schema referenced by that plug "
+"has been used to modify data."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:286
+msgid ""
+"#!/bin/sh -xe\n"
+"\n"
+"# read the new SSID and store it somewhere\n"
+"new_ssid=$(snapctl get --view :network-wifi-state acme.ssid)\n"
+"echo \"$new_ssid\" >> \"$SNAP_COMMON\"/ssid\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:294
+msgid "Install and connect the snaps"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:296
+msgid ""
+"We can mediate snap access to confdb-schema views by connecting their confdb "
+"plugs."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:298
+msgid ""
+"Note that when a snap is published by the same account ID as the assertion, "
+"the interface plug will be auto-connected."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:300
+msgid ""
+"snap install custodian-snap reader-snap\n"
+"snap connect custodian-snap:network-wifi-admin\n"
+"snap connect custodian-snap:network-wifi-state\n"
+"snap connect reader-snap:network-wifi-state\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:307
+msgid "Setting data"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:309
+msgid ""
+"Now we’re ready to start setting data, we’ll use `snap run --shell` to mimic "
+"the snaps interacting with confdb:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:311
+msgid ""
+"$ sudo snap run --shell custodian-snap\n"
+"# snapctl set --view :network-wifi-admin acme.ssid=some-ssid "
+"acme.password=super-secret\n"
+"# exit\n"
+"\n"
+"$ sudo snap run --shell reader-snap\n"
+"# snapctl get --view :network-wifi-state acme.ssid\n"
+"acme-some-ssid\n"
+"# exit\n"
+"\n"
+"$ snap get <account-id>/network/wifi-state acme.ssid\n"
+"acme-some-ssid\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:325
+msgid ""
+"As expected, the `change-view-network-wifi-admin` hook was invoked when "
+"`custodian-snap` modified the SSID and prefixed the value with \"acme\"."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:327
+msgid ""
+"We were also able to read the same value from both another connected snap "
+"and through the snapd API using `snap get`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:329
+msgid ""
+"We can also check that the `reader-snap`'s `observe-view-network-wifi-state` "
+"hook was invoked when the SSID was changed and that it saved the new value "
+"in SNAP\\_COMMON:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:331
+msgid ""
+"$ snap changes\n"
+"ID   Status  Spawn               Ready               Summary\n"
+"123  Done    today at ...        today at ...        Set confdb through "
+"\"<account-id>/network/wifi-admin\"\n"
+"...\n"
+"\n"
+"$ snap change 123\n"
+"Status  Spawn  Ready  Summary\n"
+"Done    ...    ...    Clears the ongoing confdb transaction from state (on "
+"error)\n"
+"Done    ...    ...    Run hook change-view-network-wifi-admin of snap "
+"\"custodian-snap\"\n"
+"Done    ...    ...    Commit changes to confdb (<account-id>/network/wifi-"
+"admin)\n"
+"Done    ...    ...    Run hook observe-view-network-wifi-state of snap "
+"\"reader-snap\"\n"
+"Done    ...    ...    Clears the ongoing confdb transaction from state\n"
+"\n"
+"\n"
+"$ cat /snap/reader-snap/common/ssid\n"
+"acme-some-ssid\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:350
+msgid ""
+"Note that concurrent accesses may block if they would result in writes "
+"running concurrently with another access. If any access is blocked, "
+"subsequent accesses will also be queued to ensure that they are run in order."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:352
+msgid ""
+"For example, if there is a read ongoing and a write is requested, the write "
+"will be blocked. A new read would then also be queued and only run after the "
+"write, even though reads are normally run concurrently. This ensures that a "
+"stream of reads cannot starve a write access."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:354
+msgid "Default values"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:356
+msgid ""
+"Confdb has no schema-level mechanism for declaring default values, but both "
+"`snap` and `snapctl` allow supplying a fallback with `--default`:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:358
+msgid ""
+"$ snap get --default=acme-default <account-id>/network/wifi-state acme.ssid\n"
+"acme-default\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:363
+msgid ""
+"In both cases, `--default` can only be used when requesting a single path."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:365
+msgid "Getting secret data"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:366
+msgid "*From snapd version 2.76+*"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:368
+msgid ""
+"If we wanted to ensure that only admins were able to access certain data in "
+"confdb storage, we could add a visibility field to storage entries. For "
+"example, say we wanted only admins to read the `psk` field defined earlier. "
+"To limit access to `psk`, in the storage schema definition, we would change"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:370
+msgid "\"psk\": \"${password}\",\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:374
+msgid "to"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:376
+msgid ""
+"\"psk\": {\n"
+"  \"type\": \"${password}\",\n"
+"  \"visibility\": \"secret\"\n"
+"},\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:383
+msgid ""
+"Assuming we have then recreated and signed the assertion, we can see that "
+"read access to that field is now limited."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps-with-confdb.md:385
+msgid ""
+"$ sudo snap run --shell custodian-snap\n"
+"# snapctl get --view :network-wifi-admin acme.password\n"
+"super-secret\n"
+"# exit\n"
+"\n"
+"$ snap run --shell custodian-snap\n"
+"# snapctl get --view :network-wifi-admin acme.password\n"
+"cannot get \"acme.password\" through <account-id>/network/wifi-admin: "
+"unauthorized access\n"
+"# exit\n"
+"\n"
+"$ sudo snap get <account-id>/network/wifi-admin acme.password\n"
+"super-secret\n"
+"\n"
+"$ snap get <account-id>/network/wifi-admin acme.password\n"
+"access denied (try with sudo)\n"
+msgstr ""

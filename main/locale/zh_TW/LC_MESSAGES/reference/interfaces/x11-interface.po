@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/x11-interface.md:0
+#: ../../../reference/interfaces/x11-interface.md:8
+msgid "x11 interface"
+msgstr ""
+
+#: ../../../reference/interfaces/x11-interface.md:10
+msgid "`x11` allows interacting with or running as an X11 server."
+msgstr ""
+
+#: ../../../reference/interfaces/x11-interface.md:12
+msgid "**Auto-connect**: yes **Transitional**: yes"
+msgstr ""
+
+#: ../../../reference/interfaces/x11-interface.md:16
+msgid ""
+"The `x11` slot is {ref}`unsupported for parallel instances <interfaces-"
+"parallel-installs-unsupported>`. The slot owns a unique system-wide resource "
+"that instances would conflict over."
+msgstr ""
+
+#: ../../../reference/interfaces/x11-interface.md:19
+msgid "See The desktop interfaces for further details."
+msgstr ""
+
+#: ../../../reference/interfaces/x11-interface.md:21
+msgid ""
+"**Condition to Connect**: If your snap has a graphical user interface, you "
+"*should* connect to this interface."
+msgstr ""

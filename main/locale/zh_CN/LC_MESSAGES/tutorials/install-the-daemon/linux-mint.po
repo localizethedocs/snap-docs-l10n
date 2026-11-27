@@ -1,0 +1,107 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../tutorials/install-the-daemon/linux-mint.md:0
+msgid ""
+"Learn how to install snap on Linux Mint by disabling the nosnap preference, "
+"installing it through Software Manager or APT, and testing it with hello-"
+"world."
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/linux-mint.md:8
+msgid "Install snap on Linux Mint"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/linux-mint.md:10
+msgid ""
+"Snap is available for the latest release of Linux Mint, 22.1 (Xia), and for "
+"older releases from Linux Mint 18.2 (Sonya) onwards."
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/linux-mint.md:12
+msgid ""
+"You can find out which version of Linux Mint you're running by opening "
+"*System info* from the *Preferences* menu."
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/linux-mint.md:14
+msgid ""
+"From Linux Mint 20 onwards, installing Snap is blocked by a file called "
+"`nosnap.pref` in the directory `/etc/apt/preferences.d/`; this file needs to "
+"be either moved or removed from the directory, or renamed with an extension "
+"other than `.pref` before Snap can be installed."
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/linux-mint.md:16
+msgid ""
+"This can be accomplished from the command line, and the following command "
+"(for example) renames `nosnap.pref` to `nosnap.bak`:"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/linux-mint.md:18
+msgid ""
+"sudo mv /etc/apt/preferences.d/nosnap.pref /etc/apt/preferences.d/"
+"nosnap.bak\n"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/linux-mint.md:22
+msgid "With the file renamed, the package database needs to be updated next:"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/linux-mint.md:24
+msgid "sudo apt update\n"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/linux-mint.md:28
+msgid ""
+"To now install snap from the Software Manager application, search for "
+"*snapd* and click **Install**."
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/linux-mint.md:30
+msgid "Alternatively, *snapd* can be installed from the command line:"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/linux-mint.md:32
+msgid "sudo apt install snapd\n"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/linux-mint.md:36
+msgid ""
+"To complete the installation, either restart your machine, or log out and in "
+"again."
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/linux-mint.md:38
+msgid ""
+"To test your system, install the [hello-world](https://snapcraft.io/hello-"
+"world) snap and make sure it runs correctly:"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/linux-mint.md:40
+msgid ""
+"$ snap install hello-world\n"
+"hello-world 6.4 from Canonical✓ installed\n"
+"$ hello-world\n"
+"Hello World!\n"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/linux-mint.md:47
+msgid "Snap is now installed and ready to go!"
+msgstr ""

@@ -1,0 +1,2291 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"Browse every snap interface and learn how snap users and developers can "
+"connect, manage, and use system resources securely."
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:8
+msgid "Interfaces"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:10
+msgid ""
+"{ref}`Interfaces <explanation-interfaces-all-about-interfaces>` enable "
+"resources from one snap to be shared with another and with the system. The "
+"table below lists currently supported interfaces, with links to further "
+"details for each interface."
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:12
+msgid "The following column names are used:"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:14
+msgid "**Interface** is the syntactical interface name, as used by snaps."
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:16
+msgid ""
+"**Description** is a brief overview of what the interface permits. Select "
+"the interface name to open the interface-specific page for a more detailed "
+"description on each interface."
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:18
+msgid ""
+"**Categories** are used to split interfaces into broad types, and also to "
+"indicate what kind of access they permit. Video, graphics and audio are "
+"typical desktop requirements, for example, while VM, Container, Kernel and "
+"Developer imply more specific roles. The Ubuntu Core category is used to "
+"denote when an interface is intended for {ref}`Ubuntu Core <ref-"
+"glossary_ubuntu-core>`, and _Super privileged_ is used when an interface "
+"requires extra security scrutiny. See {ref}`Super-privileged interfaces "
+"<reference-operations-interfaces-super-privileged-interfaces>` for more "
+"information."
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:20
+msgid ""
+"**Auto-connect** indicates that the interface will be connected by default "
+"when the snap is first installed, requiring no further user action. If `Auto-"
+"connect=no`, an interface can still be automatically connected if the snap "
+"developer has requested, and been granted, explicit permission. See {ref}"
+"`Interface connection mechanism <explanation-interfaces-all-about-"
+"interfaces>` for details."
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Interface"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Description"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Categories"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Auto-connect"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`accel-interface <interfaces-accel>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "permits access to the Linux compute accelerators subsystem"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "yes"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`account-control <interfaces-account-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "add/remove user accounts or change passwords"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System, Account"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "no"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`accounts-service <interfaces-accounts-service-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows communication with the accounts service"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`acrn <interfaces-adb-support-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows access to user VMs using the ACRN hypervisor"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "VM, Hypervisor, Developer"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`adb-support <interfaces-adb-support-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows operating as Android Debug Bridge service"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "ADB, Developer"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`allegro-vcu <interfaces-allegro-vcu-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access the Allegro Video Core Unit"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Video, Graphics"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`alsa <interfaces-alsa-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "play or record sound"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Audio, Media"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`appstream-metadata <interfaces-appstream-metadata-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows access to AppStream metadata"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System, Developer, Manage software"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`audio-playback <interfaces-audio-playback-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows audio playback via supporting services"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Audio, Media, Playback"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`audio-record <interfaces-audio-record-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows audio recording via supported services"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Audio, Media, Record"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`auditd-support <interfaces-auditd-support>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "permits snaps to operate as the auditd service on the system"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`autopilot-introspection <interfaces-autopilot-introspection-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "be controlled by Autopilot software"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System, Developer"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`avahi-control <interfaces-avahi-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "advertise services over the local network"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Network, Local network, Nearby devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`avahi-observe <interfaces-avahi-observe-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "detect services and devices over the local network"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`block-devices <interfaces-block-devices-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access to disk block devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, Storage, Low level"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`bluetooth-control <interfaces-bluetooth-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access Bluetooth hardware directly"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Network, Bluetooth, Nearby devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`bluez <interfaces-bluez-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "use Bluetooth devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`bool-file <interfaces-bool-file-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows access to specific file with bool semantics"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System, Low level, Privileged"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`broadcom-asic-control <interfaces-broadcom-asic-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "control Broadcom network switches"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Network, System"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`browser-support <interfaces-browser-support-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "use functions essential for Web browsers"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Browser, Network"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "no when allow-sandbox: true, yes otherwise"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`calendar-services <interfaces-calendar-service-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows communication with Evolution Data Server calendar"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Personal data, Contacts and calendar"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`camera <interfaces-camera-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "use your camera or webcam"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Camera, Media, Personal data"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`can-bus <interfaces-can-bus-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows access to the CAN bus"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`checkbox-support <ref-checkbox-support-interface_checkbox-support-"
+"interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access for the Canonical checkbox test and certification system"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`cifs-mount <interfaces-cifs-mount-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows the mounting and unmounting of CIFS filesystems"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Network,Storage"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`classic-support <interfaces-classic-support-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "enable resource access to classic snap"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, Ubuntu Core"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`confdb <interfaces-confdb>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "permit access confdb configuration system"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`contacts-service <interfaces-contacts-service-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows communication with the Evolution Data Server address book"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`content <interfaces-content-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access resources across snaps"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Storage, Files, Attributes"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "yes for snaps from same publisher, no otherwise"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`core-support <interfaces-core-support-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "deprecated since snap 2.34"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System, Other"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`cpu-control <interfaces-cpu-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "set certain CPU values"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`cuda-driver-libs <interfaces-cuda-driver-libs>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "permits access to CUDA acceleration on Nvidia GPUs"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`cups-control <interfaces-cups-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access to the CUPS control socket to configure printing"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Printing"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`cups <interfaces-cups-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access to the CUPS socket for printing"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "not applicable"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`custom-device <interfaces-custom-device-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "permits access to a specific class of device"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`daemon-notify <interfaces-daemon-notify-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows sending daemon status changes to service manager"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`dbus <interfaces-dbus-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allow snaps to communicate over D-Bus"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`dcdbas-control <interfaces-dcdbas-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "shut down or restart Dell devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Developer"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`desktop <interfaces-desktop-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "provides access to common desktop elements"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Desktop"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`desktop-launch <interfaces-desktop-launch-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "identify and launch desktop apps from other snaps"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, Desktop"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`desktop-legacy <interfaces-desktop-legacy-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"enables the use of legacy desktop methods (including input method and "
+"accessibility services)"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`device-buttons <interfaces-device-buttons-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "use any device-buttons"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Hardware, Developer"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`display-control <interfaces-display-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows configuring display parameters"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Display, Graphics"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`dm-crypt <interfaces-dm-crypt-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access encrypted storage devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, Ubuntu Core, Storage"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`dm-multipath <ref-dm-multipath-interface_dm-multipath-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access device-mapper multipath maps though the multipathd daemon"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`docker <interfaces-docker-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "start, stop, or manage Docker containers"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, Containers"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`docker-support <interfaces-docker-support-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows operating as the Docker daemon"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`dsp <interfaces-dsp-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "enables the control of digital signal processors (DSPs)"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`dvb <interfaces-dvb-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows access to all DVB devices and APIs"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Hardware, Developer, Media"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`egl-driver-libs <interfaces-egl-driver-libs>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access to EGL the graphics sub-system"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Under development"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`empty <interfaces-empty-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows testing without additional permissions"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`firewall-control <interfaces-firewall-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "configure a network firewall"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Network"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`firmware-update-support <ref-firmware-updater-support-"
+"interface_firmware-updater-support-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows a snap to operate as the Firmware Updater"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`fpga <interfaces-fpga-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "permits access to an FPGA subsystem"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`framebuffer <interfaces-framebuffer-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access to universal framebuffer devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`fuse-support <interfaces-fuse-support-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "enables access to the FUSE filesystems"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Storage"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`fwupd <interfaces-fwupd-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows operating as the fwupd service"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System, Security, Firmware"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`gbm-driver-libs <ref-gbm-driver-libs-interface_gbm-driver-libs-"
+"interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "exposes GBM driver libraries to the system"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`gconf <interfaces-gconf-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access the legacy GConf config system"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System, Developer, Settings"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`gpg-keys <interfaces-gpg-keys-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read GPG user configuration and keys"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "GPG, Personal data, Security"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`gpg-public-keys <interfaces-gpg-public-keys-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read GPG non-sensitive configuration and public keys"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`gpio <interfaces-gpio-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access specific GPIO pins"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "GPIO, Hardware, Developer"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`gpio-chardev <interfaces-gpio-chardev>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "permits access to specific GPIO chardev lines"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Hardware"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`gpio-control <interfaces-gpio-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows to export/unexport and control all GPIOs"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, GPIO"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`gpio-memory-control <interfaces-gpio-memory-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows write access to all GPIO memory"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`greengrass-support <interfaces-greengrass-support-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows operating as the Greengrass service"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, Edge, AWS, Discrete"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`gsettings <interfaces-gsettings-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "provides access to any GSettings item for current user"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`hardware-observe <interfaces-hardware-observe-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access hardware information"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System, Hardware"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`hardware-random-control <interfaces-hardware-random-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "provide entropy to hardware random number generator"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`hardware-random-observe <interfaces-hardware-random-observe-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "use hardware-generated random numbers"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`hdmi-cec <interfaces-hdmi-cec-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access HDMI CEC devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`hidraw <interfaces-hidraw-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access hidraw devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`home <interfaces-home-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access non-hidden files in the home directory"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Storage, Personal data"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "yes on classic (traditional distributions), no otherwise"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`hostname-control <interfaces-hostname-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows configuring the system hostname"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`hugepages-control <interfaces-hugepages-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "control HugePages memory blocks"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System, Memory, Kernel"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`i2c <interfaces-i2c-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access i²c devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`iio <interfaces-iio-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access IIO devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`intel-mei <interfaces-intel-mei-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access to the Intel MEI management interface"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System, Firmware"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`intel-qat <interfaces-intel-qat>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "provides permissions for Intel QAT devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`io-ports-control <interfaces-io-ports-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows access to all I/O ports"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System,"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`ion-memory-control <interfaces-ion-memory-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access Android's ION memory allocator"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, System"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`iscsi-initiator <ref-iscsi-initiator-interface_iscsi-initiator-"
+"interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "discover, connect to, and manage iSCSI targets for block storage access"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`jack1 <interfaces-jack1-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows interaction with the JACK audio connection server"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`joystick <interfaces-joystick-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "use any connected joystick"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`juju-client-observe <interfaces-juju-client-observe-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read the Juju client configuration"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Developer, Discrete"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`kerberos-tickets <ref-kerberos-tickets-interface_kerberos-tickets-"
+"interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access Kerberos tickets in /tmp"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`kernel-crypto-api <interfaces-kernel-crypto-api-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read and manage kernel supported crypto ciphers"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System, Kernel, Security"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`kernel-firmware-control <interfaces-kernel-firmware-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "permits a custom kernel firmware search path"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`kernel-module-control <interfaces-kernel-module-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "insert, remove and query kernel modules"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, System, Kernel"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`kernel-module-load <interfaces-kernel-module-load-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "load, or deny loading, specific kernel modules"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`kernel-module-observe <interfaces-kernel-module-observe-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "query kernel modules"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System, Kernel"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`kubernetes-support <interfaces-kubernetes-support-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "use functions essential for Kubernetes"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, Hypervisor, Discrete"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`kvm <interfaces-kvm-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows access to the kvm device"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`libvirt <interfaces-libvirt-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "provides access to the libvirt service"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`locale-control <interfaces-locale-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "change system language and region settings"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Language and region, Personalisation"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`location-control <interfaces-location-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows operating as the location service"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Location"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`location-observe <interfaces-location-observe-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access your location"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`log-observe <interfaces-log-observe-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read system logs"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`login-session-control <interfaces-login-session-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"allows setup of login sessions and grants privileged access to user sessions"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System, Security"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`login-session-observe <interfaces-login-session-observe-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows reading login and session information"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`lxd <interfaces-lxd-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "provides access to the LXD socket"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, Container, Discrete"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`lxd-support <interfaces-lxd-support-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows operating as the LXD service"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`maliit <interfaces-maliit-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "use an on-screen keyboard"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`media-control <interfaces-media-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access media control devices and Video4Linux (V4L) devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Hardware, Developer, Media, Video"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`media-hub <interfaces-media-hub-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access snaps providing the media-hub interface"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Developer, Media"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`microceph <interfaces-microceph>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"permits access to the MicroCeph socket, which is used internally by the "
+"microceph snap"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, Container"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`microceph-support <interfaces-microceph-support>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "permits the microceph snap to operate as the MicroCeph service"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`microovn <interfaces-microovn-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "used only by the MicroOVN snap for socket access"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Network, Super privileged"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`microstack-support <interfaces-microceph-support>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "multiple service access to the Microstack infrastructure"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`mir <interfaces-mir-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "enables access to the Mir display service"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Display"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`modem-manager <interfaces-modem-manager-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "use and configure modems"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`mount-control <interfaces-mount-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "mount and unmount transient and persistent filesystem mount points"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, Storage"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`mount-observe <interfaces-mount-observe-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read mount table and quota information"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`mpris <interfaces-mpris-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "media key control of music and video players"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Sound"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`multipass-support <interfaces-multipass-support-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "multipass-support allows operating as the Multipass service"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, VM, Discrete"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`netlink-audit <interfaces-netlink-audit-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows access to kernel audit system through Netlink"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Inter-process communication (IPC), Netlink, Developer"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`netlink-connector <interfaces-netlink-connector-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "communicate through the kernel Netlink connector"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`netlink-driver <interfaces-netlink-driver-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "operate a kernel driver module exposed via Netlink"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`network <interfaces-network-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "enables network access"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`network-bind <interfaces-network-bind-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "operate as a network service"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`network-control <interfaces-network-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "change low-level network settings"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`network-manager <interfaces-network-manager-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "configure and observe networking via NetworkManager"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`network-manager-observe <interfaces-network-manager-observe-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows observing NetworkManager settings"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`network-observe <interfaces-network-observe-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "query network status information"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`network-setup-control <interfaces-network-setup-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "change network settings via Netplan"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`network-setup-observe <interfaces-network-setup-observe-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read network settings"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`network-status <interfaces-network-status-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access the NetworkStatus service"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`nfs-mount <interfaces-nfs-mount>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows the mounting and unmounting of Network File System mount points"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Network, Service"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`nomad-support <interfaces-nomad-support>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "enables HashiCorp's Nomad to access CPU and memory management"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System, Containers, Service"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`nvidia-drivers-support <interfaces-nvidia-drivers-support-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "internally used NVIDIA access"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`nvme-control <ref-nvme-control-interface_nvme-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "manage and access NVMe controllers"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`ofono <interfaces-ofono-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows operating as the oFono service"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Network, Discrete, Developer"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`online-accounts-service <interfaces-online-accounts-service-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access to the Online Accounts service"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Service, Developer"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`opengl <interfaces-opengl-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access OpenGL/GPU hardware"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`opengl-driver-libs <ref-opengl-driver-libs-interface_opengl-driver-"
+"libs-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "exposes OpenGL driver libraries to the system"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`opengles-driver-libs <ref-opengles-driver-libs-interface_opengles-"
+"driver-libs-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "exposes OpenGLES driver libraries to the system"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`openvswitch <interfaces-openvswitch-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "control Open vSwitch hardware"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Network, Service, Developer"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`openvswitch-support <interfaces-openvswitch-support-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "enables kernel support for Open vSwitch"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`optical-drive <interfaces-optical-drive-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read/write access to CD/DVD drives"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Storage, Hardware, Developer"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "yes, unless drive can write"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`packagekit-control <interfaces-packagekit-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "control the PackageKit service"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, Packaging"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`password-manager-service <interfaces-password-manager-service-"
+"interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read, add, change, or remove saved passwords"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`pcscd <interfaces-pcscd-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "permits communication with PCSD smart card daemon"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Security"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`personal-files <interfaces-personal-files-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read or write files in the user's home directory"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, Personal data, Attributes"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`physical-memory-control <interfaces-physical-memory-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read and write memory used by any process"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`physical-memory-observe <interfaces-physical-memory-observe-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read memory used by any process"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`pipewire <interfaces-pipewire-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access the PipeWire server"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Audio, Media, Video"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`pkcs11 <interfaces-pkcs11>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "enables the cryptographic token interface standard to be used"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Security, Super privileged"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`plymouth-replace <interfaces-plymouth-replace-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "flicker-free transition from the boot splash screen"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Ubuntu Core, Super privileged"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`polkit <interfaces-polkit-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access to the polkit authorisation manager"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Security, System, Super privileged"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`polkit-agent <interfaces-polkit-agent-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "permits applications to register as _polkit_ agents"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`posix-mq <interfaces-posix-mq-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "enables inter-process communication (IPC) messages"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, IPC"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "no by default, yes with snaps from the same publisher"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`power-control <interfaces-power-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read and write system power settings"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System, Power"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`ppp <interfaces-ppp-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access to configure and observe PPP networking"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`process-control <interfaces-process-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "pause or end any process on the system"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`ptp <interfaces-ptp-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access to the Precision Time Protocol subsystem"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`pulseaudio <interfaces-pulseaudio-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "play and record sound"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`pwm <interfaces-pwm-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access specific PWM channels"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System, Developer, Hardware, WIP"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`pwm-control <interfaces-pwm-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "permits control over any aspect of all PWM channels"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`qualcomm-ipc-router <interfaces-qualcomm-ipc-router-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access Qualcomm IPC router sockets"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "IPC, Kernel, System"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`raw-input <interfaces-raw-input-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access raw input devices directly"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "System, Developer, Hardware"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`raw-usb <interfaces-raw-usb-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access USB hardware directly"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`raw-volume <interfaces-raw-volume-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access specific disk partitions"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`remoteproc <interfaces-remoteproc-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "interact with the kernel's Remote Processor Framework"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`removable-media <interfaces-removable-media-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read/write files on removable storage devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`ros-opt-data <interfaces-ros-opt-data>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read-only access to ROS directories"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`ros-snapd-support <interfaces-ros-snapd-support>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"allows the snaps ros-snapd and ros2-snapd the use of snapd’s apps control API"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`screen-inhibit-control <interfaces-screen-inhibit-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "prevent screen sleep, lock and screensaver"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`screencast-legacy <interfaces-screencast-legacy-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"allows screen recording and audio recording alongside writing to arbitrary "
+"filesystem paths"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Legacy"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`scsi-generic <interfaces-scsi-generic-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read and write access to SCSI Generic driver devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Storage, Super privileged"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`sd-control <interfaces-sd-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "control SD cards on specific devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`serial-port <interfaces-serial-port-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access serial port hardware"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`shared-memory <interfaces-shared-memory-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "enables two snaps to access the same shared memory"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`shutdown <interfaces-shutdown-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "restart or power off the device"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, System, Power"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`snap-fde-control <ref-snap-fde-control-interface_snap-fde-control-"
+"interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows access to the FDE subset of snapd’s system-volumes API"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`snap-interfaces-requests-control <interfaces-snap-interfaces-requests-"
+"control>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"enables the prompting API and its access to prompting-related notice types"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`snap-refresh-control <interfaces-snap-refresh-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "permits bespoke snap refresh control"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`snap-refresh-observe <interfaces-snap-refresh-observe-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "enables the tracking of snap refreshes"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`snap-themes-control <interfaces-snap-themes-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "permits the use of snapd’s theme installation API"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`snapd-control <interfaces-snapd-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "install or remove software"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`spi <interfaces-spi-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access specific SPI devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`ssh-keys <interfaces-ssh-keys-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access SSH private and public keys"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`ssh-public-keys <interfaces-ssh-public-keys-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access SSH public keys"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`steam-support <interfaces-steam-support-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows the Steam snap to access pressure-vessel containers"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, Discrete"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`storage-framework-service <interfaces-storage-framework-service-"
+"interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "operate as, or interact with, the Storage Framework"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`system-backup <interfaces-system-backup-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read-only access to the system for backups"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`system-files <interfaces-system-files-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read or write files in the system"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, Storage, Attributes"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`system-observe <interfaces-system-observe-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read process and system information"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Monitoring, System"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`system-packages-doc <interfaces-system-packages-doc>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access system documentation in /usr/share/doc"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`system-source-code <interfaces-system-source-code-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access kernel source and headers in /usr/src"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`system-trace <interfaces-system-trace-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "monitor or control any running program"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`tee <interfaces-tee-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "permits access to the Trusted Execution Environment"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, Security, Ubuntu Core"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`thumbnailer-service <interfaces-thumbnailer-service-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "create thumbnail images from local media files"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Storage, Media"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`time-control <interfaces-time-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "change the date and time"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Time"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`timeserver-control <interfaces-timeserver-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "change time server settings"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`timezone-control <interfaces-timezone-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "change the time zone"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`tpm <interfaces-tpm-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows access to the Trusted Platform Module device"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Kernel, Security"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`u2f-devices <interfaces-u2f-devices-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "use any U2F devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Security, Hardware, Developer"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`ubuntu-pro-control <interfaces-ubuntu-pro-control-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "control the Ubuntu Pro desktop daemon"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid ""
+"{ref}`ubuntu-download-manager <interfaces-ubuntu-download-manager-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "use the Ubuntu Download Manager"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`udisks2 <interfaces-udisks2-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access the UDisks2 service"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`uhid <interfaces-uhid-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "create kernel UID devices from user-space"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Hardware, Kernel, System"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`uinput <interfaces-uinput-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows write access to /dev/uinput"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Super privileged, Hardware"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`uio <interfaces-uio-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access uio devices"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Hardware, System"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`unity7 <interfaces-unity7-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access legacy desktop resources from Unity7"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`unity8 <interfaces-unity8-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "share data with other Unity 8 apps"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Display, Super privileged"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`unity8-calendar <interfaces-unity8-calendar-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read/change shared calendar events in Ubuntu Unity 8"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Personal data"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`unity8-contacts <interfaces-unity8-contacts-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "read/change shared contacts in Ubuntu Unity 8"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`upower-observe <interfaces-upower-observe-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access battery level and power usage"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`usb-gadget <ref-usb-gadget-interface_usb-gadget-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows snaps to access the USB Gadget API using configfs"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Ubuntu Core"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`userns <interfaces-userns-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "permits a snap to create a new namespace"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`vcio <interfaces-vcio-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access a Raspberry Pi's VideoCore multimedia processor"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "Video, Graphics, Ubuntu Core"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`wayland <interfaces-wayland-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "access compositors providing the Wayland protocol"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`x11 <interfaces-x11-interface>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "monitor mouse/keyboard input and graphics output of other apps"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "{ref}`xilinx-dma <interfaces-xilinx-dma>`"
+msgstr ""
+
+#: ../../../reference/interfaces/index.md:0
+msgid "allows access to Xilinx DMA IP from a connected PCIe card"
+msgstr ""

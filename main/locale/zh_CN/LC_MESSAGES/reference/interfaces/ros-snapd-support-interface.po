@@ -1,0 +1,83 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/ros-snapd-support-interface.md:0
+#: ../../../reference/interfaces/ros-snapd-support-interface.md:8
+msgid "ros-snapd-support interface"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-snapd-support-interface.md:10
+msgid ""
+"The `ros-snapd-support` interface allows the snaps [`ros-snapd`](https://"
+"snapcraft.io/ros-snapd) and [`ros2-snapd`](https://snapcraft.io/ros2-snapd) "
+"the use of snapd's apps control API."
+msgstr ""
+
+#: ../../../reference/interfaces/ros-snapd-support-interface.md:12
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-snapd-support-interface.md:14
+msgid ""
+"{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`: no\\ "
+"{ref}`Super-privileged <reference-operations-interfaces-super-privileged-"
+"interfaces>`: yes"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-snapd-support-interface.md:0
+msgid "<br />\n"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-snapd-support-interface.md:0
+msgid "\\\\\n"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-snapd-support-interface.md:18
+msgid ""
+"The `ros-snapd-support` plug is {ref}`unsupported for parallel instances "
+"<interfaces-parallel-installs-unsupported>`."
+msgstr ""
+
+#: ../../../reference/interfaces/ros-snapd-support-interface.md:21
+msgid ""
+"<h3 id='heading--endpoint-access'>Endpoint access permissions</h3>\n"
+"<ul>\n"
+"<li>/v2/apps</li>\n"
+"</ul>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-snapd-support-interface.md:26
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-snapd-support-interface.md:28
+msgid ""
+"The test code can be found in the snapd repository: [https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/ros_snapd_support_test.go]"
+"(https://github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"ros_snapd_support_test.go)"
+msgstr ""
+
+#: ../../../reference/interfaces/ros-snapd-support-interface.md:30
+msgid ""
+"The source code for the interface is in the snapd repository:[ https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"ros_snapd_support.go](https://github.com/canonical/snapd/blob/master/"
+"interfaces/builtin/ros_snapd_support.go)"
+msgstr ""

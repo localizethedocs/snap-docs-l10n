@@ -1,0 +1,290 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/how-snaps-work/snap-components.md:2
+msgid "Snap components"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:4
+msgid ""
+"Snap _components_ are parts of a snap that can be built and uploaded in "
+"conjunction with a host snap and later optionally installed beside it."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:6
+msgid ""
+"Components are useful for distributing optional resources for a snap, such "
+"as debug symbols alongside snap binaries, and kernel modules alongside a "
+"kernel snap."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:8
+msgid ""
+"Just like a snap, a component is implemented as a squashfs file. If "
+"installed, this file is mounted in a location accessible to the host snap."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:10
+msgid ""
+"Components can be thought of as either an internal implementation detail of "
+"the host snap that remains transparent to the user, or as a visible snap "
+"component that can be installed, refreshed and removed similarly to snaps."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:12
+msgid ""
+"See {ref}`Using components <how-to-guides-manage-snaps-using-components>` "
+"for installation, removal and listing options. To manage components from "
+"within a snap, see {ref}`snapctl <how-to-guides-manage-snaps-use-snapctl-"
+"components>` components commands. Components can also be managed through the "
+"[Snapd REST API](https://snapcraft.io/docs/reference/development/snapd-rest-"
+"api/#/Asynchronous/manageSnaps)."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:14
+msgid "Component requires *snapd 2.67+* ."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:16
+msgid "Schema"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:18
+msgid ""
+"Components are defined with a top-level `components` keyword in a "
+"snapcraft.yaml:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:20
+msgid ""
+"components:\n"
+"  <name>:\n"
+"    type: <standard|kernel-modules|...>\n"
+"    summary: ...\n"
+"    description: ...\n"
+"  ...\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:29
+msgid ""
+"A corresponding `meta/component.yaml` file contains the metadata for each "
+"component with the following fields:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:31
+msgid ""
+"component: <snap_name>+<component_name>\n"
+"type: <component_type>\n"
+"version: <version>\n"
+"summary: ...\n"
+"description: ...\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:39
+msgid "`component` and `type` are mandatory"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:40
+msgid "`version` will inherit the snap version if not set in component.yaml"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:42
+msgid ""
+"For more details on component types, see [Snapcraft components](https://"
+"canonical-snapcraft.readthedocs-hosted.com/en/latest/reference/components/)."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:44
+msgid ""
+"It is possible to create a component by running `snap pack <dir>`, however, "
+"`<dir>/meta/component.yaml` must already exist."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:46
+msgid ""
+"All files inside this directory will be included within the created squashfs "
+"file, which will be named by default "
+"`<snap_name>+<component_name>_<comp_version>.comp.`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:48
+msgid ""
+"For further details on packaging, see [Create a component](https://"
+"documentation.ubuntu.com/snapcraft/9.0/how-to/crafting/create-a-component/)."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:50
+msgid "Revisions"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:52
+msgid ""
+"Just like snaps, components have {ref}`revisions <explanation-how-snaps-work-"
+"revisions>`. If a snap defines components, each snap file uploaded to the "
+"store will be matched to components with their own specific revisions  This "
+"forms a unique tuple between the snap and each respective component."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:55
+msgid ""
+"ⓘ  While it will become possible to update components in a tuple, the "
+"snapcraft functionality required to individually upload an updated component "
+"has not yet been implemented."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:57
+msgid "Component hooks"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:59
+msgid ""
+"Components can implement the following  {ref}`hooks <reference-development-"
+"supported-snap-hooks>`:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:61
+msgid "install"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:62
+msgid "pre-refresh"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:63
+msgid "post-refresh"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:64
+msgid "remove"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:66
+msgid ""
+"These correspond to executables with the same name that must be stored in "
+"meta/hooks/ inside the component file. Semantics will be similar as the "
+"homonymous hooks for snaps, with the caveat that if run as part of the same "
+"change that installs/refreshes/removes a snap, the following execution order "
+"is defined:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:68
+msgid "install hook: 1st snap’s, 2nd component’s"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:69
+msgid "pre-refresh hook: 1st component’s, 2nd snap’s"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:70
+msgid "post-refresh hook: 1st snap’s, 2nd component’s"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:71
+msgid "remove hook: 1st component’s, 2nd snap’s"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:73
+msgid ""
+"The rationale for the order is that components have a dependency on the snap "
+"and might need information from the snap to be present when installed. For "
+"instance, we need the plug information that is part of the snap metadata "
+"before we can run the component hook."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:75
+msgid ""
+"The component hooks might need plugs. If that is the case, they need to be "
+"defined in the snap metadata inside the snap container (as it is where we "
+"have the capability to define plugs)."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:77
+msgid ""
+"The syntax in `snapcraft.yaml` and `snap.yaml` will be the same as for snap "
+"hooks, but under the components.<name> stanza:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:77
+msgid "<name>"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:79
+msgid ""
+"components:\n"
+"  <name>:\n"
+"    type: ...\n"
+"    hooks:\n"
+"      <hook_name>:\n"
+"        plugs:\n"
+"          - <plug_name>\n"
+"          - ...\n"
+"  ...\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:91
+msgid "Environment variables"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:93
+msgid ""
+"The execution environment for component hooks will be similar to the one "
+"defined for snap applications/hooks, with the injection of the following "
+"additional {ref}`environment variables <reference-development-environment-"
+"variables>`:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:95
+msgid "`SNAP_COMPONENT`: directory where the component is mounted"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:96
+msgid ""
+"`SNAP_COMPONENT_NAME`: name of the component as specified in component.yaml"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:97
+msgid "`SNAP_COMPONENT_REVISION`: revision of the component"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:98
+msgid ""
+"`SNAP_COMPONENT_VERSION`: version of the component as specified in "
+"component.yaml"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:100
+msgid ""
+"Component hooks run as confined snap applications, which is also the case "
+"for all snap hooks."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:102
+msgid "Accessing components from within a snap environment"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/snap-components.md:104
+msgid ""
+"Within the snap environment, all available components of the snap are "
+"declared in `$SNAP/meta/snap.yaml`. All installed components are exposed "
+"under `$SNAP_COMPONENTS/`, which is the same path as `$SNAP/../components/"
+"$SNAP_REVISION/` used with _snapd_ older than 2.78. The content of each "
+"component is available under `$SNAP_COMPONENTS/<comp-name>/` and the "
+"presence of this non-empty directory indicates that a given component is "
+"installed."
+msgstr ""

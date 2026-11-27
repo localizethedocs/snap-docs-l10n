@@ -1,0 +1,179 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/administration/network-requirements.md:0
+msgid ""
+"Reference documentation for snapd and snapcraft network requirements, "
+"including hosts and ports for installing, updating, building, and publishing "
+"snaps."
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:8
+msgid "Network requirements"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:10
+msgid ""
+"Both the snap daemon (snapd) and [Snapcraft](https://"
+"documentation.ubuntu.com/snapcraft/stable/) require network access to "
+"install, update, build and publish snaps. This page lists the hosts and "
+"ports (`host:port`) that are required to ensure consistent communication."
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:12
+msgid ""
+"Uptime tracking for these end-points can be found on [https://"
+"status.snapcraft.io/](https://status.snapcraft.io/)."
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:14
+msgid "API access"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:16
+msgid "`api.snapcraft.io:443`"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:17
+msgid "`dashboard.snapcraft.io:443`"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:18
+msgid "`login.ubuntu.com:443`"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:20
+msgid "Download CDNs"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:22
+msgid "`*.snapcraftcontent.com:443`"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:23
+msgid "`*.cdn.snapcraft.io:443`  [_deprecated_]"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:24
+msgid "`public.apps.ubuntu.com:443` [_deprecated_]"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:26
+msgid ""
+"ⓘ   We are currently migrating some services, and consequently, the above "
+"deprecated domains remain active until the transition is complete. We will "
+"update the list when they are no longer used."
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:28
+msgid "As of 2021-10-25, the *.snapcraftcontent.com domains are the following:"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:30
+msgid "`storage.snapcraftcontent.com:443`"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:31
+msgid "`canonical-lgw01.cdn.snapcraftcontent.com:443`"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:32
+msgid "`canonical-lcy01.cdn.snapcraftcontent.com:443`"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:33
+msgid "`canonical-lcy02.cdn.snapcraftcontent.com:443`"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:34
+msgid "`canonical-bos01.cdn.snapcraftcontent.com:443`"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:35
+msgid "`cloudfront.cdn.snapcraftcontent.com:443`  # used inside AWS"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:36
+msgid "`fastly.cdn.snapcraftcontent.com:443` [_deprecated_]"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:37
+msgid "`fastly-global.cdn.snapcraftcontent.com:443` [_deprecated_]"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:39
+msgid "Snapcraft also requires:"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:40
+msgid "`upload.apps.ubuntu.com:443`"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:42
+msgid ""
+"Devices being provisioned for Dedicated Snap Stores will need the following:"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:43
+msgid "`api.snapcraft.io/v1:443` # the Model Service"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:44
+msgid "`serial-vault-partners.canonical.com:443` # The legacy Serial Vault"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:46
+msgid "Deprecated `cdn.snapcraft.io` domains"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:48
+msgid "The explicitly deprecated *.cdn.snapcraft.io domains are:"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:50
+msgid "`canonical-lgw01.cdn.snapcraft.io:443`"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:51
+msgid "`canonical-lcy01.cdn.snapcraft.io:443`"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:52
+msgid "`canonical-bos01.cdn.snapcraft.io:443`"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:53
+msgid "`fastly.cdn.snapcraft.io:443`"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:54
+msgid "`fastly-global.cdn.snapcraft.io:443`"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:55
+msgid "`fastly.cdn.snapcraftcontent.com:443`"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:56
+msgid "`fastly-global.cdn.snapcraftcontent.com:443`"
+msgstr ""
+
+#: ../../../reference/administration/network-requirements.md:57
+msgid "`cloudfront.cdn.snapcraft.io:443`"
+msgstr ""

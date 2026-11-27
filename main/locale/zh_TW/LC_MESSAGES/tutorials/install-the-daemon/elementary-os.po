@@ -1,0 +1,64 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../tutorials/install-the-daemon/elementary-os.md:0
+msgid ""
+"Learn how to install snap on elementary OS from Terminal with APT, refresh "
+"login paths after installation, and verify it with hello-world."
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/elementary-os.md:8
+msgid "Install snap on Elementary OS"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/elementary-os.md:10
+msgid ""
+"Snap can be installed on elementary OS from the command line. Open "
+"*Terminal* from the Applications launcher and type the following:"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/elementary-os.md:12
+msgid ""
+"sudo apt update\n"
+"sudo apt install snapd\n"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/elementary-os.md:17
+msgid ""
+"Either log out and back in again, or restart your system, to ensure snap’s "
+"paths are updated correctly."
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/elementary-os.md:19
+msgid ""
+"To test your system, install the [hello-world](https://snapcraft.io/hello-"
+"world) snap and make sure it runs correctly:"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/elementary-os.md:21
+msgid ""
+"$ sudo snap install hello-world\n"
+"hello-world 6.3 from Canonical✓ installed\n"
+"$ hello-world\n"
+"Hello World!\n"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/elementary-os.md:28
+msgid "Snap is now installed and ready to go!"
+msgstr ""

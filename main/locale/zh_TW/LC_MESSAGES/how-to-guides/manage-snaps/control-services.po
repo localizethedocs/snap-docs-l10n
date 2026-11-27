@@ -1,0 +1,294 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:0
+msgid ""
+"List, start, stop, restart, enable, disable, and inspect snap service logs "
+"at user and system scope for individual services or all services in a snap."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:8
+msgid "Control services"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:10
+msgid ""
+"The majority of snaps expose their functionality via applications that run "
+"on the local system. Most of these applications are started either from {ref}"
+"`the command line <how-to-guides-work-with-snaps-apps-and-aliases>`, the "
+"graphical desktop, or as services that run automatically."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:12
+msgid ""
+"A single snap may provide multiple applications and services. With a "
+"database snap, for example, you might expect an interactive client "
+"application alongside the service daemon."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:14
+msgid ""
+"Snaps manage their own services without the need for manual intervention. "
+"However, experienced administrators may want to interact with a snap's "
+"services to help improve their integration with the local environment."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:16
+msgid ""
+"For that reason, snapd offers a set of commands to allow a snap's services "
+"to be inspected and their statuses changed."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:18
+msgid "User and root-level services"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:20
+msgid ""
+"Prior to the release of _snapd 2.66_, all services were run with root-level "
+"access. The snap commands used to manage these services would require "
+"equivalent access, such as by preceding *snap* with `sudo`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:22
+msgid ""
+"With the release of snapd 2.66, there is now distinction between user-level "
+"services and root-level services. User-level services can be listed and "
+"managed without requiring any privilege escalation, while services running "
+"as root still require equivalent access."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:24
+msgid "Listing services"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:26
+msgid ""
+"The `snap services` command lists the active and enabled state of snap-based "
+"services for the current user, or with the additional `--global` argument, "
+"for the entire system."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:29
+msgid ""
+"$ sudo snap services --global  \n"
+"Service                    Startup  Current   Notes\n"
+"lxd.activate               enabled  inactive  -\n"
+"lxd.daemon                 enabled  active    socket-activated\n"
+"lxd.user-daemon            enabled  inactive  socket-activated\n"
+"multipass.multipassd       enabled  active    -\n"
+"nextcloud.apache           enabled  active    -\n"
+"nextcloud.logrotate        enabled  inactive  timer-activated\n"
+"nextcloud.mysql            enabled  active    -\n"
+"nextcloud.nextcloud-cron   enabled  active    -\n"
+"nextcloud.nextcloud-fixer  enabled  active    -\n"
+"nextcloud.php-fpm          enabled  active    -\n"
+"nextcloud.redis-server     enabled  active    -\n"
+"nextcloud.renew-certs      enabled  active    -\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:46
+msgid ""
+"Adding a snap name as an argument will list only those services added by "
+"that snap, or with `<snap-name>.<app>`, for a single app:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:48
+msgid ""
+"$ snap services lxd.daemon    \n"
+"Service     Startup  Current  Notes\n"
+"lxd.daemon  enabled  active   socket-activated\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:54
+msgid ""
+"The output includes the service name, whether the service is started when "
+"the system starts up, and whether it's currently running."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:56
+msgid "Restarting, stopping and starting services"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:58
+msgid ""
+"Services are restarted using the `snap restart <snap name>` command. This "
+"may be necessary if you've made custom changes to the snap application, for "
+"example, which the service needs to reload."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:60
+msgid ""
+"Using both the snap name and the specific app enables you to target a "
+"specific service:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:62
+msgid ""
+"$ snap restart lxd.daemon\n"
+"2024-11-21T21:51:06+01:00 INFO Waiting for \"snap.lxd.daemon.service\" to "
+"stop.\n"
+"Restarted.\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:68
+msgid ""
+"The option to perform an operation on all of a snap's services, or on one "
+"specific service, is common to all commands that operate on services."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:70
+msgid ""
+"If a service supports _reloading_, enabling the service to remain running "
+"while loading a new configuration, this can be requested with the `--reload` "
+"option:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:72
+msgid "snap restart --reload lxd.daemon\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:76
+msgid ""
+"The `start` and `stop` commands control whether a service should be "
+"currently running."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:78
+msgid ""
+"Adding the  `--system` argument can be used to manage system-level services, "
+"while `--user` and `--users=all` can be used to manage services for the "
+"current user, or for all users, respectively."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:80
+msgid "The following combination is also valid:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:82
+msgid "`snap {start,stop,restart} --system --users=all my-snap`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:84
+msgid ""
+"As root, the default behavior of not specifying anything is the equivalent "
+"of:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:86
+msgid "`snap {start,stop,restart} --system my-snap`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:88
+msgid ""
+"If operating on a snap that contains a user-service as root, the switch `--"
+"user` or `--users=all` must be provided to indicate that it’s intentional, "
+"otherwise an error will be thrown."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:90
+msgid ""
+"To prevent a service from starting on the next boot, use the `--disable` "
+"option:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:92
+msgid "snap stop --disable lxd.daemon\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:96
+msgid ""
+"The *start* command includes an `--enable` option to re-enable the automatic "
+"starting of a service  when the system boots:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:98
+msgid "snap start --enable lxd.daemon\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:102
+msgid "Disabling and enabling user-services"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:104
+msgid ""
+"User-services cannot be disabled or enabled individually for users "
+"currently, they can only be enabled globally or disabled globally (i.e for "
+"all users)."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:107
+msgid "Inspecting logs"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:109
+msgid ""
+"If you need to see the log output for a snap's services, use the `logs` "
+"command. As with the _services_ command, you can specify either a snap name "
+"to see the logs for all the services it contains, or the name of a specific "
+"service within a snap:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:114
+msgid ""
+"$ sudo snap logs lxd\n"
+"2018-09-14T10:38:23Z lxd.daemon[11096]: => LXD is ready\n"
+"(...)\n"
+"\n"
+"$ sudo snap logs lxd.daemon\n"
+"2022-07-15T17:13:04+01:00 lxd.daemon[1389234]: => LXD exited cleanly\n"
+"2022-07-15T17:13:04+01:00 lxd.daemon[370462]: ==> Stopped LXD\n"
+"2022-07-15T17:13:04+01:00 lxd.daemon[370462]: => Stopping LXCFS\n"
+"2022-07-15T17:13:04+01:00 lxd.daemon[555302]: Running destructor lxcfs_exit\n"
+"2022-07-15T17:13:05+01:00 lxd.daemon[370462]: ==> Stopped LXCFS\n"
+"2022-07-15T17:13:05+01:00 lxd.daemon[370462]: => Cleaning up PID files\n"
+"2022-07-15T17:13:05+01:00 lxd.daemon[370462]: => Cleaning up namespaces\n"
+"2022-07-15T17:13:05+01:00 lxd.daemon[370462]: => All done\n"
+"2022-07-15T17:13:05+01:00 systemd[1]: snap.lxd.daemon.service: Deactivated "
+"successfully.\n"
+"2022-07-15T17:13:05+01:00 systemd[1]: Stopped Service for snap application "
+"lxd.daemon.\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:132
+msgid ""
+"By default, only the last 10 lines are output. This can be changed with the "
+"`-n=` option which can accept either a number or `all` for the entire log:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:134
+msgid "snap logs -n=all lxd.daemon\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:138
+msgid ""
+"Adding the `-f` option will keep log output open so you can follow new "
+"entries as they occur:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:140
+msgid "sudo snap logs lxd -f\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/control-services.md:144
+msgid ""
+"The size and rate of log output can be limited by placing a snap within a "
+"quota group. See {ref}`Journal log limits <ref-use-resource-quotas_journal-"
+"log-limits>` for more details."
+msgstr ""

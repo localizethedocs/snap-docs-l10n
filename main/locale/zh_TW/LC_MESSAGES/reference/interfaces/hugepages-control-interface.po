@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/hugepages-control-interface.md:0
+#: ../../../reference/interfaces/hugepages-control-interface.md:8
+msgid "hugepages-control interface"
+msgstr ""
+
+#: ../../../reference/interfaces/hugepages-control-interface.md:10
+msgid ""
+"The `hugepages-control` interface allows controlling [HugePages](https://"
+"www.kernel.org/doc/Documentation/vm/hugetlbpage.txt), a Linux kernel feature "
+"that enables memory blocks to be managed in larger page sizes."
+msgstr ""
+
+#: ../../../reference/interfaces/hugepages-control-interface.md:13
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/hugepages-control-interface.md:15
+msgid "**Auto-connect**: no"
+msgstr ""
+
+#: ../../../reference/interfaces/hugepages-control-interface.md:18
+msgid ""
+"This interface controls a resource shared by the whole system. Snaps that "
+"use it can be installed as parallel instances, but every instance acts on "
+"the same system resource and snapd does not coordinate between them. Make "
+"sure each instance manages different resources, or run only one instance at "
+"a time. See {ref}`Snaps that are unsupported as parallel instances "
+"<interfaces-parallel-installs-shared-resources>` for details.."
+msgstr ""
+
+#: ../../../reference/interfaces/hugepages-control-interface.md:21
+msgid "This interface assumes that _huge pages_ are mounted at either:"
+msgstr ""
+
+#: ../../../reference/interfaces/hugepages-control-interface.md:22
+msgid "`/dev/hugepages` (Debian, Ubuntu)"
+msgstr ""
+
+#: ../../../reference/interfaces/hugepages-control-interface.md:23
+msgid "`/run/hugepages` (various other distributions)"
+msgstr ""
+
+#: ../../../reference/interfaces/hugepages-control-interface.md:25
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/hugepages-control-interface.md:27
+msgid ""
+"The test code can be found in the snapd repository: https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/hugepages_control_test.go"
+msgstr ""
+
+#: ../../../reference/interfaces/hugepages-control-interface.md:29
+msgid ""
+"The source code for the interface is in the snapd repository: https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"hugepages_control.go"
+msgstr ""

@@ -1,0 +1,1295 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid ""
+"Understand parallel installs, which run isolated instances of the same snap "
+"with separate names, data, configuration, services, apps, aliases, and "
+"interfaces."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:8
+msgid "Parallel installs"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:10
+msgid ""
+"Parallel installs enable you to run multiple instances of the same snap on "
+"the same system. Each instance is completely isolated from all other "
+"instances, including its name, configuration, interface connections, data "
+"locations, services, applications and aliases."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:12
+msgid ""
+"Parallel installs are **enabled by default** from snapd 2.79. Earlier "
+"versions of snapd treated them as an experimental feature that had to be "
+"enabled explicitly."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:14
+msgid ""
+"Not every snap can be installed as a parallel instance. Snaps that use "
+"unsupported interfaces or app properties are rejected when installed with an "
+"instance key. See {ref}`Snaps that are unsupported as parallel instances "
+"<interfaces-parallel-installs-unsupported>` for details."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:16
+msgid ""
+"To disable parallel installs, set the `experimental.parallel-instances` "
+"system option to `false`:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:18
+msgid "sudo snap set system experimental.parallel-instances=false\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:22
+msgid ""
+"With parallel installs disabled, `snap install` fails when given an instance "
+"key."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:24
+msgid ""
+"The native package of snapd 2.79 ships new mount units, crucial for the "
+"correct behavior of parallel instances of classic snaps. If you plan to use "
+"parallel instances of classic snaps, see the [Classic confinement section]"
+"(#classic-confinement) below for the required setup."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:26
+msgid "Installing multiple instances"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:28
+msgid ""
+"The process for installing multiple instances of a snap is identical to "
+"installing a single snap except you *must* provide a unique identifier, "
+"called an *instance key*, separated by an underscore (`_`) from the target "
+"snap name."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:30
+msgid ""
+"For example, the following command will install two instances of the [hello-"
+"world](https://snapcraft.io/hello-world) snap with the second given an "
+"instance key of `foo`:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:32
+msgid "sudo snap install hello-world hello-world_foo\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:36
+msgid ""
+"To specify a specific {ref}`channel and track <explanation-how-snaps-work-"
+"channels-and-tracks>` for each instance, install each instance separately."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:38
+msgid ""
+"For example, to install [Juju](https://juju.is/) 2.9 alongside Juju 3.0, run "
+"the following commands:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:40
+msgid ""
+"sudo snap install --channel 2.9/stable juju_29 --classic\n"
+"sudo snap install --channel 3.0/stable juju_30 --classic\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:45
+msgid ""
+"When installing from snap file, the instance key is set by passing `--"
+"name=<snap>_<instance>` explicitly:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:47
+msgid "sudo snap install --name hello-world_foo hello-world_27.snap\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:51
+msgid "Instance key naming"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:53
+msgid ""
+"The instance key needs to be manually appended to the snap name, and takes "
+"the following format: `<snap>_<instance-key>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:55
+msgid "For example, the following are valid instance names, for example:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:57
+msgid "`hello-world`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:58
+msgid "`hello-world_foo`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:59
+msgid "`hello-world_0123456789`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:61
+msgid ""
+"Only lowercase letters or digits are valid, and the instance name can be up "
+"to 10 characters long. After being set during the installation of a snap, an "
+"instance name cannot be changed."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:63
+msgid ""
+"ⓘ  The instance key **must** match the following regular expression: `^[a-"
+"z0-9]{1,10}$`."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:65
+msgid "Instance management"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:67
+msgid ""
+"When working with instances, the vast majority of snap commands function "
+"just as they would with a single snap. To remove an instance, for example, "
+"use *remove*:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:69
+msgid ""
+"$ snap remove hello-world_foo\n"
+"hello-world_foo removed\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:74
+msgid "Interfaces"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:76
+msgid ""
+"{ref}`Interfaces <explanation-interfaces-all-about-interfaces>` work across "
+"multiple snap instances just as they do from any one snap to another. For "
+"example, *xkcd-webserver* includes a *network* plug, as will all of its "
+"instances, any of which can be connected to the system's *:network* slot:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:78
+msgid ""
+"$ snap connections xkcd-webserver_foo\n"
+"Interface     Plug                             Slot           Notes\n"
+"network       xkcd-webserver_foo:network       :network       -\n"
+"network-bind  xkcd-webserver_foo:network-bind  :network-bind  -\n"
+"\n"
+"$ sudo snap disconnect xkcd-webserver_foo:network\n"
+"\n"
+"$ snap connections xkcd-webserver_foo\n"
+"Interface     Plug                             Slot           Notes\n"
+"network       xkcd-webserver_foo:network       -              -\n"
+"network-bind  xkcd-webserver_foo:network-bind  :network-bind  -\n"
+"\n"
+"$ sudo snap connect xkcd-webserver_foo:network\n"
+"\n"
+"$ snap connections xkcd-webserver_foo\n"
+"Interface     Plug                             Slot           Notes\n"
+"network       xkcd-webserver_foo:network       :network       manual\n"
+"network-bind  xkcd-webserver_foo:network-bind  :network-bind  -\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:99
+msgid ""
+"Slots provided by a parallel instance are never used for automatic "
+"connections. If an instance provides a slot that another snap needs, connect "
+"it manually:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:101
+msgid ""
+"sudo snap connect <consumer-snap>:<plug> <provider-snap>_<instance-key>:"
+"<slot>\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:105
+msgid ""
+"Some interfaces are not supported on parallel instances. See {ref}`Snaps "
+"that are unsupported as parallel instances  <interfaces-parallel-installs-"
+"unsupported>` for details."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:107
+msgid "Services"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:109
+msgid ""
+"As with Interfaces, {ref}`Services <how-to-guides-manage-snaps-control-"
+"services>` function the same with multiple instances of a snap as they do "
+"from any one snap to another."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:111
+msgid ""
+"However, with multiple instances, you're more likely to run into port "
+"allocation issues, such as two web servers needing access to port 80. In "
+"such cases, only the service from one instance will be active."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:113
+msgid ""
+"$ snap services\n"
+"Service                            Startup  Current\n"
+"xkcd-webserver.xkcd-webserver      enabled  active\n"
+"xkcd-webserver_foo.xkcd-webserver  enabled  inactive\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:120
+msgid ""
+"You can see why *xkcd-webserver_foo.xkcd-webserver* is inactive by looking "
+"at its logs:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:122
+msgid ""
+"$ sudo snap logs xkcd-webserver_foo.xkcd-webserver\n"
+"2018-10-03T12:31:59Z xkcd-webserver_foo.xkcd-webserver[1760]: OSError: "
+"[Errno 98] Address already in use\n"
+"(...)\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:127
+msgid ""
+"As with single snap service collisions, the solution is to stop the service "
+"on one instance and start the service on the other:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:129
+msgid ""
+"$ sudo snap stop xkcd-webserver.xkcd-webserver\n"
+"Stopped.\n"
+"\n"
+"$ sudo snap start xkcd-webserver_foo.xkcd-webserver\n"
+"Started.\n"
+"\n"
+"$ snap services\n"
+"Service                            Startup  Current\n"
+"xkcd-webserver.xkcd-webserver      enabled  inactive\n"
+"xkcd-webserver_foo.xkcd-webserver  enabled  active\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:143
+msgid "Application names and aliases"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:145
+msgid ""
+"Snap application names for multiple instances are adjusted according to the "
+"following pattern:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:147
+msgid "`<instance-name>.<app>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:149
+msgid ""
+"When an application name matches the snap name, a short alias is created to "
+"match the instance name."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:152
+msgid ""
+"For example, with *hello-world* and *hello-world_foo* installed, *hello-"
+"world.env* has an alias of *hello-world_foo.env* in the *_foo* instance:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:154
+msgid ""
+"$ hello-world.env  |grep SNAP_INSTANCE_NAME\n"
+"SNAP_INSTANCE_NAME=hello-world\n"
+"$ hello-world_foo.env  |grep SNAP_INSTANCE_NAME\n"
+"SNAP_INSTANCE_NAME=hello-world_foo\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:161
+msgid "As with regular snaps, aliases can be added separately:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:163
+msgid ""
+"$ sudo snap alias hello-world_bar bar_env\n"
+"Added:\n"
+"  - hello-world_bar as bar_env\n"
+"\n"
+"$ sudo snap alias hello-world_foo foo_env\n"
+"Added:\n"
+"  - hello-world_foo as foo_env\n"
+"\n"
+"$ snap aliases\n"
+"Command          Alias    Notes\n"
+"hello-world_bar  bar_env  manual\n"
+"hello-world_foo  foo_env  manual\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:178
+msgid ""
+"Aliases from instances generate conflict errors, just as they would with "
+"distinct snaps:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:180
+msgid ""
+"$ sudo snap alias hello-world_foo bar_env\n"
+"error: cannot perform the following tasks:\n"
+"- Setup manual alias \"bar_env\" => \"hello-world\" for snap \"hello-"
+"world_foo\"\n"
+"(cannot enable alias \"bar_env\" for \"hello-world_foo\", already enabled "
+"for \"hello-world_bar\")\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:187
+msgid ""
+"When aliases trigger a conflict during snap installation, try passing `--"
+"unaliased` with the command to disable automatic alias generation:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:189
+msgid "$ sudo snap install snap-with-conflicting-alias_foo --unaliased\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:194
+msgid "Snap environment, data and namespace"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:196
+msgid ""
+"When a snap application is run, its environment is populated with a number "
+"of `SNAP*` environment variables."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:198
+msgid ""
+"The following environmental variables are potentially affected when "
+"installing multiple instances of a snap:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:200
+msgid "**SNAP_NAME**: the name of the snap, eg. `hello-world`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:201
+msgid "**SNAP_INSTANCE_NAME**: the name of the instance, eg. `hello-world_foo`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:202
+msgid "**SNAP_INSTANCE_KEY**: instance key, eg, `foo` for `hello-world_foo`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:203
+msgid "**SNAP**: location of files for the snap"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:204
+msgid "**SNAP_DATA**: data for this particular snap revision"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:205
+msgid "**SNAP_COMMON**: data shared between revisions of the same snap"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:206
+msgid "**SNAP_USER_DATA**: user data for this particular snap revision"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:207
+msgid ""
+"**SNAP_USER_COMMON**: user data shared between revisions of the same snap"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:208
+msgid "**HOME**: user's home, equivalent to `SNAP_USER_DATA`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:209
+msgid "**XDG_RUNTIME_DIR**: user's XDG runtime directory"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:211
+msgid ""
+"For example, if *hello-world* and its instance, *hello-world_foo*, are "
+"installed, the following name variables would be set:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "snap"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "hello-world"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "hello-world_foo"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "SNAP_NAME"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "SNAP_INSTANCE_NAME"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "SNAP_INSTANCE_KEY"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "foo"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:219
+msgid ""
+"The data and mount points of parallel installed snaps are kept separate on "
+"the host filesystem. Assuming the snap mount directory is `/snap`, the "
+"following locations are used:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "mount point"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "/snap/hello-world/27"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "/snap/hello-world_foo/27"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "system data"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "/var/snap/hello-world/"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "/var/snap/hello-world_foo/"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "user data"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "$HOME/snap/hello-world/"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "$HOME/snap/hello-world_foo/"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:228
+msgid ""
+"Within the mount namespace of a snap, adjustments are made to map instance-"
+"specific locations to the snap locations. Taking *hello-world* as an "
+"example, system data locations are set to the following:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "SNAP"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "SNAP_DATA"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "/var/snap/hello-world/27"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "SNAP_COMMON"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "/var/snap/hello-world/common"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:236
+msgid ""
+"However, due to security concerns, user data locations are *not* similarly "
+"adjusted:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "SNAP_USER_DATA"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "/home/<usr>/snap/hello-world/27"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:240
+#: ../../../explanation/how-snaps-work/parallel-installs.md:241
+#: ../../../explanation/how-snaps-work/parallel-installs.md:242
+msgid "<usr>"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "/home/<usr>/snap/hello-world_foo/27"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "SNAP_USER_COMMON"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "/home/<usr>/snap/hello-world/common"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "/home/<usr>/snap/hello-world_foo/common"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "HOME"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "XDG_RUNTIME_DIR"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "/run/user/<uid>/snap.hello-world"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:243
+msgid "<uid>"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "/run/user/<uid>/snap.hello-world_foo"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:246
+msgid "Snaps that are unsupported as parallel instances"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:248
+msgid "Certain snaps, due to their nature, can never be parallel installed:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:249
+msgid "snapd"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:250
+msgid "core base"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:251
+msgid "kernel"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:252
+msgid "gadget"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:254
+msgid ""
+"All other snaps are subject to feature checking. Snapd checks every snap "
+"installed with an instance key and rejects it if it uses a feature that "
+"cannot work with more than one instance."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:256
+msgid "Unsupported interfaces"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:258
+msgid ""
+"Some interfaces give the snap exclusive ownership of a system-wide resource, "
+"such as a well-known D-Bus name. Others allow operations on shared hardware "
+"or kernel state that would conflict if performed by more than one instance. "
+"A snap cannot be installed as a parallel instance (unless specified with an "
+"explicit bypass flag; see {ref}`Installing an unsupported snap anyway "
+"<interfaces-parallel-installs-bypass>`) if it declares a plug or slot for "
+"one of these interfaces on an unsupported side:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "Interface"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "Plug supported"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "Slot supported"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`acrn-support <interfaces-acrn-support-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "No"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "Yes"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`adb-support <interfaces-adb-support-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`audio-playback <interfaces-audio-playback-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`auditd-support <interfaces-auditd-support>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`avahi-control <interfaces-avahi-control-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`avahi-observe <interfaces-avahi-observe-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`bluez <interfaces-bluez-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid ""
+"{ref}`checkbox-support <ref-checkbox-support-interface_checkbox-support-"
+"interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`classic-support <interfaces-classic-support-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`core-support <interfaces-core-support-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`cuda-driver-libs <interfaces-cuda-driver-libs>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`dbus <interfaces-dbus-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`desktop <interfaces-desktop-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "Only without `desktop-file-ids`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`dm-crypt <interfaces-dm-crypt-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`docker <interfaces-docker-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`docker-support <interfaces-docker-support-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`dsp <interfaces-dsp-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`egl-driver-libs <interfaces-egl-driver-libs>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid ""
+"{ref}`firmware-updater-support <ref-firmware-updater-support-"
+"interface_firmware-updater-support-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`fpga <interfaces-fpga-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`fwupd <interfaces-fwupd-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid ""
+"{ref}`gbm-driver-libs <ref-gbm-driver-libs-interface_gbm-driver-libs-"
+"interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`greengrass-support <interfaces-greengrass-support-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`kubernetes-support <interfaces-kubernetes-support-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`location-control <interfaces-location-control-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`location-observe <interfaces-location-observe-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`lxd-support <interfaces-lxd-support-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`maliit <interfaces-maliit-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`media-hub <interfaces-media-hub-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`microceph-support <interfaces-microceph-support>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`microstack-support <interfaces-microstack-support-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`mir <interfaces-mir-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`modem-manager <interfaces-modem-manager-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`multipass-support <interfaces-multipass-support-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`network-manager <interfaces-network-manager-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`nomad-support <interfaces-nomad-support>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid ""
+"{ref}`nvidia-drivers-support <interfaces-nvidia-drivers-support-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "`nvidia-video-driver-libs`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`ofono <interfaces-ofono-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid ""
+"{ref}`online-accounts-service <interfaces-online-accounts-service-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid ""
+"{ref}`opengl-driver-libs <ref-opengl-driver-libs-interface_opengl-driver-"
+"libs-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid ""
+"{ref}`opengles-driver-libs <ref-opengles-driver-libs-interface_opengles-"
+"driver-libs-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`openvswitch-support <interfaces-openvswitch-support-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid ""
+"{ref}`physical-memory-control <interfaces-physical-memory-control-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`pipewire <interfaces-pipewire-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`pkcs11 <interfaces-pkcs11>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`posix-mq <interfaces-posix-mq-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`pulseaudio <interfaces-pulseaudio-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`ros-snapd-support <interfaces-ros-snapd-support>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`shared-memory <interfaces-shared-memory-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "Only with `private: true`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`steam-support <interfaces-steam-support-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid ""
+"{ref}`storage-framework-service <interfaces-storage-framework-service-"
+"interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`thumbnailer-service <interfaces-thumbnailer-service-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid ""
+"{ref}`ubuntu-download-manager <interfaces-ubuntu-download-manager-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`udisks2 <interfaces-udisks2-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`unity8 <interfaces-unity8-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`unity8-calendar <interfaces-unity8-calendar-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`unity8-contacts <interfaces-unity8-contacts-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`upower-observe <interfaces-upower-observe-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "`vulkan-driver-libs`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`wayland <interfaces-wayland-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`x11 <interfaces-x11-interface>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:0
+msgid "{ref}`xilinx-dma <interfaces-xilinx-dma>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:326
+msgid ""
+"When an instance cannot be installed, the error names the plug or slot "
+"responsible and the reason, for example:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:328
+msgid ""
+"cannot install snap \"network-manager_foo\" as parallel instance: slot "
+"\"service\" with interface \"network-manager\" is not supported for parallel "
+"instances: owning a unique global resource cannot have parallel instances\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:332
+msgid "Unsupported app properties"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:334
+msgid ""
+"A snap is unsupported as a parallel instance if any of its apps set one of "
+"the following properties in `snap.yaml`:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:336
+msgid ""
+"`common-id`: the desktop file ID referenced by AppStream metadata is unique "
+"on the system."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:337
+msgid ""
+"`bus-name`: the well-known D-Bus name the app claims is unique on the system."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:338
+msgid ""
+"`activates-on`: D-Bus activation requires a `dbus` slot, which is not "
+"supported on parallel instances."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:341
+msgid "Installing an unsupported snap anyway"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:343
+msgid ""
+"Users who understand and accept the risks of conflicts between instances may "
+"bypass these checks with `--allow-unsupported-instances`:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:345
+msgid "sudo snap install --allow-unsupported-instances <snap>_<instance-key>\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:349
+msgid ""
+"Snapd remembers this choice for the instance, so later refreshes are not "
+"blocked."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:351
+msgid ""
+"If a refresh introduces an unsupported plug, slot or app property to an "
+"instance that is already installed and was fully supported, snapd blocks the "
+"refresh and adds a warning visible with `snap warnings`. To refresh the "
+"instance anyway, run:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:353
+msgid "sudo snap refresh --allow-unsupported-instances <snap>_<instance-key>\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:357
+msgid ""
+"`--allow-unsupported-instances` can only be used with snaps installed with "
+"an instance key."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:360
+msgid "Interfaces that control shared system resources"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:362
+msgid ""
+"Some supported interfaces grant control over a resource that is shared by "
+"the whole system, such as block devices or network ports. Each instance of a "
+"snap that uses one of these interfaces acts on the same system resource, and "
+"snapd does not coordinate between them. Before running more than one "
+"instance of a snap that uses such an interface, make sure that the instances "
+"are configured to manage different resources, or that only one instance is "
+"active at a time."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:364
+msgid "Classic confinement"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:366
+msgid ""
+"Snaps with {ref}`classic confinement <explanation-security-classic-"
+"confinement>` can be installed as parallel instances."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:368
+msgid ""
+"Starting with 2.79, the snapd native package (deb, rpm, etc.) ships "
+"additional mount units: `var-snap.mount` and either `snap.mount` (on Ubuntu, "
+"Debian) or `var-lib-snapd-snap.mount` (on Fedora, Arch, openSUSE, and "
+"others). The mount units must be active before installing parallel instances "
+"of classic snaps. The units help establish the mount hierarchy needed for "
+"ensuring that the automatically created `/snap/hello-world_foo/` to `/snap/"
+"hello-world/` mappings do not interfere with the host's mount namespace."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:370
+msgid ""
+"The `var-snap.mount` unit may need to be manually enabled for activation "
+"during boot. The `snap.mount` or `var-lib-snapd-snap.mount` units should "
+"auto-activate during boot if snaps are already installed, or upon installing "
+"the first snap."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:372
+msgid "Unit statuses can be confirmed by querying systemd, like so:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:374
+msgid "Ubuntu, Debian"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:-1
+msgid "active"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:-1
+msgid "enabled"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:396
+msgid "Fedora, Arch, openSUSE, and others"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:419
+msgid "To enable the `var-snap.mount` unit, run:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:421
+msgid "sudo systemctl enable var-snap.mount\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:425
+msgid ""
+"As mentioned in {ref}`the overview of parallel instances <interfaces-"
+"parallel-installs>`, if your system previously did not have parallel "
+"instances enabled but had at least one snap installed, update the native "
+"package to snapd >=2.79, enable the `var-snap.mount` unit, and **reboot the "
+"system**."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:427
+msgid ""
+"The mount units are only needed for supporting parallel installed classic "
+"snaps, and do not need to be active otherwise. For this reason, the mount "
+"units are also not present on Ubuntu Core systems."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:430
+msgid ""
+"The mount units are not shipped with nor installed by the snapd snap. Users "
+"of the snapd 2.79 snap still need the 2.79+ native package for the mount "
+"units to be available on their systems."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:433
+msgid "Current limitations"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:435
+msgid ""
+"There are a few limitations with parallel installs that will be addressed in "
+"subsequent `snapd` releases."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:437
+msgid "User data and runtime locations"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:439
+msgid ""
+"The user data locations are kept separate across multiple instances. "
+"Applications that hard code paths to either user data directories or the XDG "
+"runtime directory may not function correctly as the AppArmor profile has "
+"been updated to allow accessing instance specific paths only."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:441
+msgid ""
+"Applications need to use `SNAP_USER_DATA`, `SNAP_USER_COMMON` or fallback to "
+"using `HOME`."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:443
+msgid ""
+"Applications built using most popular frameworks, such as Gtk/glib or Qt, "
+"and that are already capable of observing both `HOME` and `XDG_RUNTIME_DIR`, "
+"should continue to work."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:445
+msgid "Ports, DBus names, shared memory and socket activation"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:447
+msgid ""
+"Snaps may provide APIs consumed by other snaps or the host system at some "
+"well known locations or addresses, such as DBus service names, /dev/shm "
+"objects or semaphores, abstract socket addresses. While the default AppArmor "
+"template has been updated to allow only instance specific access, connecting "
+"interfaces may allow a wider access capabilities that can lead to conflicts "
+"between instances of the same snap."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:450
+msgid "Ports"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:452
+msgid ""
+"When snapd installs a snap with services, the services are automatically "
+"started. Services trying to bind to the same port may fail or function "
+"incorrectly. Such snaps should deliver means for configuration of the "
+"service via configure hooks."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:454
+msgid ""
+"A demo snap https://github.com/bboozzoo/parallel-installs-demo provides an "
+"example of reconfiguration via configure hooks."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:456
+msgid ""
+"Repeated failed starts of a service due to a port already in use can trigger "
+"systemd start-rate limiting and suppress further restarts. To avoid restart "
+"suppression:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:458
+msgid "Identify the service name:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:460
+msgid "snap services <snap-instance-name>\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:464
+msgid "Clear the failed state before applying the new port configuration:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:466
+msgid ""
+"sudo systemctl reset-failed snap.<snap-instance-name>.<service-"
+"name>.service\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:470
+msgid ""
+"Apply the port configuration (this restarts the service through the "
+"configure hook):"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:472
+msgid "sudo snap set <snap-instance-name> <key>=<port>\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:476
+msgid "DBus names"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:478
+msgid ""
+"Snaps that own a well-known D-Bus name, through a `dbus` slot or the `bus-"
+"name` app property, are not supported as parallel instances. See {ref}"
+"`interfaces-parallel-installs-unsupported`."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:480
+msgid "Snaps with plug-side `dbus` interface declarations are supported."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:482
+msgid "`/dev/shm`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:484
+msgid ""
+"The default AppArmor profile allows instance specific access only. "
+"Applications hardcoding paths can break."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:486
+msgid ""
+"The `shared-memory` interface is only supported on parallel instances for "
+"plugs with the `private` attribute set to `true`, which gives each instance "
+"its own private `/dev/shm`. Slot-side parallel installations with `shared-"
+"memory` are not supported. Note that some interfaces such as `mir` allow a "
+"wider access to `/dev/shm`. Such a snap would need to be updated to made "
+"instance aware."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:488
+msgid "Socket activation"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:490
+msgid ""
+"Snaps can use `listen-stream` socket definitions of three kinds: a network "
+"address, or an `AF_UNIX` socket addressed by either a filesystem path or an "
+"abstract name. Each behaves differently with parallel installs:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:492
+msgid ""
+"**Network sockets** (for example a bare `<port>`) are not adjusted for "
+"parallel installs. Instances trying to bind to the same address and port "
+"collide in the same way described above under Ports. Since the address is "
+"hard-coded, using `AF_INET`/`AF_INET6` socket activation is not recommended "
+"for snaps that want to support parallel installs."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:493
+msgid ""
+"**`AF_UNIX` filesystem-path sockets** using `$SNAP_DATA`, `$SNAP_COMMON` or "
+"`$XDG_RUNTIME_DIR` for system daemons, or `$SNAP_USER_DATA`, "
+"`$SNAP_USER_COMMON` or `$XDG_RUNTIME_DIR` for user daemons, are "
+"automatically expanded to instance-specific locations, so the clients can "
+"use the appropriate path, for example `/var/snap/hello-world_foo/common/"
+"name.socket`."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:494
+msgid ""
+"**`AF_UNIX` abstract sockets** must be declared with a `@snap.<snap-name>.` "
+"prefix. When generating the systemd socket unit for a snap instance, snapd "
+"automatically remaps this prefix to `@snap.<instance-name>.`, so each "
+"instance listens on its own abstract address without colliding with other "
+"instances. Clients must connect using the instance-qualified address, for "
+"example `@snap.hello-world_foo.socket` rather than `@snap.hello-"
+"world.socket`."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/parallel-installs.md:496
+msgid ""
+"If, after any variable expansion or instance remapping, the resulting socket "
+"address exceeds the maximum length of 108 bytes allowed for a [Unix domain "
+"socket](https://man7.org/linux/man-pages/man7/unix.7.html) address, snapd "
+"fails to generate the socket unit and reports an error."
+msgstr ""

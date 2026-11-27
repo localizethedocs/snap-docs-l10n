@@ -1,0 +1,116 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to-guides/snap-development/index.md:21
+msgid "Use the REST API"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/index.md:21
+msgid "Integrate TPM-FDE into an installer"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/index.md:21
+msgid "Use snapctl"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/index.md:21
+msgid "Use the Secret portal"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/index.md:21
+msgid "Test snapd fixes"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/index.md:21
+msgid "Debug snaps"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/index.md:21
+msgid "Snap try"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/index.md:21
+msgid "In-development features"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/index.md:0
+msgid ""
+"How-to guides for extending snap functionality with API access, snapctl, "
+"Secret portal, snap try, testing snapd fixes, debugging, and in-development "
+"features."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/index.md:8
+msgid "Snap development"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/index.md:10
+msgid ""
+"Extend snap functionality with API access, internal tools, and customised "
+"environments for your applications and devices."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/index.md:12
+msgid ""
+"{ref}`Use the REST API <how-to-guides-manage-snaps-use-the-rest-api>`: how "
+"to access the snapd REST API."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/index.md:13
+msgid ""
+"{ref}`Integrate TPM-FDE into a custom Ubuntu installer using the snapd REST "
+"API <how-to-guides-installer-with-tpm-fde>`: use the snapd REST API to build "
+"a custom installer."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/index.md:14
+msgid ""
+"{ref}`Use snapctl <how-to-guides-manage-snaps-use-snapctl>`: use the snapctl "
+"tool within a snap application."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/index.md:15
+msgid ""
+"{ref}`Use the Secret portal <how-to-guides-use-the-secret-portal>`: how to "
+"use the Secret portal"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/index.md:16
+msgid ""
+"{ref}`Test snapd fixes <how-to-guides-fix-common-issues-test-snapd-fixes>`: "
+"test out the latest release of the snap daemon."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/index.md:17
+msgid ""
+"{ref}`Debug snaps <how-to-guides-fix-common-issues-debug-snaps>`: solve "
+"issues with snapped application and generate a snapd diagnostic report."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/index.md:18
+msgid ""
+"{ref}`snap try <how-to-guides-fix-common-issues-debug-snaps>`: test a snap "
+"package on your system."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/index.md:19
+msgid ""
+"{ref}`Using in-development features <ref-experimental-features_experimental-"
+"features>`: learn how to use cutting edge snap features."
+msgstr ""

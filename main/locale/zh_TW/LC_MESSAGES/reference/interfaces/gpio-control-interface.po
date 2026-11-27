@@ -1,0 +1,202 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/gpio-control-interface.md:0
+#: ../../../reference/interfaces/gpio-control-interface.md:8
+msgid "gpio-control interface"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:10
+msgid ""
+"The `gpio-control` interface provides privileged access to all aspects of "
+"GPIO pins. For accessing specific GPIO pins with limited scope, see {ref}"
+"`The gpio interface <interfaces-gpio-interface>` instead."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:12
+msgid ""
+"Due to its wide-ranging access, it is a {ref}`super-privileged interface "
+"<reference-operations-interfaces-super-privileged-interfaces>`, and as such, "
+"is restricted by default. This interface requires modification of its snap "
+"declaration for distribution via the Snap Store."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:14
+msgid "This interface is used for:"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:16
+msgid "Fine-grained control of GPIO pins (input and output)."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:17
+msgid "Building custom hardware interfaces, such as LEDs, relays, or sensors."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:18
+msgid ""
+"Low-level interaction with GPIO hardware using character devices or sysfs."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:20
+msgid "**Developer Details**"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:22
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`**: yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:22
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:26
+msgid ""
+"This interface controls a resource shared by the whole system. Snaps that "
+"use it can be installed as parallel instances, but every instance acts on "
+"the same system resource and snapd does not coordinate between them. Make "
+"sure each instance manages different resources, or run only one instance at "
+"a time. See {ref}`Snaps that are unsupported as parallel instances "
+"<interfaces-parallel-installs-shared-resources>` for details.."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:29
+msgid "**Path Access**"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:31
+msgid ""
+"The `gpio-control` interface grants read-write access to the following paths:"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:33
+msgid "Sysfs Interface:"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:34
+msgid ""
+"`/sys/class/gpio/` paths for exporting, setting direction, toggling values, "
+"and more:"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:35
+msgid "`/sys/class/gpio/{,un}export`"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:36
+msgid "`/sys/class/gpio/gpio\\[0-9\\]\\*/{active\\_low,direction,value,edge}`"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:37
+msgid "Additional symlink paths (platform-specific):"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:38
+msgid ""
+"`/sys/devices/platform/\\*\\*/gpio/gpio\\[0-9\\]\\*/"
+"{active\\_low,direction,value,edge} `"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:39
+msgid "Gpiochip Interface:"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:40
+msgid ""
+"`/dev/gpiochip\\[0-9\\]\\` paths for direct hardware interaction through the "
+"_gpiod_ API."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:42
+msgid "The following UDev rules are applied to enable device access:"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:44
+msgid "`SUBSYSTEM==\"gpio\", KERNEL==\"gpiochip[0-9]*\"`"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:46
+msgid ""
+"Requires snapd version 2.41+. `gpoichip\\*` access requires snapd version "
+"2.65+."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:48
+msgid ""
+"The following is an example of a snapcraft.yaml configuration for the GPIO "
+"control interface, following the descriptive interface reference practice "
+"for clarity:"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:50
+msgid ""
+"name: gpio-control-app\n"
+"version: '1.0'\n"
+"summary: An example snap for controlling GPIO pins\n"
+"description: |\n"
+"  This snap demonstrates how to use the GPIO Control interface to manage "
+"GPIO hardware for custom applications.\n"
+"\n"
+"grade: stable\n"
+"confinement: strict\n"
+"\n"
+"plugs:\n"
+"  gpio-pins-control:\n"
+"    interface: gpio-control\n"
+"\n"
+"apps:\n"
+"  gpio-app:\n"
+"    command: bin/gpio-app\n"
+"    plugs:\n"
+"      - gpio-pins-control\n"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:71
+msgid ""
+"After building and installing the snap, use the following command to connect "
+"the interface manually:"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:73
+msgid "sudo snap connect gpio-control-app:gpio-pins-control\n"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:77
+msgid ""
+"This ensures clarity and aligns with the best practices for naming interface "
+"references when using `snap connections`, `snap interfaces`, `snap connect`, "
+"or `snap disconnect`."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:79
+msgid ""
+"The source code for the GPIO Control interface is in the snapd repository: "
+"[gpio\\_control.go](https://github.com/canonical/snapd/blob/master/"
+"interfaces/builtin/gpio_control.go)"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-control-interface.md:80
+msgid ""
+"For further testing details, see: [gpio\\_control\\_test.go](https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"gpio_control_test.go)"
+msgstr ""

@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/how-snaps-work/validation-sets.md:2
+msgid "Validation sets"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/validation-sets.md:4
+msgid ""
+"A validation set is an {ref}`assertion <explanation-security-assertions>` "
+"that lists specific snaps and components that are either required to be "
+"installed together or are permitted to be installed together on a device or "
+"system."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/validation-sets.md:6
+msgid ""
+"They can be created using the `snapcraft` command, and monitored with the "
+"`snap` command.  See {ref}`How to manage validation sets <how-to-guides-"
+"manage-snaps-manage-validation-sets>` for further details. For devices "
+"running {ref}`Ubuntu Core <ref-glossary_ubuntu-core>`, they can be declared "
+"as part of the [model](https://ubuntu.com/core/docs/reference/assertions/"
+"model) definition."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/validation-sets.md:8
+msgid "Why use a validation set"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/validation-sets.md:10
+msgid ""
+"A validation set can help a group of interdependent snaps maintain their "
+"testing and certification integrity, as well as help orchestrate their "
+"updates. But they can equally be used to simplify dependency deployment and "
+"to help manage devices."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/validation-sets.md:12
+msgid ""
+"In particular, if the [model assertion](https://ubuntu.com/core/docs/"
+"reference/assertions/model) for a device includes optional snaps, a "
+"validation set can be used to ensure specific collections of snaps are "
+"installed together on derivatives of the same devices."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/validation-sets.md:14
+msgid ""
+"Enforced validation sets prevent listed snaps and components from being "
+"removed from the system, generating an error similar to the following:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/validation-sets.md:16
+msgid ""
+"error: cannot remove component \"mysnap+mycomp\" as it is required by an "
+"enforcing validation set\n"
+msgstr ""

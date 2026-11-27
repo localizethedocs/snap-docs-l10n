@@ -1,0 +1,143 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/index.md:12 ../../../explanation/index.md:40
+msgid "How snaps work"
+msgstr ""
+
+#: ../../../explanation/index.md:22 ../../../explanation/index.md:40
+msgid "Interfaces"
+msgstr ""
+
+#: ../../../explanation/index.md:30 ../../../explanation/index.md:40
+msgid "Security"
+msgstr ""
+
+#: ../../../explanation/index.md:40
+msgid "Snap development"
+msgstr ""
+
+#: ../../../explanation/index.md:0
+msgid ""
+"Explanatory and conceptual guides for snap packages, covering snap "
+"mechanics, interfaces, updates, security, and development for users and "
+"developers."
+msgstr ""
+
+#: ../../../explanation/index.md:8
+msgid "Explanation"
+msgstr ""
+
+#: ../../../explanation/index.md:10
+msgid ""
+"Our explanatory and conceptual guides are written to provide a better "
+"understanding of how snap and the snap daemon (_snapd_) work. They enable "
+"you to expand your knowledge and become better at both building snaps and "
+"getting the most out of the snap ecosystem."
+msgstr ""
+
+#: ../../../explanation/index.md:14
+msgid ""
+"Understand how snaps update automatically, and use revisions and "
+"transactional updates to manage risk and mitigate potential issues."
+msgstr ""
+
+#: ../../../explanation/index.md:16
+msgid ""
+"{ref}`Refresh awareness <explanation-how-snaps-work-refresh-awareness>`: How "
+"updates are handled when apps are running."
+msgstr ""
+
+#: ../../../explanation/index.md:17
+msgid ""
+"{ref}`Using channels <explanation-how-snaps-work-channels-and-tracks>`: "
+"Understanding channels, tracks, risk-levels and branches."
+msgstr ""
+
+#: ../../../explanation/index.md:18
+msgid ""
+"{ref}`Revisions <explanation-how-snaps-work-revisions>`: The unique identity "
+"for each and every snap version."
+msgstr ""
+
+#: ../../../explanation/index.md:19
+msgid ""
+"{ref}`Transactional updates <explanation-how-snaps-work-transactional-"
+"updates>`: Update a group of snaps together, or none at all."
+msgstr ""
+
+#: ../../../explanation/index.md:20
+msgid ""
+"{ref}`Snap performance <explanation-how-snaps-work-snap-performance>`: How "
+"snaps limit any performance overhead."
+msgstr ""
+
+#: ../../../explanation/index.md:24
+msgid ""
+"As you begin to use snaps more, interfaces can be used to carefully permit "
+"and limit access to resources."
+msgstr ""
+
+#: ../../../explanation/index.md:26
+msgid ""
+"{ref}`All about interfaces <explanation-interfaces-all-about-interfaces>`: "
+"The permission system used to manage access to resources."
+msgstr ""
+
+#: ../../../explanation/index.md:27
+msgid ""
+"{ref}`Interface auto-connection <explanation-interfaces-interface-auto-"
+"connection>`: How snaps gain automatic access to resources."
+msgstr ""
+
+#: ../../../explanation/index.md:28
+msgid ""
+"{ref}`Interface hooks <explanation-interfaces-interface-hooks>`: A feature "
+"to help developers control what happens when an interface is used."
+msgstr ""
+
+#: ../../../explanation/index.md:32
+msgid ""
+"Learn about how snaps use standard Linux security policies to isolate "
+"themselves from the system, and from each other."
+msgstr ""
+
+#: ../../../explanation/index.md:34
+msgid ""
+"{ref}`Security policies <explanation-security-security-policies>`: How we "
+"use AppArmor, Seccomp and cgroups to secure snaps."
+msgstr ""
+
+#: ../../../explanation/index.md:35
+msgid ""
+"{ref}`Snap confinement <explanation-security-snap-confinement>`: Learn more "
+"about Snap's various degrees of isolation."
+msgstr ""
+
+#: ../../../explanation/index.md:36
+msgid ""
+"{ref}`Assertions <explanation-security-assertions>`: Digitally signed "
+"documents used to verify all snap artefacts."
+msgstr ""
+
+#: ../../../explanation/index.md:37
+msgid ""
+"{ref}`Snapd release process <explanation-security-snapd-release-process>`: "
+"How and when we update the snapd package."
+msgstr ""

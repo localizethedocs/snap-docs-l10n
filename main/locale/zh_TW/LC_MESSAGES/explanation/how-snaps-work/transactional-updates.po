@@ -1,0 +1,85 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/how-snaps-work/transactional-updates.md:2
+msgid "Transactional updates"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/transactional-updates.md:4
+msgid ""
+"A transactional update is an install or refresh operation on a set of snaps "
+"that either succeeds for all the snaps, or, if even one snap encounters an "
+"error, fails for all the entire set. If the process fails, all affected "
+"snaps revert to their state before the process started, even snaps that "
+"successfully updated."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/transactional-updates.md:6
+msgid ""
+"This can help when a set of snaps with specific revisions are tested to "
+"ensure they work together, and where behaviour could become unpredictable if "
+"a set isn't installed or updated at the same time."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/transactional-updates.md:8
+msgid ""
+"Transactional updates can also help when you know that one snap is dependent "
+"on a specific revision of another, or when you need multiple snaps to update "
+"at the same time. On the firmware for device running Ubuntu Core, for "
+"example, it can help to update both the kernel snap and the gadget snap at "
+"the same time. Transactional updates enable this."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/transactional-updates.md:10
+msgid ""
+"A transactional update or installation can be instantiated from either the "
+"**snap** command, or from the {ref}`SnapD REST API <reference-development-"
+"snapd-rest-api>`."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/transactional-updates.md:12
+msgid "Transactional updates from the snap command"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/transactional-updates.md:14
+msgid ""
+"The **snap install** and **snap refresh** commands accept an additional `--"
+"transaction=` argument with either `all-snaps` to instantiate the process as "
+"a single transaction, or `per-snap`, which is the default, for a separate "
+"transaction per listed snap:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/transactional-updates.md:16
+msgid ""
+"To install hello and hello-world snaps as a single transaction, for example, "
+"run the following command:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/transactional-updates.md:18
+msgid ""
+"$ snap install hello hello-world --transaction=all-snaps\n"
+"hello-world 6.4 from Canonical✓ installed\n"
+"hello 2.10 from Canonical✓ installed\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/transactional-updates.md:24
+msgid ""
+"Currently, no change, log, or message is output to show if a set of snaps "
+"have been installed as a single transaction."
+msgstr ""

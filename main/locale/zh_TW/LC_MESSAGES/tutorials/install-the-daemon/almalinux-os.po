@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../tutorials/install-the-daemon/almalinux-os.md:0
+msgid ""
+"Learn how to install snap on AlmaLinux OS by enabling EPEL, installing the "
+"snapd package, and enabling the socket and classic snap support."
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/almalinux-os.md:8
+msgid "Install snap on AlmaLinux OS"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/almalinux-os.md:10
+msgid ""
+"Snap is available for [AlmaLinux OS](https://almalinux.org/), a Linux "
+"distribution that’s being actively developed to provide binary compatibility "
+"with Red Hat Enterprise Linux (RHEL) and  _pre-Stream_ CentOS."
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/almalinux-os.md:13
+msgid ""
+"The snap packages for AlmaLinux OS can be found in the [Extra Packages for "
+"Enterprise Linux](https://fedoraproject.org/wiki/EPEL) (EPEL) repository.  "
+"The EPEL repository is added to a AlmaLinux OS system with the following "
+"commands:"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/almalinux-os.md:15
+msgid ""
+"sudo dnf install epel-release\n"
+"sudo dnf upgrade\n"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/almalinux-os.md:20
+msgid ""
+"If you use a root user rather than _sudo_ to handle security privileges, run "
+"`su` first and remove _sudo_ from subsequent commands."
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/almalinux-os.md:22
+msgid "Installing snapd"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/almalinux-os.md:24
+msgid ""
+"With the EPEL repository added to your AlmaLinux OS installation, simply "
+"install the *snapd* package (as root/or with _sudo_):"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/almalinux-os.md:26
+msgid "sudo dnf install snapd\n"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/almalinux-os.md:30
+msgid ""
+"Once installed, the *systemd* unit that manages the main snap communication "
+"socket needs to be enabled:"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/almalinux-os.md:32
+msgid "sudo systemctl enable --now snapd.socket\n"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/almalinux-os.md:36
+msgid ""
+"To enable *classic* snap support, enter the following to create a symbolic "
+"link between `/var/lib/snapd/snap` and `/snap`:"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/almalinux-os.md:38
+msgid "sudo ln -s /var/lib/snapd/snap /snap\n"
+msgstr ""
+
+#: ../../../tutorials/install-the-daemon/almalinux-os.md:42
+msgid ""
+"Either log out and back in again or restart your system to ensure snap’s "
+"paths are updated correctly."
+msgstr ""

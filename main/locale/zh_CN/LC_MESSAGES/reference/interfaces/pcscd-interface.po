@@ -1,0 +1,60 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/pcscd-interface.md:2
+msgid "pcscd interface"
+msgstr ""
+
+#: ../../../reference/interfaces/pcscd-interface.md:4
+msgid ""
+"The `pcscd` interface  permits communication with [PCSD](https://"
+"manpages.ubuntu.com/manpages/focal/en/man8/pcscd.8.html), the PC/SC smart "
+"card daemon typically used to access smart cards and secure tokens via the "
+"SCard API."
+msgstr ""
+
+#: ../../../reference/interfaces/pcscd-interface.md:7
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/pcscd-interface.md:9
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/pcscd-interface.md:9
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/pcscd-interface.md:11
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/pcscd-interface.md:13
+msgid ""
+"The test code can be found in the snapd repository: https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/pcscd_test.go"
+msgstr ""
+
+#: ../../../reference/interfaces/pcscd-interface.md:15
+msgid ""
+"The source code for the interface is in the snapd repository: https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/pcscd.go"
+msgstr ""

@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/removable-media-interface.md:0
+msgid ""
+"Reference documentation for the removable-media interface, which grants "
+"snaps read and write access to mounted removable storage."
+msgstr ""
+
+#: ../../../reference/interfaces/removable-media-interface.md:8
+msgid "removable-media interface"
+msgstr ""
+
+#: ../../../reference/interfaces/removable-media-interface.md:10
+msgid ""
+"`removable-media` allows read/write access to mounted removable storage in `/"
+"media`, `/run/media` and `/mnt`."
+msgstr ""
+
+#: ../../../reference/interfaces/removable-media-interface.md:12
+msgid ""
+"For example, this interface can be used to provide access to mounted USB "
+"sticks and external hard drives from the desktop environment."
+msgstr ""
+
+#: ../../../reference/interfaces/removable-media-interface.md:14
+msgid ""
+"Security-conscious users may want to remove sensitive external media when "
+"installing snaps, before disconnecting the interface from those snaps to "
+"prevent them from having access when the data is restored."
+msgstr ""
+
+#: ../../../reference/interfaces/removable-media-interface.md:16
+msgid "Access to `/mnt` requires snapd version *2.36+*."
+msgstr ""
+
+#: ../../../reference/interfaces/removable-media-interface.md:20
+msgid "**Auto-connect**: no"
+msgstr ""
+
+#: ../../../reference/interfaces/removable-media-interface.md:22
+msgid ""
+"This interface is typically {ref}`not granted <interfaces-process-for-"
+"aliases-auto-connections-and-tracks>` the ability to {ref}`auto-connect "
+"<explanation-interfaces-interface-auto-connection>` because doing so will "
+"permit access to potentially sensitive data such as photos, documents and "
+"encryption keys."
+msgstr ""
+
+#: ../../../reference/interfaces/removable-media-interface.md:24
+msgid ""
+"Certain application types may be granted an exception for the following "
+"reasons:"
+msgstr ""
+
+#: ../../../reference/interfaces/removable-media-interface.md:26
+msgid ""
+"**major browsers**: typically designed with security and user privacy in mind"
+msgstr ""
+
+#: ../../../reference/interfaces/removable-media-interface.md:27
+msgid ""
+"**media editors**: often used to import/edit/export large files on external "
+"devices"
+msgstr ""
+
+#: ../../../reference/interfaces/removable-media-interface.md:28
+msgid ""
+"**media players/viewers**: often used to import/preview/playback files on "
+"external devices"
+msgstr ""
+
+#: ../../../reference/interfaces/removable-media-interface.md:29
+msgid ""
+"**media recorders**: often used to export/edit files on external devices"
+msgstr ""
+
+#: ../../../reference/interfaces/removable-media-interface.md:31
+msgid ""
+"`removable-media` is considered a _transitional_ interface because, when "
+"connected, only traditional UNIX permissions are considered for file access. "
+"This allows a background service in a snap to setup _inotify_, for example, "
+"to monitor, catalogue and modify files on external media."
+msgstr ""

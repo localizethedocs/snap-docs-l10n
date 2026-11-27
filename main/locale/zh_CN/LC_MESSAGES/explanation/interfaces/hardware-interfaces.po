@@ -1,0 +1,230 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:2
+msgid "Hardware interfaces"
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:4
+msgid ""
+"Hardware IO (input/output) interfaces, including the {ref}`serial-port "
+"<interfaces-serial-port-interface>`, {ref}`gpio <interfaces-gpio-"
+"interface>`, {ref}`gpio-chardev <interfaces-gpio-chardev>` and {ref}`i2c "
+"<interfaces-i2c-interface>` interfaces, are designed to be used on devices "
+"running {ref}`Ubuntu Core <ref-glossary_ubuntu-core>`. These interfaces are "
+"exposed as _slots_ from a device's {ref}`gadget snap <reference-development-"
+"yaml-schemas-the-gadget-snap>` which is used to define and configure a "
+"device's system properties."
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:6
+msgid ""
+"This approach is more robust because it allows the gadget snap providing the "
+"slot to centralise and arbitrate the connection conditions. These conditions "
+"include which other snaps, identified by their snap ID, can connect to the "
+"slots the gadget offers and, consequently, gain privileged access to the "
+"hardware.  For the application snap, usually no change is required other "
+"than to declare and use an appropriately-configured plug."
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:9
+msgid ""
+"The following are exceptions to the above, and can be used without being "
+"declared in the gadget snap:"
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:10
+msgid "{ref}`gpio-control interface <interfaces-gpio-control-interface>`"
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:11
+msgid ""
+"{ref}`serial-port interface <interfaces-serial-port-interface>` "
+"(experimental support)"
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:13
+msgid ""
+"See {ref}`Supported interfaces <ref-index_interfaces>` for a complete list "
+"of interfaces."
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:15
+msgid "Interface considerations"
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:17
+msgid ""
+"The extent of access an interface has is granted through both _connection "
+"permissions_ and the specifics of the _interface connections_ being "
+"requested."
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:19
+msgid ""
+"**Connection permissions**: {ref}`auto-connect <explanation-interfaces-"
+"interface-auto-connection>` | {ref}`privileged <reference-operations-"
+"interfaces-super-privileged-interfaces>` | {ref}`super-privileged <reference-"
+"operations-interfaces-super-privileged-interfaces>` </br>Connection "
+"requirements are dependent on which store a developer is using."
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:19
+msgid "</br>"
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:21
+msgid ""
+"{ref}`Global Snap Store <ref-glossary_snap-store>`: privileged and super-"
+"privileged interfaces require store approval because of the level of trust "
+"and permissiveness these interfaces have, which is also why certain "
+"interfaces need certain oversight. See {ref}`Permission requests <interfaces-"
+"process-for-aliases-auto-connections-and-tracks>` for further details."
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:22
+msgid ""
+"[Dedicated Snap Store](https://documentation.ubuntu.com/core/explanation/"
+"stores/dedicated-snap-store): trust and permissiveness are now  the "
+"responsibility of the store owner, and many privileged interface connections "
+"can be self-served and defined within the dedicated snap store and the "
+"device context."
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:23
+msgid ""
+"**Interface connections**: hardware IO interfaces | app-provided interfaces "
+"| other interfaces"
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:24
+msgid ""
+"**Hardware IO interfaces**: These require either a {ref}`slot <how-to-guides-"
+"work-with-snaps-connect-interfaces>` to be defined by a device's _gadget "
+"snap_ or an interface with {ref}`Hotplug support <interfaces-hotplug-"
+"support>`, in which case the slot appears from the system snap."
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:25
+msgid ""
+"An unconstrained {ref}`auto-connection <explanation-interfaces-interface-"
+"auto-connection>` cannot be used because there may be _many slots of a given "
+"interface_, resulting in ambiguity that requires  an extensive set of store "
+"rules to manage and maintain."
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:26
+msgid "Each plug should therefore be connected to a slot, for example:"
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:27
+msgid "green led plug on app => green led slot on gadget"
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:28
+msgid "red led plug on app => red led slot on gadget"
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:29
+msgid ""
+"This kind of 1-to-1 connections can usually be established via {ref}`slot "
+"rules in the snap-declaration <explanation-interfaces-interface-auto-"
+"connection>` for the gadget."
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:30
+msgid ""
+"**App-provided interfaces**: slots are defined by apps, or occasionally from "
+"the gadget snap,"
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:31
+msgid ""
+"May require access, such as from the {ref}`content <interfaces-content-"
+"interface>` or {ref}`shared-memory <interfaces-shared-memory-interface>` "
+"interfaces."
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:32
+msgid ""
+"A slot might may be provided by the system snap to cover the case of an "
+"equivalent system service, such as {ref}`audio-playback <interfaces-audio-"
+"playback-interface>`"
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:33
+msgid ""
+"the slot might be {ref}`super-privileged <reference-operations-interfaces-"
+"super-privileged-interfaces>`"
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:34
+msgid ""
+"**Other interfaces**: For more system level access, slots are provided by "
+"the system snap."
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:36
+msgid "<h3 id='heading--code-examples'>Code examples</h3>\n"
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:38
+msgid ""
+"The [gadget snap](https://github.com/canonical/pi-gadget/tree/20-arm64) "
+"definition for the reference [Raspberry Pi Ubuntu Core](https://ubuntu.com/"
+"core/docs/install-raspberry-pi) image contains interface definitions for "
+"various hardware IO interfaces on the system, including slots for each "
+"specific GPIO pin, i2c connections, the Bluetooth serial port, and the "
+"generic serial ports:"
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:40
+msgid ""
+"slots:\n"
+"  bcm-gpio-0:\n"
+"    interface: gpio\n"
+"    number: 0\n"
+"  bcm-gpio-1:\n"
+"    interface: gpio\n"
+"    number: 1\n"
+"  bcm-gpio-2:\n"
+"    interface: gpio\n"
+"    number: 2\n"
+"[...]\n"
+"  i2c-0:\n"
+"    interface: i2c\n"
+"    path: /dev/i2c-0\n"
+"[...]\n"
+"  bt-serial:\n"
+"    interface: serial-port\n"
+"    path: /dev/ttyAMA0\n"
+"[...]\n"
+"  serial0:\n"
+"    interface: serial-port\n"
+"    path: /dev/ttyS0\n"
+"  serial1:\n"
+"    interface: serial-port\n"
+"    path: /dev/ttyS1\n"
+msgstr ""
+
+#: ../../../explanation/interfaces/hardware-interfaces.md:68
+msgid ""
+"On a Raspberry Pi, the above hardware IO interfaces are accessible to apps "
+"from the system snap without requiring any further configuration."
+msgstr ""

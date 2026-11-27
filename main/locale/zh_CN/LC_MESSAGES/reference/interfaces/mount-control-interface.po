@@ -1,0 +1,299 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/mount-control-interface.md:0
+#: ../../../reference/interfaces/mount-control-interface.md:8
+msgid "mount-control interface"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:10
+msgid ""
+"The `mount-control` interface allows the mounting and unmounting of both "
+"transient (non-persistent) and persistent filesystem mount points. The "
+"interface does not itself create or maintain mount points, but instead "
+"permits the snapped application or service to create and maintain its own."
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:12
+msgid "This interface gives privileged access to the device."
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:14
+msgid ""
+"To mount a local filesystem, `mount-control` must be used together with the "
+"{ref}`block-devices interface <interfaces-block-devices-interface>`."
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:16
+msgid "Requires snapd version *2.54+*."
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:18
+msgid "Use of `nfs` requires snapd version *2.67+*"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:20
+msgid "Use of `cifs` requires snapd version *2.68+*"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:22
+msgid ""
+"See {ref}`Interface management <how-to-guides-work-with-snaps-connect-"
+"interfaces>` and {ref}`Supported interfaces <ref-index_interfaces>` for "
+"further details on how interfaces are used."
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:24
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:26
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`**: yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:26
+#: ../../../reference/interfaces/mount-control-interface.md:34
+#: ../../../reference/interfaces/mount-control-interface.md:36
+#: ../../../reference/interfaces/mount-control-interface.md:38
+#: ../../../reference/interfaces/mount-control-interface.md:40
+#: ../../../reference/interfaces/mount-control-interface.md:42
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:30
+msgid ""
+"This interface controls a resource shared by the whole system. Snaps that "
+"use it can be installed as parallel instances, but every instance acts on "
+"the same system resource and snapd does not coordinate between them. Make "
+"sure each instance manages different resources, or run only one instance at "
+"a time. See {ref}`Snaps that are unsupported as parallel instances "
+"<interfaces-parallel-installs-shared-resources>` for details.."
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:33
+msgid "**Attributes**:"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:34
+msgid ""
+"`persistent` (plug): defines whether the mount can be persistent or not.</"
+"br> Either `true` or `false`. Defaults to `false`."
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:36
+msgid ""
+"`type` (plug): lists one or more acceptable filesystems for this mount.</"
+"br>  Example: `[ext2, ext3, ext4]`"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:38
+msgid ""
+"`what` (plug): absolute path of what to mount using a matching wildcard.</"
+"br> Example: `/dev/sd*`"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:40
+msgid ""
+"`where` (plug): either an absolute destination path for the mount, or a "
+"starting reference to  `$SNAP_COMMON` or `$SNAP_DATA` optionally followed by "
+"a path. Wildcards are also supported.</br> Example: `/media/$USER/**`"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:42
+msgid ""
+"`options` (plug, required): a list of one or more permitted options.</br> "
+"Example: `[rw, sync]`</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:44
+msgid ""
+"`namespace` (plug): either `snap`, for locations within the snap, `host`, "
+"for locations outside the snap,  or `auto` to set the namespace according to "
+"the _where_ pattern. Defaults to `auto`."
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:46
+msgid ""
+"See [AppArmor globbing syntax](https://gitlab.com/apparmor/apparmor/-/wikis/"
+"AppArmor_Core_Policy_Reference#apparmor-globbing-syntax) for details on how "
+"the pattern matching and wildcards work."
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:48
+msgid ""
+"It's the responsibility of the snapped application or service to create and "
+"maintain a mount point, using either of the following:"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:49
+msgid "the [mount](https://man7.org/linux/man-pages/man8/mount.8.html) command"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:50
+msgid ""
+"the [mount()](https://man7.org/linux/man-pages/man2/mount.2.html) system call"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:51
+msgid ""
+"an accompanying {ref}`snapctl mount <how-to-guides-manage-snaps-use-snapctl>`"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:53
+msgid ""
+"The `snapctl mount` command is the only option for creating a persistent "
+"mount point via its `--persistent` mount option."
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:55
+msgid "Accepted filesystems"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:57
+msgid ""
+"Most filesystem types which are supported by the host system are allowed by "
+"this interface, with a few exceptions."
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:59
+msgid "The following filesystems are **not** accepted:"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:61
+msgid ""
+"`bpf`, `cgroup`, `cgroup2`, `debugfs`, `devpts`, `encryptfs`, `hugetlbfs`, "
+"`overlayfs`, `proc`, `securityfs`, `sysfs`, and `tracefs`."
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:63
+msgid ""
+"While other filesystems are accepted, the following filesystems are "
+"supported along with their respective filesystem-specific mount options "
+"(more on mount options below):"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:65
+msgid ""
+"`adfs`, `affs`, `aufs`, `autofs`, `btrfs`, `cifs`, `ext2`, `ext3`, `ext4`, "
+"`fat`, `functionfs`, `fuse`, `hfs`, `hpfs`, `iso9660`, `jfs`, `msdos`, "
+"`nfs`, `nfs4`, `ntfs`, `ntfs-3g`, `lowntfs-3g`, `ramfs`, `reiserfs`, "
+"`squashfs`, `tmpfs`, `ubifs`, `udf`,` ufs`, `umsdos`, `usbfs`, `vfat`, "
+"`xfs`, and `zfs`."
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:67
+msgid ""
+"**Note:** If only `tmpfs` is specified, `what` must be `none`. The `tmpfs` "
+"type cannot be listed with any other types in a single mount entry."
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:69
+msgid ""
+"**Note:** When using `nfs` or `cifs` types, attribute `what` must be left "
+"out from the mount entry in plug attributes. Since neither of those types "
+"can be listed with any other fs types in a the same entry it is recommended "
+"do add a separate entry for NFS or CIFS."
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:71
+msgid "Permitted mount options"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:73
+msgid "The following filesystem-independent mount options are permitted:"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:75
+msgid ""
+"`async`, `atime`, `auto`, `bind`, `defaults`, `diratime`, `dirsync`, "
+"`iversion`, `lazytime`, `noatime`, `noauto`, `nodev`,  `nodiratime`, "
+"`noexec`, `nofail`, `nogroup`, `noiversion`, `nolazytime`, `nomand`, "
+"`noowner`, `norelatime`, `nosuid`, `nostrictatime`, `nouser`, `nousers`, "
+"`relatime`, `ro`, `rw`, `strictatime`, and `sync`."
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:77
+msgid ""
+"**Note:** Option `bind` is only allowed when no filesystem is specified."
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:79
+msgid ""
+"Filesystem-specific mount options are also permitted, so long as each is "
+"supported by every filesystem listed in the corresponding `type` section.  "
+"The mount options supported by a given filesystem can usually be found in "
+"its respective manpage or in the [mount](https://man7.org/linux/man-pages/"
+"man8/mount.8.html) manpage.  The complete list of supported filesystem-"
+"specific mount options for each filesystem type is included in the [source "
+"code](https://github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"mount_control.go) for this interface."
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:81
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:83
+msgid ""
+"plugs:\n"
+" mntctl:\n"
+"  interface: mount-control\n"
+"  mount:\n"
+"  - what: /dev/sd*\n"
+"    where: /media/**\n"
+"    type: [ext2, ext3, ext4]\n"
+"    options: [rw, sync, user_xattr]\n"
+"  - what: /usr/**\n"
+"    where: $SNAP_COMMON/**\n"
+"    options: [bind]\n"
+"  - what: /dev/sda{0,1}\n"
+"    where: $SNAP_COMMON/**\n"
+"    options: [ro]\n"
+"  - what: /dev/sdb[0-1]\n"
+"    where: $SNAP_COMMON/{foo,other,**}\n"
+"    options: [sync]\n"
+"  - where: /media/**\n"
+"    type: [nfs]\n"
+"    options: [rw]\n"
+"  - where: /media/**\n"
+"    type: [cifs]\n"
+"    options: [rw]\n"
+"apps:\n"
+" app:\n"
+"  plugs: [mntctl]\n"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:112
+msgid ""
+"The test code can be found in the snapd repository: [https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/mount_control_test.go]"
+"(https://github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"mount_control_test.go)"
+msgstr ""
+
+#: ../../../reference/interfaces/mount-control-interface.md:114
+msgid ""
+"The source code for the interface is in the snapd repository: [https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/mount_control.go]"
+"(https://github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"mount_control.go)"
+msgstr ""

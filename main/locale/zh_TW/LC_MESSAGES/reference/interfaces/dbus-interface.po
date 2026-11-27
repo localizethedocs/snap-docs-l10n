@@ -1,0 +1,295 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/dbus-interface.md:0
+msgid ""
+"Complete reference for the dbus interface, which lets snaps communicate over "
+"D-Bus using well-known names on the system or session bus."
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:8
+msgid "dbus interface"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:10
+msgid ""
+"`dbus` enables ownership of a specific name on the session or system D-Bus."
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:12
+msgid "**Auto-connect**: no **Attributes**:"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:14
+msgid ""
+"`name` (slot): well-known D-Bus connection name for the service (eg, "
+"`org.foo.bar`)"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:15
+msgid "`bus` (slot): D-Bus bus to use (ie, `session` or `system`)"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:16
+msgid ""
+"`name` (plug): well-known D-Bus connection name of the service from the "
+"providing snap"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:17
+msgid "`bus` (plug): D-Bus bus to use for providing snap"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:20
+msgid ""
+"The `dbus` slot is {ref}`unsupported for parallel instances <interfaces-"
+"parallel-installs-unsupported>`. The slot owns a unique system-wide resource "
+"that instances would conflict over."
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:23
+msgid ""
+"Snaps that want to communicate via a well-known D-Bus connection name need "
+"to have matching `bus` and `name` attributes and then be connected via `snap "
+"connect`. Snaps specifying `bus: system` will have a default D-Bus bus "
+"policy that allows `root` to own the name and anyone to send to a "
+"destination that matches the well-known name (eg, `org.foo.bar`). Once "
+"connected, the consuming snap may communicate with the providing snap via:"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:25
+msgid "the specified well-known D-Bus connection name (eg, `org.foo.bar`)"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:26
+msgid ""
+"a unique D-Bus connection name using a matching D-Bus interface  (eg, "
+"`org.foo.bar.baz`) or D-Bus path (eg, `/org/foo/bar/norf`)"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:28
+msgid ""
+"This interface is particularly well-suited for leaf-style applications from "
+"GNOME, KDE, etc to integrate into the desktop session. Future versions of "
+"snapd may allow greater flexibility for bus policy, D-Bus interfaces and D-"
+"Bus paths and also support session services and D-Bus activation."
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:31
+msgid ""
+"Note: when developing snaps using devmode for D-Bus system services, the "
+"slot implementation must use this interface so that snapd may adjust the D-"
+"Bus bus policy so the snap may use the system bus."
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:34
+msgid "Using the D-Bus interface"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:36
+msgid ""
+"The dbus interface provides a way for snaps to communicate over D-Bus. The "
+"snap providing the D-Bus service declares a slot with the well-known D-Bus "
+"name and which bus it uses. Snaps wanting to communicate with the providing "
+"snap's service declare a plug for the providing snap. Note that a snap "
+"declaration is needed for your snap to be delivered via the snap store and "
+"claim this well-known D-Bus name (simply upload the snap to the store and "
+"request a manual review and a reviewer will take a look)."
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:38
+msgid ""
+"When a providing snap is installed, snapd will generate security policy that "
+"will allow it to listen on the well-known D-Bus name on the specified bus. "
+"If the `system` bus is specified, snapd will also generate D-Bus bus policy "
+"that allows 'root' to own the name and any user to communicate with the "
+"service. Non-snap processes are allowed to communicate with the providing "
+"snap following traditional permissions checks. Other (consuming) snaps may "
+"only communicate with the providing snap by connecting the snaps' interface."
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:40
+msgid "Examples"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:42
+msgid "Desktop application"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:43
+msgid ""
+"Desktop applications sometimes listen on a well-known D-Bus name so that "
+"other desktop session services and applications may interact with them. This "
+"is common for GNOME and KDE applications, for example. Snaps listening on "
+"the session bus may only be accessed by processes running in the user's "
+"session."
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:45
+msgid "Providing snap (slot)"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:46
+msgid ""
+"As a developer, if your application listens on the `session` bus with the "
+"well-known name \"org.example.foo\", then you might adjust your snap's yaml "
+"to have:"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:48
+msgid ""
+"name: foo\n"
+"...\n"
+"slots:\n"
+"  dbus-svc: # name that is used with 'snap connect' on slots side\n"
+"    interface: dbus\n"
+"    bus: session\n"
+"    name: org.example.foo\n"
+"...\n"
+"apps:\n"
+"  foo:\n"
+"    command: ...\n"
+"    slots: [ dbus-svc ]\n"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:63
+msgid "Consuming snap (plug)"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:64
+msgid ""
+"As a developer, if you want your snap to communicate over D-Bus with another "
+"snap via the \"org.example.foo\" D-Bus well-known name on the `session` bus, "
+"you might adjust your snap's yaml to have:"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:66
+msgid ""
+"name: bar\n"
+"...\n"
+"plugs:\n"
+"  foo-svc:  # name that is used with 'snap connect' on plugs side\n"
+"    bus: session\n"
+"    interface: dbus\n"
+"    name: org.example.foo\n"
+"...\n"
+"apps:\n"
+"  bar:\n"
+"    command: ...\n"
+"    plugs:\n"
+"    - foo-svc\n"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:83
+msgid "System service"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:84
+msgid ""
+"Services may also listen on the D-Bus system bus. Snaps listening on the "
+"system bus run as root and may be accessed by any user on the system. While "
+"the snapd security policy will limit which connecting snaps can communicate "
+"with the service, slot implementations may want to perform additional "
+"permission checks (eg, UID) to further limit access."
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:86
+msgid "Providing snap"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:87
+msgid ""
+"As a developer, if your application listens on the `system` bus with the "
+"well-known name \"org.example.foo\", then the snap's yaml is the same as "
+"above, but specify the `system` bus:"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:89
+msgid ""
+"name: foo\n"
+"...\n"
+"slots:\n"
+"  dbus-svc: # name that is used with 'snap connect' on slots side\n"
+"    interface: dbus\n"
+"    bus: system\n"
+"    name: org.example.foo\n"
+"...\n"
+"apps:\n"
+"  foo:\n"
+"    command: ...\n"
+"    slots: [ dbus-svc ]\n"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:104
+msgid "Consuming snap"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:105
+msgid ""
+"As a developer, if you want your snap to communicate over D-Bus with another "
+"snap via the \"org.example.foo\" D-Bus well-known name on the `system` bus, "
+"then the snap's yaml is the same as above, but specify the `system` "
+"bus:slight_smile:"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:106
+msgid ""
+"name: bar\n"
+"...\n"
+"plugs:\n"
+"  foo-svc:  # name that is used with 'snap connect' on plugs side\n"
+"    bus: system\n"
+"    interface: dbus\n"
+"    name: org.example.foo\n"
+"...\n"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:117
+msgid "Snap dbus interface connections"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:119
+msgid ""
+"As a user, if you want to allow `bar` to communicate with `foo` via D-Bus, "
+"then you can connect the interface like so:"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:121
+msgid "$ sudo snap connect bar:foo-svc foo:dbus-svc\n"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:125
+msgid "You can check it's worked with the following:"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:127
+msgid ""
+"$ snap connections\n"
+"Interface           Plug                 Slot               Notes\n"
+"dbus-svc            bar:dbus-svc         foo:dbus-svc       -\n"
+"[...]\n"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:134
+msgid "To disconnect:"
+msgstr ""
+
+#: ../../../reference/interfaces/dbus-interface.md:135
+msgid "$ sudo snap disconnect bar:foo-svc foo:dbus-svc\n"
+msgstr ""

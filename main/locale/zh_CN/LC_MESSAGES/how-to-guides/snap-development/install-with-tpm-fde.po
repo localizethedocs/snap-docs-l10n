@@ -1,0 +1,1438 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:0
+msgid ""
+"Use the snapd REST API to integrate TPM-FDE into a custom Ubuntu installer, "
+"including pre-install checks and fixes, PIN or passphrase setup, and "
+"preseeding."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:8
+msgid "Integrate TPM-FDE into a custom Ubuntu installer"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:10
+msgid ""
+"This guide shows you how to integrate [hardware-backed Full Disk Encryption]"
+"(https://ubuntu.com/desktop/docs/en/latest/explanation/hardware-backed-disk-"
+"encryption/#hardware-backed-disk-encryption) (TPM-FDE) into a custom Ubuntu "
+"installer using the snapd REST API."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:12
+msgid ""
+"Refer to the {ref}`snapd REST API reference<reference-development-snapd-rest-"
+"api>` for a list of all API actions and endpoints. For general instructions, "
+"refer to the {ref}`guide on how to use the REST API<how-to-guides-manage-"
+"snaps-use-the-rest-api>`."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:14
+msgid "Follow the steps in order. Some steps are optional."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:16
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:18
+msgid ""
+"To follow this guide, your installer must have access to a recovery system "
+"seed available to snapd. A recovery system seed is the set of files that "
+"describes the Ubuntu system to be installed. It includes:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:19
+msgid ""
+"a [model assertion](https://documentation.ubuntu.com/core/reference/"
+"assertions/model/) describing the Ubuntu system to install; and"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:20
+msgid ""
+"the essential snaps making up that system, including the [base](https://"
+"documentation.ubuntu.com/snapcraft/stable/reference/bases/), {ref}"
+"`kernel<reference-development-yaml-schemas-the-kernel-snap>`, {ref}"
+"`gadget<reference-development-yaml-schemas-the-gadget-snap>`, and {ref}"
+"`snapd<ref-glossary_snapd>` snaps."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:22
+msgid ""
+"To get Canonical's reference model for the Ubuntu release used in this "
+"guide, run:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:23
+msgid ""
+"snap known model --remote series=16 brand-id=canonical model=ubuntu-"
+"classic-2604-amd64\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:27
+msgid "For more information, see:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:28
+msgid ""
+"[Create a model](https://documentation.ubuntu.com/core/tutorials/build-your-"
+"first-image/create-a-model/)"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:29
+msgid ""
+"[Create a recovery system from the API](https://documentation.ubuntu.com/"
+"core/how-to-guides/manage-ubuntu-core/create-a-recovery-system-from-the-api/)"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:31
+msgid ""
+"To learn about the layout of a recovery system seed, see also [Ubuntu Core "
+"storage layout](https://documentation.ubuntu.com/core/explanation/core-"
+"elements/storage-layout/)."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:33
+msgid "Get system label"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:35
+msgid ""
+"Each recovery system is identified by a unique label, corresponding to its "
+"directory in the installer seed. Normally, this directory is `/var/lib/snapd/"
+"seed/systems/<label>/`."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:37
+msgid ""
+"To get the system label, make a `GET` request to `/v2/systems`. Snapd will "
+"return a synchronous response (`200 OK`) with a list of all the available "
+"systems, including their labels. For example:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:40
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:73
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:157
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:424
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:442
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:515
+msgid "Response body, `result`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:40
+msgid ""
+"{\n"
+"  ...\n"
+"  \"systems\": [\n"
+"    {\n"
+"      \"current\": true,\n"
+"      \"default-recovery-system\": true,\n"
+"      \"label\": \"20261001\",\n"
+"      \"model\": {\n"
+"        \"model\": \"my-device\",\n"
+"        \"brand-id\": \"example-brand\",\n"
+"        \"display-name\": \"My Device\"\n"
+"      },\n"
+"      ...\n"
+"    }\n"
+"  ],\n"
+"  ...\n"
+"}"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:63
+msgid ""
+"Select the appropriate label to [perform the pre-install checks](#perform-"
+"pre-install-checks)."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:65
+msgid "Perform pre-install checks"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:67
+msgid ""
+"To perform the pre-install checks, use the system label to make a `GET` "
+"request to `/v2/systems/{label}`. Snapd will return a synchronous response "
+"(`200 OK`) with the system details. The `storage-encryption` object "
+"describes the target system's storage encryption capabilities. It will state "
+"whether encryption is available. If it is not available, it will list the "
+"errors and the actions that can fix them."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:69
+msgid "Encryption is available"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:71
+msgid ""
+"If encryption is available, `storage-encryption` will include the target "
+"system's features and requirements, and no errors. For example:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:73
+msgid ""
+"{\n"
+"  ...\n"
+"  \"storage-encryption\": {\n"
+"    \"support\": \"available\",\n"
+"    \"features\": [\"passphrase-auth\", \"pin-auth\"],\n"
+"    \"storage-safety\": \"prefer-encrypted\",\n"
+"    \"encryption-type\": \"cryptsetup\",\n"
+"    \"requirements\": [\"volumes-auth\"]\n"
+"  },\n"
+"  ...\n"
+"}"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:90
+msgid ""
+"Since there are no errors, the installation can proceed. The features and "
+"requirements of the target system will be relevant when you set up the its "
+"storage encryption. Skip ahead to the [Set up storage encryption section]"
+"(#set-up-storage-encryption)."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:92
+msgid "Encryption is unavailable due to recoverable errors"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:94
+msgid ""
+"If encryption is unavailable due to recoverable errors, `storage-encryption` "
+"will include `unavailable-reason` and `availability-check-errors`. For "
+"example:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid ""
+"{\n"
+"  ...\n"
+"  \"storage-encryption\": {\n"
+"    \"support\": \"unavailable\",\n"
+"    \"features\": [\"passphrase-auth\", \"pin-auth\"],\n"
+"    \"storage-safety\": \"prefer-encrypted\",\n"
+"    \"unavailable-reason\": \"not encrypting device storage as checking TPM "
+"gave: error with TPM2 device: TPM2 device is present but is currently "
+"disabled by the platform firmware\",\n"
+"    \"availability-check-errors\": [\n"
+"      {\n"
+"        \"kind\": \"tpm-device-disabled\",\n"
+"        \"message\": \"error with TPM2 device: TPM2 device is present but is "
+"currently disabled by the platform firmware\",\n"
+"        \"actions\": [\n"
+"          \"enable-tpm-via-firmware\",\n"
+"          \"enable-and-clear-tpm-via-firmware\",\n"
+"          \"reboot-to-fw-settings\"\n"
+"        ]\n"
+"      }\n"
+"    ],\n"
+"    \"requirements\": [\"volumes-auth\"]\n"
+"  },\n"
+"  ...\n"
+"}"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:124
+msgid ""
+"In this example, the target system has a TPM 2.0 device that is disabled in "
+"the firmware. This error can be resolved by executing the fix actions listed "
+"in the `actions` array, in the order in which they are presented. See the "
+"[Perform pre-install fix actions section](#perform-pre-install-fix-actions) "
+"for guidelines and further details."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:126
+msgid ""
+"The initial `GET` request to `/v2/systems/{label}` runs pre-install checks "
+"and creates an in-memory context that will be used while fixing the errors. "
+"Another `GET` request to the same endpoint replaces that context, resetting "
+"the sequence of fix actions. The context is also lost if snapd restarts or "
+"the system reboots."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:128
+msgid ""
+"The table below lists error kinds that snapd might return, with a suggested "
+"message to show the user, and example fix actions. The list is not "
+"exhaustive: snapd can return error kinds and fix actions that the table does "
+"not include. Treat it as a starting point, rather than a specification."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid "Error kind"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid "Suggested message to present to the user"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid "Example fix action(s)"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`efi-variable-access`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "Error occurred when accessing an EFI variable."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`contact-oem`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`tpm-device-failure`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "The TPM device has failed an internal self check."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`reboot`, `contact-oem`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`tpm-device-disabled`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "There is a TPM device that is currently disabled."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid ""
+"`reboot-to-fw-settings`, `enable-tpm-via-firmware`, `enable-and-clear-tpm-"
+"via-firmware`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`tpm-hierarchies-owned`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid ""
+"One or more TPM hierarchy is currently owned, either because it has an "
+"authorization value or policy set."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid ""
+"`reboot-to-fw-settings`, `clear-tpm-via-firmware`, `enable-and-clear-tpm-via-"
+"firmware`, `clear-tpm-simple`, `clear-tpm`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`tpm-device-lockout-locked-out`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid ""
+"The TPM's lockout hierarchy is currently unavailable because it is locked "
+"out."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid ""
+"`reboot-to-fw-settings`, `clear-tpm-via-firmware`, `enable-and-clear-tpm-via-"
+"firmware`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`insufficient-tpm-storage`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid ""
+"Insufficient storage space available to support FDE along with "
+"reprovisioning in the future."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`no-suitable-pcr-bank`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid ""
+"It is not possible to select a suitable PCR bank. This could be because some "
+"mandatory PCR values are inconsistent with the TCG log."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`reboot-to-fw-settings`, `contact-oem`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`running-in-vm`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "The current environment is a virtual machine."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`proceed`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`insufficient-dma-protection`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "I/O DMA remapping was disabled during the current boot cycle."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`reboot-to-fw-settings`, `contact-oem`, `proceed`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`no-kernel-iommu`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid ""
+"The OS kernel was not built with DMA remapping support, or some "
+"configuration has resulted in it being disabled."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`reboot-to-fw-settings`, `contact-os-vendor`, `proceed`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`host-security`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid ""
+"Problem with the system security that is not represented by a more specific "
+"error kind."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`tpm-pcr-unusable`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid ""
+"An error in the way that the platform firmware performs measurements such "
+"that the PCR becomes unusable."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`addon-drivers-present`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "Drivers running from value-added-retailer components were detected."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`sys-prep-applications-present`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid ""
+"System preparation applications were detected to be running before the "
+"operating system."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`absolute-present`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "Absolute was detected to be executing before the initial OS loader."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`invalid-secure-boot-mode`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "The secure boot mode is invalid."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`reboot-to-fw-settings`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`weak-secure-boot-algorithms-detected`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid ""
+"Either pre-OS components were authenticated with weak Authenticode digests, "
+"or CAs with weak public keys were used to authenticate components."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`pre-os-secure-boot-auth-by-enrolled-digests`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid ""
+"Pre-OS components were authenticated by matching their Authenticode digest "
+"to an entry in `db`."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid "`no-hardware-root-of-trust`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:96
+msgid ""
+"The platform's UEFI firmware is not verified nor measured by a hardware root "
+"of trust."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:152
+msgid "Encryption is unavailable due to non-recoverable errors"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:154
+msgid ""
+"If `storage-encryption` includes `unavailable-reason` but not `availability-"
+"check-errors` or if `availability-check-errors` is empty, the target system "
+"does not support encryption as defined in the recovery system seed. For "
+"example:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:157
+msgid ""
+"{\n"
+"  ...\n"
+"  \"storage-encryption\": {\n"
+"    \"support\": \"unavailable\",\n"
+"    \"storage-safety\": \"prefer-encrypted\",\n"
+"    \"unavailable-reason\": \"cannot use encryption with the gadget, "
+"disabling encryption: gadget does not support encrypted data: required "
+"partition with system-save role is missing\",\n"
+"  },\n"
+"  ...\n"
+"}"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:172
+msgid ""
+"In this example, encryption is not possible because the gadget lacks a "
+"system-save partition. This is a fatal error that cannot be resolved by "
+"snapd. No further steps are applicable until the gadget is replaced."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:174
+msgid ""
+"If `storage-encryption` includes `availability-check-errors`, but none of "
+"the errors includes fix actions, the target system also does not support "
+"encryption as defined in the recovery system seed. For example:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+msgid ""
+"{\n"
+"  ...\n"
+"  \"storage-encryption\": {\n"
+"    \"support\": \"unavailable\",\n"
+"    \"storage-safety\": \"prefer-encrypted\",\n"
+"    \"unavailable-reason\": \"no suitable TPM2 device is available\",\n"
+"    \"availability-check-errors\": [\n"
+"      {\n"
+"        \"kind\": \"no-suitable-tpm2-device\",\n"
+"        \"message\": \"no suitable TPM2 device is available\"\n"
+"      }\n"
+"    ]\n"
+"  }\n"
+"  ...\n"
+"}"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:197
+msgid ""
+"In this example, the target system's machine does not have a TPM 2.0 device "
+"suitable for TPM-FDE. This is a fatal error that cannot be resolved by "
+"snapd. No further steps are applicable until the hardware is replaced."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:199
+msgid ""
+"The table below lists error kinds that snapd might return, with a suggested "
+"message to show the user. The list is not exhaustive: snapd can return error "
+"kinds that the table does not include. Treat it as a starting point, rather "
+"than a specification."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+msgid "`internal-error`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+msgid "Unexpected internal error occurred."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+msgid "`system-not-efi`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+msgid "The current host system is not an EFI system."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+msgid "`no-suitable-tpm2-device`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+msgid "The device has no suitable TPM2 device."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+msgid "`measured-boot`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+msgid ""
+"Error with the TCG log or some other error detected from the TCG log that is "
+"not represented by a more specific error kind."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+msgid "`tpm-command-failed`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+msgid "An error occurred whilst executing a TPM command."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+msgid "`invalid-tpm-response`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+msgid ""
+"The response from the TPM is invalid, which makes it impossible to obtain a "
+"response code."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+msgid "`tpm-communication`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+msgid "An error occurred at the transport layer when executing a TPM command."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+msgid "`unsupported-platform`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:176
+msgid "The current host platform is not compatible with FDE."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:212
+msgid "Perform pre-install fix actions"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:215
+msgid ""
+"Pre-install fix actions can only be performed after an initial pre-install "
+"check. See the [Perform pre-install checks section](#perform-pre-install-"
+"checks) for details."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:218
+msgid ""
+"If [encryption is unavailable due to recoverable errors](#encryption-is-"
+"unavailable-due-to-recoverable-errors), you can fix them by performing the "
+"fix actions listed in the `actions` array of each error in `availability-"
+"check-errors`. The order of the errors and their corresponding fix actions "
+"should be respected."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:220
+msgid ""
+"To perform a fix action with snapd, make a `POST` request to `/v2/systems/"
+"{label}` with `action` set to `fix-encryption-support` and `fix-action` set "
+"to the first entry in the error's `actions` array. For example, to enable "
+"the TPM via the firmware, send this request body:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:222
+msgid ""
+"{\n"
+"  \"action\": \"fix-encryption-support\",\n"
+"  \"fix-action\": \"enable-tpm-via-firmware\"\n"
+"}\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:229
+msgid ""
+"If successful, snapd will return a synchronous response (`200 OK`) with the "
+"updated system details, which might include a different list of errors. For "
+"example:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid ""
+"{\n"
+"  ...\n"
+"  \"storage-encryption\": {\n"
+"    \"support\": \"unavailable\",\n"
+"    \"features\": [\"passphrase-auth\", \"pin-auth\"],\n"
+"    \"storage-safety\": \"prefer-encrypted\",\n"
+"    \"unavailable-reason\": \"not encrypting device storage as checking TPM "
+"gave: a reboot is required to complete the action\",\n"
+"    \"availability-check-errors\": [\n"
+"      {\n"
+"        \"kind\": \"reboot-required\",\n"
+"        \"message\": \"a reboot is required to complete the action\",\n"
+"        \"actions\": [\"reboot\"]\n"
+"      }\n"
+"    ],\n"
+"    \"requirements\": [\"volumes-auth\"]\n"
+"  },\n"
+"  ...\n"
+"}"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:255
+msgid ""
+"In this example, the recommended fix action is to reboot the system. Since "
+"this requires manual intervention from the user, this fix action cannot be "
+"executed by snapd."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:257
+msgid ""
+"Any fix action that requires a system reboot discards the pre-install check "
+"context created by the initial `GET` request to `/v2/systems/{label}`. After "
+"the target system reboots, make a new `GET` request to the same endpoint to "
+"create a new pre-install check context. Follow these steps again to fix any "
+"lingering errors. Keep in mind that fix actions should be performed in the "
+"same order in which they appear in the `actions` array."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:259
+msgid ""
+"If snapd cannot perform an action, it will return a synchronous response "
+"(`200 OK`) with the system details and updated `availability-check-errors`. "
+"The table below lists error kinds that snapd might return in that situation, "
+"with a suggested message to show the user, and example fix actions. The list "
+"is not exhaustive: snapd can return error kinds and fix actions that the "
+"table does not include. Treat it as a starting point, rather than a "
+"specification."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid "`shutdown-required`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid "System shutdown is required to complete a previous action."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid "`shutdown`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid "`reboot-required`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid "System reboot is required to complete a previous action."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid "`reboot`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid "`unexpected-action`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid ""
+"The provided action is unexpected because it is either not supported or not "
+"associated with the previously returned errors."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid "none"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid "`invalid-argument`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid "One or more of the supplied arguments are of an invalid type or value."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid "`action-failed`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid "The provided action did not succeed."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid "`missing-argument`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:231
+msgid "Not enough action arguments provided."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:270
+msgid ""
+"Some of these errors, such as `unexpected-action`, `invalid-argument`, and "
+"`action-failed`, offer no further fix actions. If you encounter one, make a "
+"new `POST` request to `/v2/systems/{label}` with the following request body:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:272
+msgid ""
+"{\n"
+"  \"action\": \"fix-encryption-support\",\n"
+"  \"fix-action\": \"\"\n"
+"}\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:279
+msgid ""
+"Setting `fix-action` to an empty string tells snapd not to perform another "
+"fix action. Snapd will return a synchronous response (`200 OK`) with the "
+"system details from before the previous action was attempted."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:281
+msgid ""
+"Continue checking and resolving errors until the system details show that "
+"[encryption is available](#encryption-is-available). The installation can "
+"then proceed."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:283
+msgid "Arguments accepted by fix actions"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:285
+msgid ""
+"Most fix actions neither require nor accept arguments. There are two "
+"exceptions: `proceed` and `clear-tpm`."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:287
+msgid ""
+"The following example shows errors for which `proceed` is a possible fix "
+"action:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:289
+msgid "Response body, `result.storage-encryption.availability-check-errors`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:289
+msgid ""
+"[\n"
+"  {\n"
+"    \"kind\": \"addon-drivers-present\",\n"
+"    \"message\": \"detected drivers running from value-added-retailer "
+"components\",\n"
+"    \"actions\": [\"proceed\"]\n"
+"  },\n"
+"  {\n"
+"    \"kind\": \"weak-secure-boot-algorithms-detected\",\n"
+"    \"message\": \"components were authenticated using weak Authenticode "
+"digests or weak public keys\",\n"
+"    \"actions\": [\"proceed\"]\n"
+"  }\n"
+"]"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:306
+msgid ""
+"If the fix action `proceed` is executed without arguments, snapd will ignore "
+"all errors at once. This is not recommended, as it gives the user no "
+"visibility into which errors are being ignored. To ignore one error at a "
+"time, make a `POST` request to `/v2/systems/{label}`, passing `error-kinds` "
+"in `args`:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:308
+msgid ""
+"{\n"
+"  \"action\": \"fix-encryption-support\",\n"
+"  \"fix-action\": \"proceed\",\n"
+"  \"args\": {\n"
+"    \"error-kinds\": [\"<error-kind>\"]\n"
+"  }\n"
+"}"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:319
+msgid ""
+"Replace `<error-kind>` with the kind of the error to ignore, as reported in "
+"`availability-check-errors` (for example, `addon-drivers-present`). It is "
+"recommended to list one error at a time."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:321
+msgid ""
+"The fix action `clear-tpm` normally does not accept arguments. However, if "
+"you attempt it against a TPM that has an auth value set in the TPM lockout "
+"hierarchy, you must supply that auth value. This can happen, for example, if "
+"the following error is returned:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:323
+msgid ""
+"Response body, one entry of `result.storage-encryption.availability-check-"
+"errors`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:323
+msgid ""
+"\n"
+"{\n"
+"  \"kind\": \"tpm-hierarchies-owned\",\n"
+"  \"message\": \"error with TPM2 device: one or more of the TPM hierarchies "
+"is already owned\",\n"
+"  \"args\": {\n"
+"    \"with-auth-value\": [1073741834]\n"
+"  },\n"
+"  \"actions\": [\n"
+"    \"clear-tpm-via-firmware\",\n"
+"    \"enable-and-clear-tpm-via-firmware\",\n"
+"    \"clear-tpm\",\n"
+"    \"reboot-to-fw-settings\"\n"
+"  ]\n"
+"}"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:342
+msgid ""
+"If `clear-tpm-via-firmware` and `enable-and-clear-tpm-via-firmware` cannot "
+"be performed or do not fix the issue, attempt `clear-tpm`. Make a `POST` "
+"request to `/v2/systems/{label}` and pass the TPM lockout hierarchy auth "
+"value, base64-encoded, in `args`:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:344
+msgid ""
+"{\n"
+"  \"action\": \"fix-encryption-support\",\n"
+"  \"fix-action\": \"clear-tpm\",\n"
+"  \"args\": {\n"
+"    \"auth-value\": \"<base64-auth-value>\"\n"
+"  }\n"
+"}"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:355
+msgid ""
+"Replace `<base64-auth-value>` with the base64-encoded auth value. This value "
+"is chosen when the hierarchy's authorization is set and snapd cannot "
+"discover it."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:357
+msgid ""
+"In all other cases `clear-tpm` must be requested without an `args` field."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:359
+msgid "Set up storage encryption"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:361
+msgid ""
+"After completing the pre-install checks, you can prepare the installation of "
+"Ubuntu with TPM-FDE by setting up the target system's storage encryption."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:363
+msgid ""
+"Depending on the target system's characteristics, adding a PIN or passphrase "
+"might be supported or even required. To determine whether the target system "
+"supports or requires a PIN or passphrase, look at the fields `requirements` "
+"and `features` in the system details. For example:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:365
+msgid "Response body, `result.storage-encryption`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:365
+msgid ""
+"{\n"
+"  ...\n"
+"  \"features\": [\"passphrase-auth\", \"pin-auth\"],\n"
+"  \"requirements\": [\"volumes-auth\"],\n"
+"  ...\n"
+"}"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:375
+msgid ""
+"In this example, the target system supports both PIN and passphrase as "
+"authentication methods. Since `volumes-auth` is present in `requirements`, "
+"at least one authentication method must be set."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:377
+msgid ""
+"If `volumes-auth` is not present in `requirements`, setting a PIN or "
+"passphrase is optional. The `features` field will tell you whether the "
+"target system supports one or both."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:379
+msgid "Without an authentication method"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:381
+msgid ""
+"If the target system does not require an authentication method, you can set "
+"up the storage encryption without it. Make a `POST` request to `/v2/systems/"
+"{label}` with `action` set to `install`, `step` set to `setup-storage-"
+"encryption`, and `on-volumes` describing the volumes to encrypt. For example:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:383
+msgid ""
+"{\n"
+"  \"action\": \"install\",\n"
+"  \"step\": \"setup-storage-encryption\",\n"
+"  \"on-volumes\": {\n"
+"    \"pc\": {\n"
+"      \"bootloader\": \"grub\"\n"
+"    }\n"
+"  }\n"
+"}\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:394
+msgid ""
+"In this example, `on-volumes` is illustrative. Replace it with the "
+"description of the volumes your installer created."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:396
+msgid ""
+"If successful, snapd will return an asynchronous response (`202 Accepted`). "
+"The response body will include a change ID. You can check the change "
+"progress by making a `GET` request to `/v2/changes/{id}`. Once it completes, "
+"the storage is encrypted and you can move on to the [Generate recovery key "
+"section](#generate-recovery-key)."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:398
+msgid "With a PIN or passphrase"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:400
+msgid ""
+"Before setting up a PIN or passphrase, your installer should check whether "
+"it meets the minimum quality requirements. This check is optional but highly "
+"recommended, as it avoids errors when setting up the PIN or passphrase."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:402
+msgid "Check PIN or passphrase quality"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:404
+msgid ""
+"To check the quality of a PIN, make a `POST` request to `/v2/systems/{label}"
+"` with `action` set to `check-pin-quality` and `pin` set to the PIN provided "
+"by the user:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:406
+msgid ""
+"{\n"
+"  \"action\": \"check-pin-quality\",\n"
+"  \"pin\": \"<pin>\" \n"
+"}\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:413
+msgid ""
+"To check the quality of a passphrase, make a `POST` request to `/v2/systems/"
+"{label}` with `action` set to `check-passphrase-quality` and `passphrase` "
+"set to the passphrase provided by the user:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:415
+msgid ""
+"{\n"
+"  \"action\": \"check-passphrase-quality\",\n"
+"  \"passphrase\": \"<passphrase>\"\n"
+"}\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:422
+msgid ""
+"If the PIN or passphrase does not meet the minimum requirements or is not "
+"supported, snapd will return an error (`400 Bad Request`) and provide "
+"details about the failure For example:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:424
+msgid ""
+"{\n"
+"  \"kind\": \"invalid-pin\",\n"
+"  \"message\": \"PIN did not pass quality checks\",\n"
+"  \"value\": {\n"
+"    \"reasons\": [\"low-entropy\"],\n"
+"    \"entropy-bits\": 6,\n"
+"    \"min-entropy-bits\": 13,\n"
+"    \"optimal-entropy-bits\": 64\n"
+"  }\n"
+"}"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:438
+msgid "If a passphrase is tested instead, `kind` will be `invalid-passphrase`."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:440
+msgid ""
+"If the PIN or passphrase is supported and meets the minimum requirements, "
+"snapd will return a synchronous response (`200 OK`) with the entropy "
+"metrics. For example:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:442
+msgid ""
+"{\n"
+"  \"entropy-bits\": 48,\n"
+"  \"min-entropy-bits\": 40,\n"
+"  \"optimal-entropy-bits\": 60\n"
+"}"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:452
+msgid ""
+"The minimum and optimal entropy bits differ for PINs and passphrases, and "
+"might change in the future."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:454
+msgid ""
+"Once the PIN or passphrase meets the minimum requirements, it can be added "
+"to the storage encryption setup."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:456
+msgid "Add PIN or passphrase"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:458
+msgid ""
+"To add a PIN, make a `POST` request to `/v2/systems/{label}` with `action` "
+"set to `install` and `step` set to `setup-storage-encryption`. The request "
+"body must also include:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:459
+msgid "`on-volumes`, describing the volumes to encrypt;"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:460
+msgid "`volumes-auth` with the PIN; and"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:461
+msgid ""
+"`keyboard-config`, describing the keyboard configuration selected by the "
+"user."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:463
+msgid "For example:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:465
+msgid ""
+"{\n"
+"  \"action\": \"install\",\n"
+"  \"step\": \"setup-storage-encryption\",\n"
+"  \"on-volumes\": {\n"
+"    \"pc\": {\n"
+"      \"bootloader\": \"grub\"\n"
+"    }\n"
+"  },\n"
+"  \"volumes-auth\": {\n"
+"    \"mode\": \"pin\",\n"
+"    \"pin\": \"<pin>\"\n"
+"  },\n"
+"  \"keyboard-config\": {\n"
+"    \"model\": \"pc105\",\n"
+"    \"layout\": \"us\"\n"
+"  }\n"
+"}\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:484
+msgid ""
+"In this example, `on-volumes` is illustrative. Replace it with the "
+"description of the volumes your installer created. `keyboard-config` is also "
+"illustrative. Set it to the keyboard layout the user selected."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:486
+msgid ""
+"To add a passphrase instead, replace `volumes-auth` in the request body "
+"above with one including the user's passphrase:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:487
+msgid ""
+"{\n"
+"  \"volumes-auth\": {\n"
+"    \"mode\": \"passphrase\",\n"
+"    \"passphrase\": \"<passphrase>\"\n"
+"  }\n"
+"}\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:496
+msgid ""
+"When adding a PIN or passphrase to the storage encryption setup, `keyboard-"
+"config` must be defined. Snapd uses this configuration to ensure that the "
+"same keyboard layout is available when the user enters the PIN or passphrase "
+"on first boot."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:498
+msgid ""
+"If successful, snapd will return an asynchronous response (`202 Accepted`). "
+"The response body will include a change ID. You can check its progress by "
+"making a `GET` request to `/v2/changes/{id}`. Once it completes, the storage "
+"is encrypted and you can move to the next step."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:500
+msgid "Generate recovery key"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:502
+msgid ""
+"Generating a recovery key is optional, but highly recommended. A recovery "
+"key is a high-entropy fallback credential used to recover the data on the "
+"disk if all other methods fail."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:504
+msgid ""
+"To generate a recovery key, make a `POST` request to `/v2/systems/{label}`, "
+"with the following request body:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:506
+msgid ""
+"{\n"
+"  \"action\": \"install\",\n"
+"  \"step\": \"generate-recovery-key\"\n"
+"}\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:513
+msgid ""
+"Snapd will return a synchronous response (`200 OK`) with the recovery key. "
+"For example:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:515
+msgid ""
+"{\n"
+"  \"recovery-key\": \"12345-67890-12345-67890-12345-67890-12345-67890\"\n"
+"}"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:523
+msgid ""
+"Present the recovery key to the user and tell them clearly that, in the "
+"event of hardware failure, they might lose their data without it."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:526
+msgid "Make the target system bootable"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:528
+msgid ""
+"To make the target system bootable, send a `POST` request to `/v2/systems/"
+"{label}` with `action` set to `install`, `step` set to `finish`, and `on-"
+"volumes` describing those volumes. For example:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:530
+msgid ""
+"{\n"
+"  \"action\": \"install\",\n"
+"  \"step\": \"finish\",\n"
+"  \"on-volumes\": {\n"
+"    \"pc\": {\n"
+"      \"bootloader\": \"grub\"\n"
+"    }\n"
+"  }\n"
+"}\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:541
+msgid ""
+"In this example, `on-volumes` is illustrative. Reuse the `on-volumes` value "
+"from the storage encryption setup."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:543
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:580
+msgid ""
+"If successful, snapd will return an asynchronous response (`202 Accepted`). "
+"The response body will include a change ID. Wait until the change is "
+"complete before moving to the next step. You can check its progress by "
+"making a `GET` request to `/v2/changes/{id}`."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:545
+msgid ""
+"Once the change is complete, snapd has written the following onto the target "
+"system's volumes:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:546
+msgid "the gadget content"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:547
+msgid "the kernel snap"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:548
+msgid "the base snap"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:549
+msgid "the gadget snap"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:550
+msgid "the bootloader configuration"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:551
+msgid "the `modeenv`, and"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:552
+msgid "the disk-unlock keys."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:554
+msgid ""
+"The system is now ready to reboot and install Ubuntu with TPM-FDE, but it is "
+"highly recommended to preseed it first."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:556
+msgid "Preseed the target system before first boot"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:558
+msgid ""
+"Preseeding the target system before the first boot is optional, but highly "
+"recommended. It makes the first boot faster and detects potential failures "
+"early."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:560
+msgid ""
+"Before preseeding, create the following mount points to match the existing "
+"preseeding workflow:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:561
+msgid "`/dev`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:562
+msgid "`/proc`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:563
+msgid "`/sys`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:564
+msgid "`/sys/kernel/security`"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:566
+msgid ""
+"Snapd's preseeding checks require `/sys` and `/sys/kernel/security` to be "
+"mounted independently."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:568
+msgid ""
+"Also, bind-mount the installer environment's seed directory into `<target-"
+"root>/var/lib/snapd/seed`."
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:570
+msgid ""
+"To preseed the target system, make a `POST` request to `/v2/systems/{label}` "
+"with `action` set to `install`, `step` set to `preseed`, and `target-root` "
+"set to the mount point of the installer target system's decrypted system-"
+"data filesystem:"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:572
+msgid ""
+"{\n"
+"  \"action\": \"install\",\n"
+"  \"step\": \"preseed\",\n"
+"  \"target-root\": \"<target-root>\"\n"
+"}\n"
+msgstr ""
+
+#: ../../../how-to-guides/snap-development/install-with-tpm-fde.md:582
+msgid ""
+"When preseeding is complete, the target system is ready to reboot and "
+"install Ubuntu with TPM-FDE."
+msgstr ""

@@ -1,0 +1,352 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../index.md:90
+msgid "Tutorials"
+msgstr ""
+
+#: ../../../index.md:90
+msgid "How-to guides"
+msgstr ""
+
+#: ../../../index.md:90
+msgid "Reference"
+msgstr ""
+
+#: ../../../index.md:90
+msgid "Explanation"
+msgstr ""
+
+#: ../../../index.md:102
+msgid "Contributing"
+msgstr ""
+
+#: ../../../index.md:0
+msgid ""
+"Official documentation for snap packages and snapd, covering installation, "
+"configuration, security, updates, and snap development."
+msgstr ""
+
+#: ../../../index.md:0
+msgid "BMa0gPz8blugX1MVoyh9Xn4OFqDZzrmFrcU0dyKGJjE"
+msgstr ""
+
+#: ../../../index.md:10
+msgid "Snap documentation"
+msgstr ""
+
+#: ../../../index.md:12
+msgid ""
+"**Snaps** are self-contained application packages that work across different "
+"Linux distributions on many different platforms, from embedded devices and "
+"desktops, to servers and the cloud."
+msgstr ""
+
+#: ../../../index.md:14
+msgid ""
+"The snap daemon, *snapd*, handles installation, confinement, and updates, "
+"allowing developers to focus on their applications while users get a "
+"consistent experience across platforms."
+msgstr ""
+
+#: ../../../index.md:16
+msgid ""
+"Snap packages and snapd solve the problem of inconsistent application "
+"packaging and deployment by providing a unified system that works the same "
+"way regardless of the underlying Linux distribution or hardware."
+msgstr ""
+
+#: ../../../index.md:18
+msgid ""
+"Snaps are useful for application developers seeking a universal packaging "
+"solution, system administrators managing diverse Linux environments, IoT and "
+"embedded device makers, and organizations where security and consistent "
+"deployments are priorities."
+msgstr ""
+
+#: ../../../index.md:20 ../../../index.md:50
+msgid ""
+"For guidance on building snaps, see the [Snapcraft build-tool documentation]"
+"(https://documentation.ubuntu.com/snapcraft/stable/)."
+msgstr ""
+
+#: ../../../index.md:22
+msgid "In this documentation"
+msgstr ""
+
+#: ../../../index.md:24
+msgid "First steps"
+msgstr ""
+
+#: ../../../index.md:26
+msgid ""
+"Get snap running and take a tour of its core features before diving deeper."
+msgstr ""
+
+#: ../../../index.md:28
+msgid ""
+"**Install snapd**: {ref}`Install the snap daemon <tutorials-install-the-"
+"daemon-index>` • {ref}`Distribution support <reference-administration-"
+"distribution-support>`"
+msgstr ""
+
+#: ../../../index.md:29
+msgid ""
+"**Explore snap**: {ref}`Get started <tutorials-get-started>` with snap's "
+"main features on a single page"
+msgstr ""
+
+#: ../../../index.md:31
+msgid "Managing snaps"
+msgstr ""
+
+#: ../../../index.md:33
+msgid ""
+"Install, configure, and maintain snaps day-to-day. Control updates, "
+"interfaces, services, and data."
+msgstr ""
+
+#: ../../../index.md:35
+msgid ""
+"**Configuration**: {ref}`Configure snaps <how-to-guides-work-with-snaps-"
+"configure-snaps>` • {ref}`Apps and aliases <how-to-guides-work-with-snaps-"
+"apps-and-aliases>` • {ref}`Set system options <how-to-guides-manage-snaps-"
+"set-system-options>` • {ref}`Configure snaps with confdb <how-to-guides-"
+"manage-snaps-configure-snaps-with-confdb>`"
+msgstr ""
+
+#: ../../../index.md:36
+msgid ""
+"**Updates**: {ref}`Manage updates <how-to-guides-work-with-snaps-manage-"
+"updates>` • {ref}`Manage validation sets <how-to-guides-manage-snaps-manage-"
+"validation-sets>`"
+msgstr ""
+
+#: ../../../index.md:37
+msgid ""
+"**Services and resources**: {ref}`Control services <how-to-guides-manage-"
+"snaps-control-services>` • {ref}`Use quota resources <how-to-guides-manage-"
+"snaps-use-resource-quotas>` • {ref}`Create data snapshots <how-to-guides-"
+"manage-snaps-create-data-snapshots>` • {ref}`Disk space awareness <how-to-"
+"guides-manage-snaps-disk-space-awareness>` • {ref}`Data locations "
+"<interfaces-data-locations>`  • {ref}`Work with components <how-to-guides-"
+"manage-snaps-using-components>`"
+msgstr ""
+
+#: ../../../index.md:38
+msgid ""
+"**Troubleshooting**: {ref}`Fix common issues <how-to-guides-fix-common-"
+"issues-index>`"
+msgstr ""
+
+#: ../../../index.md:40
+msgid "Security and confinement"
+msgstr ""
+
+#: ../../../index.md:42
+msgid ""
+"Understand how snaps use Linux security technologies to isolate applications "
+"and protect your system."
+msgstr ""
+
+#: ../../../index.md:44
+msgid ""
+"**Confinement**: {ref}`Snap confinement <explanation-security-snap-"
+"confinement>` • {ref}`Classic confinement <explanation-security-classic-"
+"confinement>` • {ref}`Security policies <explanation-security-security-"
+"policies>`"
+msgstr ""
+
+#: ../../../index.md:45
+msgid ""
+"**Interfaces**: {ref}`All about interfaces <explanation-interfaces-all-about-"
+"interfaces>` • {ref}`Interface auto-connection <explanation-interfaces-"
+"interface-auto-connection>` • {ref}`Interface hooks <explanation-interfaces-"
+"interface-hooks>` • {ref}`Super-privileged interfaces <reference-operations-"
+"interfaces-super-privileged-interfaces>` • {ref}`Connect interfaces <how-to-"
+"guides-work-with-snaps-connect-interfaces>` • {ref}`Interface reference <ref-"
+"index_interfaces>`"
+msgstr ""
+
+#: ../../../index.md:46
+msgid ""
+"**Verification**: {ref}`Assertions <explanation-security-assertions>` • {ref}"
+"`Snapd release process <explanation-security-snapd-release-process>`"
+msgstr ""
+
+#: ../../../index.md:48
+msgid "Snap development"
+msgstr ""
+
+#: ../../../index.md:52
+msgid ""
+"Extend snap functionality using the REST API, internal tooling, and in-"
+"development features."
+msgstr ""
+
+#: ../../../index.md:54
+msgid ""
+"**APIs and tools**: {ref}`REST API <how-to-guides-manage-snaps-use-the-rest-"
+"api>` • {ref}`Use snapctl <how-to-guides-manage-snaps-use-snapctl>` • {ref}"
+"`Environment variables <reference-development-environment-variables>` • {ref}"
+"`Supported snap hooks <reference-development-supported-snap-hooks>` • {ref}"
+"`API authentication and authorization <explanation-security-api-"
+"authentication-and-authorization>`"
+msgstr ""
+
+#: ../../../index.md:55
+msgid ""
+"**Publishing**: {ref}`Public, private and unlisted snaps <interfaces-public-"
+"private-unlisted-snaps>`"
+msgstr ""
+
+#: ../../../index.md:56
+msgid ""
+"**Desktop integration**: {ref}`XDG desktop portals <interfaces-xdg-desktop-"
+"portals>`"
+msgstr ""
+
+#: ../../../index.md:57
+msgid ""
+"**Testing**: {ref}`Using snap try <interfaces-snap-try>` • {ref}`Install "
+"modes <interfaces-install-modes>` • {ref}`Debug snaps <how-to-guides-fix-"
+"common-issues-debug-snaps>` • {ref}`Test snapd fixes <how-to-guides-fix-"
+"common-issues-test-snapd-fixes>` • {ref}`In-development features <ref-"
+"experimental-features_experimental-features>`"
+msgstr ""
+
+#: ../../../index.md:58
+msgid ""
+"**YAML schemas**: {ref}`The snap.yaml <reference-development-yaml-schemas-"
+"the-snap-format>` • {ref}`Gadget snap <reference-development-yaml-schemas-"
+"the-gadget-snap>` • {ref}`Kernel snap <reference-development-yaml-schemas-"
+"the-kernel-snap>`"
+msgstr ""
+
+#: ../../../index.md:60
+msgid "System internals"
+msgstr ""
+
+#: ../../../index.md:62
+msgid ""
+"Understand how the snap system works: updates, channels, confinement, "
+"storage, and performance."
+msgstr ""
+
+#: ../../../index.md:64
+msgid ""
+"**Updates and versions**: {ref}`Refresh awareness <explanation-how-snaps-"
+"work-refresh-awareness>` • {ref}`Channels and tracks <explanation-how-snaps-"
+"work-channels-and-tracks>` • {ref}`Revisions <explanation-how-snaps-work-"
+"revisions>` • {ref}`Transactional updates <explanation-how-snaps-work-"
+"transactional-updates>` • {ref}`Snap deltas <how-to-guides-manage-snaps-snap-"
+"deltas>`"
+msgstr ""
+
+#: ../../../index.md:65
+msgid ""
+"**Components and configuration**: {ref}`Snap components <explanation-how-"
+"snaps-work-snap-components>` • {ref}`Confdb configuration mechanism "
+"<explanation-how-snaps-work-confdb-configuration-mechanism>` • {ref}"
+"`Parallel installs <interfaces-parallel-installs>` • {ref}`Network "
+"requirements <reference-administration-network-requirements>` • {ref}`Timer "
+"string format <interfaces-timer-string-format>`"
+msgstr ""
+
+#: ../../../index.md:66
+msgid ""
+"**Performance**: {ref}`Snap performance <explanation-how-snaps-work-snap-"
+"performance>` • {ref}`System architecture <reference-operations-system-"
+"architecture>`"
+msgstr ""
+
+#: ../../../index.md:68
+msgid "How this documentation is organised"
+msgstr ""
+
+#: ../../../index.md:70
+msgid ""
+"This documentation uses the [Diátaxis documentation structure](https://"
+"diataxis.fr/)."
+msgstr ""
+
+#: ../../../index.md:72
+msgid ""
+"{ref}`Tutorials <tutorials-index>` take you step-by-step through building "
+"and deploying your first Ubuntu Core image."
+msgstr ""
+
+#: ../../../index.md:73
+msgid ""
+"{ref}`How-to guides <how-to-guides-index>` provide instructions for specific "
+"tasks like customizing snaps, deploying to platforms, and managing devices."
+msgstr ""
+
+#: ../../../index.md:74
+msgid ""
+"{ref}`Reference <reference-index>` provides technical specifications, "
+"formats, and details you need while working."
+msgstr ""
+
+#: ../../../index.md:75
+msgid ""
+"{ref}`Explanation <explanation-index>` provides conceptual context about "
+"architecture, security, storage, and update mechanisms."
+msgstr ""
+
+#: ../../../index.md:77
+msgid "Project and community"
+msgstr ""
+
+#: ../../../index.md:79
+msgid ""
+"Snap and Snapcraft are members of the Ubuntu family. They're both open "
+"source projects that welcome community involvement, contributions, "
+"suggestions, fixes and constructive feedback."
+msgstr ""
+
+#: ../../../index.md:81
+msgid "[Our Code of Conduct](https://ubuntu.com/community/code-of-conduct)"
+msgstr ""
+
+#: ../../../index.md:82
+msgid "[Get support](https://forum.snapcraft.io/c/snap/14)"
+msgstr ""
+
+#: ../../../index.md:83
+msgid "[Join the Discourse forum](https://forum.snapcraft.io/)"
+msgstr ""
+
+#: ../../../index.md:84
+msgid "[Interactive chat on Matrix.org](https://matrix.to/#/#snapd:ubuntu.com)"
+msgstr ""
+
+#: ../../../index.md:85
+msgid "{ref}`Contribute to our documentation <contribute-to-our-docs>`"
+msgstr ""
+
+#: ../../../index.md:86
+msgid "[Project roadmap](https://forum.snapcraft.io/t/the-snapd-roadmap/1973)"
+msgstr ""
+
+#: ../../../index.md:88
+msgid ""
+"Thinking about using snap for your next project? [Get in touch!](https://"
+"forum.snapcraft.io/)"
+msgstr ""

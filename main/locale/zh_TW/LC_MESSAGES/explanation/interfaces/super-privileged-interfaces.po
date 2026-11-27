@@ -1,0 +1,44 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/interfaces/super-privileged-interfaces.md:2
+msgid "Super-privileged interfaces"
+msgstr ""
+
+#: ../../../explanation/interfaces/super-privileged-interfaces.md:4
+msgid ""
+"{ref}`Interfaces <explanation-interfaces-all-about-interfaces>` allow (or "
+"deny) access to a resource outside of a snap’s confinement and, generally, "
+"any snap can declare any {ref}`supported interface <ref-index_interfaces>`."
+msgstr ""
+
+#: ../../../explanation/interfaces/super-privileged-interfaces.md:6
+msgid ""
+"However, there is a limited set of interfaces that require extra scrutiny "
+"when their _plugs_ are included in a snap. This is due to their permissive "
+"nature and the control and impact they potentially have over a system."
+msgstr ""
+
+#: ../../../explanation/interfaces/super-privileged-interfaces.md:8
+msgid ""
+"These interfaces are called **super-privileged**, and snaps that include "
+"plugs for super-privileged interfaces require specific {ref}`approval from "
+"the Store <interfaces-process-for-aliases-auto-connections-and-tracks>` "
+"before they can be distributed and installed."
+msgstr ""
