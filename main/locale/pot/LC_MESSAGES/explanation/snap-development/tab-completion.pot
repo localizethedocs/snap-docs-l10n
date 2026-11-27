@@ -1,0 +1,64 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/snap-development/tab-completion.md:2
+msgid "Tab completion"
+msgstr ""
+
+#: ../../../explanation/snap-development/tab-completion.md:4
+msgid ""
+"Starting with snapd 2.30, commands and aliases packaged in snaps are able to "
+"perform tab-completion in the bash shell, and in the future that same "
+"mechanism may be enabled in other shells as well."
+msgstr ""
+
+#: ../../../explanation/snap-development/tab-completion.md:6
+msgid ""
+"For this to work, a `completer` key must be specified under the application "
+"scope in snap.yaml or snapcraft.yaml, pointing to a bash completion snippet "
+"(that would in traditional packaging be dropped in `/usr/share/bash-"
+"completion/completions`). With that, `snapd` will create the necessary "
+"system setup to run the completer script confined. The completer must be for "
+"the full app name (`<snap>.<app>`), without considering aliases."
+msgstr ""
+
+#: ../../../explanation/snap-development/tab-completion.md:8
+msgid ""
+"Two sample snaps that implement this are the `http` and `test-snapd-"
+"complexion` (edge) snaps."
+msgstr ""
+
+#: ../../../explanation/snap-development/tab-completion.md:10
+msgid ""
+"Snapcraft has had support for the `completer` attribute of snap apps since "
+"version 2.33."
+msgstr ""
+
+#: ../../../explanation/snap-development/tab-completion.md:12
+msgid ""
+"Debugging tab completion of a strict snap can be hard, so we [wrote a guide "
+"for it](https://forum.snapcraft.io/t/debugging-tab-completion/4198)."
+msgstr ""
+
+#: ../../../explanation/snap-development/tab-completion.md:14
+msgid ""
+"Extending this tab completion mechanism to other shells (zsh for example) is "
+"relatively simple. All that is needed is a marshaller of the completion "
+"request. See [`complete.sh` in the snapd source](https://github.com/"
+"canonical/snapd/blob/master/data/completion/bash/complete.sh) for details."
+msgstr ""

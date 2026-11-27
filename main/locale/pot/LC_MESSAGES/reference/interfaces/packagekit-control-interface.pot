@@ -1,0 +1,51 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/packagekit-control-interface.md:2
+msgid "packagekit-control interface"
+msgstr ""
+
+#: ../../../reference/interfaces/packagekit-control-interface.md:4
+msgid ""
+"`packagekit-control` allows control of the [PackageKit](https://"
+"www.freedesktop.org/software/PackageKit/) service, giving privileged access "
+"to native package management on the system."
+msgstr ""
+
+#: ../../../reference/interfaces/packagekit-control-interface.md:6
+msgid ""
+"This interface is intended to work in tandem with {ref}`the AppStream "
+"interface <interfaces-appstream-metadata-interface>`. Snaps distributed via "
+"the public [Snap store](https://snapcraft.io/store) are not typically "
+"granted auto-connection for this interface."
+msgstr ""
+
+#: ../../../reference/interfaces/packagekit-control-interface.md:8
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`**: yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/packagekit-control-interface.md:8
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/packagekit-control-interface.md:11
+msgid "Requires snapd version _2.41+_.`"
+msgstr ""

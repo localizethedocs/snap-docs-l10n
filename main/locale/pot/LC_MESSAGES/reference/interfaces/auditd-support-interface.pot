@@ -1,0 +1,83 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/auditd-support-interface.md:0
+#: ../../../reference/interfaces/auditd-support-interface.md:8
+msgid "auditd-support interface"
+msgstr ""
+
+#: ../../../reference/interfaces/auditd-support-interface.md:10
+msgid ""
+"The `auditd-support` interface permits snaps to operate as the [`auditd`]"
+"(https://www.man7.org/linux/man-pages/man8/auditd.8.html) service on the "
+"system."
+msgstr ""
+
+#: ../../../reference/interfaces/auditd-support-interface.md:12
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/auditd-support-interface.md:14
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no</br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`**: yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/auditd-support-interface.md:14
+#: ../../../reference/interfaces/auditd-support-interface.md:27
+#: ../../../reference/interfaces/auditd-support-interface.md:29
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/auditd-support-interface.md:18
+msgid ""
+"The `auditd-support` plug is {ref}`unsupported for parallel instances "
+"<interfaces-parallel-installs-unsupported>`."
+msgstr ""
+
+#: ../../../reference/interfaces/auditd-support-interface.md:21
+msgid ""
+"Unlike other `*-support` interfaces, there is no single official `auditd` "
+"snap for which this interface was intended to be used. Instead, snap "
+"packagers who wish to ship their own snap containing `auditd` or serving the "
+"role of `auditd` may request installation and connection of this interface."
+msgstr ""
+
+#: ../../../reference/interfaces/auditd-support-interface.md:23
+msgid ""
+"The `auditd-support` interface grants access to the [`CAP_AUDIT_CONTROL` "
+"capability](https://www.man7.org/linux/man-pages/man7/capabilities.7.html), "
+"along with access to files commonly required by `auditd`."
+msgstr ""
+
+#: ../../../reference/interfaces/auditd-support-interface.md:25
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/auditd-support-interface.md:27
+msgid ""
+"The test code can be found in the snapd repository:</br>https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/auditd_support_test.go"
+msgstr ""
+
+#: ../../../reference/interfaces/auditd-support-interface.md:29
+msgid ""
+"The source code for the interface is in the snapd repository: </br>https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/auditd_support.go"
+msgstr ""

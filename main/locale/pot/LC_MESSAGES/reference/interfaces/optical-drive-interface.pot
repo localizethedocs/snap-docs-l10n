@@ -1,0 +1,41 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/optical-drive-interface.md:2
+msgid "optical-drive interface"
+msgstr ""
+
+#: ../../../reference/interfaces/optical-drive-interface.md:4
+msgid ""
+"`optical-drive` allows read/write access to optical drives, suitable for CD/"
+"DVD/Blu-Ray playback and burning. This interface is not currently available "
+"to use on Ubuntu Core, only classic systems can use this interface."
+msgstr ""
+
+#: ../../../reference/interfaces/optical-drive-interface.md:6
+msgid ""
+"**Auto-Connect**: by default, yes; when `write: true`, no **Attributes**:"
+msgstr ""
+
+#: ../../../reference/interfaces/optical-drive-interface.md:8
+msgid "`write`: `true|false`, defaults to `false`."
+msgstr ""
+
+#: ../../../reference/interfaces/optical-drive-interface.md:10
+msgid "`write` available in snap versions _2.33+_."
+msgstr ""

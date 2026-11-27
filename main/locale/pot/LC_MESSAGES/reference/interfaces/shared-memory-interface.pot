@@ -1,0 +1,240 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/shared-memory-interface.md:0
+#: ../../../reference/interfaces/shared-memory-interface.md:8
+msgid "shared-memory interface"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:10
+msgid ""
+"The `shared-memory` interface allows two snaps to communicate with each "
+"other using a specific predefined shared-memory path or directory in `/dev/"
+"shm`, an area of a POSIX-compliant filesystem reserved for shared memory. "
+"The location is defined by one snap and connected to from another."
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:12
+msgid "Requires snapd version *2.54+* ."
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:15
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:0
+msgid "Permissions"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:0
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:0
+msgid "**no** by default"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:0
+msgid ""
+"**yes** when `private` is enabled, or with snaps from the same publisher"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:0
+msgid ""
+"**{ref}`Super-privileged <reference-operations-interfaces-super-privileged-"
+"interfaces>`**"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:0
+msgid "**no** for plugs"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:0
+msgid "**yes** for slots"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:23
+msgid ""
+"The `shared-memory` slot is {ref}`unsupported for parallel instances "
+"<interfaces-parallel-installs-unsupported>`. The `shared-memory` plug is "
+"supported for parallel instances only if it sets `private: true`."
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:26
+msgid "**Attributes**:"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:28
+msgid ""
+"`shared-memory` (slot and plug): optional, arbitrary identifier for the "
+"shared memory area(s) defined in the slot. A consumer snap must use the same "
+"identifier as the provider snap in order to work on the same shared memory "
+"object(s). Defaults to either local slot name or local plug name for slot/"
+"plug definitions respectively."
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:30
+msgid ""
+"`private` (plug): when `true`, creates a directory that is only accessible "
+"to the snap. This directory has read/write permissions, is mounted over `/"
+"dev/shm`, and permits an auto-connection to the `system:shared-memory` slot."
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:31
+msgid ""
+"`read` (slot): list of *read-only* paths (after the implicit `/dev/shm/`) to "
+"be exposed to a consuming snap."
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:32
+msgid ""
+"`write` (slot): list of *read and write* paths (after the implicit `/dev/shm/"
+"`) to be exposed to a consuming snap."
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:34
+msgid ""
+"The `read` and `write` attributes are used on the slot side to specify the "
+"names of the shared memory objects being shared (in read-only mode for "
+"`read`, and with full read-write mode for `write`); the prefix `/dev/shm/` "
+"is implicit and must not be specified. Both attributes can be specified "
+"simultaneously for different paths, but the two values should not duplicate "
+"each other."
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:36
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:38
+msgid "An example plug definition:"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:40
+msgid ""
+"plugs:\n"
+" my-ipc:\n"
+"  interface: shared-memory\n"
+"  # this could be omitted since we already adjusted ​the plug name\n"
+"  # to match the slot's shared-memory name:\n"
+"  shared-memory: my-ipc\n"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:49
+msgid ""
+"A matching slot definition which would auto-connect if in a snap from the "
+"same publisher:"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:51
+msgid ""
+"slots:\n"
+" shmem:\n"
+"  interface: shared-memory\n"
+"  shared-memory: my-ipc\n"
+"  write: [ students ]  # gives read/write access to /dev/shm/students\n"
+"  read: [ teachers ]   # gives readonly access to /dev/shm/teachers\n"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:60
+msgid "Creating `private` shared memory for the snap:"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:62
+msgid ""
+"plugs:\n"
+"  shared-memory:\n"
+"    private: true\n"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:68
+msgid ""
+"When `private: true` is used,  the shared-memory interface is automatically "
+"connected:"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:70
+msgid ""
+"$ snap connections <example-private-shared-memory-snap>\n"
+"Interface      Plug                      Slot            Notes\n"
+"shared-memory  os-release:shared-memory  :shared-memory  -\n"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:77
+msgid ""
+"The test code can be found in the snapd repository: [shared_memory_test.go]"
+"(https://github.com/canonical/snapd/blob/master/interfaces/builtin/"
+"shared_memory_test.go). The source code for the interface is in the snapd "
+"repository: [shared_memory.go](https://github.com/canonical/snapd/blob/"
+"master/interfaces/builtin/shared_memory.go)</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:77
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:82
+msgid "Common issues"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:84
+msgid "Semaphore errors in Python"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:86
+msgid ""
+"When using the interface in non-private mode with multi-processing Python, "
+"one might encounter something like this:"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:87
+msgid ""
+"ProcessPoolExecutor(max_workers=max_workers) as executor:\n"
+"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"
+"File \"/opt/python/lib/python3.11/concurrent/futures/process.py\", line 732, "
+"in __init__\n"
+"self._call_queue = _SafeQueue(\n"
+"^^^^^^^^^^^\n"
+"File \"/opt/python/lib/python3.11/concurrent/futures/process.py\", line 173, "
+"in __init__\n"
+"super().__init__(max_size, ctx=ctx)\n"
+"File \"/opt/python/lib/python3.11/multiprocessing/queues.py\", line 43, in "
+"__init__\n"
+"self._rlock = ctx.Lock()\n"
+"^^^^^^^^^^\n"
+"File \"/opt/python/lib/python3.11/multiprocessing/context.py\", line 68, in "
+"Lock\n"
+"return Lock(ctx=self.get_context())\n"
+"^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"
+"File \"/opt/python/lib/python3.11/multiprocessing/synchronize.py\", line "
+"169, in __init__\n"
+"SemLock.__init__(self, SEMAPHORE, 1, 1, ctx=ctx)\n"
+"File \"/opt/python/lib/python3.11/multiprocessing/synchronize.py\", line 57, "
+"in __init__\n"
+"sl = self._semlock = _multiprocessing.SemLock(\n"
+"^^^^^^^^^^^^^^^^^^^^^^^^^\n"
+"PermissionError: [Errno 13] Permission denied`\n"
+msgstr ""
+
+#: ../../../reference/interfaces/shared-memory-interface.md:109
+msgid ""
+"The error comes from Python semaphores attempting to access /dev/shm. To "
+"remedy, use private mode instead that bind-mounts a snap-private /dev/shm "
+"and then grants access to all of it."
+msgstr ""

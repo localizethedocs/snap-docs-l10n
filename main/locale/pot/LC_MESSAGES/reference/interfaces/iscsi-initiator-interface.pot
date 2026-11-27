@@ -1,0 +1,85 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/iscsi-initiator-interface.md:0
+#: ../../../reference/interfaces/iscsi-initiator-interface.md:8
+msgid "iscsi-initiator interface"
+msgstr ""
+
+#: ../../../reference/interfaces/iscsi-initiator-interface.md:10
+msgid ""
+"The `iscsi-initiator` interface allows snaps to act as iSCSI initiators, "
+"enabling them to discover, connect to, and manage iSCSI targets for block "
+"storage access."
+msgstr ""
+
+#: ../../../reference/interfaces/iscsi-initiator-interface.md:12
+msgid ""
+"The interface loads kernel modules required for iSCSI operations including "
+"iscsi_tcp for transport and target_core_mod for LIO functionality."
+msgstr ""
+
+#: ../../../reference/interfaces/iscsi-initiator-interface.md:14
+msgid ""
+"See {ref}`Interface management <how-to-guides-work-with-snaps-connect-"
+"interfaces>` and {ref}`Supported interfaces <ref-index_interfaces>` for "
+"further details on how interfaces are used."
+msgstr ""
+
+#: ../../../reference/interfaces/iscsi-initiator-interface.md:16
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/iscsi-initiator-interface.md:18
+msgid ""
+"**{ref}`Auto-connect <explanation-interfaces-interface-auto-connection>`**: "
+"no </br> **{ref}`Super-privileged <reference-operations-interfaces-super-"
+"privileged-interfaces>`**: yes</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/iscsi-initiator-interface.md:18
+#: ../../../reference/interfaces/iscsi-initiator-interface.md:27
+#: ../../../reference/interfaces/iscsi-initiator-interface.md:29
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/iscsi-initiator-interface.md:22
+msgid ""
+"This interface controls a resource shared by the whole system. Snaps that "
+"use it can be installed as parallel instances, but every instance acts on "
+"the same system resource and snapd does not coordinate between them. Make "
+"sure each instance manages different resources, or run only one instance at "
+"a time. See {ref}`Snaps that are unsupported as parallel instances "
+"<interfaces-parallel-installs-shared-resources>` for details.."
+msgstr ""
+
+#: ../../../reference/interfaces/iscsi-initiator-interface.md:25
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/iscsi-initiator-interface.md:27
+msgid ""
+"The test code can be found in the snapd repository:</br>https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/iscsi_initiator_test.go"
+msgstr ""
+
+#: ../../../reference/interfaces/iscsi-initiator-interface.md:29
+msgid ""
+"The source code for the interface is in the snapd repository: </br>https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/iscsi_initiator.go"
+msgstr ""

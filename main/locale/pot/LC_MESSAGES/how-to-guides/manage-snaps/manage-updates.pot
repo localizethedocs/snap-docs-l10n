@@ -1,0 +1,701 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:0
+msgid ""
+"Schedule automatic snap refreshes, pause or resume updates, manage metered "
+"connections, run manual updates, and revert snaps to earlier revisions."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:8
+msgid "Manage updates"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:10
+msgid ""
+"Snaps update automatically, and by default, the *snapd* daemon checks for "
+"updates 4 times a day. Each update check is called a **refresh**."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:12
+msgid ""
+"Updates can be set to occur on Friday at midnight, or for specific days of "
+"the month, such as only the third Monday, or even the last Friday of the "
+"month, between 23:00 to 01:00 the next day. They can even be postponed "
+"indefinitely, or for a set period of time."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:14
+msgid ""
+"When, if, and how often, these updates occur can is the job of the *snap "
+"refresh* command."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:17
+msgid ""
+"Snaps running in {ref}`_devmode_ <explanation-security-snap-confinement>`, "
+"or installed locally, are typically intended for testing and do not update "
+"automatically until they've been published and downloaded from the store."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:20
+msgid "Refresh update control"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:22
+msgid ""
+"There are two general approaches to postponing or otherwise managing snap "
+"updates, with  either the `snap refresh --hold` command, or with system "
+"settings:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:24
+msgid "Pause or stop updates with refresh hold"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:25
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:105
+msgid "Control updates with system options"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:27
+msgid "Pause or stop automatic updates"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:29
+msgid "**Requires: snapd 2.58+**"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:31
+msgid ""
+"The `snap refresh --hold` command holds, or postpones, snap updates for "
+"individual snaps, or for all snaps on the system, either indefinitely or for "
+"a specified period of time."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:33
+msgid "snap refresh --hold=<duration> <snap1> <snap2>...\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:37
+msgid ""
+"Time duration units can be seconds (s), minutes (m) or hours (h), or a "
+"combination of these.  To postpone updates indefinitely, a value of "
+"`forever` is also valid."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:39
+msgid ""
+"$ snap refresh --hold=24h firefox\n"
+"General refreshes of \"firefox\" held until 2022-10-26T14:10:53+01:00\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:44
+msgid "If no duration is specified, the time duration defaults to `forever`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:47
+msgid ""
+"If no snaps are specified, the hold applies to all snaps installed on the "
+"system:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:49
+msgid ""
+"$ snap refresh --hold=24h\n"
+"Auto-refresh of all snaps held until 2022-10-26T14:25:58+01:00\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:54
+msgid ""
+"To see which snaps are being held, look for `held` in the _notes_ column "
+"when running `snap list`:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:56
+msgid ""
+"$ snap list\n"
+"Name         Version  Rev   Tracking       Publisher          "
+"Notes                         \n"
+"alacritty    0.8.0    46    latest/stable  snapcrafters       classic   \n"
+"vlc          3.0.18   3078  latest/stable  videolan✓          "
+"-                              \n"
+"yt-dlp       18       212   latest/edge    morrisong          held      \n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:64
+msgid ""
+"However, there are important differences in how a hold is applied, depending "
+"on whether individual snaps are specified or not. These differences are "
+"described below."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:66
+msgid "If snaps are specified"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:68
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:80
+msgid "The refresh hold is:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:69
+msgid "**Effective on auto-refreshes and general snap refresh requests**"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:70
+msgid "**Not effective on targeted snap refreshes**"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:72
+msgid ""
+"When one or more snaps are specified, the hold is effective only on their "
+"auto-refreshes and general refresh requests from `snap refresh`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:74
+msgid ""
+"However, a refresh that targets a held snap specifically will not be blocked "
+"and will always be able to proceed."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:76
+msgid ""
+"This can be useful if a snap upgrade is known to be problematic. That "
+"specific snap can be held while the remainder of the system is safely "
+"refreshed. After the snap upgrade problem has been solved, and a new "
+"revision of the snap published, that snap can then be manually refreshed as "
+"a specific target. If the upgrade works as expected, the hold can be safely "
+"removed (see {ref}`Remove a hold <ref-manage-updates_remove-a-hold>`)."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:78
+msgid "If no snaps are specified"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:81
+msgid "**Effective only on auto-refreshes**"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:82
+msgid ""
+"**Not effective on general snap refresh requests and targeted snap "
+"refreshes**"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:84
+msgid ""
+"If no snaps are specified, a hold applies to all snaps installed on the "
+"system, however the hold is only effective on auto-refreshes and will not "
+"block either general refresh requests from 'snap refresh', or specific snap "
+"requests from 'snap refresh target-snap'."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:87
+msgid "Remove a hold"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:89
+msgid ""
+"The `snap refresh --unhold` command removes a refresh hold, either for the "
+"specified snaps or for all snaps when no snaps are targeted specifically."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:91
+msgid "For a single snap:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:93
+msgid ""
+"$ snap refresh --unhold firefox\n"
+"Removed general refresh hold of \"firefox\"\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:98
+msgid "For for all snaps:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:100
+msgid ""
+"$ snap refresh --unhold\n"
+"Removed auto-refresh hold on all snaps\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:107
+msgid ""
+"The refresh rate is freely configurable, and can be set to any duration "
+"above a lower bound of once every 20 minutes. There are four {ref}`system-"
+"wide options <how-to-guides-manage-snaps-set-system-options>` that manage "
+"how updates are handled:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:109
+msgid "**refresh.timer**: defines the refresh frequency and schedule"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:110
+msgid ""
+"**refresh.hold**: delays the next refresh until the defined time and date"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:111
+msgid ""
+"**refresh.metered**: pauses refresh updates when network connection is "
+"metered"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:112
+msgid ""
+"**refresh.retain**: sets how many revisions of a snap are stored on the "
+"system"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:114
+msgid "refresh.timer"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:116
+msgid ""
+"Use *refresh.timer* to modify when, and how frequently, your snaps are "
+"refreshed."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:118
+msgid ""
+"The following example asks the system to only refresh snaps between  4.00am "
+"and 7.00am, and 7.00pm and 10:10pm:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:120
+msgid "sudo snap set system refresh.timer=4:00-7:00,19:00-22:10 \n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:124
+msgid "Other examples for the time and frequency option include:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:16
+msgid "Options"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:16
+msgid "Result"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:16
+msgid "`mon,10:00,,fri,15:00`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:16
+msgid "Mondays at 10:00, Fridays at 15:00"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:16
+msgid "`mon,fri,10:00,15:00`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:16
+msgid "Mondays at 10:00 and 15:00, Fridays at 10:00 and 15:00"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:16
+msgid "`mon-wed,fri,9:00-11:00/2`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:16
+msgid "Monday to Wednesday and on Friday, twice between 9:00 and 11:10"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:16
+msgid "`mon,9:00~11:00,,wed,22:00~23:00`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:16
+msgid ""
+"Mondays, some time between 9:00 and 11:00, and on Wednesdays, some time "
+"between 22:00 and 23:00"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:16
+msgid "`mon,wed`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:16
+msgid "Monday and on Wednesday, at 0:00"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:16
+msgid "`mon2-wed,23:00-24:00`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:16
+msgid ""
+"2nd Monday of the month, through the following Wednesday, between 23:00 and "
+"24:00"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:16
+msgid "`fri5,23:00-01:00`"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:16
+msgid "Last Friday of the month, from 23:00 to 1:00 the next day"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:136
+msgid ""
+"See {ref}`Timer string format <interfaces-timer-string-format>` for a "
+"comprehensive breakdown of the syntax used to define times and frequencies."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:138
+msgid ""
+"You can check the update frequency for your environment with the `refresh` "
+"command:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:140
+msgid ""
+"$ snap refresh --time\n"
+"timer: 00:00~24:00/4\n"
+"last: today at 07:47 BST\n"
+"next: today at 12:13 BST\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:147
+msgid ""
+"By default, the snap system is scheduled to refresh four times per day, as "
+"shown in the above output."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:149
+msgid "refresh.hold"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:151
+msgid ""
+"Use *refresh.hold* to delay snap refreshes until a defined time and date (up "
+"to 90 days). The time and date format needs to conform to [RFC 3339](https://"
+"tools.ietf.org/html/rfc3339)."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:153
+msgid ""
+"For example, *5:22pm (BST), Tuesday 23rd April 2019*, would look like the "
+"following:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:155
+msgid "2019-04-23T17:22:54+01:00\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:158
+msgid "The correct format can be generated with the *date* command:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:160
+msgid ""
+"$ date --date=\"BST 2023-09-23 17:22:54\" +%Y-%m-%dT%H:%M:%S%:z\n"
+"2023-09-23T17:22:54+01:00\n"
+"\n"
+"$ sudo snap set system refresh.hold=\"$(date --date=tomorrow +%Y-%m-%dT%H:%M:"
+"%S%:z)\"\n"
+"$ sudo snap get system refresh.hold\n"
+"2019-04-24T17:22:54+01:00\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:169
+msgid ""
+"After a refresh, the next refresh can be delayed by up to 90 days, after "
+"which a refresh will be performed regardless of the *refresh.hold* value."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:171
+msgid "refresh.metered"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:173
+msgid ""
+"Use *refresh.metered* to pause and re-enable the refresh process when  "
+"*NetworkManager* detects a metered connection, such as an LTE link with a "
+"limited data plan."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:175
+msgid "To hold refreshing snaps when on a metered connection:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:177
+msgid "sudo snap set system refresh.metered=hold\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:181
+msgid "To allow refreshing:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:183
+msgid "sudo snap set system refresh.metered=null\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:187
+msgid ""
+"By default, *refresh.metered* is enabled when a metered connection is "
+"detected."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:189
+msgid ""
+"[quote] ⓘ  refresh.metered is available in snap 2.33 and later. [/quote]"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:193
+msgid "<a name=\"retain\"></a>"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:193
+msgid "<a name=\"retain\">"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:193
+msgid "</a>"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:195
+msgid "refresh.retain"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:197
+msgid ""
+"Use *refresh.retain* to set the maximum number of a snap's revisions stored "
+"by the system *after* the next refresh:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:199
+msgid "sudo snap set system refresh.retain=3\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:202
+msgid ""
+"The *refresh.retain* value can be a number between 2 and 20. The default is "
+"`refresh.retain=3` on Ubuntu Core systems and `refresh.retain=2` on "
+"*classic* Ubuntu systems, such as those running an Ubuntu LTS release."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:204
+msgid "[quote] ⓘ  refresh.retain is available in snap 2.34 and later. [/quote]"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:208
+msgid "Manual updates"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:210
+msgid ""
+"Regardless of when a refresh is scheduled, a refresh can be initiated with "
+"the `snap refresh` command:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:212
+msgid ""
+"$ snap refresh\n"
+"gnome-system-monitor 3.28.2 from 'canonical' refreshed\n"
+"gnome-calculator 3.28.2 from 'canonical' refreshed\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:217
+msgid ""
+"The *refresh* command can also be used to see when the last refresh occurred "
+"and when the next is scheduled:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:219
+msgid ""
+"$ snap refresh --time\n"
+"timer: 00:00~24:00/4\n"
+"last: today at 09:16 GMT\n"
+"next: today at 17:39 GMT\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:226
+msgid ""
+"The first line in the above output shows the value of the *timer* system "
+"option. This defines how and when a refresh should be scheduled."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:228
+msgid ""
+"To see which snaps are going to be updated with the next *refresh*, use the "
+"additional `--list` argument:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:230
+msgid ""
+"$ snap refresh --list\n"
+"Name           Version                    Rev   Publisher     Notes\n"
+"core           16-2.45.1+git2022.b6b3c25  9584  canonical✓    core\n"
+"get-iplayer    3.26                       250   snapcrafters  -\n"
+"qt551          5.5                        30    keshavnrj     -\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:238
+msgid "Locally installed snaps"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:240
+msgid ""
+"The `snap refresh --amend` command can be used to replace a locally "
+"installed snap with an identically named snap on the store."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:242
+msgid "Monitor changes"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:244
+msgid ""
+"Use the `snap changes` and `snap tasks <change-id>` commands to see details "
+"about what changed during the last refresh:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:246
+msgid ""
+"$ snap changes\n"
+"ID    Status  Spawn                   Ready                   Summary\n"
+"2052  Done    today at 09:34 BST      today at 09:35 BST      Auto-refresh 7 "
+"snaps\n"
+"2053  Done    today at 15:16 BST      today at 15:17 BST      Refresh snaps "
+"\"gnome-calculator\", \"flock-chat\", \"gnome-characters\", \"gnome-system-"
+"monitor\"\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:253
+msgid "Add the _change-id_ to see what actions a specific change performed:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:255
+msgid ""
+"$ snap tasks 2053\n"
+"Status  Spawn               Ready               Summary\n"
+"Done    today at 15:16 BST  today at 15:16 BST  Ensure prerequisites for "
+"\"gnome-calculator\" are available\n"
+"Done    today at 15:16 BST  today at 15:16 BST  Download snap \"gnome-"
+"calculator\" (199) from channel \"stable\"\n"
+"Done    today at 15:16 BST  today at 15:16 BST  Fetch and check assertions "
+"for snap \"gnome-calculator\" (199)\n"
+"⋮\n"
+"Done    today at 15:16 BST  today at 15:16 BST  Start snap \"gnome-system-"
+"monitor\" (54) services\n"
+"Done    today at 15:16 BST  today at 15:16 BST  Clean up \"gnome-system-"
+"monitor\" (54) install\n"
+"Done    today at 15:16 BST  today at 15:16 BST  Run configure hook of "
+"\"gnome-system-monitor\" snap if present\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:267
+msgid ""
+"Optionally, the `--format` flag may be passed with the `json` argument to "
+"return the data as JSON rather than a tabular representation."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:269
+msgid "Revert to an earlier revision"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:271
+msgid ""
+"A snap may be reverted to an earlier revision with the `snap revert` "
+"command. By default, it will attempt to revert to the previous revision:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:273
+msgid ""
+"$ sudo snap revert vlc\n"
+"vlc reverted to 3.0.5-1\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:278
+msgid ""
+"The optional `--revision` argument can be specified to request a specific "
+"revision:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:280
+msgid "snap revert vlc --revision 500\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:284
+msgid ""
+"This operation will revert both the snap revision and the configuration data "
+"associated with the software. If the previously used revision of the snap is "
+"from a different channel, that snap will be installed but the channel being "
+"tracked won’t change."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:286
+msgid ""
+"User data, such as data generated by the snap and stored in a database, is "
+"often stored in a *common* directory and will not be reverted. See {ref}"
+"`Data locations <interfaces-data-locations>` for more details on what "
+"information is stored and where."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:288
+msgid ""
+"A snap won’t automatically update to a version previously reverted from, and "
+"the output from `snap refresh` will continue to state *All snaps up to "
+"date*. A reverted snap will be automatically updated when a new and "
+"different revision is made available by the publisher."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:290
+msgid ""
+"However, explicitly adding the snap name to `snap refresh` *will* update the "
+"snap, regardless of whether the latest revision was previously reverted from "
+"or not:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:292
+msgid ""
+"$ snap list --all vlc\n"
+"Name  Version  Rev  Tracking  Publisher  Notes\n"
+"vlc   3.0.5-1  768  stable    videolan✓  -\n"
+"vlc   3.0.6    770  stable    videolan✓  disabled\n"
+"$ sudo snap refresh\n"
+"All snaps up to date.\n"
+"$ sudo snap refresh vlc\n"
+"vlc 3.0.6 from VideoLAN✓ refreshed\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:303
+msgid ""
+"A previously used snap that was reverted from will display *disabled* in the "
+"Notes column of the output."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:305
+msgid ""
+"**Reverting to a previous version of *snapd*** </br> The snapd snap manages "
+"the snap packaging system, and is therefore a special case if you wish to "
+"revert it, or downgrade the currently running version. It must be reverted "
+"on its own, and there cannot be any pending changes for other snaps in the "
+"pipeline."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/manage-updates.md:305
+msgid "</br>"
+msgstr ""

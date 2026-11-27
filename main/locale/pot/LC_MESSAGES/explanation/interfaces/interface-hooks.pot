@@ -1,0 +1,221 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/interfaces/interface-hooks.md:2
+msgid "Interface hooks"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:4
+msgid ""
+"Interface hooks are {ref}`hooks <reference-development-supported-snap-"
+"hooks>` that can be executed when an {ref}`interface <explanation-interfaces-"
+"all-about-interfaces>` is either connected or disconnected via the "
+"interface's plugs and slots mechanism. They can be used to read or write "
+"attributes from a connection and, for example, acquire new resources, update "
+"internal options or update databases."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:6
+msgid ""
+"ⓘ An interface consists of a connection between a plug and a slot. The slot "
+"is the provider of the interface while the plug is the consumer, and a slot "
+"can support multiple plug connections. For more details, see {ref}`Interface "
+"management <how-to-guides-work-with-snaps-connect-interfaces>`."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:8
+msgid "Connect hooks"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:10
+msgid ""
+"When a plug connects to a slot, the following hooks are executed "
+"sequentially *before* the interface connection occurs:"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:12
+msgid "`prepare-plug-<plugname>` for the snap on the plug-side"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:13
+msgid "`prepare-slot-<slotname>` for the snap on the slot-side"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:15
+msgid ""
+"After the interface connection has been created and the security permissions "
+"have been updated, the following two hooks are then executed:"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:17
+msgid "`connect-slot-<slotname>` for the snap on the slot-side"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:18
+msgid "`connect-plug-<plugname>` for the snap on the plug-side"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:20
+msgid ""
+"If an interface connection fails, all changes are undone and an *undo* hook "
+"is run for any interface hooks executed prior to the failure. These undo "
+"hooks are executed in reverse order:"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:22
+msgid "`disconnect-plug-<plugname>`"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:23
+msgid "`disconnect-slot-<slotname>`"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:24
+msgid "`unprepare-slot-<slotname>`"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:25
+msgid "`unprepare-plug-<plugname>`"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:27
+msgid ""
+"Interface hooks can read the attributes of the affected plug and slot by "
+"using the *snapctl* command, as defined by the snap's  {ref}`snap.yaml "
+"<reference-development-yaml-schemas-the-snap-format>` file."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:29
+msgid "When executed by slot hooks:"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:30
+msgid ""
+"`snapctl get :<slotname> <attribute name>` to read attributes of the local "
+"slot"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:31
+msgid ""
+"`snapctl get --plug :<slotname> <attribute name>` to read attributes of the "
+"plug"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:33
+msgid "When executed by plug hooks:"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:34
+msgid ""
+"`snapctl get :<plugname> <attribute name>` to read attributes of local plug"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:35
+msgid ""
+"` snapctl get --slot :<plugname> <attribute name>` to read attributes of the "
+"slot"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:37
+msgid ""
+"The plug and slot hooks do not know the corresponding slot and plug names on "
+"the other end of the connection. For this reason, the above syntax uses `:"
+"<slotname>` in the slot hooks and `:<plugname>` in the plug hooks. It's the "
+"`--plug` or `--slot` flag that tells *snapctl* which end of the connection "
+"to read attributes from."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:39
+msgid ""
+"In addition to the plug and slot attributes defined in *snap.yaml*, `prepare-"
+"plug-` and `prepare-slot-` hooks can create attributes dynamically with the "
+"*snapctl* command:"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:41
+msgid "In the *prepare-slot-&lt;slotname&gt;* hook:"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:42
+msgid ""
+"`snapctl set :<slotname> slotattribute=value` to create an attribute for the "
+"slot side"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:44
+msgid "In the *prepare-plug-&lt;plugname&gt;* hook:"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:45
+msgid ""
+"`snapctl set :<plugname> plugattribute=value` to create an attribute for the "
+"plug side"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:47
+msgid ""
+"Attributes can only be created in *prepare-* hooks, and only as long as "
+"their names do not clash with attributes already defined statically in "
+"snap.yaml for the given plug/slot. This means overwriting or overloading "
+"statically defined attributes is not allowed."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:49
+msgid "Disconnect hooks"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:51
+msgid ""
+"Disconnect hooks are executed upon manual disconnection or automatically "
+"when a snap on either end of a connection is completely removed from the "
+"system."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:53
+msgid "Disconnect hooks are executed in the following order:"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:54
+msgid "`disconnect-slot-<slotname>` for the snap on the slot-side"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:55
+msgid "`disconnect-plug-<plugname>` for the snap on the plug-side"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:57
+msgid ""
+"Disconnect hooks can read the attributes of both the plug and slot side of "
+"the connection via the *snapctl* command, as described in the \"Connect "
+"hooks\" section above."
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:59
+msgid ""
+"If an interface disconnection fails, an *undo* hook is run for any interface "
+"hooks executed prior to the failure and the connection is restored. These "
+"undo hooks are executed in reverse order:"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:61
+msgid "`connect-plug-<plugname>`"
+msgstr ""
+
+#: ../../../explanation/interfaces/interface-hooks.md:62
+msgid "`connect-slot-<slotname>`"
+msgstr ""

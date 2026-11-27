@@ -1,0 +1,761 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:0
+msgid ""
+"Complete reference for the gadget snap, including gadget.yaml, device "
+"storage layouts, boot configuration, defaults, interfaces, and lifecycle "
+"hooks."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:8
+msgid "The gadget snap"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:10
+msgid ""
+"The gadget snap is responsible for defining and configuring system "
+"properties specific to one or more devices."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:12
+msgid "The gadget metadata and content defines:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:13
+msgid "The layout of the volumes that comprise the device storage and image"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:14
+msgid ""
+"Configuration for the bootloader to use. The gadget also ships the "
+"bootloader itself and other boot assets."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:15
+msgid "Default configuration options to use when snaps are installed."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:16
+msgid ""
+"Interface connections configured in the `connections:` section are executed "
+"on the device’s first boot only. Later changes to this section -- that is, "
+"changes added to the device at run time through gadget refreshes -- are not "
+"applied."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:17
+msgid ""
+"Optional hooks that are invoked to control and customise the behaviour over "
+"the device lifecycle, e.g. installation, initialisation and establishing "
+"device identity, factory reset."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:19
+msgid ""
+"See [Build a gadget snap](https://ubuntu.com/core/docs/gadget-building) for "
+"details on how a gadget snap can be built. For store deployment, gadget "
+"snaps must be produced by the device {ref}`brand store <ref-glossary_brand-"
+"store>`, as defined in the [model assertion](https://ubuntu.com/core/docs/"
+"reference/assertions/model), or a reference gadget must be used. It is "
+"perfectly possible for different models to share a gadget snap."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:21
+msgid "Setup files"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:23
+msgid ""
+"In addition to traditional snap metadata, the gadget snap also holds some "
+"setup files fundamental to the initialisation and lifecycle of the device:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:25
+msgid ""
+"**meta/snap.yaml**: traditional snap details, with `type: gadget` explicitly "
+"defined."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:26
+msgid "**meta/gadget.yaml**: gadget-specific information. See below."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:27
+msgid "**grub.conf**:  required grub configuration when using this bootloader."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:28
+msgid ""
+"**u-boot.conf**: required U-Boot configuration when using this bootloader."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:29
+msgid ""
+"**cloud.conf**: optional [cloud-init](https://cloudinit.readthedocs.io/en/"
+"latest/) configuration; cloud-init is disabled if missing. </br>Using cloud-"
+"init is _not recommended_ for production devices, and should only be "
+"included for testing and development purposes."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:29
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:58
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:31
+msgid "Example gadget snaps"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:33
+msgid ""
+"The following gadget repositories contain the gadget snap definitions for "
+"_amd64_ (64 bit PC Gadget Snap) and the Raspberry Pi family of devices "
+"supported by Ubuntu Core:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:35
+msgid "[64-bit PC Gadget Snap](https://github.com/canonical/pc-gadget)"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:36
+msgid ""
+"[Raspberry Pi \"Universal\" Gadget Snap](https://github.com/canonical/pi-"
+"gadget)"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:37
+msgid "[i386](https://github.com/canonical/pc-i386-gadget)"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:39
+msgid ""
+"In addition to the above, the IoT Devices Field team maintains a [GitHub "
+"repository](https://github.com/canonical/iot-field-gadget-snap) with source "
+"code branches that contain examples for several hardware platforms:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:41
+msgid "The gadget.yaml file"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:43
+msgid "Two YAML keys are used to describe your target device:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:45
+msgid ""
+"**defaults** (YAML sub-section, optional): default configuration options for "
+"the defined snaps, applied on installation:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:46
+msgid ""
+"defaults:\n"
+"      <snap id>:\n"
+"          <key>: <value>\n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:51
+msgid ""
+"In addition to `<snap id>`, it is also possible to use `system` to define "
+"system-wide configuration options, similar to running `snap set system "
+"key=value`:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:52
+msgid ""
+"defaults:\n"
+"      system:\n"
+"          <key>: <value>\n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:58
+msgid "Defaults only become available during snap installation.</br></br>"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:60
+msgid ""
+"Values in `defaults:` (other than `system:`) are not consumed and do not "
+"become available until either the `configure hook` or the `default-configure "
+"hook` are run as part of the corresponding snap installation. See {ref}"
+"`Supported snap hooks <reference-development-supported-snap-hooks>` for "
+"further details. `system:` values are set immediately."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:62
+msgid ""
+"**volumes** (YAML sub-section, required): the volumes layout, where each "
+"disk image is represented as a YAML sub-section."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:64
+msgid "The gadget defines valid size ranges with two parameters:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:66
+msgid "`min-size` is the lower bound for the size"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:67
+msgid ""
+"`size` is the upper bound. Currently, it is also the default size applied on "
+"UC auto-installations and for partitions created by [ubuntu-image](https://"
+"documentation.ubuntu.com/core/how-to-guides/image-creation/use-ubuntu-image/"
+"#image-size)"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:69
+msgid ""
+"See [Calculate partition sizes](https://documentation.ubuntu.com/core/how-to-"
+"guides/image-creation/calculate-partition-sizes/) for more details."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:71
+msgid "The volumes mapping sub-section"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:73
+msgid "Each volume entry  is described by:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:74
+msgid "a name as defined by the entry key"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:75
+msgid "a partition structure (required)"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:76
+msgid "a bootloader definition (`grub`, `u-boot`)"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:77
+msgid "a partitioning schema eg. `mbr`. Defaults to `gpt` if unspecified."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:79
+msgid ""
+"Volumes define the structure and content of the images to be written into "
+"one or more block devices of the gadget device. Each volume in the mapping "
+"represents a different image for a \"disk\" in the device."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:81
+msgid "Ubuntu Core typically uses the following storage partitions:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:83
+msgid ""
+"**ubuntu-seed** (role: system-seed; *read-only, ext4 or typically vfat*)"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:84
+msgid "**ubuntu-boot** (role: system-boot; *read-only, ext4* or *vfat*):"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:85
+msgid "**ubuntu-save** (role: system-save; *writable, ext4*, **encrypted**)"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:86
+msgid "**ubuntu-data** (role: system-data; *writable*, ext4, **encrypted**)"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:88
+msgid ""
+"**ubuntu-save** is mandatory on an encrypted system. The *initramfs* "
+"bootstrapped from **ubuntu-boot** is responsible for decrypting both the "
+"**ubuntu-save** and **ubuntu-data** partitions."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:90
+msgid ""
+"**ubuntu-data** needs to be the last partition. No extra partitions can be "
+"inserted between **ubuntu-boot**, **ubuntu-save** and **ubuntu-data**. If "
+"extra partitions are required, they need to be declared and created before "
+"**ubuntu-boot**."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:92
+msgid ""
+"The structure section lists entities with gadget data inside the image, most "
+"of which are partitions with a file system inside, with the exception of "
+"structures of type: bare, which can describe a region of data without a "
+"corresponding entry in the partition table."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:94
+msgid "Dynamic kernel parameters"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:96
+msgid ""
+"There are two {ref}`system options <how-to-guides-manage-snaps-set-system-"
+"options>` that can be used to add new kernel boot parameters to a system "
+"that has been deployed and is running:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:98
+msgid ""
+"{ref}`system.kernel.cmdline-append <reference-administration-system-options-"
+"kernel-cmdline-append>`"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:99
+msgid ""
+"{ref}`system.kernel.dangerous-cmdline-append <reference-administration-"
+"system-options-kernel-dangerous-cmdline-append>`"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:101
+msgid ""
+"The second setting can be run (dangerously) without any prior configuration, "
+"but the first setting will permit **only** boot parameters verified against "
+"an *allow list* defined within the gadget snap."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:103
+msgid ""
+"The _allow list_ defines both parameters and their possible arguments, and "
+"takes takes following format:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:105
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:118
+msgid ""
+"kernel-cmdline:\n"
+"    allow:\n"
+"        - kernel-parameter-1=1\n"
+"        - kernel-parameter-2=*\n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:112
+msgid ""
+"The `*` character can be used as a wildcard to accept any parameter "
+"argument. It can not be used to limit an argument's scope. For example, "
+"`kernel-parameter-2=*` is acceptable, but `kernel-parameter-2=a*` is not."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:114
+msgid ""
+"See [Modifying kernel boot parameters](https://ubuntu.com/core/docs/kernel-"
+"options) for more details on defining kernel boot parameters."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:116
+msgid "Static kernel parameters"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:124
+msgid "To which we should add"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:125
+msgid ""
+"    append:\n"
+"         - kernel-parameters-3=value\n"
+"     remove:\n"
+"         - console=ttyS0\n"
+"         - panic=*\n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:133
+msgid ""
+"The parameters from `append` will be added to the default command line. The "
+"parameters matched by `remove` will be removed from the default command line."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:135
+msgid "Specification"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:137
+msgid ""
+"The `meta/gadget.yaml` file contains the basic metadata for gadget-specific "
+"functionality, including a detailed specification of which structure items "
+"compose an image. The latter is used both by snapd and by ubuntu-image when "
+"creating images for these devices."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:139
+msgid ""
+"A gadget snap's boot assets can also be automatically updated when the snap "
+"is refreshed. See [Updating gadget boot assets](https://"
+"documentation.ubuntu.com/core/how-to-guides/manage-ubuntu-core/gadget-boot-"
+"assets/) for further details."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:141
+msgid "The following specification defines what is supported in `gadget.yaml`:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:143
+msgid ""
+"# Define the format of this file. The default and latest format is zero.\n"
+"# Clients reading this file must reject it the format is greater than\n"
+"# the supported one. (optional)\n"
+"format: <int>\n"
+"\n"
+"# Default configuration options for defined snaps, applied on installation.\n"
+"# The snap ID may be discovered via the snap info command.\n"
+"# Since 2.33 snap ID can be the \"system\" nick to cover the system\n"
+"# configuration. (optional)\n"
+"defaults:\n"
+"    <snap id>:\n"
+"        <key>: <value>\n"
+"\n"
+"# Interface connection instructions for plugs and slots of seeded\n"
+"# snaps to connect at first boot. snap IDs can be the \"system\"\n"
+"# nick as well. Omitting \"slot\" in an instruction is allowed\n"
+"# and equivalent then to: slot: system:<plug>\n"
+"# (since 2.34) (optional)\n"
+"connections:\n"
+"   -  plug: <plug snap id>:<plug>\n"
+"      slot: <slot snap id>:<slot>\n"
+"\n"
+"# Defines the kernel boot parameter allow list. The * character can be used\n"
+"# as a wildcard to accept any parameter argument. It can not be used to "
+"limit an\n"
+"# argument’s scope. For example, kernel-parameter-2=* is acceptable, but\n"
+"# kernel-parameter-2=a* is not.\n"
+"kernel-cmdline:\n"
+"   allow:\n"
+"      - kernel-parameter-1=1\n"
+"      - kernel-parameter-2=*\n"
+"\n"
+"# Volumes defining the structure and content for the images to be written\n"
+"# into one or more block devices of the gadget device. Each volume in\n"
+"# in the structure represents a different image for a \"disk\" in the "
+"device.\n"
+"# (optional)\n"
+"volumes:\n"
+"\n"
+"  # Name of volume and output image file. Must match [a-z-]+. (required)\n"
+"  <volume name>:\n"
+"\n"
+"    # 2-digit hex code for MBR disk ID or GUID for GPT disk id. (optional)\n"
+"    id: <id>\n"
+"\n"
+"    # Bootloader in the volume. Required in one volume. (required/optional)\n"
+"    bootloader: grub | u-boot\n"
+"\n"
+"    # Which partitioning schema to use. Defaults to gpt. (optional)\n"
+"    schema: mbr | gpt | mbr,gpt\n"
+"\n"
+"    # Structure defines layout of the volume, including partitions,\n"
+"    # Master Boot Records, or any other relevant content. (required)\n"
+"    structure:\n"
+"      - # Structure value is a list.\n"
+"\n"
+"        # Structure item name. There's an implementation-specific "
+"constraint\n"
+"        # on the maximum length. The maximum length of a partition name\n"
+"        # for GPT is 36 characters in the UTF-16 character set. (optional)\n"
+"        name: <name>\n"
+"\n"
+"        # GPT unique partition id, disallowed on MBR volumes. (optional)\n"
+"        id: <id>\n"
+"\n"
+"        # Role defines a special role for this item in the image. "
+"(optional)\n"
+"        # Must be either unset, or one of:\n"
+"        #   mbr - Master Boot Record of the image.\n"
+"        #   system-seed - Partition holding first-stage/recovery boot loader "
+"and at\n"
+"        #                 least one recovery system containing the "
+"following\n"
+"        #                 set of snaps: base, kernel, gadget and application "
+"snaps\n"
+"        #   system-boot - Partition holding the boot assets.\n"
+"        #   system-data - Partition holding the main operating system data.\n"
+"        #   system-boot-image - Partition holding kernel images for the "
+"Little Kernel bootloader.\n"
+"        #   system-boot-select - Partition holding state for snapd Little "
+"Kernel support.\n"
+"        #   system-save - Partition for Ubuntu Core to store backup data "
+"relative to device\n"
+"        #                 identity and to facilitate recovery or re-"
+"install.\n"
+"        #\n"
+"        # A structure with role:system-data must either have an implicit\n"
+"        # file system label, or 'writable'.\n"
+"        # A structure with role:system-boot-select must have 'snapbootsel' "
+"label.\n"
+"        role: mbr | system-boot | system-data | system-boot-image | system-"
+"boot-select | system-save\n"
+"\n"
+"        # Type of structure. May be specified as a two-hex-digit MBR "
+"partition\n"
+"        # type, a GPT partition type GUID, or both on hybrid schemas.  The\n"
+"        # special value `bare` says to not create a disk partition for this\n"
+"        # structure. (required)\n"
+"        type: <mbr type> | <gpt guid> | <mbr type>,<gpt guid> | bare\n"
+"        # Size for structure item. Maximum of 446 for the mbr role. "
+"(required)\n"
+"        size: <bytes> | <bytes/2^20>M | <bytes/2^30>G\n"
+"        # The lower bound for the size.\n"
+"        min-size: <bytes> | <bytes/2^20>M | <bytes/2^30>G\n"
+"\n"
+"        # The offset from the beginning of the image. Defaults to right "
+"after\n"
+"        # prior structure item. (optional)\n"
+"        offset: <bytes> | <bytes/2^20>M | <bytes/2^30>G\n"
+"\n"
+"\t# OffsetWrite describes a 32-bit address within the volume at which the\n"
+"\t# offset of the current structure will be written. When this feature was\n"
+"\t# first implemented, the position could be specified as a byte-offset\n"
+"\t# relative to the start of any named structure in the volume. However,\n"
+"\t# its scope has now been limited to only accept a structure with an\n"
+"\t# offset of 0, which implies the offset will always be absolute. This\n"
+"\t# should not cause any issues as the only known use case for this is to\n"
+"\t# set an address in an MBR. Writes outside of the first structure\n"
+"\t# now also blocked.\n"
+"        # (optional)\n"
+"        offset-write: [<name>+]<bytes> |\n"
+"                      [<name>+]<bytes/2^20>M |\n"
+"                      [<name>+]<bytes/2^30>G\n"
+"\n"
+"        # Filesystem type. Defaults to none. (optional)\n"
+"        filesystem: none | fat16 |  vfat | ext4\n"
+"\n"
+"        # Filesystem label. Defaults to name of structure item. (optional)\n"
+"        filesystem-label: <label>\n"
+"\n"
+"        # Content to be copied from gadget snap into the structure. This\n"
+"        # field takes a list of one of the following formats. (required)\n"
+"        content:\n"
+"\n"
+"            # Copy source (relative to gadget base directory) into "
+"filesystem\n"
+"            # at target (relative to root). Directories must end in a "
+"slash.\n"
+"            - source: <filename> | <dir>/  # (required)\n"
+"              target: <filename> | <dir>/  # (required)\n"
+"\n"
+"            # Dump image (relative to gadget base directory) of the raw "
+"data\n"
+"            # as-is into the structure at offset. If offset is omitted it\n"
+"            # defaults to right after the prior content item.\n"
+"            - image: <filename>                                 # "
+"(required)\n"
+"              offset: <bytes> | <bytes/2^20>M | <bytes/2^30>G   # "
+"(optional)\n"
+"              offset-write: (see respective item above)         # "
+"(optional)\n"
+"              size: <bytes> | <bytes/2^20>M | <bytes/2^30>G     # "
+"(optional)\n"
+"\n"
+"        # Support automatic asset updates. (optional)\n"
+"        update:\n"
+"            # update only if the new edition is higher than the old "
+"edition.\n"
+"            edition: uint32\n"
+"            # This field takes a list of files to be preserved.\n"
+"            # No support for preserving inside images.\n"
+"            # i.e. update will overwrite the whole image in this case.\n"
+"            preserve:\n"
+"              - <filename>\n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:286
+msgid "The following is an example `gadget.yaml` for a Raspberry Pi:"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:289
+msgid ""
+"device-tree: bcm2709-rpi-3-b-plus\n"
+"volumes:\n"
+"  pi:\n"
+"    schema: mbr\n"
+"    bootloader: u-boot\n"
+"    structure:\n"
+"      - name: ubuntu-seed\n"
+"        role: system-seed\n"
+"        filesystem: vfat\n"
+"        type: 0C\n"
+"        size: 1200M\n"
+"        content:\n"
+"          - source: boot-assets/\n"
+"            target: /\n"
+"      - name: ubuntu-boot\n"
+"        role: system-boot\n"
+"        filesystem: vfat\n"
+"        type: 0C\n"
+"        # what's the appropriate size?\n"
+"        size: 750M\n"
+"        content:\n"
+"          # TODO:install the boot.sel via snapd instead of via the gadget\n"
+"          - source: boot.sel\n"
+"            target: uboot/ubuntu/boot.sel\n"
+"      # NOTE: ubuntu-save is optional for unencrypted devices like the pi, "
+"so\n"
+"      # this structure can be dropped in favor of a different partition for\n"
+"      # users who wish to instead use a different partition, since with MBR "
+"we\n"
+"      # are limited to only 4 primary partitions.\n"
+"      # TODO: look into switching over to GPT, the pi bootloader firmware "
+"now\n"
+"      #       has support for this\n"
+"      - name: ubuntu-save\n"
+"        role: system-save\n"
+"        filesystem: ext4\n"
+"        type: 83,0FC63DAF-8483-4772-8E79-3D69D8477DE4\n"
+"        size: 16M\n"
+"      - name: ubuntu-data\n"
+"        role: system-data\n"
+"        filesystem: ext4\n"
+"        type: 83,0FC63DAF-8483-4772-8E79-3D69D8477DE4\n"
+"        # XXX: make auto-grow to partition\n"
+"        size: 1500M\n"
+"\n"
+"connections:\n"
+"  - plug: LVkazk0JLrL0ivuHRlv3wp3bK1nAgwtN:account-control\n"
+"  - plug: LVkazk0JLrL0ivuHRlv3wp3bK1nAgwtN:network-manager\n"
+"    slot: RmBXKl6HO6YOC2DE4G2q1JzWImC04EUy:service\n"
+"  - plug: LVkazk0JLrL0ivuHRlv3wp3bK1nAgwtN:shell-config-files\n"
+"    slot: system:system-files\n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:340
+msgid "prepare-device hook"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:342
+msgid ""
+"The optional `prepare-device` hook will be called on the gadget at the start "
+"of the device initialisation process, after the gadget snap has been "
+"installed."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:344
+msgid ""
+"The hook will also be called if this process is retried later from scratch "
+"in case of initialisation failures."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:346
+msgid ""
+"The device initialisation process is, for example, responsible for setting "
+"the serial identification of the device through an exchange with a device "
+"service."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:348
+msgid ""
+"The `prepare-device` hook can for example redirect this exchange and "
+"dynamically set options relevant to it."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:350
+msgid ""
+"One must ensure that `registration.proposed-serial`  is set to a _unique "
+"value_  across all devices of the brand and model and that it does not "
+"contain a `/`. It is going to be used as the \"serial number\" (a string, "
+"not necessarily a number) part of the identification in case the device "
+"service supports setting it or **requires** it, as is the case with the "
+"*Model Service* or *Serial Vault*. **Important:** Ensure the `-s` option is "
+"used with `set` when setting the serial."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:352
+msgid "prepare-device options"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:354
+msgid ""
+"#!/bin/sh\n"
+"\n"
+"# optionally set the url of the service\n"
+"snapctl set device-service.url=\"https://device-service\"\n"
+"\n"
+"# set optional extra HTTP headers for requests to the service\n"
+"snapctl set device-service.headers='{\"api-key\": \"API-KEY-VALUE\"}'\n"
+"\n"
+"# set as offline to prevent the system from fetching a device serial "
+"assertion\n"
+"# and unset to restore the default functionality\n"
+"snapctl set device-service.access=offline\n"
+"\n"
+"# If device-service.access and device-service.url are both unset, then the\n"
+"# store.access system option will be used to determine whether or not a "
+"device\n"
+"# serial assertion should be fetched\n"
+"\n"
+"# set an optional proposed serial identifier, depending on the service\n"
+"# this can end up being ignored\n"
+"#\n"
+"# this might need to be obtained dynamically. as the expected value must be "
+"a JSON string\n"
+"# one must be careful with proper shell quotation especially if using "
+"command\n"
+"# substitution, e.g.:\n"
+"#   snapctl set -s registration.proposed-serial='\"'\"$(get-serial-number)"
+"\"'\"'\n"
+"snapctl set -s registration.proposed-serial=\"DEVICE-SERIAL\"\n"
+"\n"
+"# optionally pass details of the device as the body of registration "
+"request,\n"
+"# the body is text, typically YAML;\n"
+"\n"
+"# this might need to be obtained dynamically\n"
+"snapctl set registration.body='mac: \"00:00:00:00:ff:00\"'\n"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:387
+msgid "prepare-serial hook"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:389
+msgid ""
+"The optional `prepare-serial` hook will be called on the gadget at the start "
+"of the device initialisation process, after the gadget snap has been "
+"installed and if secure registration is required."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:391
+msgid ""
+"This hook can be used to provide the necessary device attestation "
+"information which is passed back to the device service by setting the "
+"`registration.body` to the appropriate stanza suitable for method of secure "
+"registration being used."
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:393
+msgid "prepare-serial options"
+msgstr ""
+
+#: ../../../reference/development/yaml-schemas/the-gadget-snap.md:395
+msgid ""
+"#!/bin/sh\n"
+"\n"
+"# Get the request-id for registration\n"
+"REQUEST_ID=\"$(snapctl get registration.request-id)\"\n"
+"\n"
+"# Sign request_id with HW ID private key\n"
+"\n"
+"# set hardware identity attestation information\n"
+"snapctl set registration.body=\"{\\\"hardware-id-key-sha3-384\\\": \\\"$"
+"{HASH}\\\",\n"
+"                                \\\"signature-hash-algorithm\\\": \\\"$"
+"{SIG_HASH}\\\",\n"
+"                                \\\"request-id-signature\\\": \\\"$"
+"{SIGNATURE}\\\"\n"
+"}\"\n"
+msgstr ""

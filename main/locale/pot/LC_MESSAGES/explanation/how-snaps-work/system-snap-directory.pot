@@ -1,0 +1,85 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/how-snaps-work/system-snap-directory.md:0
+msgid ""
+"Understand the system snap directory, where installed snap packages are "
+"mounted, and how its files, revisions, and storage are organised."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/system-snap-directory.md:8
+msgid "System snap directory"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/system-snap-directory.md:10
+msgid ""
+"The `/snap` directory is, by default, where the files and folders from "
+"installed snap packages appear on your system."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/system-snap-directory.md:12
+msgid "It has the following structure:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/system-snap-directory.md:14
+msgid ""
+"/snap/bin                   - Symlinks to snap applications\n"
+"/snap/<snapname>/<revision> - Mount point for snap content\n"
+"/snap/<snapname>/current    - Symlink to current revision, if enabled\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/system-snap-directory.md:20
+msgid "<h2 id=heading--storage-space>Storage space</h2>\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/system-snap-directory.md:22
+msgid ""
+"A file manager, or the output from some storage-related commands, will show "
+"the files and directories within */snap* taking up space:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/system-snap-directory.md:24
+msgid ""
+"$ du -hs /snap/vlc\n"
+"766M    /snap/vlc\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/system-snap-directory.md:29
+msgid ""
+"However, these files and folders are mounted from the heavily compressed "
+"data that's stored within the original snap, located in */var/lib/snapd/"
+"snaps*. These snaps take far less space on your system than their mount "
+"points imply:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/system-snap-directory.md:31
+msgid ""
+"$ mount | grep vlc\n"
+"/var/lib/snapd/snaps/vlc_555.snap on /snap/vlc/555 type squashfs "
+"(ro,nodev,relatime,x-gdu.hide)\n"
+"$ df -h \n"
+"Filesystem      Size  Used Avail Use% Mounted on\n"
+"/dev/loop12     196M  196M     0 100% /snap/vlc/555\n"
+"[...]\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/system-snap-directory.md:40
+msgid ""
+"ⓘ  For a detailed overview of what a snap is, see  {ref}`The snap format "
+"<reference-development-yaml-schemas-the-snap-format>` documentation."
+msgstr ""

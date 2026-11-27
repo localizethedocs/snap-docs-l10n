@@ -1,0 +1,196 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../tutorials/index.md:12 ../../../tutorials/index.md:54
+msgid "Get started"
+msgstr ""
+
+#: ../../../tutorials/index.md:54
+msgid "Install the daemon"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid ""
+"Getting started with snap packages - learn how to install the snap daemon, "
+"and install and configure your first snap packages with step-by-step "
+"tutorials."
+msgstr ""
+
+#: ../../../tutorials/index.md:8
+msgid "Tutorials"
+msgstr ""
+
+#: ../../../tutorials/index.md:10
+msgid ""
+"This section of our documentation contains step-by-step tutorials to help "
+"outline what snap is capable of while helping you achieve specific aims, "
+"such as installing your favourite applications, taking a data snapshot, "
+"removing snaps or reinstalling the snap daemon (snapd)."
+msgstr ""
+
+#: ../../../tutorials/index.md:14
+msgid ""
+"Snap is installed by default on Ubuntu and many other Linux distributions. "
+"Our _Features tour_ is an ideal way to get started."
+msgstr ""
+
+#: ../../../tutorials/index.md:16
+msgid ""
+"{ref}`Features tour <tutorials-get-started>`: All of snap's main features on "
+"a single page"
+msgstr ""
+
+#: ../../../tutorials/index.md:18
+msgid "Installation"
+msgstr ""
+
+#: ../../../tutorials/index.md:20
+msgid ""
+"Installation instructions for those distributions that don't include _snap_ "
+"by default, and for users who may have previously removed snap from "
+"distributions that do."
+msgstr ""
+
+#: ../../../tutorials/index.md:22
+msgid ""
+"{ref}`Installing snapd <tutorials-install-the-daemon-index>`: Installation "
+"instructions for all popular Linux distributions"
+msgstr ""
+
+#: ../../../tutorials/index.md:24
+msgid "Snap pre-installed"
+msgstr ""
+
+#: ../../../tutorials/index.md:26
+msgid ""
+"The snap daemon (snapd) is pre-installed and ready to go on the following:"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "[KDE Neon](https://neon.kde.org/)"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "[Manjaro](https://manjaro.org/)"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "[Solus](https://getsol.us/)"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "[Ubuntu](https://ubuntu.com/) 18.04 and above"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "Most [Ubuntu flavours](https://ubuntu.com/desktop/flavors)"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "[Zorin OS](https://zorinos.com/)"
+msgstr ""
+
+#: ../../../tutorials/index.md:35
+msgid "Without snap"
+msgstr ""
+
+#: ../../../tutorials/index.md:37
+msgid ""
+"For distributions without the snap daemon pre-installed, use the links below "
+"for specific installation instructions:"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "{ref}`AlmaLinux OS <tutorials-install-the-daemon-almalinux-os>`"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "{ref}`Arch Linux <tutorials-install-the-daemon-arch-linux>`"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "{ref}`CentOS <interfaces-installing-snap-on-centos>`"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "{ref}`Debian <tutorials-install-the-daemon-debian>`"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "{ref}`elementary OS <tutorials-install-the-daemon-elementary-os>`"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "{ref}`Fedora <tutorials-install-the-daemon-fedora>`"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "{ref}`GalliumOS <interfaces-installing-snap-on-galliumos>`"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "{ref}`Kali Linux <interfaces-installing-snap-on-kali>`"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "{ref}`KDE Neon* <interfaces-installing-snap-on-kde-neon>`"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "{ref}`Linux Mint <tutorials-install-the-daemon-linux-mint>`"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "{ref}`Manjaro* <tutorials-install-the-daemon-manjaro-linux>`"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "{ref}`OpenMandriva <tutorials-install-the-daemon-openmandriva>`"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "{ref}`openSUSE <tutorials-install-the-daemon-opensuse>`"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid ""
+"{ref}`Parrot Security OS <interfaces-installing-snap-on-parrot-security-os>`"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "{ref}`Pop!_OS <tutorials-install-the-daemon-pop-os>`"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "{ref}`Raspberry Pi OS <interfaces-installing-snap-on-raspbian>`"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "{ref}`Rocky Linux <tutorials-install-the-daemon-rocky-linux>`"
+msgstr ""
+
+#: ../../../tutorials/index.md:0
+msgid "{ref}`Ubuntu* <tutorials-install-the-daemon-ubuntu>`"
+msgstr ""
+
+#: ../../../tutorials/index.md:51
+msgid ""
+"**\\*** While snapd is pre-installed on these systems, installation "
+"instructions can help if you're using older versions, or want to re-install "
+"snap after removing it."
+msgstr ""

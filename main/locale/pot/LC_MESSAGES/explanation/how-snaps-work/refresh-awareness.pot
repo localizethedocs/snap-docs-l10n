@@ -1,0 +1,179 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:0
+msgid ""
+"Understand refresh awareness, which manages automatic snap updates for "
+"running desktop applications with in-place or deferred updates and "
+"notifications."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:8
+msgid "Refresh awareness"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:10
+msgid ""
+"Snaps update automatically, and by default, the *snapd* daemon checks for "
+"updates 4 times a day. Each update check is called a *refresh* and is "
+"described in more detail in {ref}`Managing updates <how-to-guides-work-with-"
+"snaps-manage-updates>`."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:12
+msgid ""
+"If a refresh occurs while an affected desktop application is running, "
+"**refresh app awareness** helps to mitigate any potential issues, using a "
+"combination of in-place updates, deferred updates, and desktop notifications."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:14
+msgid "Refresh awareness requires snapd _2.57+_"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:17
+msgid ""
+"{ref}`Service management <how-to-guides-manage-snaps-control-services>` is "
+"not affected, as services are started and stopped manually as part of the "
+"refresh process, unless a specific _endure_ value has been embedded into the "
+"snap by the snap developer. See [snapcraft.yaml refresh-mode](https://"
+"documentation.ubuntu.com/snapcraft/stable/reference/snapcraft-yaml/#apps."
+"%3Capp-name%3E.refresh-mode) for further details."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:20
+msgid "In-place updates"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:22
+msgid ""
+"If an application is running when an automatic refresh detects an update, "
+"the new snap revision is downloaded in the background to minimise the "
+"refresh time."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:24
+msgid ""
+"When the download is complete, the user is notified of the pending update "
+"and a snap refresh is triggered when the application stops."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:26
+msgid ""
+"![Snap pending update notification](https://assets.ubuntu.com/v1/6bcfcc2b-"
+"firefox-pending.png)"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:26
+msgid "Snap pending update notification"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:28
+msgid ""
+"Once the snap has been refreshed, an additional notification informs the "
+"user that the new snap revision is ready to be used (requires snapd "
+"*2.59.2+*)"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:30
+msgid ""
+"In-place updates only work with automatic refreshes, and not when a refresh "
+"is triggered manually."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:32
+msgid "Deferred updates"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:34
+msgid ""
+"An update can be postponed for up to 14 days for a running application. The "
+"update will be either applied when the application closes, during next "
+"automatic refresh occurs without the application running, or after 14 days "
+"even if the application remains active."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:36
+msgid ""
+"After closing the affected application, the refresh can be triggered "
+"manually with the `snap refresh` command, either globally for all snaps, or "
+"with the specific snap name:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:38
+msgid "snap refresh <snap-name>\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:42
+msgid ""
+"If a manual refresh detects the application is still running, the error "
+"output will include the detected process ids of the running applications:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:44
+msgid ""
+"error: cannot refresh \"firefox\": snap \"firefox\" has running apps "
+"(firefox), pids:\n"
+"       1639,1854,1912,1932,3514,3632,5814,5870\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:49
+msgid ""
+"See {ref}`Managing updates <how-to-guides-work-with-snaps-manage-updates>` "
+"for more details controlling update frequencies, and holding updates for any "
+"period of time."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:51
+msgid "Desktop notifications"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:53
+msgid ""
+"While an affected application is running, each refresh attempt will trigger "
+"a desktop notification to inform the user that the app should be closed to "
+"avoid disruption."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:55
+msgid ""
+"On the default Ubuntu GNOME desktop, notifications can be modified and "
+"disabled by selecting Notifications from the Settings application and "
+"selecting the _Snapd User Session Agent_ application:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:57
+msgid ""
+"![Snapd User Session Agent Gnome Notification Settings](https://"
+"assets.ubuntu.com/v1/a417893f-snapd-notifications.png)"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:57
+msgid "Snapd User Session Agent Gnome Notification Settings"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:59
+msgid "Other desktop environments have equivalent functionality."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/refresh-awareness.md:61
+msgid ""
+"See {ref}`Refresh awareness security policy <ref-security-policies_refresh-"
+"awareness>` for details on how refresh updates accommodate confinement and "
+"security policy requirements."
+msgstr ""

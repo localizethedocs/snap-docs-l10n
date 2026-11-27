@@ -1,0 +1,252 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/system-architecture.md:0
+msgid ""
+"Complete reference for snap's system architecture, including snapd, the Snap "
+"Store, Linux security modules, interfaces, and services."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:8
+msgid "System architecture"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:10
+msgid ""
+"The snap packaging system consists of many components, from system-level "
+"Linux kernel security modules, managed by the snap daemon, _snapd_, to the "
+"network connected Snap Store for package retrieval and updates."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:12
+msgid ""
+"These components inter-communicate and operate together to create a secure "
+"and confined execution environment for application and service deployment. "
+"The overall process with these components and their communication is "
+"outlined below."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:14
+msgid "System process overview"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:16
+msgid ""
+"![Snap system process overview, showing how the snap daemon, snapd, manages "
+"snaps within a sandbox and configures the system security modules for access|"
+"666x500](/images/system-architecture.png)"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:16
+msgid ""
+"Snap system process overview, showing how the snap daemon, snapd, manages "
+"snaps within a sandbox and configures the system security modules for access|"
+"666x500"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:18
+msgid ""
+"**Figure: Snap system process overview, showing how the snap daemon, snapd, "
+"manages snaps within a sandbox and configures the system security modules "
+"for access.**"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:20
+msgid ""
+"The snap daemon, **snapd**,  handles **snap management** to configure and "
+"maintain each snap."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:22
+msgid ""
+"The snap daemon also maintains the **security configuration** that creates "
+"the **sandbox** for both snap executables and data. This is implemented "
+"using various **security modules** of the **Linux kernel**, including "
+"Seccomp, AppArmor and Cgroups."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:24
+msgid ""
+"Snaps have the least possible privileges by default. Additional system "
+"resources are permitted through the **{ref}`interfaces <explanation-"
+"interfaces-all-about-interfaces>`** mechanism which changes the security "
+"profile for each snap."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:26
+msgid ""
+"A **snap package** is a self-contained and immutable _SquashFS_ file "
+"carrying application-specific content alongside metadata to tell the system "
+"how it should be manipulated."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:28
+msgid ""
+"Package **downloads and updates** are managed through a connection to the "
+"remote **Snap Store**, which includes package integrity and validation."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:30
+msgid "Security modules"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:32
+msgid ""
+"The snap daemon uses privilege isolation mechanisms rooted in the Linux "
+"kernel through Cgroups and Namespaces, AppArmor and Seccomp."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:0
+msgid ""
+"**Cgroups** Limit the amount of resources and which devices the process "
+"confined to a snap can consume (CPU, memory, network bandwidth, and so on)."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:0
+msgid ""
+"**Namespaces** Make sure processes in a snap see their own personal view of "
+"the system (files, processes, network interfaces, hostname, and so on)."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:0
+msgid ""
+"**AppArmor** Allows system administrators to restrict snap capabilities with "
+"default security profiles that can be extended."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:0
+msgid ""
+"**Seccomp** Isolates processes running in a snap by limiting the system "
+"calls they are allowed to make."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:39
+msgid ""
+"The state of snapd, and many of its key functions, can be accessed through "
+"its {ref}`REST API <reference-development-snapd-rest-api>`, enabling remote "
+"device configuration, updates and orchestration."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:41
+msgid "System process"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:43
+msgid ""
+"**snapd -> Snap Store** : retrieves snap and assertion data from the package "
+"repository."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:44
+msgid ""
+"**snapd -> AppArmor**: sets up security profiles using permissions and "
+"capabilities by creating AppArmor profiles for each and modifying them "
+"whenever new interfaces are connected."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:45
+msgid ""
+"**snapd -> Seccomp**: as with AppArmor, uses per-snap profiles to limit the "
+"system calls a snap can make."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:47
+msgid "For services:"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:48
+msgid ""
+"**snapd -> systemd** : handles mounting, sockets, Cgroup limits and tracks "
+"service lifecycles for each snap."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:50
+msgid "Process components"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:52
+msgid ""
+"The package ecosystem can be separated at the binary level, including the "
+"socket files, and these components include the following:"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:54
+msgid ""
+"**snap packages**:  each snap is a _SquashFS_ file carrying content "
+"alongside metadata to tell the system how it should be manipulated."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:55
+msgid ""
+"**snapd**: the background service that manages, maintains, installs and "
+"removes snap packages."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:56
+msgid ""
+"**snap**: the command-line interface for interacting with snap functionality."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:57
+msgid ""
+"**snap-confine**: used internally to set up the confinement and namespaces "
+"for individual snaps before executing into the snap"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:58
+msgid ""
+"**snapctl**: used from within the running snap environment to access snap "
+"management functions."
+msgstr ""
+
+#: ../../../reference/system-architecture.md:59
+msgid "`/run/snapd.socket`: Unix socket used by snap"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:60
+msgid "`/run/snapd-snap.socket`: Unix socket used by snapctl"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:62
+msgid "Process component relationships"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:64
+msgid "**snapd -> `/run/snapd.socket`**:  exposes REST API through"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:65
+msgid "**snapd -> `/run/snapd-snap.socket`**: exposes REST API through"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:66
+msgid "**snap -> `/run/snapd.socket`**: makes user requests"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:67
+msgid "**snapctl -> `/run/snapd-snap.socket`**: makes snap requests"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:68
+msgid ""
+"**snaps -> `snapctl`**: uses snap management features exposed by *snapd*"
+msgstr ""
+
+#: ../../../reference/system-architecture.md:69
+msgid "**snapd -> `snap run`**: prepares confinement/execs into snap"
+msgstr ""

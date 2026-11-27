@@ -1,0 +1,493 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/development/experimental-features.md:0
+msgid ""
+"Reference documentation for snapd's experimental features, including the "
+"feature flag mechanism, graduation process, and current and previous feature "
+"lists."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:8
+msgid "Experimental features"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:10
+msgid ""
+"Experimental features are part of the _snapd_ development process. They "
+"allow engineering teams to test both the viability of an idea and its "
+"implementation."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:12
+msgid ""
+"If an experimental feature is considered unstable or likely to change, they "
+"are demarcated by an experimental feature flag, such as the following for  "
+"{ref}`Confdb <explanation-how-snaps-work-confdb-configuration-mechanism>`"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:15
+msgid "sudo snap set system experimental.confdb=true\n"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:18
+msgid "Request for feedback"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:20
+msgid ""
+"We'd be grateful for any feedback users of these experimental features may "
+"have. Please leave a comment beneath this forum post, chat to us on "
+"[Matrix.org](https://matrix.to/#/#snapd:ubuntu.com), or file an issue in the "
+"[snapd GitHub repository](https://github.com/canonical/snapd). Thank you!"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:22
+msgid "Feature graduation process"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:24
+msgid ""
+"When a feature graduates from experimental status, it is first set as "
+"default enabled. When the feature flag is set/changed, a warning stating "
+"that the feature is enabled by default and will be permanently enabled in a "
+"future release will be presented."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:26
+msgid ""
+"In a future release, the experimental feature is graduated to be permanently "
+"enabled. At this point, it is impossible to disable the feature. Attempting "
+"to set/change its feature flag will present a warning stating that the "
+"feature is no longer experimental and is always enabled."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:28
+msgid "Experimental features being removed"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:30
+msgid ""
+"Currently, [gate-auto-refresh-hook](https://documentation.ubuntu.com/core/"
+"explanation/refresh-control) is planned to be removed. Please share your use "
+"case for the feature at [forum](https://forum.snapcraft.io/t/planned-updates-"
+"to-snapd-experimental-features) so we can consider it prior to removal."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:32
+msgid "Previous experimental features"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:34
+msgid "The following table lists features that were previously experimental."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "Name"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "Feature Flag"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "Graduated/Removed"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "Release"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "Notes"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "RobustMountNamespaceUpdates"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "robust-mount-namespace-updates"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "Graduated"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "2.68"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "It controlled how snap-update-ns updates existing mount namespaces."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "[SnapdSnap](https://snapcraft.io/snapd)"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "snapd-snap"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "It controlled the possibility of installing the snapd snap."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "{ref}`GPIOChardevInterface <interfaces-gpio-chardev>`"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "gpio-chardev-interface"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "Removed"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "2.70"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid ""
+"It controlled the availability of the interface allowing access to specific "
+"GPIO chardev lines."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "PerUserMountNamespace"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "per-user-mount-namespace"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "2.76"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "It controlled the persistence of per-user mount namespaces."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid ""
+"[Layouts](https://ubuntu.com/docs/snapcraft/9/how-to/crafting/use-layouts/)"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "layouts"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "2.77"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "It controlled availability of snap layouts."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "ClassicPreservesXdgRuntimeDir"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "classic-preserves-xdg-runtime-dir"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "It controlled XDG_RUNTIME_DIR in snaps with classic confinement."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "{ref}`DbusActivation <interfaces-dbus-interface>`"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "dbus-activation"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "It controlled whether snaps daemons can be activated via D-Bus."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid ""
+"{ref}`RefreshAppAwareness <explanation-how-snaps-work-refresh-awareness>`"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "refresh-app-awareness"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "It controlled refresh being aware of running applications."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "{ref}`QuotaGroups <how-to-guides-manage-snaps-use-resource-quotas>`"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "quota-groups"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "2.78"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "It enabled experimental journal log quotas for quota groups."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid ""
+"[GateAutoRefreshHook](https://documentation.ubuntu.com/core/explanation/"
+"refresh-control)"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "gate-auto-refresh-hook"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "2.79"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "It enables refresh control from snaps via the gate-auto-refresh hook."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid ""
+"{ref}`CheckDiskSpaceInstall, CheckDiskSpaceRemove, and CheckDiskSpaceRefresh "
+"<how-to-guides-manage-snaps-disk-space-awareness>`"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid ""
+"check-disk-space-install, check-disk-space-remove, check-disk-space-refresh"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid ""
+"Disk space awareness controls free disk space checks on snap install, "
+"remove, and refresh."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid ""
+"{ref}`RefreshAppAwarenessUX <explanation-how-snaps-work-refresh-awareness>`"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "refresh-app-awareness-ux"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "It enables experimental UX improvements for refresh-app-awareness."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:51
+msgid "Current experimental features"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:53
+msgid "The following table lists all the features considered experimental."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "Date Introduced"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "Enabled by Default"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "{ref}`Hotplug <interfaces-hotplug-support>`"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "hotplug"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "Jul 2018 (snapd 2.34)"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "NO"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid ""
+"It controls the availability of dynamically creating slots based on system "
+"hardware. Currently only serial ports are supported (serial-port interface)."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "{ref}`Parallel installs <interfaces-parallel-installs>`"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "parallel-instances"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "Jun 2018 (snapd 2.34)"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "YES (snapd 2.79)"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid ""
+"Some interfaces and app properties are not supported on parallel instances. "
+"See {ref}`interfaces-parallel-installs-unsupported`."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "HiddenSnapDataHomeDir"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "hidden-snap-folder"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "Aug 2020 (snapd 2.46)"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid ""
+"It controls whether snap data is stored in ~/.snap/data instead of ~/snap."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "UserDaemons"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "user-daemons"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid ""
+"It controls the availability of user mode service support. Snapcraft needs "
+"to enable the `daemon-scope` setting."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "MoveSnapHomeDir"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "move-snap-home-dir"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "Jul 2022 (snapd 2.57)"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid ""
+"It controls whether snap user data under ~/snap (or ~/.snap/data) can be "
+"moved to ~/Snap."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid ""
+"{ref}`Confdb <explanation-how-snaps-work-confdb-configuration-mechanism>`"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "confdb"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "Apr 2024 (snapd 2.62)"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "It enables experimental configuration via confdb views."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "AppArmorPrompting"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "apparmor-prompting"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid ""
+"It enables AppArmor to prompt the user for permission when apps perform "
+"certain operations. Currently under active development."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "ContentCompatLabel"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "content-compatibility-label"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "Oct 2025 (snapd 2.72)"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "It enables compatibility labels for the content interface."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "RemoteDeviceManagement"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "remote-device-management"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "Apr 2026 (snapd 2.75)"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid ""
+"It enables experimental remote management of the device via the Store, "
+"including delegating control of confdb views to operators. Currently under "
+"active development."
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "{ref}`SnapDeltaFormat <how-to-guides-manage-snaps-snap-deltas>`"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "snap-delta-format"
+msgstr ""
+
+#: ../../../reference/development/experimental-features.md:0
+msgid "It enables deltas that use the \"snap delta\" format."
+msgstr ""

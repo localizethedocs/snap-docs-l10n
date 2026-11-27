@@ -1,0 +1,214 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/how-snaps-work/revisions.md:0
+msgid ""
+"Understand snap revisions, the unique identifiers assigned to snap uploads, "
+"including how to view them, how they are installed, and how to revert them."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:8
+msgid "Revisions"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:10
+msgid ""
+"A snap's *revision* is a number assigned automatically by the {ref}`Snap "
+"Store <ref-glossary_snap-store>` with each snap upload, giving each snap "
+"binary a unique identity within, and across, its {ref}`channels <explanation-"
+"how-snaps-work-channels-and-tracks>`."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:12
+msgid ""
+"The revision number increments with each new upload. But this number is "
+"arbitrary, and only used to differentiate between uploads."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:14
+msgid ""
+"Neither the revision number (nor its version) enforce an order of release. "
+"The local system will attempt to install whatever snap is recommended by the "
+"publisher in the channel being tracked."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:16
+msgid "Viewing revision numbers"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:18
+msgid ""
+"The output to `snap info <snapname>` includes the revision number for each "
+"snap in each track and channel as a number in brackets after the publishing "
+"date:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:20
+msgid ""
+"channels:\n"
+"  latest/stable:    2.59.4                 2023-05-31 (19361) 55MB -\n"
+"  latest/candidate: 2.59.5                 2023-06-09 (19457) 55MB -\n"
+"  latest/beta:      2.59.5                 2023-05-27 (19457) 55MB -\n"
+"  latest/edge:      2.59.5+git955.gc9310cc 2023-06-13 (19535) 42MB -\n"
+"installed:          2.59.1+git798.g5f761c7            (19131) 42MB snapd\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:29
+msgid ""
+"In the above example output, the latest/edge snap has a revision of `19535` "
+"and is the most recent published revision of the snap. If the snap is "
+"installed, the final line of `snap info` output includes the installed "
+"revision (`19131`, above)."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:31
+msgid ""
+"The `snap list` command includes a column for each installed snap's revision "
+"number, labelled `Rev`:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:33
+msgid ""
+"Name         Version  Rev    Tracking       Publisher             Notes\n"
+"alacritty    0.8.0    46     latest/stable  snapcrafters✪         classic\n"
+"blender      3.5.0    3486   latest/stable  blenderfoundation✓    classic\n"
+"chromium     112.0    2424   latest/stable  canonical✓            -\n"
+"ffmpeg       4.3.1    1286   latest/stable  snapcrafters✪         -\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:41
+msgid "Revision package management"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:43
+msgid ""
+"The store caches several older revisions of every snap, as does the local "
+"system. By default, 2 revisions are stored locally, while Ubuntu Core "
+"systems store 3. These defaults can be changed with the {ref}`refresh-retain "
+"<how-to-guides-work-with-snaps-manage-updates>` system option."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:45
+msgid ""
+"The snap `install`, `refresh` and `download` commands can operate on these "
+"available revisions with an optional `--revision` argument."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:47
+msgid "snap <command> <snap-name> --revision <revision-number>\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:51
+msgid ""
+"To install revision number _27_ of the hello-world snap, for example, run "
+"the following command:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:53
+msgid ""
+"$ snap install hello-world --revision 27\n"
+"hello-world 6.3 from Canonical✓ installed\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:58
+msgid ""
+"The hello-world snap could be refreshed to revision number _28_ with the "
+"following command:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:60
+msgid ""
+"$ snap refresh hello-world --revision 28\n"
+"hello-world 6.3 from Canonical✓ refreshed\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:65
+msgid ""
+"The revision number of the snap being operated upon will appear in the "
+"output during these operations."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:67
+msgid ""
+"[Manage revisions and releases](https://documentation.ubuntu.com/snapcraft/"
+"latest/how-to/publishing/manage-revisions-and-releases/) details how a snap "
+"developer can publish or promote specific revisions of their snap."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:69
+msgid "Data management"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:71
+msgid ""
+"The revision identity is used as a reference for revision-specific data. As "
+"described in {ref}`Data locations <interfaces-data-locations>`, revision-"
+"specific data for a snap is stored in a either system-wide location, or a "
+"user-specific home location:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:73
+msgid ""
+"**SNAP_ DATA**: `/var/snap/<snap name>/<revision number>`</br> This location "
+"is also used to store data, mostly information utilised by background "
+"application and services, for logging, and other tasks that require "
+"persistence between snap launches."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:73
+#: ../../../explanation/how-snaps-work/revisions.md:75
+msgid "</br>"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:75
+msgid ""
+"**SNAP_USER_DATA** : `/home/<username>/snap/<snap name>/<revision>`</br> "
+"This location contains any user data that the snap writes to its own home. "
+"This is *in contrast* to what the Linux user would consider *their* home, "
+"although the location itself will be in the user's home directory."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:78
+msgid ""
+"It is important to note this distinction, because it can be useful, and even "
+"important when users decide to perform maintenance operations with their "
+"snaps (like removal). By default, every snap will use a symlink *current* , "
+"pointing to the latest available revision."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:80
+msgid ""
+"When you move from one revision to the next, the revision-specific contents "
+"of **SNAP_DATA** and **SNAP_USER_DATA** are copied into new directories for "
+"the new revision. This includes moving from a higher revision number to a "
+"lower revision number (because revision numbers are arbitrary)."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:82
+msgid ""
+"Revision-specific directories are retained inline with the {ref}`refresh-"
+"retain <how-to-guides-work-with-snaps-manage-updates>` system option."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/revisions.md:84
+msgid ""
+"Other than the contents of the common directories, a {ref}`Snapshot <how-to-"
+"guides-manage-snaps-create-data-snapshots>` stores only the data associated "
+"with the currently installed revision. See {ref}`What a snapshot stores <ref-"
+"create-data-snapshots_what-a-snapshot-stores>` for more details."
+msgstr ""

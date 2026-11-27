@@ -1,0 +1,67 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/browser-support-interface.md:2
+msgid "browser-support interface"
+msgstr ""
+
+#: ../../../reference/interfaces/browser-support-interface.md:4
+msgid ""
+"`browser-support` allows access to various APIs needed by modern web "
+"browsers."
+msgstr ""
+
+#: ../../../reference/interfaces/browser-support-interface.md:6
+msgid ""
+"**Auto-connect**: no when `allow-sandbox: true`, yes otherwise "
+"**Attributes**:"
+msgstr ""
+
+#: ../../../reference/interfaces/browser-support-interface.md:8
+msgid "`allow-sandbox: true|false` (defaults to ``false``)"
+msgstr ""
+
+#: ../../../reference/interfaces/browser-support-interface.md:10
+msgid ""
+"This interface is intended to be used when using an embedded Chromium "
+"Content API or using the sandboxes in major browsers from vendors like "
+"Google and Mozilla. The ``allow-sandbox`` attribute may be used to give the "
+"necessary access to use the browser's sandbox functionality."
+msgstr ""
+
+#: ../../../reference/interfaces/browser-support-interface.md:12
+msgid ""
+"ⓘ A browser's internal sandbox requires numerous privileged security policy "
+"rules to work and is typically considered trusted outside of *snapd*. For "
+"this reason, `--allow-sandbox=true` is limited to trusted publishers only."
+msgstr ""
+
+#: ../../../reference/interfaces/browser-support-interface.md:14
+msgid ""
+"For some web applications, such those using Electron, it is often useful to "
+"disable the internal sandbox and rely on strict confinement, forcing the "
+"snap to use `allow-sandbox: false`. To do this, specify `--no-sandbox` on "
+"the command line for your application."
+msgstr ""
+
+#: ../../../reference/interfaces/browser-support-interface.md:16
+msgid ""
+"When `--no-sandbox` is used, the snap is confined regardless of the `--allow-"
+"sandbox` attribute, which now only controls whether or not the browser's "
+"internal sandbox can be used."
+msgstr ""

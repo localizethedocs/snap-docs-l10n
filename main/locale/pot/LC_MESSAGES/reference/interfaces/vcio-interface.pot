@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/vcio-interface.md:2
+msgid "vcio interface"
+msgstr ""
+
+#: ../../../reference/interfaces/vcio-interface.md:4
+msgid ""
+"The `vcio` interface permits input and output access to a Raspberry Pi's "
+"_VideoCore_ multimedia processor, typically used to improve graphics "
+"performance and to accelerate the encoding or decoding of media codecs."
+msgstr ""
+
+#: ../../../reference/interfaces/vcio-interface.md:6
+msgid ""
+"This interface is primarily intended to be used with {ref}`Ubuntu Core <ref-"
+"glossary_ubuntu-core>`."
+msgstr ""
+
+#: ../../../reference/interfaces/vcio-interface.md:9
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/vcio-interface.md:11
+msgid "**Auto-connect**: no"
+msgstr ""
+
+#: ../../../reference/interfaces/vcio-interface.md:13
+msgid ""
+"A Raspberry Pi permits its GPU to be programmed from userspace via the `/dev/"
+"vcio`  device, access to which this interface enables."
+msgstr ""
+
+#: ../../../reference/interfaces/vcio-interface.md:16
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/vcio-interface.md:18
+msgid ""
+"The Kodi-Raspberry Pi standalone [snap](https://snapcraft.io/kodi-pi-"
+"standalone) uses the _vcio_ interface, as configured in its snapcraft.yaml: "
+"https://github.com/ogra1/kodi-pi-standalone/blob/master/snap/snapcraft.yaml"
+msgstr ""
+
+#: ../../../reference/interfaces/vcio-interface.md:20
+msgid ""
+"The test code can be found in the snapd repository: https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/vcio_test.go"
+msgstr ""
+
+#: ../../../reference/interfaces/vcio-interface.md:22
+msgid ""
+"The source code for the interface is in the snapd repository: https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/vcio.go"
+msgstr ""

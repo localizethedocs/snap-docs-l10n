@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:2
+msgid "Building snap rpms on RHEL"
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:4
+msgid ""
+"Snap is  currently available for  [Red Hat Enterprise Linux (RHEL) 8]"
+"(https://www.redhat.com/en/enterprise-linux-8) and RHEL 7.6+. See {ref}"
+"`Installing snap on Red Hat Enterprise Linux (RHEL) <interfaces-installing-"
+"snap-on-red-hat>` for installation instructions."
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:6
+msgid ""
+"However, if you are an advanced user and wish to see how *snap* is built, "
+"its RPMs can be built and manually installed relatively easily, as outlined "
+"below."
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:8
+msgid "Building the RPM manually"
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:10
+msgid ""
+"First, both the new developer-centric [CodeReady Linux Builder](https://"
+"developers.redhat.com/blog/2018/11/15/introducing-codeready-linux-builder/) "
+"and the [AppStream](https://developers.redhat.com/blog/2018/11/15/rhel8-"
+"introducing-appstreams/) additional user space application repositories need "
+"to be added, followed by the [Extra Packages for Enterprise Linux](https://"
+"fedoraproject.org/wiki/EPEL) repository:"
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:12
+msgid ""
+"$ sudo subscription-manager repos --enable codeready-builder-for-rhel-8-"
+"x86_64-rpms\n"
+"$ sudo subscription-manager repos --enable rhel-8-for-x86_64-appstream-rpms\n"
+"$ sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-"
+"latest-8.noarch.rpm\n"
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:18
+msgid "Next, refresh the package list and install a few dependencies:"
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:20
+msgid ""
+"$ sudo dnf upgrade\n"
+"$ sudo dnf module install go-toolset\n"
+"$ sudo dnf install rpmdevtools\n"
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:26
+msgid ""
+"The snapd code base includes an [RPM SPEC file](https://rpm-packaging-"
+"guide.github.io/#what-is-a-spec-file), which [contains the recipe](https://"
+"github.com/canonical/snapd/blob/2.42/packaging/fedora/snapd.spec) used to "
+"build the RPM packages. To setup the RPM build environment, first prepare "
+"the RPM tree in your home directory, fetch the source tarballs and extract "
+"the RPM spec:"
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:28
+msgid ""
+"$ rpmdev-setuptree\n"
+"$ cd ~/rpmbuild/SOURCES\n"
+"$ curl -L \\\n"
+"    https://github.com/canonical/snapd/releases/download/2.42/snapd_2.42.no-"
+"vendor.tar.xz \\\n"
+"    -o snapd_2.42.no-vendor.tar.xz\n"
+"$ tar -xvJ -C ~/rpmbuild/SPECS --strip-components=3 \\\n"
+"    -f snapd_2.42.no-vendor.tar.xz \\\n"
+"    snapd-2.42/packaging/fedora/\n"
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:39
+msgid ""
+"Then, while still in `~/rpmbuild/SOURCES`, fetch the remaining release "
+"packages and install the build dependencies:"
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:41
+msgid ""
+"$ spectool -g ~/rpmbuild/SOURCES/snapd.spec\n"
+"$ sudo dnf builddep ~/rpmbuild/SPECS/snapd.spec -y\n"
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:46
+msgid ""
+"Three RPMs form the complete snapd installation, and these are built as "
+"follows:"
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:48
+msgid "$ rpmbuild -bb ~/rpmbuild/SPECS/snapd.spec\n"
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:52
+msgid "Finally, all three RPM packages can be installed:"
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:54
+msgid ""
+"$ sudo dnf localinstall \\\n"
+"   ~/rpmbuild/RPMS/x86_64/snap-confine-2.42-0.el8.x86_64.rpm \\\n"
+"   ~/rpmbuild/RPMS/x86_64/snapd-2.42-0.el8.x86_64.rpm \\\n"
+"   ~/rpmbuild/RPMS/noarch/snapd-selinux-2.42-0.el8.noarch.rpm\n"
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:61
+msgid ""
+"Once installed, the *systemd* unit that manages the main snap communication "
+"socket needs to be enabled:"
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:63
+msgid "$ sudo systemctl enable --now snapd.socket\n"
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:67
+msgid ""
+"The snapd environment can now be tested, and hopefully, used productively:"
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:69
+msgid "$ snap install hello-world\n"
+msgstr ""
+
+#: ../../../explanation/snap-development/building-snap-rpms-on-rhel.md:72
+msgid "A reboot/logout/login should put hello-world in the path."
+msgstr ""

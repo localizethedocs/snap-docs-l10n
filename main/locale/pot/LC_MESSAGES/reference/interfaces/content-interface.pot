@@ -1,0 +1,740 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/content-interface.md:0
+msgid ""
+"Reference documentation for the content interface, which lets producer snaps "
+"share code, data, libraries, and sockets with consumer snaps."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:8
+msgid "content interface"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:10
+msgid ""
+"The `content` interface allows sharing code and data from a slot on a "
+"_producer_ snap to one or more plugs on _consumer_ snaps. It's often used to "
+"share common themes and icons from a producer snap, for example, to many "
+"snapped applications."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:12
+msgid ""
+"Sharing happens at the filesystem level, which means anything that can be "
+"expressed as a file can be shared. This includes executables, libraries and "
+"data files, but also sockets."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:14
+msgid "Example"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:16
+msgid ""
+"The [Yaru MATE Icons](https://github.com/ubuntu-mate/icon-theme-yaru-mate-"
+"snap) snap is a good producer snap example, letting other applications "
+"access the wonderful MATE icon theme. But there are many other producer "
+"snaps too, including several for [GTK Common Themes](https://snapcraft.io/"
+"gtk-common-themes), [KDE Frameworks](https://snapcraft.io/kf6-core24) for "
+"better application integration with the desktop, and [Mesa](https://"
+"github.com/canonical/mesa-2404) for a graphical libraries stack."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:18
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:20
+msgid ""
+"**Auto-connect**: no, unless connecting to snaps from the same publisher."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:22
+msgid "**Attributes**:"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:23
+msgid ""
+"**source (slot)**: allows multiple directories to be exposed separately "
+"rather than grouped together"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:24
+msgid "**read (slot)**: _read-only_ paths to be exposed to a consuming snap"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:25
+msgid ""
+"**write (slot)**: _read and write_ paths to be exposed to a consuming snap"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:26
+msgid "**target (plug)**: path in consuming snap to find producer snap's files"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:27
+msgid "**default-provider (plug)**: name of preferred producer snap (`<SNAP>`)"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:28
+msgid ""
+"**content (slot and plug)**: an arbitrary identifier for content type. "
+"Defaults to either local slot name or local plug name for slot/plug "
+"definitions respectively."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:29
+msgid ""
+"**interface (slot and plug)**: snapd interface name (must be `interface: "
+"content`)"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:31
+msgid "Sharing content"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:33
+msgid ""
+"By default, when multiple directories are shared from a producer snap, or "
+"when multiple slots are connected to a single plug, the shared content is "
+"merged under the `target` path of the consuming path's plug definition. This "
+"behaviour can be modified with the `source` attribute."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:35
+msgid ""
+"Read, write and target should start with either ``$SNAP``, ``$SNAP_DATA`` or "
+"``$SNAP_COMMON`` to refer to the designated directory. See {ref}`Environment "
+"variables <reference-development-environment-variables>` for details on "
+"where these point to on the filesystem."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:37
+msgid ""
+"Paths declared in a slot's `source` attribute can also reference "
+"`$SNAP_INSTANCE_NAME`, but only within a path that starts with `$SNAP_DATA` "
+"or `$SNAP_COMMON`. This is useful for sharing a separate, per-instance "
+"directory with consumers of a {ref}`parallel-installed <interfaces-parallel-"
+"installs>` producer snap. See the {ref}`Parallel installed content providers "
+"section <interfaces-content-interface-parallel-installs>` below. Requires "
+"_snapd_ 2.79+."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:39
+msgid ""
+"The _content identifier_ specified by the consuming snap (plug) must match "
+"the _content_ attribute of the producer snap (slot)."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:41
+msgid ""
+"At a very basic level, the content interface enables one directory, file or "
+"socket to appear in a place where another snap can access it."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:43
+msgid ""
+"Each example below involve two snaps: the first provides some content (using "
+"a content _slot_) while the second consumes that content (using a content "
+"_plug_)."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:45
+msgid ""
+"In all of the cases we see a small set of attributes defined on the "
+"particular interface:"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:46
+msgid ""
+"the producer declares which path can be read, using either the `read` "
+"attribute for read-only, or the `write` attribute for both read and write "
+"permissions"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:47
+msgid ""
+"the consumer uses the `target` attribute to define where the content should "
+"become available at runtime."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:48
+msgid ""
+"both the producer and consumer use an arbitrary `content` attribute to "
+"describe the content. This attribute must match on both sides for the "
+"connection to happen."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:50
+msgid "Using <code>source</code>"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:50
+#: ../../../reference/interfaces/content-interface.md:137
+msgid "<code>"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:50
+#: ../../../reference/interfaces/content-interface.md:137
+msgid "</code>"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:52
+msgid ""
+"The `source` attribute presents one or more sub-directories, shared from a "
+"slot to a plug, **beneath** the plug's `target` path. Adding the `source` "
+"attribute ensures that sub-directories, shared from one or more producer "
+"snaps, are presented separately to the consumer snap beneath its `target` "
+"path."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:54
+msgid ""
+"When multiple slots are connected to the same plug _and_ they share "
+"directories with the same name, those directories are given unique names "
+"with the following pattern:  `<directory>`, `<directory>-2`, "
+"`<directory>-3`, `<directory>-x`. The first connection keeps the original "
+"directory name from the slot; subsequent connections with the same name get "
+"the suffixed form."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:56
+msgid ""
+"With the following example, directories from the producer snap are shared in "
+"corresponding directories beneath the _consumer_ snap's `target` path:"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:58
+#: ../../../reference/interfaces/content-interface.md:107
+#: ../../../reference/interfaces/content-interface.md:141
+#: ../../../reference/interfaces/content-interface.md:178
+#: ../../../reference/interfaces/content-interface.md:203
+#: ../../../reference/interfaces/content-interface.md:236
+#: ../../../reference/interfaces/content-interface.md:298
+#: ../../../reference/interfaces/content-interface.md:319
+msgid "**producer/snapcraft.yaml**:"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:60
+msgid ""
+"slots:\n"
+"  <slot_name>:\n"
+"    interface: content\n"
+"    content: my-binaries\n"
+"    source:\n"
+"      read:\n"
+"        - $SNAP/bin   # binaries to share\n"
+"        - $SNAP/libs  # libraries to share\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:71
+#: ../../../reference/interfaces/content-interface.md:118
+#: ../../../reference/interfaces/content-interface.md:151
+#: ../../../reference/interfaces/content-interface.md:188
+#: ../../../reference/interfaces/content-interface.md:213
+#: ../../../reference/interfaces/content-interface.md:248
+#: ../../../reference/interfaces/content-interface.md:329
+msgid "**consumer/snapcraft.yaml**:"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:72
+msgid ""
+"plugs:\n"
+"  <plug_name>:\n"
+"    interface: content\n"
+"    content: my-binaries\n"
+"    target: $SNAP/connected-content\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:80
+msgid ""
+"Using the above configuration, the consumer snap could implement a part to "
+"run an executable from the following path:"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:82
+msgid "$SNAP/connected-content/bin/<executable-name>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:86
+msgid "While the libraries are accessible at:"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:88
+msgid "$SNAP/connected-content/libs/<library-name>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:92
+msgid ""
+"When more than one slot, providing similarly named sources, is connected to "
+"the same plug, the plug directory for the new connection will be incremented:"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:94
+msgid "$SNAP/connected-content/bin-2/<executable-name>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:98
+msgid "Directory names are preserved after a reboot."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:101
+msgid "Parallel installed content providers"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:103
+msgid "_Requires snapd 2.79+._"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:105
+msgid ""
+"When a slot's `source` attribute declares paths starting with `$SNAP_DATA` "
+"or `$SNAP_COMMON` and with `$SNAP_INSTANCE_NAME` as the final path element, "
+"it allows a consumer snap to get a separate directory for each instance of "
+"the {ref}`parallel-installed <interfaces-parallel-installs>` producer snap."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:108
+msgid ""
+"slots:\n"
+"  <slot_name>:\n"
+"    interface: content\n"
+"    content: assets\n"
+"    source:\n"
+"      read:\n"
+"        - $SNAP_DATA/assets/$SNAP_INSTANCE_NAME\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:119
+msgid ""
+"plugs:\n"
+"  <plug_name>:\n"
+"    interface: content\n"
+"    content: assets\n"
+"    target: $SNAP_DATA/assets\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:127
+msgid ""
+"If multiple instances of producer snap such as `my-producer`, `my-"
+"producer_inst1` and `my-producer_inst2` are all connected to the consumer's "
+"plug, the consumer sees each producer's content under its own instance name:"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:129
+msgid ""
+"$SNAP_DATA/assets/my-producer/...\n"
+"$SNAP_DATA/assets/my-producer_inst1/...\n"
+"$SNAP_DATA/assets/my-producer_inst2/...\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:135
+msgid ""
+"Since `$SNAP_INSTANCE_NAME` is only known at content provider snap "
+"installation time, it can only be used when sharing data from writable "
+"locations, such as `$SNAP_DATA` or `$SNAP_COMMON`."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:137
+msgid "Using the <code>read</code> and <code>write</code> attributes"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:139
+msgid ""
+"Without the `source` attribute, content from the producer snap is mounted at "
+"the **exact path** indicated in the consumer snap:"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:142
+#: ../../../reference/interfaces/content-interface.md:179
+msgid ""
+"slots:\n"
+"  <slot_name>:\n"
+"    interface: content\n"
+"    content: my-binaries\n"
+"    read:\n"
+"      - $SNAP/bin\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:152
+#: ../../../reference/interfaces/content-interface.md:189
+msgid ""
+"plugs:\n"
+"  <plug_name>:\n"
+"    interface: content\n"
+"    content: my-binaries\n"
+"    target: $SNAP/usr/local/bin\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:160
+msgid ""
+"Using the above configuration, the consumer snap can access executables "
+"using the following path:"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:162
+msgid "$SNAP/usr/local/bin/<executable-name>\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:166
+msgid ""
+"When more than one slot is connected to the same plug, the plug directory "
+"for the new connection will be incremented using the same mechanism as with "
+"the `source` attribute described above (`<directory>`, `<directory>-2`, "
+"`<directory>-3`, `<directory>-x`)."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:168
+msgid ""
+"It is recommended to only expose a single `read` path using this "
+"configuration."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:170
+msgid "Read-only content sharing"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:172
+msgid ""
+"Read-only content sharing is ideal for executables, libraries and files "
+"related to global graphical themes or images."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:174
+msgid "Sharing an executable"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:176
+msgid ""
+"When the following two interfaces are connected, the *consumer* snap can "
+"invoke executables from `$SNAP/usr/local/bin`:"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:197
+msgid ""
+"The directory can be added to `PATH` in the wrapper script, if desired, and "
+"the directory can also be inspected by any applications that wish to check "
+"if the extra executables are available (they can then fail gracefully)."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:199
+msgid "Sharing a C-level library"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:201
+msgid ""
+"A consumer snap can link to libraries shared by a producer snap, using the "
+"`read`/`write` attributes:"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:204
+msgid ""
+"slots:\n"
+"  old-libraries:\n"
+"    interface: content\n"
+"    content: lib0-1604\n"
+"    read:\n"
+"      - $SNAP/lib\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:214
+msgid ""
+"plugs:\n"
+"  old-libraries:\n"
+"    interface: content\n"
+"    content: lib0-1604\n"
+"    target: $SNAP/extra-libs\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:222
+msgid ""
+"After connecting the interface, the *consumer* snap can link to libraries "
+"from `$SNAP/extra-libs`. The directory can be added to `LD_LIBRARY_PATH` in "
+"the wrapper script if desired."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:224
+msgid ""
+"The value of the `content` attribute can be anything, but it is good "
+"practice to follow the form `nameAPI-BUILDENV` to remind slot consumers of "
+"the API level and build tools used. This naming convention is also "
+"_required_ when sharing content between snap publishers."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:226
+msgid "In the above example:"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:227
+msgid "`0` indicates API level 0"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:228
+msgid ""
+"`1604` denotes Ubuntu 16.04 LTS toolchain and libraries were used within the "
+"build environment"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:230
+msgid ""
+"API and BUILDENV can be anything that is meaningful to the provider and "
+"consumers. For example, the GNOME content snap uses `gnome-3-26-1604` to "
+"denote the full GNOME 3.26 platform libraries and supporting files built on "
+"Ubuntu 16.04 LTS."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:232
+msgid "Sharing icons or themes"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:234
+msgid ""
+"A consumer snap can link to themes shared by a producer snap, which exposes "
+"multiple directories using the `source` attribute:"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:237
+msgid ""
+"slots:\n"
+"  icon-themes:\n"
+"    interface: content\n"
+"    content: icon-themes\n"
+"    source:\n"
+"      read:\n"
+"        - $SNAP/share/icons/Yaru-MATE-dark\n"
+"        - $SNAP/share/icons/Yaru-MATE-light\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:249
+msgid ""
+"plugs:\n"
+"  icon-themes:\n"
+"    interface: content\n"
+"    content: icon-themes\n"
+"    target: $SNAP/themes\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:257
+msgid ""
+"After connecting the interface, the *consumer* snap can observe all themes "
+"under `$SNAP/themes`, and the directories would be exposed as:"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:259
+msgid ""
+"$SNAP/themes/Yaru-MATE-dark\n"
+"$SNAP/themes/Yaru-MATE-light\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:264
+msgid "Content identifier obligations"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:266
+msgid ""
+"The content identifier attribute identifies a mostly-immutable compatibility "
+"contract (API/ABI or similar) between the snap providing the corresponding "
+"content and the snaps consuming it."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:268
+msgid ""
+"The providing snap must preserve backward compatibility for the content "
+"provided under a given identifier."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:270
+msgid ""
+"Equally, updates to consuming snaps cannot strongly depend on changes of the "
+"identified content from updates to the providing snaps."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:272
+msgid ""
+"There is no support in _snapd_ to synchronise updates between consuming and "
+"providing snaps. Compatibility breaking changes need to happen under a "
+"different content identifier."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:274
+msgid "Default provider"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:276
+msgid ""
+"The optional `default-provider` attribute can be used to set to the name of "
+"a snap offering a corresponding content slot:"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:278
+msgid "**consumer/snapcraft.yaml**"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:279
+msgid ""
+"plugs:\n"
+"  lib0-1604:\n"
+"    interface: content\n"
+"    content: lib0-1604\n"
+"    target: $SNAP/extra-libs\n"
+"    default-provider: lib01604\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:288
+msgid ""
+"If the system does not contain a snap providing a matching slot, installing "
+"a consumer snap with a default-provider will trigger the automatic "
+"installation of the named provider snap.  If the named snap is already "
+"installed, the absence of a matching slot will instead trigger an update of "
+"the named provider snap. The plug and slot will be auto-connected assuming "
+"the {ref}`auto-connection mechanism <explanation-interfaces-interface-auto-"
+"connection>` is configured properly for this."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:290
+msgid ""
+"For example, a snap consuming the GNOME content snap for GNOME 3.26 can set "
+"`default-provider` to `gnome-3-26-1604`."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:292
+msgid "Sharing writable data"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:294
+msgid ""
+"Sharing writable data can be used to share data files, and _UNIX sockets_, "
+"between a group of snaps. This allows for the creation of a simple form of "
+"IPC between them."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:296
+msgid "Sharing writable files (from _snapd 2.19.1_):"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:299
+msgid ""
+"slots:\n"
+"  <slot_name>:\n"
+"    interface: content\n"
+"    content: writable-data\n"
+"    write:\n"
+"      - $SNAP_DATA\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:308
+msgid "**consumer/snapcraft.yaml:**"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:309
+msgid ""
+"plugs:\n"
+"  <plug_name>:\n"
+"    interface: content\n"
+"    content: writable-data\n"
+"    target: $SNAP_DATA\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:317
+msgid "Sharing UNIX sockets (from _snapd 2.19.1_):"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:320
+msgid ""
+"slots:\n"
+"  <slot_name>:\n"
+"    interface: content\n"
+"    content: socket-directory\n"
+"    write:\n"
+"      - $SNAP_DATA\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:330
+msgid ""
+"plugs:\n"
+"  <plug_name>:\n"
+"    interface: content\n"
+"    content: socket-directory\n"
+"    target: $SNAP_DATA\n"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:338
+msgid ""
+"When the two interfaces are connected the *consumer* snap can see the socket "
+"in `$SNAP_DATA`."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:340
+msgid "Technical details"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:342
+msgid ""
+"The content interface is implemented via an interplay between two systems: "
+"[AppArmor](https://wiki.ubuntu.com/AppArmor) and bind mounts."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:345
+msgid ""
+"By default, the AppArmor sandbox allows _writes_ to `$SNAP_DATA` and _reads_ "
+"from `$SNAP` (see {ref}`Environment variables <reference-development-"
+"environment-variables>` for details)."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:347
+msgid ""
+"The content interface takes advantage of this feature to map data from other "
+"locations to either `$SNAP` or `$SNAP_DATA`."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:349
+msgid ""
+"A bind mount is then created to link `$SNAP` in one snap (e.g. from `/snap/"
+"my-snap/1234/content`) to an empty directory in the other snap  (e.g., to `/"
+"snap/my-other-snap/4321/incoming-content`). Locations need to be selected "
+"carefully because a bind mount could potentially permit mounts over "
+"important locations, such as `$SNAP_DATA`, preventing access to a snap's own "
+"writable space."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:351
+msgid ""
+"The same can be done for particular files, if desired, but it requires a "
+"pair of interfaces for each file and is more cumbersome."
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:353
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:355
+msgid ""
+"The previously mentioned [Yaru MATE Icons](https://snapcraft.io/icon-theme-"
+"yaru-mate) snap is a good example of how this interface can be used to share "
+"media with other snaps. Its snapcraft.yaml can be found here: [https://"
+"github.com/ubuntu-mate/icon-theme-yaru-mate-snap/blob/main/snap/"
+"snapcraft.yaml](https://github.com/ubuntu-mate/icon-theme-yaru-mate-snap/"
+"blob/main/snap/snapcraft.yaml)"
+msgstr ""
+
+#: ../../../reference/interfaces/content-interface.md:358
+msgid ""
+"The source code for this interface is in the *snapd* repository: <https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/content.go>"
+msgstr ""

@@ -1,0 +1,681 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:0
+msgid ""
+"Understand how confdb schema assertions separate configuration data from "
+"snap installation, enabling cross-snap settings, access control, and device "
+"onboarding."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:8
+msgid "Confdb configuration mechanism"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:10
+msgid ""
+"*Confdb* is an assertion-backed alternative to individual {ref}`snap-"
+"specific configuration <how-to-guides-manage-snaps-set-system-options>`. It "
+"uses an external [confdb-schema](https://documentation.ubuntu.com/core/"
+"reference/assertions/confdb-schema/) assertion to separate the configuration "
+"data from the snap installation. This allows for advanced configuration "
+"functionality, including:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:12
+msgid "device onboarding and management"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:13
+msgid "cross-snap configuration"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:14
+msgid "precise access control"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:15
+msgid "evolving configuration settings without changing the affected snaps"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:17
+msgid ""
+"See {ref}`How to configure snaps with confdb <how-to-guides-manage-snaps-"
+"configure-snaps-with-confdb>` for instructions on using confdb with your own "
+"snaps, and read on for specific implementation details."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:19
+msgid ""
+"Confdb is currently considered an {ref}`Experimental feature <ref-"
+"experimental-features_experimental-features>` and implementation details may "
+"change as development progresses."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:22
+msgid "Confdb views"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:24
+msgid ""
+"Settings are exposed via _views_. Views allow for both granular access "
+"control and *granular configuration contracts* to enable the evolution of a "
+"configuration value."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:26
+msgid ""
+"![Architectural overview, showing users and snaps interacting with separate "
+"confdb databags through granular views](/images/confdb-architecture.png) "
+"**Figure: Architectural overview, showing users and snaps interacting with "
+"separate confdb databags through granular views.**"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:26
+msgid ""
+"Architectural overview, showing users and snaps interacting with separate "
+"confdb databags through granular views"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:29
+msgid ""
+"The `views` header in the [confdb-schema assertion](https://"
+"documentation.ubuntu.com/core/reference/assertions/confdb-schema/#confdb-"
+"schema-assertion-fields) contains sets of rules exposing a \"view\" onto the "
+"configuration space. Each view rule map a `request` path to a `storage` path."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:31
+msgid ""
+"Users and snaps can access the _request_ path, while the _storage_ path "
+"defines the layout in storage."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:33
+msgid ""
+"The separation of the *request* path from the *storage* path provides the "
+"isolation, allowing the configuration layout to evolve without having to "
+"propagate those changes to every accessing snap."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:35
+msgid "Confdb view requests"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:37
+msgid ""
+"When making a request, an administrator (or a snap accessing a "
+"configuration) must specify a view. A request path is required for writes "
+"and optional for reads; if the request path is omitted on a read, the "
+"request is matched against all readable rules in the view."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:39
+msgid ""
+"A rule matches when the supplied request is equal to, or is a prefix of, the "
+"rule's request path. The corresponding storage path is then used to retrieve "
+"a value."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:41
+msgid ""
+"All matching readable rules are evaluated. If more than one rule matches the "
+"request, the result is aggregated from all of the values."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:43
+msgid ""
+"Multiple views can have the same “request” field, but different “storage”, "
+"facilitating backwards compatibility when transitioning to a new layout."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:45
+msgid "Example implementation"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:47
+msgid ""
+"The following is almost the simplest confdb-schema assertion that could be "
+"defined to obtain some information about installed snaps, although we omit "
+"the other headers and the body for brevity. See {ref}`Configure snaps with "
+"confdb <how-to-guides-manage-snaps-configure-snaps-with-confdb>` for the "
+"full details."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:50
+msgid "Basic example"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:52
+msgid ""
+"type: confdb-schema\n"
+"account-id: system\n"
+"name: snaps\n"
+"\n"
+"[...]\n"
+"\n"
+"views:\n"
+"  state:\n"
+"    rules:\n"
+"      -\n"
+"        request: snaps.firefox.status\n"
+"        storage: v1.snaps.firefox.status\n"
+"        access: read\n"
+"\n"
+"[...]\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:70
+msgid "This above configuration could be accessed as follows:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:72
+msgid ""
+"$ snap get system/snaps/state snaps.firefox.status\n"
+"enabled\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:77
+msgid ""
+"We now want to expand the above example to allow status and *revision* "
+"queries for many different snaps."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:79
+msgid "Placeholders"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:81
+msgid ""
+"Instead of enumerating every possible combination, we can use a placeholder "
+"to map a variable in the request path to the storage path:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:83
+msgid ""
+"[...]\n"
+"    rules:\n"
+"      -\n"
+"        request: snaps.{name}.status\n"
+"        storage: v1.snaps.{name}.status\n"
+"        access: read\n"
+"[...]\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:93
+msgid "This enables the snap name to be dynamically mapped into the query:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:95
+msgid ""
+"$ snap get system/snaps/state snaps.firefox.status\n"
+"enabled\n"
+"\n"
+"$ snap get system/snaps/state snaps.spotify.status\n"
+"disabled\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:103
+msgid "Nested paths"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:105
+msgid ""
+"To add more configuration paths for snaps, either add more rules or, if "
+"possible, use a “content” shorthand to define nested paths:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:107
+msgid ""
+"[...]\n"
+"\n"
+"  state:\n"
+"    rules:\n"
+"      -\n"
+"        request: snaps.{name}\n"
+"        storage: v1.snaps.{name}\n"
+"        access: read\n"
+"        content:\n"
+"          - storage: status\n"
+"          - storage: revision\n"
+"\n"
+"[...]\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:123
+msgid ""
+"This example only provides a storage path. When omitted, the request path is "
+"assumed to be equal to the storage path by default."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:125
+msgid "Aggregate results"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:127
+msgid ""
+"As requests are matched on *prefixes* of the request paths in view rules, "
+"it’s possible to provide a prefix path to \\`snap get\\` and to obtain an "
+"aggregate result:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:129
+msgid ""
+"$ snap get system/snaps/state snaps.firefox.status\n"
+"enabled\n"
+"\n"
+"$ snap get system/snaps/state snaps.spotify.revision\n"
+"7\n"
+"\n"
+"$ snap get system/snaps/state snaps\n"
+"{\n"
+"  \"firefox\": {\n"
+"    \"status\": \"enabled\"\n"
+"  },\n"
+"  \"spotify\": {\n"
+"    \"status\": \"disabled\",\n"
+"    \"revision\": 7\n"
+"  }\n"
+"}\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:148
+msgid "Evolving configuration"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:150
+msgid ""
+"All the rule mappings defined above preserve the same structure after adding "
+"the `v1` storage prefix. As snapd maps request paths to storage paths, let’s "
+"say a user or snap is interested in knowing the system’s (in this case, "
+"snapd’s) status. To take advantage of confdb’s features for evolving "
+"configuration schemas and re-organising namespaces, we could add the "
+"following rule:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:152
+msgid ""
+"...\n"
+"    rules:\n"
+"      -\n"
+"        request: snaps.{name}\n"
+"        storage: v1.snaps.{name}\n"
+"        access: read\n"
+"        content:\n"
+"          - storage: status\n"
+"          - storage: revision\n"
+"      -\n"
+"        request: system-status\n"
+"        storage: v1.snaps.snapd.status\n"
+"        access: read\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:168
+msgid ""
+"This maps an already exposed path (snaps.snapd.status) under a new request "
+"path, allowing us to query `system-status` directly."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:170
+msgid ""
+"In the future, if a new path was intended to provide the value for `system-"
+"status`, we would only need to modify the mapping."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:172
+msgid ""
+"$ snap get system/snaps/state\n"
+"{\n"
+"  \"snaps\": {\n"
+"    \"firefox\": {\n"
+"      \"status\": \"enabled\"\n"
+"    },\n"
+"    \"spotify\": {\n"
+"      \"status\": \"disabled\",\n"
+"      \"revision\": 7\n"
+"    },\n"
+"    \"snapd\": {\n"
+"      \"status\": \"enabled\"\n"
+"    },\n"
+"  },\n"
+"  \"system-status\": \"enabled\"\n"
+"}\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:191
+msgid "Namespaces"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:193
+msgid ""
+"If the configuration data layout changes, only the assertion needs to be "
+"modified. The snap sees the same namespace, isolating it from schema "
+"changes. For example, the following assertion exposes the same data under "
+"the same namespace (from a user or snap’s perspective) but the storage "
+"layout it assumes is completely different:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:195
+msgid ""
+"...\n"
+"    rules:\n"
+"      -\n"
+"        request: snaps.{name}.status\n"
+"        storage: v1.statuses.{name}\n"
+"        access: read\n"
+"      -\n"
+"        request: snaps.{name}.revision\n"
+"        storage: v1.revisions.{name}\n"
+"        access: read\n"
+"      -\n"
+"        request: system-status\n"
+"        storage: v1.statuses.snapd\n"
+"        access: read\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:213
+msgid ""
+"The configuration namespace should be considered carefully up front. While "
+"new confdb views can be added and existing ones can be extended, devices in "
+"the field may be running older snap versions that still depend on the "
+"existing namespace and views. Removing or renaming request paths, views, or "
+"schemas can therefore break those older snaps, making \"outdated\" "
+"namespaces difficult to retire safely."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:217
+msgid "Interface Plugs"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:219
+msgid ""
+"Snaps can use the {ref}`confdb interface <interfaces-confdb>` to express "
+"their interest in accessing a view through the plug stanza in their "
+"snapcraft.yaml (then snap.yaml). For example, a snap wishing to access the "
+"same `state` view would declare it as:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:221
+msgid ""
+"plugs:\n"
+"  snaps-state:\n"
+"    interface: confdb\n"
+"    account: system\n"
+"    view: snaps/state\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:229
+msgid ""
+"If the snap publisher signed the confdb assertion, the confdb interface will "
+"be auto-connected. Otherwise, the plug must be connected to the `:confdb` "
+"slot manually."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:231
+msgid ""
+"The snap can then refer to this interface plug when accessing confdb with "
+"the `snapctl` commands. It must also use the `--view` flag to signal this as "
+"a confdb request:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:233
+msgid ""
+"$ snapctl get --view :snaps-state snaps.firefox.status\n"
+"enabled\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:238
+msgid ""
+"Confdb supports the same commands and options as the {ref}`original "
+"configuration mechanism <how-to-guides-work-with-snaps-configure-snaps>`. "
+"This includes unsetting data using `snapctl unset --view ...` or by using "
+"`snapctl set --view` with `!` suffixed to the request path, for example "
+"`snapctl set --view :snaps-state snaps.firefox.status!`."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:240
+msgid "Custodians"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:242
+msgid ""
+"The confdb interface plug can have one other attribute, `role`, which is "
+"optional and can only take a value of `custodian`."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:244
+msgid ""
+"`custodian` declares that the snap has a special role in managing the data "
+"accessed through the referenced view. This applies to an exact account, "
+"schema, and view combination, so a custodian for one view does not satisfy "
+"the requirement for another view in the same schema. For every non-system "
+"confdb view, at least one custodian must be installed and connected for the "
+"data to be accessible. Snaps cannot be custodians of system views, but they "
+"can still define `observe-view-<plug>` hooks on those views. See the [Hooks "
+"section](#hooks) for further details."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:246
+msgid ""
+"One of the key aspects of the custodian role relates to ephemeral data which "
+"we’ll cover in the next section."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:248
+msgid "Ephemeral data"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:250
+msgid ""
+"In the context of confdb, ephemeral data is configuration data for which the "
+"authoritative version is stored outside of snapd. Snapd may retain data, but "
+"this should only be considered a cache, while the custodians are responsible "
+"for loading and storing the authoritative version during read and write "
+"accesses."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:252
+msgid ""
+"Configuration paths are marked as ephemeral in the storage schema which is "
+"specified in the body of the [confdb-schema assertion](https://"
+"documentation.ubuntu.com/core/reference/assertions/confdb-schema/#ephemeral-"
+"data)."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:254
+msgid ""
+"During `snap` or `snapctl` access (whether to read or write), changes are "
+"either committed or read as a transaction. Snapd will get data from its "
+"storage and then schedule certain [hooks](https://documentation.ubuntu.com/"
+"snapcraft/stable/reference/hooks/) from snaps with plugs referring to views "
+"affected by the data."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:256
+msgid ""
+"We’ll cover hooks in more detail in the next section so for now we’ll just "
+"focus on two: `save-view-<plug>` and `load-view-<plug>`. These are invoked "
+"for custodian snaps when writing and reading, respectively, and are suffixed "
+"with the name of the interface plug for which the snap is custodian."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:258
+msgid ""
+"When snapd detects that a `snap` or `snapctl set` might impact ephemeral "
+"data, it stores the changes in a transaction object and invokes `save-view-"
+"<plug>` hooks for connected custodians. These hooks can then query the "
+"ongoing transaction with the usual `snapctl get --view ...` commands to read "
+"changes to the ephemeral data and then store them off-snapd as they wish. "
+"Snapd will also store these changes but it does so as a cache, not as an "
+"authoritative version."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:260
+msgid ""
+"When ephemeral data is read, snapd will similarly schedule `load-view-"
+"<plug>` hooks that give custodians an opportunity to read new data outside "
+"of snapd and then load into the transaction read with the usual `snapctl set "
+"--view ...` commands."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:263
+msgid "Hooks"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:265
+msgid ""
+"Confdb supports 5 types of [hooks](https://documentation.ubuntu.com/"
+"snapcraft/stable/reference/hooks/):"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:267
+msgid "`load-view-<plug>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:268
+msgid "`query-view-<plug>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:269
+msgid "`change-view-<plug>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:270
+msgid "`save-view-<plug>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:271
+msgid "`observe-view-<plug>`"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:273
+msgid ""
+"`load-view-<plug>` and `query-view-<plug>` are scheduled during read "
+"operations, while `change-view-<plug>`, `save-view-<plug>` and `observe-view-"
+"<plug>` are relevant only to writes."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:275
+msgid ""
+"The `load-view-<plug>` and `save-view-<plug>` hooks are optional unless the "
+"user can access data marked as `ephemeral`. Accessed paths are checked at "
+"run-time against the storage schema for any `ephemeral` schema types along "
+"or under the path. If ephemeral data may be impacted and the appropriate "
+"hooks are not defined for at least one connected custodian then the access "
+"is rejected."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:277
+msgid "During a read of the confdb data:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:278
+msgid ""
+"snapd first reads the configuration data it stores internally and creates a "
+"transaction object to carry it."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:279
+msgid ""
+"Snapd then schedules `load-view-<plug>` hooks for any custodian snaps with "
+"interface plugs for the referenced view. These hooks allow the snaps to load "
+"the ephemeral data, if they wish to."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:280
+msgid ""
+"After those hooks load any off-loaded data, the `query-view-<plug>` hooks "
+"run for any relevant custodian that defines them. These hooks give the "
+"custodian snaps a chance to modify the read data before it’s returned to the "
+"reader. This could be used to apply a constraint that couldn’t be enforced "
+"on write (e.g., if the data is ephemeral and could be modified off-snapd)."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:282
+msgid ""
+"Both series of hooks are run in the same order, sorted by their snap’s name."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:284
+msgid "Writes to confdb data operate in a similar fashion to reads:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:285
+msgid ""
+"Snapd creates a transaction object, storing the intended changes to the "
+"confdb data."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:286
+msgid ""
+"The first hooks to be scheduled are the `change-view-<plug>` hooks. These "
+"hooks provide an opportunity for custodian snaps to modify the data before "
+"it’s committed or even to reject it entirely. This is useful if the snaps "
+"must maintain complex invariants that can’t be expressed as [schema types "
+"and constraints](https://documentation.ubuntu.com/core/reference/assertions/"
+"confdb-schema/#schema-types)."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:287
+msgid ""
+"Data modification is done with `snapctl set --view` command in the usual "
+"manner. To help snaps distinguish between uncommitted and pristine data, a "
+"`--previous` flag can be used with `snapctl get --view`:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:290
+msgid ""
+"$ snapctl get --view :plug-name path.modified\n"
+"<new_data>\n"
+"\n"
+"$ snapctl get --view --previous :plug-name path.modified\n"
+"<old_data>\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:298
+msgid ""
+"It’s also possible to reject the change altogether while providing a reason "
+"for the rejection:"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:300
+msgid "$ snapctl fail <reason>\n"
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:304
+msgid ""
+"Once all `change-view-<plug>` hooks have run, the `save-view-<plug>` hooks "
+"run in the same order (i.e., ordered by snap name). If a `save-view-<plug>` "
+"hook fails, the transaction is cancelled. The failing hook and any "
+"previously completed `save-view-<plug>` hooks are invoked again with "
+"pristine data, in reverse invocation order, to help custodian snaps maintain "
+"consistency among the various versions of the configuration data. Errors "
+"from these rollback runs are ignored, and the original failure is reported."
+msgstr ""
+
+#: ../../../explanation/how-snaps-work/confdb-configuration-mechanism.md:306
+msgid ""
+"After all `save-view-<plug>` hooks succeed, snapd commits the transaction "
+"and then schedules `observe-view-<plug>` hooks. This is the only type of "
+"confdb hook scheduled for non-custodian plugs, although custodian plugs can "
+"also receive it. The hook notifies snaps plugging views affected by the "
+"write that configuration data relevant to them may have changed. The snap "
+"that initiated the write does not receive its own observe hook. Errors from "
+"all observe hooks are ignored and cannot roll back the already committed "
+"transaction."
+msgstr ""

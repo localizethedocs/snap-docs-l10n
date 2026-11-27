@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:2
+msgid "gpio-chardev interface"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:4
+msgid ""
+"The `gpio-chardev` interface allows access to specific GPIO chardev lines."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:7
+msgid ""
+"Use  `snap interface gpio-chardev` to see which gpio chardev devices are "
+"available on the system:"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:9
+msgid ""
+"$ snap interface gpio-chardev\n"
+"name:          gpio-chardev\n"
+"summary:       allows access to specific GPIO chardev lines\n"
+"documentation: https://snapcraft.io/docs/gpio-chardev-interface\n"
+"slots:\n"
+"  - pi:bcm-gpio-0\n"
+"  - pi:bcm-gpio-1\n"
+"  - pi:bcm-gpio-10\n"
+"[...]\n"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:21
+msgid "Developer details"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:23
+msgid "**Auto-connect**: no</br> **Attributes**:"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:23
+msgid "</br>"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:25
+msgid ""
+"`source-chip` (slot, mandatory): list of alternative labels of the source "
+"GPIO chip"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:26
+msgid "`lines` (slot, mandatory): GPIO lines present in the source chip"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:28
+msgid "Requires snapd 2.72+."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:30
+msgid ""
+"Hardware IO interfaces covers some general considerations common to these "
+"kinds of devices."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:32
+msgid "When the interface is connected:"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:33
+msgid ""
+"`snap-gpio-helper` sets up a virtual GPIO device exposing the specified "
+"lines defined in the slot as a character device node at `/dev/snap/gpio-"
+"chardev/<slot-snap>/<slot-name>`."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:34
+msgid ""
+"snapd sets up a symlink at `/dev/snap/gpio-chardev/<plug-snap>/<plug-name>` "
+"pointing at the virtual slot device mentioned above."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:36
+msgid ""
+"Once connected, the consuming snap can use the device via `/dev/snap/gpio-"
+"chardev/<plug-snap>/<plug-name>`."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:38
+msgid "Important considerations:"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:39
+msgid "Slot definitions are only allowed for gadget snaps."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:40
+msgid ""
+"This interface cannot be used if there is an active connection to the older "
+"{ref}`gpio <interfaces-gpio-interface>` interface."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:41
+msgid ""
+"`source-chip` being a list enables sharing of a gadget snap between a number "
+"of devices, for which the same lines are exposed by differently labeled GPIO "
+"controllers."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:42
+msgid ""
+"`lines` can be expressed by joining them with a comma: *n[,m]* or as a "
+"range: *n-m* (inclusive) or a combination of both, assuming the ranges do "
+"not overlap, e.g.: `lines: 0,2,4-8`."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:43
+msgid ""
+"`lines` are exported in the order of presence in the source GPIO chip "
+"device, and not in the order in which they are declared in the attribute."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:44
+msgid "Any given line can only be exported by one slot."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:45
+msgid ""
+"`gpio-aggregator` kernel module with configfs support is required (i.e. "
+"UC24+)."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:46
+msgid "`gpio` interface will not work on UC26+ due to missing kernel support."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:48
+msgid "Migration from gpio to gpio-chardev"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:50
+msgid ""
+"Since `gpio` and `gpio-chardev` interfaces cannot be connected at the same "
+"time, all existing `gpio` interface connections must be disconnected first "
+"before connecting to `gpio-chardev`."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:52
+msgid ""
+"This is only required if the gadget snap has both `gpio` and `gpio-chardev` "
+"slots declared since performing a gadget refresh to a revision that only "
+"declares `gpio-chardev` slots will automatically disconnect `gpio` "
+"connections due to missing slot."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:54
+msgid ""
+"It is recommended to only have only one slot type on the gadget, either "
+"`gpio` or `gpio-chardev`."
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:56
+msgid "Code examples"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:58
+msgid ""
+"The test code can be found in the *snapd* repository:  <https://github.com/"
+"canonical/snapd/blob/master/interfaces/builtin/gpio_chardev_test.go>"
+msgstr ""
+
+#: ../../../reference/interfaces/gpio-chardev-interface.md:61
+msgid ""
+"The source code for this interface is in the *snapd* repository: <https://"
+"github.com/canonical/snapd/blob/master/interfaces/builtin/gpio_chardev.go>"
+msgstr ""

@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 CC-BY-SA, Canonical Ltd.
+# This file is distributed under the same license as the Snap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Snap main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-27 09:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:0
+msgid ""
+"View, set, retrieve, and unset configuration options for installed snaps, "
+"including nested values, JSON output, and validated updates."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:8
+msgid "Configure snaps"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:10
+msgid ""
+"Certain snaps, such as those providing a background service, have "
+"configuration options that can be viewed and changed. The commands for "
+"viewing and changing these configuration options are `snap get`, `snap set` "
+"and `snap unset`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:12
+msgid ""
+"To see the configuration options of an installed snap, enter `snap get <snap "
+"name>`:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:14
+msgid ""
+"$ sudo snap get nextcloud\n"
+"Key        Value\n"
+"mode       production\n"
+"nextcloud  {...}\n"
+"php        {...}\n"
+"ports      {...}\n"
+"private    {...}\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:24
+msgid ""
+"The `{...}` in the output indicates that there are further options beneath "
+"the current key name level."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:27
+msgid ""
+"If there are no configuration options, you will see `error: snap <snap name> "
+"has no configuration`."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:30
+msgid ""
+"To explore configuration options, append the key name to the *get* command:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:32
+msgid ""
+"$ sudo snap get nextcloud ports\n"
+"Key          Value\n"
+"ports.http   80\n"
+"ports.https  443\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:39
+msgid ""
+"Alternatively, the entire set of configuration options can be dumped as JSON "
+"by adding the `-d` option:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:41
+msgid ""
+"$ sudo snap get -d nextcloud\n"
+"{\n"
+"        \"http\": {\n"
+"                \"compression\": false\n"
+"        },\n"
+"        \"mode\": \"production\",\n"
+"        \"nextcloud\": {\n"
+"                \"cron-interval\": \"5m\"\n"
+"        },\n"
+"        \"php\": {\n"
+"                \"memory-limit\": \"512M\"\n"
+"        },\n"
+"        \"ports\": {\n"
+"                \"http\": 80,\n"
+"                \"https\": 443\n"
+"        },\n"
+"        \"private\": {\n"
+"                \"http\": {\n"
+"                        \"compression\": false\n"
+"                },\n"
+"                \"mode\": \"production\",\n"
+"                \"nextcloud\": {\n"
+"                        \"cron-interval\": \"5m\"\n"
+"                },\n"
+"                \"php\": {\n"
+"                        \"memory-limit\": \"512M\"\n"
+"                },\n"
+"                \"ports\": {\n"
+"                        \"http\": 80,\n"
+"                        \"https\": 443\n"
+"                }\n"
+"        }\n"
+"}\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:77
+msgid "Use the *set* command to change a configuration option:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:79
+msgid ""
+"$ sudo snap set nextcloud ports.http=81\n"
+"$ sudo snap get nextcloud ports\n"
+"Key          Value\n"
+"ports.http   81\n"
+"ports.https  443\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:87
+msgid ""
+"To clear and return a value to its default state, use the *unset* command  "
+"(from _snapd 2.41+_):"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:88
+msgid ""
+"$ sudo snap unset nextcloud ports.http\n"
+"# sudo snap get nextcloud ports\n"
+"Key          Value\n"
+"ports.http   80\n"
+"ports.https  443\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:96
+msgid ""
+"Adding an exclamation mark (`!`) to the end of an option name  also clears "
+"its value:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:98
+msgid "$ sudo snap set nextcloud ports.http!\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:102
+msgid ""
+"Un-setting with an exclamation mark can be mixed with setting other options "
+"at the same time:"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:104
+msgid "$ sudo snap set nextcloud ports.https! ports.http=81\n"
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:108
+msgid ""
+"The update process will test the validity of the configuration options. If "
+"any errors are detected, the overall change is cancelled and the previous "
+"configuration reinstated."
+msgstr ""
+
+#: ../../../how-to-guides/manage-snaps/configure-snaps.md:110
+msgid ""
+"Similarly, if the configuration update process takes longer than a "
+"reasonable amount of time, currently 5 minutes, the update is forcefully "
+"aborted and the once again the configuration is rolled back."
+msgstr ""
