@@ -1,4 +1,12 @@
 <div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/localizethedocs/static/logo/snapcraft-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://cdn.jsdelivr.net/gh/localizethedocs/static/logo/snapcraft-light.svg">
+  <img height="150" src="https://cdn.jsdelivr.net/gh/localizethedocs/static/logo/snapcraft-light.svg">
+</picture>
+</div>
+
+<div align="center">
 <h1 id="localization-of-the-snap-documentation">Localization of The Snap Documentation</h1>
 </div>
 
